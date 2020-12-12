@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private SpriteRenderer rend;
+    private Animator anim;
 
     private bool canJump;
     // Start is called before the first frame update
@@ -17,9 +18,15 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    private void Update()
+    {
+        UpdateAnimator();
+    }
+
+    // is caled at a fixed rate
     void FixedUpdate()
     {
         rb.velocity *= Vector2.up;
@@ -39,5 +46,27 @@ public class PlayerController : MonoBehaviour
 
         if (input["up"])
             rb.AddForce(moveForce.y * Vector2.up, ForceMode2D.Impulse);
+    }
+
+    private void UpdateAnimator()
+    {
+        if (input["attack"])
+            anim.SetTrigger("attack");
+        if (input["special attack"])
+            anim.SetTrigger("special attack");
+    }
+
+    // --------------------------------------------------------------------------------
+    private void Move(int x)
+    {
+        if(rend.flipX)
+            rb.MovePosition(transform.position + x * Vector3.left * 0.03125f);
+        else
+            rb.MovePosition(transform.position + x * Vector3.right * 0.03125f);
+    }
+
+    private void SpawnObject(GameObject g)
+    {
+        Instantiate(g, transform.position, Quaternion.identity);
     }
 }

@@ -1,97 +1,97 @@
 fileFormatVersion: 2
-guid: 967db52d2db0dc940939f056d7b6815f
+guid: 1299a6beb70b0834589c54e28755987a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 730291722266656345
-    second: handpan combo_0
+      213: 2802961106656495488
+    second: hang combo_0
   - first:
-      213: 3237081386624657525
-    second: handpan combo_1
+      213: 8770963696200227073
+    second: hang combo_1
   - first:
-      213: -2958995714629446951
-    second: handpan combo_2
+      213: -2986635531948094800
+    second: hang combo_2
   - first:
-      213: 8634451938882299871
-    second: handpan combo_3
+      213: -6524684045491430667
+    second: hang combo_3
   - first:
-      213: 8981131193447504984
-    second: handpan combo_4
+      213: -7201930218873264970
+    second: hang combo_4
   - first:
-      213: 3611634420580233772
-    second: handpan combo_5
+      213: -4721756464811309657
+    second: hang combo_5
   - first:
-      213: -2437728905861919159
-    second: handpan combo_6
+      213: -895529105336852869
+    second: hang combo_6
   - first:
-      213: 9011716644565111041
-    second: handpan combo_7
+      213: 3485903610689092210
+    second: hang combo_7
   - first:
-      213: 2317530562746215293
-    second: handpan combo_8
+      213: 327211142748425317
+    second: hang combo_8
   - first:
-      213: 4974264059504162096
-    second: handpan combo_9
+      213: -7044140488256174292
+    second: hang combo_9
   - first:
-      213: -641563750628772040
-    second: handpan combo_10
+      213: 7824445201594212690
+    second: hang combo_10
   - first:
-      213: -3224685129105516949
-    second: handpan combo_11
+      213: -545332271851707873
+    second: hang combo_11
   - first:
-      213: 4141479834055393835
-    second: handpan combo_12
+      213: -4345913802828765301
+    second: hang combo_12
   - first:
-      213: 8647551007892212400
-    second: handpan combo_13
+      213: -5664217408711803006
+    second: hang combo_13
   - first:
-      213: -5681985794500390408
-    second: handpan combo_14
+      213: 8970464836727742584
+    second: hang combo_14
   - first:
-      213: -3488767378815167073
-    second: handpan combo_15
+      213: 8326610535911278096
+    second: hang combo_15
   - first:
-      213: -1575902401889421985
-    second: handpan combo_16
+      213: 936193628921001371
+    second: hang combo_16
   - first:
-      213: -198810708068654448
-    second: handpan combo_17
+      213: 84049323403109877
+    second: hang combo_17
   - first:
-      213: 2392127913234212214
-    second: handpan combo_18
+      213: -3110393525713766506
+    second: hang combo_18
   - first:
-      213: 51860372127660336
-    second: handpan combo_19
+      213: 7252472946554410784
+    second: hang combo_19
   - first:
-      213: 9121604936135665666
-    second: handpan combo_20
+      213: 8413625903446846932
+    second: hang combo_20
   - first:
-      213: -4461001002420012905
-    second: handpan combo_21
+      213: 5471854262061179515
+    second: hang combo_21
   - first:
-      213: 1795702642015682980
-    second: handpan combo_22
+      213: 6524366795107843561
+    second: hang combo_22
   - first:
-      213: -7386364325691361333
-    second: handpan combo_23
+      213: -1076780045578883575
+    second: hang combo_23
   - first:
-      213: 3512297413628750544
-    second: handpan combo_24
+      213: 6158848890676038851
+    second: hang combo_24
   - first:
-      213: 7319912919257267384
-    second: handpan combo_25
+      213: -3641809472816695498
+    second: hang combo_25
   - first:
-      213: -3368437576236532372
-    second: handpan combo_26
+      213: -599104733410044309
+    second: hang combo_26
   - first:
-      213: 3922999759383299388
-    second: handpan combo_27
+      213: 6887835571182679854
+    second: hang combo_27
   - first:
-      213: -8784456985177914659
-    second: handpan combo_28
+      213: 5770605566893100500
+    second: hang combo_28
   - first:
-      213: -36770001416673872
-    second: handpan combo_29
+      213: 6872775628912712650
+    second: hang combo_29
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -189,13 +189,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: handpan combo_0
+      name: hang combo_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
-        width: 64
-        height: 64
+        y: 400
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95ebc10c374822a00800000000000000
-      internalID: 730291722266656345
+      spriteID: 0870f79964e16e620800000000000000
+      internalID: 2802961106656495488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_1
+      name: hang combo_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 320
-        width: 64
-        height: 64
+        x: 100
+        y: 400
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 578aacece5c6cec20800000000000000
-      internalID: 3237081386624657525
+      spriteID: 1099cd9d209b8b970800000000000000
+      internalID: 8770963696200227073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_2
+      name: hang combo_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 320
-        width: 64
-        height: 64
+        x: 200
+        y: 400
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d2db9133198fe6d0800000000000000
-      internalID: -2958995714629446951
+      spriteID: 0ba8cacbec65d86d0800000000000000
+      internalID: -2986635531948094800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_3
+      name: hang combo_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 320
-        width: 64
-        height: 64
+        x: 300
+        y: 400
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd723478a4cb3d770800000000000000
-      internalID: 8634451938882299871
+      spriteID: 5fa13dc0e6aa375a0800000000000000
+      internalID: -6524684045491430667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_4
+      name: hang combo_4
       rect:
         serializedVersion: 2
-        x: 256
-        y: 320
-        width: 64
-        height: 64
+        x: 400
+        y: 400
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85c5e928c3363ac70800000000000000
-      internalID: 8981131193447504984
+      spriteID: 6b468e69f9a9d0c90800000000000000
+      internalID: -7201930218873264970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_5
+      name: hang combo_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
-        width: 64
-        height: 64
+        x: 500
+        y: 400
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,104 +308,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c223249ce5a1f1230800000000000000
-      internalID: 3611634420580233772
+      spriteID: 7a5840f1383f87eb0800000000000000
+      internalID: -4721756464811309657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_6
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 256
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94e066bc9727b2ed0800000000000000
-      internalID: -2437728905861919159
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: handpan combo_7
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 256
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 10157c7ca8c001d70800000000000000
-      internalID: 9011716644565111041
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: handpan combo_8
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 256
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7b699c94c5892020800000000000000
-      internalID: 2317530562746215293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: handpan combo_9
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 035fcbdaec2280540800000000000000
-      internalID: 4974264059504162096
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: handpan combo_10
+      name: hang combo_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
-        width: 64
-        height: 64
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -413,20 +329,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 837310ffa25b817f0800000000000000
-      internalID: -641563750628772040
+      spriteID: b7e9f5ef5017293f0800000000000000
+      internalID: -895529105336852869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_11
+      name: hang combo_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 64
+        x: 100
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,20 +350,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b665e2fc5fd9f33d0800000000000000
-      internalID: -3224685129105516949
+      spriteID: 27aff546dda606030800000000000000
+      internalID: 3485903610689092210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_12
+      name: hang combo_8
       rect:
         serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
+        x: 200
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -455,20 +371,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b22c05177fd797930800000000000000
-      internalID: 4141479834055393835
+      spriteID: 56cc11afccc7a8400800000000000000
+      internalID: 327211142748425317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_13
+      name: hang combo_9
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
-        height: 64
+        x: 300
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -476,20 +392,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ba8c7233d5420870800000000000000
-      internalID: 8647551007892212400
+      spriteID: c274b812c8f2e3e90800000000000000
+      internalID: -7044140488256174292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_14
+      name: hang combo_10
       rect:
         serializedVersion: 2
-        x: 256
-        y: 192
-        width: 64
-        height: 64
+        x: 400
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -497,20 +413,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f11dfb36088521b0800000000000000
-      internalID: -5681985794500390408
+      spriteID: 25168858473069c60800000000000000
+      internalID: 7824445201594212690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_15
+      name: hang combo_11
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
+        x: 500
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -518,104 +434,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9550c1ad88659fc0800000000000000
-      internalID: -3488767378815167073
+      spriteID: f12e8b320379e68f0800000000000000
+      internalID: -545332271851707873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_16
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f5532be6d15412ae0800000000000000
-      internalID: -1575902401889421985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: handpan combo_17
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0922600e6bead3df0800000000000000
-      internalID: -198810708068654448
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: handpan combo_18
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6752f9db9ab823120800000000000000
-      internalID: 2392127913234212214
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: handpan combo_19
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 039b692dbbe38b000800000000000000
-      internalID: 51860372127660336
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: handpan combo_20
+      name: hang combo_12
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 64
-        height: 64
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -623,20 +455,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 208e0df6c53769e70800000000000000
-      internalID: 9121604936135665666
+      spriteID: b87ace50c6630b3c0800000000000000
+      internalID: -4345913802828765301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_21
+      name: hang combo_13
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
+        x: 100
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -644,20 +476,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 798f71449375712c0800000000000000
-      internalID: -4461001002420012905
+      spriteID: 28f362fe648a461b0800000000000000
+      internalID: -5664217408711803006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_22
+      name: hang combo_14
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
+        x: 200
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -665,20 +497,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a14393f90e9be810800000000000000
-      internalID: 1795702642015682980
+      spriteID: 8702a4fcd3e7d7c70800000000000000
+      internalID: 8970464836727742584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_23
+      name: hang combo_15
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
+        x: 300
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -686,20 +518,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc77c89c7cc5e7990800000000000000
-      internalID: -7386364325691361333
+      spriteID: 01644088a201e8370800000000000000
+      internalID: 8326610535911278096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_24
+      name: hang combo_16
       rect:
         serializedVersion: 2
-        x: 256
-        y: 64
-        width: 64
-        height: 64
+        x: 400
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -707,20 +539,167 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0da6dd483ef2eb030800000000000000
-      internalID: 3512297413628750544
+      spriteID: b95f1d435270efc00800000000000000
+      internalID: 936193628921001371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_25
+      name: hang combo_17
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f5ed011a6a9a2100800000000000000
+      internalID: 84049323403109877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hang combo_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697f7246199a5d4d0800000000000000
+      internalID: -3110393525713766506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hang combo_19
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 027918a38b5f5a460800000000000000
+      internalID: 7252472946554410784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hang combo_20
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dd69ff8e2433c470800000000000000
+      internalID: 8413625903446846932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hang combo_21
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b722dd0d57eefeb40800000000000000
+      internalID: 5471854262061179515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hang combo_22
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9edb1c658053b8a50800000000000000
+      internalID: 6524366795107843561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hang combo_23
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90eaa0ae0428e01f0800000000000000
+      internalID: -1076780045578883575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hang combo_24
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -728,20 +707,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bc3f1b740e859560800000000000000
-      internalID: 7319912919257267384
+      spriteID: 3cccd026f60a87550800000000000000
+      internalID: 6158848890676038851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_26
+      name: hang combo_25
       rect:
         serializedVersion: 2
-        x: 64
+        x: 100
         y: 0
-        width: 64
-        height: 64
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -749,20 +728,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6df7540fd7e041d0800000000000000
-      internalID: -3368437576236532372
+      spriteID: 637bb116491b57dc0800000000000000
+      internalID: -3641809472816695498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_27
+      name: hang combo_26
       rect:
         serializedVersion: 2
-        x: 128
+        x: 200
         y: 0
-        width: 64
-        height: 64
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -770,20 +749,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c350cf70f7b417630800000000000000
-      internalID: 3922999759383299388
+      spriteID: b66d6dd4b6d8fa7f0800000000000000
+      internalID: -599104733410044309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_28
+      name: hang combo_27
       rect:
         serializedVersion: 2
-        x: 192
+        x: 300
         y: 0
-        width: 64
-        height: 64
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -791,20 +770,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd285cdf9e6571680800000000000000
-      internalID: -8784456985177914659
+      spriteID: e27b4ab65f1869f50800000000000000
+      internalID: 6887835571182679854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: handpan combo_29
+      name: hang combo_28
       rect:
         serializedVersion: 2
-        x: 256
+        x: 400
         y: 0
-        width: 64
-        height: 64
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -812,8 +791,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b52b27e0ed5d7ff0800000000000000
-      internalID: -36770001416673872
+      spriteID: 4dd0e89603f451050800000000000000
+      internalID: 5770605566893100500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hang combo_29
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acbdd4e5501016f50800000000000000
+      internalID: 6872775628912712650
       vertices: []
       indices: 
       edges: []

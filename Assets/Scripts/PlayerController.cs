@@ -30,15 +30,16 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity *= Vector2.up;
-        if (input["right"])
+        if (input["right"] && !rend.flipX)
         {
-            rb.velocity += moveForce.x * Vector2.right;
-            rend.flipX = false;
+            //anim.SetBool()
+            //rb.velocity += moveForce.x * Vector2.right;
+            //rend.flipX &= false;
         }
         else if (input["left"])
         {
-            rb.velocity += moveForce.x * Vector2.left;
-            rend.flipX = true;
+            //rb.velocity += moveForce.x * Vector2.left;
+            //rend.flipX = true;
         }
 
         if (rb.velocity.y > maxFallSpeed)
@@ -54,6 +55,13 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("attack");
         if (input["special attack"])
             anim.SetTrigger("special attack");
+        if ((input["right"] && rend.flipX) || (input["left"] && !rend.flipX))
+            anim.SetBool("turn", true);
+        else
+        {
+            anim.SetBool("turn", false);
+            anim.SetBool("run", input["left"] || input["right"]);
+        }
     }
 
     // --------------------------------------------------------------------------------
@@ -63,6 +71,11 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(transform.position + x * Vector3.left * 0.03125f);
         else
             rb.MovePosition(transform.position + x * Vector3.right * 0.03125f);
+    }
+
+    private void Flip()
+    {
+        rend.flipX = !rend.flipX;
     }
 
     private void SpawnObject(GameObject g)

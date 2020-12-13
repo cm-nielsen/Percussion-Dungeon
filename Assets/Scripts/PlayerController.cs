@@ -56,7 +56,11 @@ public class PlayerController : MonoBehaviour
         if (input["special attack"])
             anim.SetTrigger("special attack");
         if ((input["right"] && rend.flipX) || (input["left"] && !rend.flipX))
+        {
+            anim.SetBool("run", false);
+            //anim.SetBool("run", input["left"] || input["right"]);
             anim.SetBool("turn", true);
+        }
         else
         {
             anim.SetBool("turn", false);
@@ -68,9 +72,9 @@ public class PlayerController : MonoBehaviour
     private void Move(int x)
     {
         if(rend.flipX)
-            rb.MovePosition(transform.position + x * Vector3.left * 0.03125f);
+            transform.position += x * Vector3.left * 0.03125f;
         else
-            rb.MovePosition(transform.position + x * Vector3.right * 0.03125f);
+            transform.position += x * Vector3.right * 0.03125f;
     }
 
     private void Flip()

@@ -5,14 +5,25 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public ControlKey input;
+    public Transform jumpChecker;
     public Vector2 moveForce;
+    public LayerMask isGround;
     public float maxFallSpeed;
 
     private Rigidbody2D rb;
     private SpriteRenderer rend;
     private Animator anim;
 
-    private bool canJump;
+    public bool canJump;
+
+    /// <summary>
+    /// Draws shapes in the inpsector window, used to show jump/wall "hitboxes"
+    /// </summary>
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1, 0.5f, 0.5f, 0.5f);
+        Gizmos.DrawCube(jumpChecker.position, jumpChecker.localScale);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -30,27 +41,35 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity *= Vector2.up;
-        if (input["right"] && !rend.flipX)
+        if (input["right"])
         {
             //anim.SetBool()
             //rb.velocity += moveForce.x * Vector2.right;
-            //rend.flipX &= false;
+            rend.flipX = false;
+            if(!canJump)
+                rb.velocity += moveForce.x * Vector2.right;
         }
         else if (input["left"])
         {
             //rb.velocity += moveForce.x * Vector2.left;
-            //rend.flipX = true;
+            rend.flipX = true;
+            if (!canJump)
+                rb.velocity += moveForce.x * Vector2.left;
         }
 
         if (rb.velocity.y > maxFallSpeed)
             rb.velocity = new Vector2(rb.velocity.x, maxFallSpeed);
 
         if (input["up"])
-            rb.AddForce(moveForce.y * Vector2.up, ForceMode2D.Impulse);
+            anim.SetTrigger("jump");
+            //rb.AddForce(moveForce.y * Vector2.up, ForceMode2D.Impulse);
     }
 
     private void UpdateAnimator()
     {
+        canJump = Physics2D.OverlapBox(jumpChecker.position, jumpChecker.localScale, 0, isGround);
+        Debug.Log(Physics2D.OverlapBox(jumpChecker.position, jumpChecker.localScale, 0, isGround));
+
         if (input["attack"])
             anim.SetTrigger("attack");
         if (input["special attack"])
@@ -66,6 +85,8 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("turn", false);
             anim.SetBool("run", input["left"] || input["right"]);
         }
+        anim.SetFloat("vy", rb.velocity.y);
+        anim.SetBool("ground", canJump);
     }
 
     // --------------------------------------------------------------------------------
@@ -85,5 +106,15 @@ public class PlayerController : MonoBehaviour
     private void SpawnObject(GameObject g)
     {
         Instantiate(g, transform.position, Quaternion.identity);
+    }
+
+    private void Jump()
+    {
+        Vector2 dir = moveForce.y * Vector2.up;
+        if (input["right"])
+            dir += moveForce.x * Vector2.right;
+        if (input["left"])
+            dir += moveForce.x * Vector2.left;
+        rb.AddForce(dir, ForceMode2D.Impulse);
     }
 }

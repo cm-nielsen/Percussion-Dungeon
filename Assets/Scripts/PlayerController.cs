@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity *= Vector2.up;
-        if (input["right"])
+        if (input["right"] && !canJump && !rend.flipX)
         {
             //anim.SetBool()
             //rb.velocity += moveForce.x * Vector2.right;
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
             if(!canJump)
                 rb.velocity += moveForce.x * Vector2.right;
         }
-        else if (input["left"])
+        else if (input["left"] && !canJump && rend.flipX)
         {
             //rb.velocity += moveForce.x * Vector2.left;
             //rend.flipX = true;

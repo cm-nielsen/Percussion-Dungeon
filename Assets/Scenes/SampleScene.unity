@@ -313,7 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 84218857}
   jumpChecker: {fileID: 1188447429}
-  moveForce: {x: 3, y: 5}
+  moveForce: {x: 2, y: 5}
   isGround:
     serializedVersion: 2
     m_Bits: 512

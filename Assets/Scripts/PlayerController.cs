@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
     public Transform jumpChecker;
     public Vector2 moveForce;
     public LayerMask isGround;
-    public float maxFallSpeed;
+    public float maxFallSpeed, throwForce;
 
+    private GameObject thrownDrum;
     private Rigidbody2D rb;
     private SpriteRenderer rend;
     private Animator anim;
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour
     private void UpdateAnimator()
     {
         canJump = Physics2D.OverlapBox(jumpChecker.position, jumpChecker.localScale, 0, isGround);
-        Debug.Log(Physics2D.OverlapBox(jumpChecker.position, jumpChecker.localScale, 0, isGround));
+        //Debug.Log(Physics2D.OverlapBox(jumpChecker.position, jumpChecker.localScale, 0, isGround));
 
         if (input["attack"])
             anim.SetTrigger("attack");
@@ -116,5 +117,36 @@ public class PlayerController : MonoBehaviour
         if (input["left"])
             dir += moveForce.x * Vector2.left;
         rb.AddForce(dir, ForceMode2D.Impulse);
+    }
+
+    private void LockPosition(int i)
+    {
+        if (i == 0)
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        else if (i == 1)
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        else if (i == 2)
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    private void VerticalImpulse(float y)
+    {
+        rb.velocity *= Vector2.right;
+        rb.velocity += Vector2.up * y;
+    }
+
+    private void ThrowDrum(GameObject prefab)
+    {
+        thrownDrum = Instantiate(prefab, transform.position, Quaternion.identity);
+        thrownDrum.GetComponent<SpriteRenderer>().flipX = rend.flipX;
+        Rigidbody2D r = thrownDrum.GetComponent<Rigidbody2D>();
+
+        if (r)
+            r.velocity = rb.velocity + throwForce * Vector2.down;
+    }
+
+    private void RetrieveDrum()
+    {
+        Destroy(thrownDrum);
     }
 }

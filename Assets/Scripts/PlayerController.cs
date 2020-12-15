@@ -45,14 +45,14 @@ public class PlayerController : MonoBehaviour
         {
             //anim.SetBool()
             //rb.velocity += moveForce.x * Vector2.right;
-            rend.flipX = false;
+            //rend.flipX = false;
             if(!canJump)
                 rb.velocity += moveForce.x * Vector2.right;
         }
         else if (input["left"])
         {
             //rb.velocity += moveForce.x * Vector2.left;
-            rend.flipX = true;
+            //rend.flipX = true;
             if (!canJump)
                 rb.velocity += moveForce.x * Vector2.left;
         }

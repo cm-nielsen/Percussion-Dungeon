@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer rend;
     private Animator anim;
 
-    public bool canJump;
+    public bool canJump, canDodge;
 
     /// <summary>
     /// Draws shapes in the inpsector window, used to show jump/wall "hitboxes"
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        canDodge = true;
     }
 
     private void Update()
@@ -75,6 +76,11 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("attack");
         if (input["special attack"])
             anim.SetTrigger("special attack");
+        if (input["dodge"] && canJump && canDodge)
+        {
+            canDodge = false;
+            anim.SetTrigger("dodge");
+        }
         if ((input["right"] && rend.flipX) || (input["left"] && !rend.flipX))
         {
             anim.SetBool("run", false);
@@ -148,5 +154,22 @@ public class PlayerController : MonoBehaviour
     private void RetrieveDrum()
     {
         Destroy(thrownDrum);
+    }
+
+    private void FinishDodge()
+    {
+        canDodge = true;
+    }
+
+    private void TurnTowardsInput()
+    {
+        if (input["right"])
+        {
+            rend.flipX = false;
+        }
+        else if (input["left"])
+        {
+            rend.flipX = true;
+        }
     }
 }

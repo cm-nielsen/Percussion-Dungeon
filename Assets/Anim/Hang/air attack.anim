@@ -92,18 +92,18 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: LockPosition
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 1
-    messageOptions: 0
-  - time: 0
     functionName: VerticalImpulse
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 2
     intParameter: 0
+    messageOptions: 0
+  - time: 0.5
+    functionName: LockPosition
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
     messageOptions: 0
   - time: 0.5
     functionName: ThrowDrum
@@ -119,11 +119,4 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 1.3
     intParameter: 0
-    messageOptions: 0
-  - time: 0.875
-    functionName: LockPosition
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 1
     messageOptions: 0

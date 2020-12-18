@@ -20,16 +20,22 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -75756423681282045, guid: 44de8f48b117d2c4ebe26b8a586d0362,
-        type: 3}
-    - time: 0.0625
       value: {fileID: -4441774783383639189, guid: 44de8f48b117d2c4ebe26b8a586d0362,
         type: 3}
-    - time: 0.125
+    - time: 0.0625
       value: {fileID: -1062000485451687922, guid: 44de8f48b117d2c4ebe26b8a586d0362,
         type: 3}
-    - time: 0.1875
+    - time: 0.125
       value: {fileID: 6035099144960232741, guid: 44de8f48b117d2c4ebe26b8a586d0362,
+        type: 3}
+    - time: 0.1875
+      value: {fileID: 4363678906598363303, guid: 44de8f48b117d2c4ebe26b8a586d0362,
+        type: 3}
+    - time: 0.25
+      value: {fileID: -5687075833104938518, guid: 44de8f48b117d2c4ebe26b8a586d0362,
+        type: 3}
+    - time: 0.3125
+      value: {fileID: 3005928296891884586, guid: 44de8f48b117d2c4ebe26b8a586d0362,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -50,16 +56,18 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -75756423681282045, guid: 44de8f48b117d2c4ebe26b8a586d0362, type: 3}
     - {fileID: -4441774783383639189, guid: 44de8f48b117d2c4ebe26b8a586d0362, type: 3}
     - {fileID: -1062000485451687922, guid: 44de8f48b117d2c4ebe26b8a586d0362, type: 3}
     - {fileID: 6035099144960232741, guid: 44de8f48b117d2c4ebe26b8a586d0362, type: 3}
+    - {fileID: 4363678906598363303, guid: 44de8f48b117d2c4ebe26b8a586d0362, type: 3}
+    - {fileID: -5687075833104938518, guid: 44de8f48b117d2c4ebe26b8a586d0362, type: 3}
+    - {fileID: 3005928296891884586, guid: 44de8f48b117d2c4ebe26b8a586d0362, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.25
+    m_StopTime: 0.375
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -85,4 +93,11 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
+    messageOptions: 0
+  - time: 0.3125
+    functionName: Move
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 4
     messageOptions: 0

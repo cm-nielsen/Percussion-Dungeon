@@ -80,6 +80,105 @@ TextureImporter:
   - first:
       213: 5828339529109336568
     second: stix combo_25
+  - first:
+      213: 4675953359757164905
+    second: stix combo_0
+  - first:
+      213: -6186065604826111583
+    second: stix combo_1
+  - first:
+      213: 408803624747588900
+    second: stix combo_2
+  - first:
+      213: 9097003345499620192
+    second: stix combo_3
+  - first:
+      213: 7218749453898479012
+    second: stix combo_4
+  - first:
+      213: -2374725614417345389
+    second: stix combo_5
+  - first:
+      213: 7736334051286260906
+    second: stix combo_6
+  - first:
+      213: 8576835155467249095
+    second: stix combo_7
+  - first:
+      213: -5582162233808363518
+    second: stix combo_8
+  - first:
+      213: -1771472680282260640
+    second: stix combo_9
+  - first:
+      213: -5003468858803981782
+    second: stix combo_10
+  - first:
+      213: 2376737044739589563
+    second: stix combo_11
+  - first:
+      213: -7481389990080639008
+    second: stix combo_12
+  - first:
+      213: 1773940625691571887
+    second: stix combo_13
+  - first:
+      213: 2904977143747466711
+    second: stix combo_14
+  - first:
+      213: 5073189491654610718
+    second: stix combo_15
+  - first:
+      213: 5536875555431331293
+    second: stix combo_16
+  - first:
+      213: -4094899433279056289
+    second: stix combo_17
+  - first:
+      213: -6294429474728632192
+    second: stix combo_18
+  - first:
+      213: 3966243245969509551
+    second: stix combo_19
+  - first:
+      213: 3061346946615283106
+    second: stix combo_20
+  - first:
+      213: 8422363099231596750
+    second: stix combo_21
+  - first:
+      213: 4586923853060046068
+    second: stix combo_22
+  - first:
+      213: -8806805112286485922
+    second: stix combo_23
+  - first:
+      213: 5770244915138834727
+    second: stix combo_24
+  - first:
+      213: -5413075624871077319
+    second: stix combo_25
+  - first:
+      213: -3383281786184533947
+    second: stix combo_26
+  - first:
+      213: -8182080542689467200
+    second: stix combo_27
+  - first:
+      213: -6776769600989249958
+    second: stix combo_28
+  - first:
+      213: -1676494076026346373
+    second: stix combo_29
+  - first:
+      213: -4419699316725970325
+    second: stix combo_30
+  - first:
+      213: 3500180903226505934
+    second: stix combo_31
+  - first:
+      213: -7201668549809216059
+    second: stix combo_32
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -191,8 +290,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4199e1eb94de73d0800000000000000
-      internalID: -3206892118666014386
+      spriteID: 961ce927ec254e040800000000000000
+      internalID: 4675953359757164905
       vertices: []
       indices: 
       edges: []
@@ -212,8 +311,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f68e0fb52bc23da00800000000000000
-      internalID: 780016305023543407
+      spriteID: 1a1e31b8b1ea62aa0800000000000000
+      internalID: -6186065604826111583
       vertices: []
       indices: 
       edges: []
@@ -233,8 +332,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d8a0b0e016556f50800000000000000
-      internalID: 6873995036740069589
+      spriteID: 42dd8f31bbc5ca500800000000000000
+      internalID: 408803624747588900
       vertices: []
       indices: 
       edges: []
@@ -254,8 +353,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51988b01806044b70800000000000000
-      internalID: 8882230996791494933
+      spriteID: 0638b01485c0f3e70800000000000000
+      internalID: 9097003345499620192
       vertices: []
       indices: 
       edges: []
@@ -275,8 +374,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0e4a5c816c665860800000000000000
-      internalID: 7518315794163977739
+      spriteID: 4a5f92ab1662e2460800000000000000
+      internalID: 7218749453898479012
       vertices: []
       indices: 
       edges: []
@@ -285,8 +384,8 @@ TextureImporter:
       name: stix combo_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
+        x: 320
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -296,8 +395,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 300f50d1febd2fef0800000000000000
-      internalID: -75756423681282045
+      spriteID: 39402a1b2a74b0fd0800000000000000
+      internalID: -2374725614417345389
       vertices: []
       indices: 
       edges: []
@@ -306,7 +405,7 @@ TextureImporter:
       name: stix combo_6
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 256
         width: 64
         height: 64
@@ -317,8 +416,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6b61283e55ab52c0800000000000000
-      internalID: -4441774783383639189
+      spriteID: aac1daea4dafc5b60800000000000000
+      internalID: 7736334051286260906
       vertices: []
       indices: 
       edges: []
@@ -327,7 +426,7 @@ TextureImporter:
       name: stix combo_7
       rect:
         serializedVersion: 2
-        x: 128
+        x: 64
         y: 256
         width: 64
         height: 64
@@ -338,8 +437,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e081c596f240341f0800000000000000
-      internalID: -1062000485451687922
+      spriteID: 7c525b2c12a070770800000000000000
+      internalID: 8576835155467249095
       vertices: []
       indices: 
       edges: []
@@ -348,7 +447,7 @@ TextureImporter:
       name: stix combo_8
       rect:
         serializedVersion: 2
-        x: 192
+        x: 128
         y: 256
         width: 64
         height: 64
@@ -359,8 +458,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52d4e9f62baf0c350800000000000000
-      internalID: 6035099144960232741
+      spriteID: 200604f160d2882b0800000000000000
+      internalID: -5582162233808363518
       vertices: []
       indices: 
       edges: []
@@ -369,6 +468,27 @@ TextureImporter:
       name: stix combo_9
       rect:
         serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06b7772abf67a67e0800000000000000
+      internalID: -1771472680282260640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix combo_10
+      rect:
+        serializedVersion: 2
         x: 256
         y: 256
         width: 64
@@ -380,29 +500,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a019a588d6ee8c30800000000000000
-      internalID: 4363678906598363303
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stix combo_10
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae9421549a27311b0800000000000000
-      internalID: -5687075833104938518
+      spriteID: a22724a159b109ab0800000000000000
+      internalID: -5003468858803981782
       vertices: []
       indices: 
       edges: []
@@ -411,8 +510,8 @@ TextureImporter:
       name: stix combo_11
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
+        x: 320
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -422,8 +521,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2429842cd337b920800000000000000
-      internalID: 3005928296891884586
+      spriteID: bb5073cefbddbf020800000000000000
+      internalID: 2376737044739589563
       vertices: []
       indices: 
       edges: []
@@ -432,7 +531,7 @@ TextureImporter:
       name: stix combo_12
       rect:
         serializedVersion: 2
-        x: 128
+        x: 0
         y: 192
         width: 64
         height: 64
@@ -443,8 +542,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c03a8f59d189414f0800000000000000
-      internalID: -858894376083348724
+      spriteID: 0ef841f2173cc2890800000000000000
+      internalID: -7481389990080639008
       vertices: []
       indices: 
       edges: []
@@ -453,7 +552,7 @@ TextureImporter:
       name: stix combo_13
       rect:
         serializedVersion: 2
-        x: 192
+        x: 64
         y: 192
         width: 64
         height: 64
@@ -464,8 +563,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cffefe4461838100800000000000000
-      internalID: 109073083809071041
+      spriteID: fa6fafea99d4e9810800000000000000
+      internalID: 1773940625691571887
       vertices: []
       indices: 
       edges: []
@@ -474,6 +573,48 @@ TextureImporter:
       name: stix combo_14
       rect:
         serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d552bd225d805820800000000000000
+      internalID: 2904977143747466711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix combo_15
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f4158b6f6976640800000000000000
+      internalID: 5073189491654610718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix combo_16
+      rect:
+        serializedVersion: 2
         x: 256
         y: 192
         width: 64
@@ -485,50 +626,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc9bb44ec81229ed0800000000000000
-      internalID: -2408825961680487989
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stix combo_15
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3eab79be012675710800000000000000
-      internalID: 1681920810657757923
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stix combo_16
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 600043f62f4aeed70800000000000000
-      internalID: 9074371660352847878
+      spriteID: dd537076bfee6dc40800000000000000
+      internalID: 5536875555431331293
       vertices: []
       indices: 
       edges: []
@@ -537,6 +636,69 @@ TextureImporter:
       name: stix combo_17
       rect:
         serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f56147049aefb27c0800000000000000
+      internalID: -4094899433279056289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix combo_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0802d07fdb1b5a8a0800000000000000
+      internalID: -6294429474728632192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix combo_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fac0ec8d73dea0730800000000000000
+      internalID: 3966243245969509551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix combo_20
+      rect:
+        serializedVersion: 2
         x: 128
         y: 128
         width: 64
@@ -548,14 +710,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9689f7e1d8a6e5e0800000000000000
-      internalID: -1880630174887082342
+      spriteID: 2ad0b3704d61c7a20800000000000000
+      internalID: 3061346946615283106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix combo_18
+      name: stix combo_21
       rect:
         serializedVersion: 2
         x: 192
@@ -569,14 +731,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74c8ec2a053302a00800000000000000
-      internalID: 729639561055865927
+      spriteID: ec0be0b7d9e32e470800000000000000
+      internalID: 8422363099231596750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix combo_19
+      name: stix combo_22
       rect:
         serializedVersion: 2
         x: 256
@@ -590,14 +752,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8abb6e7431a71c80800000000000000
-      internalID: -8352029737103934834
+      spriteID: 4fcf86911f608af30800000000000000
+      internalID: 4586923853060046068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix combo_20
+      name: stix combo_23
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e52e11c2961f7c580800000000000000
+      internalID: -8806805112286485922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix combo_24
       rect:
         serializedVersion: 2
         x: 0
@@ -611,14 +794,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a2f4422332520bf0800000000000000
-      internalID: -359634640664464728
+      spriteID: 721bad1ad27041050800000000000000
+      internalID: 5770244915138834727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix combo_21
+      name: stix combo_25
       rect:
         serializedVersion: 2
         x: 64
@@ -632,14 +815,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad1f6a427ce5678c0800000000000000
-      internalID: -4001907009465683494
+      spriteID: 93adb3d1664e0e4b0800000000000000
+      internalID: -5413075624871077319
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix combo_22
+      name: stix combo_26
       rect:
         serializedVersion: 2
         x: 128
@@ -653,14 +836,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 127adfc258ac20280800000000000000
-      internalID: -9078471225491216607
+      spriteID: 548fb6f042b2c01d0800000000000000
+      internalID: -3383281786184533947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix combo_23
+      name: stix combo_27
       rect:
         serializedVersion: 2
         x: 192
@@ -674,14 +857,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1757c6b0739a4ac0800000000000000
-      internalID: -3870118817459382499
+      spriteID: 0c4eb51d819637e80800000000000000
+      internalID: -8182080542689467200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix combo_24
+      name: stix combo_28
       rect:
         serializedVersion: 2
         x: 256
@@ -695,14 +878,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a342c9d76f0010c80800000000000000
-      internalID: -8358398374753590214
+      spriteID: a5ebe58e3f314f1a0800000000000000
+      internalID: -6776769600989249958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix combo_25
+      name: stix combo_29
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7427623585ebb8e0800000000000000
+      internalID: -1676494076026346373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix combo_30
       rect:
         serializedVersion: 2
         x: 0
@@ -716,8 +920,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f1fdeefbeb62e050800000000000000
-      internalID: 5828339529109336568
+      spriteID: b6a038453e21aa2c0800000000000000
+      internalID: -4419699316725970325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix combo_31
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecafb6a9cf3239030800000000000000
+      internalID: 3500180903226505934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix combo_32
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c5e48a2c988e0c90800000000000000
+      internalID: -7201668549809216059
       vertices: []
       indices: 
       edges: []

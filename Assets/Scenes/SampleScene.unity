@@ -410,7 +410,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8ff8ddfad00a45643a5fe843937ec70e, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -3065,7 +3065,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859945882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.025, y: -0.2125, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2125, z: 0}
   m_LocalScale: {x: 0.19999999, y: 0.0625, z: 1}
   m_Children: []
   m_Father: {fileID: 1287635645}
@@ -3244,7 +3244,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: 831d76e2c6ed21c4d95ca0d1c3ed4f88, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -3264,7 +3264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 84218857}
   jumpChecker: {fileID: 859945883}
-  moveForce: {x: 2, y: 5}
+  moveForce: {x: 3, y: 7}
   isGround:
     serializedVersion: 2
     m_Bits: 512
@@ -3284,7 +3284,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 86ee0dcf74026294d85ea107b409014a, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 

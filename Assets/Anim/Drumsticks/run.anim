@@ -108,7 +108,7 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 4
+    intParameter: 5
     messageOptions: 0
   - time: 0.0625
     functionName: Move
@@ -122,28 +122,28 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 4
+    intParameter: 5
     messageOptions: 0
   - time: 0.1875
     functionName: Move
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 3
+    intParameter: 5
     messageOptions: 0
   - time: 0.25
     functionName: Move
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 6
+    intParameter: 5
     messageOptions: 0
   - time: 0.3125
     functionName: Move
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 6
+    intParameter: 5
     messageOptions: 0
   - time: 0.375
     functionName: Move
@@ -157,19 +157,19 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 4
+    intParameter: 5
     messageOptions: 0
   - time: 0.5
     functionName: Move
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 3
+    intParameter: 5
     messageOptions: 0
   - time: 0.5625
     functionName: Move
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 6
+    intParameter: 5
     messageOptions: 0

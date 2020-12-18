@@ -100,9 +100,11 @@ public class PlayerController : MonoBehaviour
     private void Move(int x)
     {
         if(rend.flipX)
-            transform.position += x * Vector3.left * 0.03125f;
+            //transform.position += x * Vector3.left * 0.03125f;
+            rb.MovePosition(transform.position + x * Vector3.left * 0.03125f);
         else
-            transform.position += x * Vector3.right * 0.03125f;
+            //transform.position += x * Vector3.right * 0.03125f;
+            rb.MovePosition(transform.position + x * Vector3.right * 0.03125f);
     }
 
     private void Flip()

@@ -44,33 +44,20 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity *= Vector2.up;
         if (input["right"] && !canJump && !rend.flipX)
-        {
-            //anim.SetBool()
-            //rb.velocity += moveForce.x * Vector2.right;
-            //rend.flipX = false;
-            if(!canJump)
-                rb.velocity += moveForce.x * Vector2.right;
-        }
+            rb.velocity += moveForce.x * Vector2.right;
         else if (input["left"] && !canJump && rend.flipX)
-        {
-            //rb.velocity += moveForce.x * Vector2.left;
-            //rend.flipX = true;
-            if (!canJump)
-                rb.velocity += moveForce.x * Vector2.left;
-        }
+            rb.velocity += moveForce.x * Vector2.left;
 
         if (rb.velocity.y > maxFallSpeed)
             rb.velocity = new Vector2(rb.velocity.x, maxFallSpeed);
 
         if (input["up"])
             anim.SetTrigger("jump");
-            //rb.AddForce(moveForce.y * Vector2.up, ForceMode2D.Impulse);
     }
 
     private void UpdateAnimator()
     {
         canJump = Physics2D.OverlapBox(jumpChecker.position, jumpChecker.localScale, 0, isGround);
-        //Debug.Log(Physics2D.OverlapBox(jumpChecker.position, jumpChecker.localScale, 0, isGround));
 
         if (input["attack"])
             anim.SetTrigger("attack");
@@ -81,10 +68,10 @@ public class PlayerController : MonoBehaviour
             canDodge = false;
             anim.SetTrigger("dodge");
         }
-        if ((input["right"] && rend.flipX) || (input["left"] && !rend.flipX))
+        if ((input["right"] && !input["left"] && rend.flipX) ||
+            (input["left"] && !input["right"] && !rend.flipX))
         {
             anim.SetBool("run", false);
-            //anim.SetBool("run", input["left"] || input["right"]);
             anim.SetBool("turn", true);
         }
         else
@@ -97,20 +84,6 @@ public class PlayerController : MonoBehaviour
     }
 
     // --------------------------------------------------------------------------------
-    private void Move(int x)
-    {
-        if(rend.flipX)
-            //transform.position += x * Vector3.left * 0.03125f;
-            rb.MovePosition(transform.position + x * Vector3.left * 0.03125f);
-        else
-            //transform.position += x * Vector3.right * 0.03125f;
-            rb.MovePosition(transform.position + x * Vector3.right * 0.03125f);
-    }
-
-    private void Flip()
-    {
-        rend.flipX = !rend.flipX;
-    }
 
     private void SpawnObject(GameObject g)
     {
@@ -125,22 +98,6 @@ public class PlayerController : MonoBehaviour
         if (input["left"])
             dir += moveForce.x * Vector2.left;
         rb.AddForce(dir, ForceMode2D.Impulse);
-    }
-
-    private void LockPosition(int i)
-    {
-        if (i == 0)
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        else if (i == 1)
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-        else if (i == 2)
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-    }
-
-    private void VerticalImpulse(float y)
-    {
-        rb.velocity *= Vector2.right;
-        rb.velocity += Vector2.up * y;
     }
 
     private void ThrowDrum(GameObject prefab)

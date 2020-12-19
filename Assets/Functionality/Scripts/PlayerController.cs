@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             anim.SetBool("turn", false);
-            anim.SetBool("run", input["left"] || input["right"]);
+            anim.SetBool("run", (input["left"] && !input["right"]) || (input["right"] && !input["left"]));
         }
         anim.SetFloat("vy", rb.velocity.y);
         anim.SetBool("ground", canJump);

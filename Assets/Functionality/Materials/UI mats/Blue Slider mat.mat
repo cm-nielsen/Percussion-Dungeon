@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player mat
-  m_Shader: {fileID: 4800000, guid: f8430a5dcccb9c643b78695390d9f7e5, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_Name: Blue Slider mat
+  m_Shader: {fileID: 4800000, guid: 7f9298310f0e6bc4cbeb38d343dd80af, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -75,5 +75,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MeatCol: {r: 0.5702718, g: 0.506853, b: 0.8018868, a: 1}
-    - _WeapCol: {r: 0.11764704, g: 0.7254902, b: 0.5263827, a: 1}
+    - _LeftCol: {r: 0, g: 0, b: 0, a: 1}
+    - _RightCol: {r: 0.23584908, g: 0.4846793, b: 1, a: 1}

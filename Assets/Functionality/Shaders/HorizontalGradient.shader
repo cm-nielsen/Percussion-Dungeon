@@ -1,10 +1,10 @@
-﻿Shader "Custom/ColourCustomization"
+﻿Shader "Custom/HorizontalGradient"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-		_MonoCol ("Mono Colour", Color) = (0, 0, 0, 0)
-		_MainCol("Main Colour", Color) = (1, 1, 1, 1)
+		_LeftCol("Left Colour", Color) = (1, 1, 1, 1)
+		_RightCol("Right Colour", Color) = (1, 1, 1, 1)
     }
     SubShader
     {
@@ -44,17 +44,14 @@
             }
 
             sampler2D _MainTex;
-			fixed4 _MonoCol;
-			fixed4 _MainCol;
+			fixed4 _LeftCol;
+			fixed3 _RightCol;
 
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
-                // just invert the colors
-				if (col.a > 0 && col.r == 0 && col.g == 0 && col.b == 0)
-					col = _MonoCol;
-				else
-					col *= _MainCol;
+			float x = 1 - i.uv.x;
+				col.rgb *= lerp(_RightCol,_LeftCol, x * x);
                 //col.rgb = 1 - col.rgb;
                 return col;
             }

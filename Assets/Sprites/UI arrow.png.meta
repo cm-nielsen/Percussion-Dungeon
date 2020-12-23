@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: 309c48b68fdc6fb499fd9eff6addba54
+guid: 6b3439c758bd8c24fa31634dc86f1d3d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6962533797015291882
-    second: UI slider_0
+      213: -4920278627295456012
+    second: UI arrow_0
   - first:
-      213: 84170796876879460
-    second: UI slider_1
+      213: 9016670405731404073
+    second: UI arrow_1
   - first:
-      213: 4127321792455097005
-    second: UI slider_0
+      213: -6552918097444993210
+    second: UI arrow_2
   - first:
-      213: -1561415104329449461
-    second: UI slider_1
+      213: -5616356457427490654
+    second: UI arrow_3
+  - first:
+      213: 8382844446028169774
+    second: UI arrow_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -111,13 +114,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI slider_0
+      name: UI arrow_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 32
-        height: 4
+        y: 16
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +128,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daab3018d41374930800000000000000
-      internalID: 4127321792455097005
+      spriteID: 4f49b1048a8a7bbb0800000000000000
+      internalID: -4920278627295456012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI slider_1
+      name: UI arrow_1
       rect:
         serializedVersion: 2
-        x: 45
-        y: 0
-        width: 4
-        height: 6
+        x: 8
+        y: 16
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,8 +149,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b00838f3c3db45ae0800000000000000
-      internalID: -1561415104329449461
+      spriteID: 929c56e26f5a12d70800000000000000
+      internalID: 9016670405731404073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI arrow_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 647009f85bb5f05a0800000000000000
+      internalID: -6552918097444993210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI arrow_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a820170f81be02b0800000000000000
+      internalID: -5616356457427490654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI arrow_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e228dd40c98d55470800000000000000
+      internalID: 8382844446028169774
       vertices: []
       indices: 
       edges: []

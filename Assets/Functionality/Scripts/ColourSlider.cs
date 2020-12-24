@@ -8,10 +8,11 @@ public class ColourSlider : MonoBehaviour
     public string propertyName;
     public Slider r, g, b;
     private Material mat;
+    private RectTransform tr;
     // Start is called before the first frame update
     void Start()
     {
-        
+        tr = GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -39,5 +40,9 @@ public class ColourSlider : MonoBehaviour
         if (mat == null)
             return;
         mat.SetColor(propertyName, new Color(r.value, g.value, b.value));
+
+        GameObject.FindObjectOfType<UIPointer>().GetComponent<UIPointer>().UpdatePosition(
+            transform.position + Vector3.left * 0.5f, Quaternion.identity);
+        Debug.Log(tr.localPosition);
     }
 }

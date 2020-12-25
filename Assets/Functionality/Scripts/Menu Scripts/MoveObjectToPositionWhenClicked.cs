@@ -11,7 +11,8 @@ public class MoveObjectToPositionWhenClicked : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (!objectToMove)
+            objectToMove = GameObject.FindObjectOfType<UIPointer>().gameObject;
     }
 
     // Update is called once per frame
@@ -22,6 +23,9 @@ public class MoveObjectToPositionWhenClicked : MonoBehaviour
 
     public void ApplyParametersToObject()
     {
+        if (!objectToMove)
+            return;
+
         objectToMove.transform.position = transform.position + pos;
         objectToMove.transform.rotation = rot;
     }

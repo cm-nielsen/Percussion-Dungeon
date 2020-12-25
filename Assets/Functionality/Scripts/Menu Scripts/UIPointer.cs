@@ -5,30 +5,27 @@ using UnityEngine;
 public class UIPointer : MonoBehaviour
 {
     private Animator anim;
-    private RectTransform tr;
+    private Vector3 pos;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        tr = GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(pos != transform.position)
+        {
+            //Debug.Log("YEET");
+            pos = transform.position;
+            anim.SetTrigger("flip");
+        }
     }
 
     public void UpdatePosition(Vector2 v, Quaternion rot = default)
     {
         transform.position = new Vector2(v.x, transform.position.y);
         transform.rotation = rot;
-        anim.SetTrigger("flip");
-    }
-
-    public void UpdatePosition(float v, float y)
-    {
-        //tr.position = v;
-        anim.SetTrigger("flip");
     }
 }

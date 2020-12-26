@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveObjectToPositionWhenClicked : MonoBehaviour
+public class MoveObjectToPoint : MonoBehaviour
 {
     public GameObject objectToMove;
 
@@ -13,12 +13,6 @@ public class MoveObjectToPositionWhenClicked : MonoBehaviour
     {
         if (!objectToMove)
             objectToMove = GameObject.FindObjectOfType<UIPointer>().gameObject;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void ApplyParametersToObject()

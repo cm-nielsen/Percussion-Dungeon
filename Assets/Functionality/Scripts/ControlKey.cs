@@ -53,6 +53,20 @@ public class ControlKey : MonoBehaviour
     }
 
     /// <summary>
+    /// (not case sensitive) Returns the input set associated with specified name, if it exists
+    /// returns null if the name does not match any conatined in the input list
+    /// </summary>
+    /// <param name="name">the input set to search for</param>
+    /// <returns></returns>
+    public ControlUnit GetUnit(string name)
+    {
+        foreach (ControlUnit unit in inputs)
+            if (unit.identifier.ToLower().Equals(name.ToLower()))
+                return unit;
+        return null;
+    }
+
+    /// <summary>
     /// (not case sensitive) Returns the input value associated with specified name, if it exists
     /// returns false if the name does not match any conatined in the input list
     /// </summary>

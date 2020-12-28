@@ -546,7 +546,7 @@ MonoBehaviour:
     gamePadButtons:
     - dpad/right
     - leftStick/right
-  - identifier: up
+  - identifier: jump
     val: 0
     holdTime: 0.2
     toggleInput: 1
@@ -579,7 +579,7 @@ MonoBehaviour:
     gamePadButtons:
     - rightShoulder
     - rightTrigger
-  - identifier: special attack
+  - identifier: alt attack
     val: 0
     holdTime: 0
     toggleInput: 1
@@ -841,6 +841,54 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 979413611}
+        m_MethodName: setMaterial
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2100000, guid: 903c498f0e5b1304987aaaa67b560310,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 398810826}
+        m_MethodName: setMaterial
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2100000, guid: 903c498f0e5b1304987aaaa67b560310,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 169268489}
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2021227475286647677, guid: 6f1305aeb8bec3e4d803764461d9bec7,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 169268489}
+        m_MethodName: set_material
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2100000, guid: 903c498f0e5b1304987aaaa67b560310,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &111943159
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,14 +1022,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 903c498f0e5b1304987aaaa67b560310, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2599793873489544633, guid: 6f1305aeb8bec3e4d803764461d9bec7,
+  m_Sprite: {fileID: 2021227475286647677, guid: 6f1305aeb8bec3e4d803764461d9bec7,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2870,8 +2918,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: -1}
+  m_SizeDelta: {x: 20, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &663203739
 MonoBehaviour:
@@ -2886,6 +2934,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 84218857}
+  headerFactory:
+    size: {x: 1, y: 1}
+    startPos: {x: -9, y: 4.5}
+    endPos: {x: -9, y: -5}
+    font: {fileID: 12800000, guid: f181f15ae09918d4587663592cf2c046, type: 3}
+    fStyle: 1
+    fSize: 2
 --- !u!1 &699557233
 GameObject:
   m_ObjectHideFlags: 0

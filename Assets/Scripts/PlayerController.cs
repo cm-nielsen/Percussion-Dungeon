@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         if (rb.velocity.y > maxFallSpeed)
             rb.velocity = new Vector2(rb.velocity.x, maxFallSpeed);
 
-        if (input["up"])
+        if (input["jump"])
             anim.SetTrigger("jump");
     }
 
@@ -61,8 +61,8 @@ public class PlayerController : MonoBehaviour
 
         if (input["attack"])
             anim.SetTrigger("attack");
-        if (input["special attack"])
-            anim.SetTrigger("special attack");
+        if (input["alt attack"])
+            anim.SetTrigger("alt attack");
         if (input["dodge"] && canJump && canDodge)
         {
             canDodge = false;

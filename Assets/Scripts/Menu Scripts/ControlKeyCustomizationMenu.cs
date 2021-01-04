@@ -3,68 +3,189 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.InputSystem;
 
 using ConUnit = ControlKey.ControlUnit;
 
 public class ControlKeyCustomizationMenu : MonoBehaviour
 {
     public ControlKey target;
-    public TextObjectFactory headerFactory;
+    public int please;
+    public PotentialControlNameSet controlSet;
 
-    private List<ConUnit> units;
+    //public StringPair[] keyMaps, mouseMaps, gamepadMaps;
+
+    private Text[] displays;
+    private ConUnit unit;
+    private int inputIndex = 0;
+    private bool listen = false;
     // Start is called before the first frame update
     void Start()
     {
-        ConstructInterface();
+        displays = GetComponentsInChildren<Text>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
-    }
-
-    private void ConstructInterface()
-    {
-        int len = target.inputs.Count;
-        //units = new ConUnit[target.inputs.Count];
-        //target.inputs.CopyTo(units);
-        for(int i = 0; i < len; i++)
+        if (listen)
         {
-            //Instantiate(headerParams.CreateObject((float)i / len, target.inputs[i].identifier), transform);
-            headerFactory.CreateObject(transform, i / (len - 1f), target.inputs[i].identifier);
+            string input = ListenForInput();
+            Debug.Log("Input found: " + input);
+            if (input != null && input != "---")
+                RemapInput(input);
+        }
+    }
+
+    public void SetActiveUnit(string identifier)
+    {
+        unit = target.GetUnit(identifier);
+
+        if (Gamepad.current == null)
+            SetToKeyboardInputs();
+        else
+            SetToGamepadInputs();
+    }
+
+    public void SetToKeyboardInputs()
+    {
+        //Debug.Log(displays.Length);
+        int n = 0;
+        foreach (string s in unit.keyCodes)
+        {
+            displays[n].text = s;
+            if (++n >= displays.Length)
+                return;
         }
 
-        //foreach (ConUnit c in target.inputs)
-        //    Instantiate(headerParams.CreateObject(0, c.identifier), transform);
+        foreach (string s in unit.mouseButtons)
+        {
+            displays[n].text = s;
+            if (n++ >= displays.Length)
+                return;
+        }
     }
 
-    [Serializable]
-    public class TextObjectFactory
+    public void SetToGamepadInputs()
     {
-        public Vector2 size, startPos, endPos;
-        public Font font;
-        public FontStyle fStyle;
-        public int fSize;
-
-        public void CreateObject(Transform tr, float val, string s)
+        int n = 0;
+        foreach (string s in unit.gamePadButtons)
         {
-            GameObject g = new GameObject();
-            g.name = s;
-            g.transform.parent = tr;
+            displays[n].text = s;
+            if (n++ >= displays.Length)
+                return;
+        }
+    }
 
-            Text t = (Text)g.AddComponent<Text>();
-            t.font = font;
-            t.fontSize = fSize;
-            t.fontStyle = fStyle;
-            t.text = s;
-            t.horizontalOverflow = HorizontalWrapMode.Overflow;
-            t.verticalOverflow = VerticalWrapMode.Overflow;
+    public void BeginListening(int n)
+    {
+        if (unit == null)
+            return;
+        inputIndex = n;
+        listen = true;
+    }
 
-            RectTransform rect = g.GetComponent<RectTransform>();
-            rect.localScale = size;
-            rect.localPosition = Vector2.Lerp(startPos, endPos, val);
-            rect.sizeDelta = size;
+    public string ListenForInput()
+    {
+        if (Gamepad.current == null)
+        {
+            foreach (InputControl ic in Keyboard.current.allKeys)
+                if (ic.IsPressed())
+                {
+                    string s = controlSet.RetrieveDisplayName(ic.name);
+                    if (s != null)
+                    {
+                        listen = false;
+                        return ic.name;
+                    }
+                }
+
+            foreach (InputControl ic in Mouse.current.allControls)
+                if (ic.IsPressed())
+                {
+                    string s = controlSet.RetrieveDisplayName(ic.name);
+                    if (s != null)
+                    {
+                        listen = false;
+                        return ic.name;
+                    }
+                }
+        }
+        else
+        {
+            foreach (InputControl ic in Gamepad.current.allControls)
+                if (ic.IsPressed())
+                {
+                    string s = controlSet.RetrieveDisplayName(ic.name);
+                    if (s != null)
+                    {
+                        listen = false;
+                        return ic.name;
+                    }
+                }
+        }
+        return "---";
+    }
+
+    public void RemapInput(string newValue)
+    {
+        int n = 0;
+        Debug.Log("New Value: " + newValue + " at index " + inputIndex);
+        if(Gamepad.current == null)
+        {
+            foreach (string s in unit.keyCodes)
+            {
+                if (n++ == inputIndex)
+                {
+                    //newValue.CopyTo(0, s, 0, newValue.Length);
+                    s.Replace(s, newValue);
+                    Debug.Log(s);
+                }
+            }
+
+            foreach (string s in unit.mouseButtons)
+            {
+                if (n++ == inputIndex)
+                    s.Replace(s, newValue);
+            }
+            SetToKeyboardInputs();
+        }
+        else
+        {
+            foreach (string s in unit.gamePadButtons)
+            {
+                if (n++ == inputIndex)
+                    s.Replace(s, newValue);
+            }
+            SetToGamepadInputs();
         }
     }
 }
+
+[Serializable]
+public class PotentialControlNameSet
+{
+    public StringPair[] keyMaps, mouseMaps, gamepadMaps;
+
+    public string RetrieveDisplayName(string s)
+    {
+        foreach (StringPair p in keyMaps)
+            if (p.val == s)
+                return p.name;
+
+        foreach (StringPair p in mouseMaps)
+            if (p.val == s)
+                return p.name;
+
+        foreach (StringPair p in gamepadMaps)
+            if (p.val == s)
+                return p.name;
+        return null;
+    }
+}
+
+[Serializable]
+public struct StringPair
+{
+    public string name;
+    public string val;
+} 

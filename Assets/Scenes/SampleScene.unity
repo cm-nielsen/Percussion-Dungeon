@@ -664,45 +664,45 @@ MonoBehaviour:
       val: backspace
     - name: page up
       val: pageup
-    - name: page down
+    - name: page dwn
       val: pagedown
     - name: delete
       val: delete
     mouseMaps:
-    - name: left mouse
+    - name: mouse L
       val: leftbutton
-    - name: middle mouse
+    - name: mouse M
       val: middlebutton
-    - name: right mouse
+    - name: mouse R
       val: rightbutton
-    - name: side mouse 1
+    - name: mouse 1
       val: backbutton
-    - name: side mouse 2
+    - name: mouse 2
       val: forwardbutton
     gamepadMaps:
-    - name: L stick up
+    - name: L stick ^
       val: leftStick/up
-    - name: R stick up
+    - name: R stick ^
       val: rightstick/up
-    - name: Dpad up
+    - name: Dpad ^
       val: dpad/up
-    - name: L stick down
+    - name: L stick v
       val: leftStick/down
-    - name: R stick down
+    - name: R stick v
       val: rightStick/down
-    - name: Dpad down
+    - name: Dpad v
       val: dpad/down
-    - name: L stick right
+    - name: L stick ->
       val: leftStick/right
-    - name: R stick right
+    - name: R stick ->
       val: rightStick/right
-    - name: Dpad right
+    - name: Dpad ->
       val: dpad/right
-    - name: L stick left
+    - name: L stick <-
       val: leftStick/left
-    - name: R stick left
+    - name: R stick <-
       val: rightStick/left
-    - name: Dpad left
+    - name: Dpad <-
       val: dpad/left
     - name: top face
       val: buttonnorth
@@ -712,13 +712,13 @@ MonoBehaviour:
       val: buttonwest
     - name: left face
       val: buttoneast
-    - name: right shoulder
+    - name: R shldr
       val: rightShoulder
-    - name: left shoulder
+    - name: L shldr
       val: leftShoulder
-    - name: right trigger
+    - name: R trigger
       val: rightTrigger
-    - name: left trigger
+    - name: L trigger
       val: leftTrigger
   menuNavKey: {fileID: 111943161}
 --- !u!1 &84218856

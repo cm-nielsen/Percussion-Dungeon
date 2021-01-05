@@ -1,18 +1,15 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using System;
-using UnityEngine.InputSystem;
-using UnityEngine.EventSystems;
 using System.Linq;
-
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using ConUnit = ControlKey.ControlUnit;
 
 public class ControlKeyCustomizationMenu : MonoBehaviour
 {
     public ControlKey target;
-    public int please;
     public PotentialControlNameSet controlSet;
     public ControlKey menuNavKey;
 
@@ -40,7 +37,7 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
         if (listen)
         {
             StringPair input = ListenForInput();
-            Debug.Log("Input found: " + input.val);
+            //Debug.Log("Input found: " + input.val);
             if (input != null)
             {
                 RemapInput(input.val);
@@ -77,6 +74,12 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
             inputs[n] = s;
             if (n++ >= displays.Length)
                 return;
+        }
+
+        while(n < displays.Length)
+        {
+            displays[n].text = "---";
+            n++;
         }
     }
 
@@ -150,7 +153,7 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
                     if (inputIndex < keys + unit.mouseButtons.Length)
                     {
                         Array.Resize(ref unit.keyCodes, keys + 1);
-                        unit.keyCodes[inputIndex] = newValue;
+                        unit.keyCodes[keys] = newValue;
 
                         List<string> ls = unit.mouseButtons.ToList();
                         ls.RemoveAt(inputIndex - keys);
@@ -159,7 +162,7 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
                     else
                     {
                         Array.Resize(ref unit.keyCodes, keys + 1);
-                        unit.keyCodes[inputIndex] = newValue;
+                        unit.keyCodes[keys] = newValue;
                     }
                 }
             }
@@ -174,13 +177,14 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
                     string[] newArr = new string[unit.mouseButtons.Length + 1];
                     newArr[0] = newValue;
                     Array.Copy(unit.mouseButtons, 0, newArr, 1, unit.mouseButtons.Length);
+                    unit.mouseButtons = newArr;
                 }
                 else if (inputIndex < keys + unit.mouseButtons.Length)
                     unit.mouseButtons[inputIndex - keys] = newValue;
                 else
                 {
                     Array.Resize(ref unit.mouseButtons, unit.mouseButtons.Length + 1);
-                    unit.mouseButtons[inputIndex - keys] = newValue;
+                    unit.mouseButtons[unit.mouseButtons.Length - 1] = newValue;
                 }
             }
             SetToKeyboardInputs();

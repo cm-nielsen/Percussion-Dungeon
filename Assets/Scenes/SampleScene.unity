@@ -550,14 +550,14 @@ MonoBehaviour:
   please: 0
   controlSet:
     keyMaps:
-    - name: space [_______]
+    - name: spacebar
       val: space
     - name: tab [->]
       val: tab
     - name: '`'
       val: backquote
     - name: ''''
-      val: qoute
+      val: quote
     - name: ;
       val: semicolon
     - name: ','
@@ -629,33 +629,29 @@ MonoBehaviour:
     - name: m
       val: m
     - name: 1
-      val: digit1
+      val: 1
     - name: 2
-      val: digit2
+      val: 2
     - name: 3
-      val: digit3
+      val: 3
     - name: 4
-      val: digit4
+      val: 4
     - name: 5
-      val: digit5
+      val: 5
     - name: 6
-      val: digit6
+      val: 6
     - name: 7
-      val: digit7
+      val: 7
     - name: 8
-      val: digit8
+      val: 8
     - name: 9
-      val: digit9
+      val: 9
     - name: 0
-      val: digit0
+      val: 0
     - name: shift
       val: shift
     - name: alt
       val: alt
-    - name: Ctrl
-      val: ctrl
-    - name: command
-      val: command
     - name: <-
       val: leftarrow
     - name: ->
@@ -666,9 +662,9 @@ MonoBehaviour:
       val: downarrow
     - name: backspace
       val: backspace
-    - name: pageup
+    - name: page up
       val: pageup
-    - name: pagedown
+    - name: page down
       val: pagedown
     - name: delete
       val: delete
@@ -680,32 +676,32 @@ MonoBehaviour:
     - name: right mouse
       val: rightbutton
     - name: side mouse 1
-      val: back
+      val: backbutton
     - name: side mouse 2
-      val: forward
+      val: forwardbutton
     gamepadMaps:
     - name: L stick up
-      val: leftstick/up
+      val: leftStick/up
     - name: R stick up
       val: rightstick/up
     - name: Dpad up
       val: dpad/up
     - name: L stick down
-      val: leftstick/down
+      val: leftStick/down
     - name: R stick down
-      val: rightstick/down
+      val: rightStick/down
     - name: Dpad down
       val: dpad/down
     - name: L stick right
-      val: leftstick/right
+      val: leftStick/right
     - name: R stick right
-      val: rightstick/right
+      val: rightStick/right
     - name: Dpad right
       val: dpad/right
     - name: L stick left
-      val: leftstick/left
+      val: leftStick/left
     - name: R stick left
-      val: rightstick/left
+      val: rightStick/left
     - name: Dpad left
       val: dpad/left
     - name: top face
@@ -717,16 +713,14 @@ MonoBehaviour:
     - name: left face
       val: buttoneast
     - name: right shoulder
-      val: rightshoulder
+      val: rightShoulder
     - name: left shoulder
-      val: leftshoulder
+      val: leftShoulder
     - name: right trigger
-      val: righttrigger
+      val: rightTrigger
     - name: left trigger
-      val: left trigger
-  keyMaps: []
-  mouseMaps: []
-  gamepadMaps: []
+      val: leftTrigger
+  menuNavKey: {fileID: 111943161}
 --- !u!1 &84218856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,7 +2655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToMove: {fileID: 371079602}
-  pos: {x: 1, y: -0.03125, z: 0}
+  pos: {x: 1.0625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0.5, w: 0}
 --- !u!114 &433433339
 MonoBehaviour:
@@ -3280,9 +3274,7 @@ MonoBehaviour:
     keyMaps: []
     mouseMaps: []
     gamepadMaps: []
-  keyMaps: []
-  mouseMaps: []
-  gamepadMaps: []
+  menuNavKey: {fileID: 0}
 --- !u!1 &579609312
 GameObject:
   m_ObjectHideFlags: 0
@@ -9653,7 +9645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToMove: {fileID: 371079602}
-  pos: {x: 1, y: -0.03125, z: 0}
+  pos: {x: 1.0625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0.5, w: 0}
 --- !u!1 &979413609
 GameObject:
@@ -13108,7 +13100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToMove: {fileID: 371079602}
-  pos: {x: 1, y: -0.03125, z: 0}
+  pos: {x: 1.0625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0.5, w: 0}
 --- !u!1 &1806766232
 GameObject:
@@ -14625,7 +14617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToMove: {fileID: 371079602}
-  pos: {x: 1, y: -0.03125, z: 0}
+  pos: {x: 1.0625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0.5, w: 0}
 --- !u!1 &2116243352
 GameObject:

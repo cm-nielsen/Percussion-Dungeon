@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using System.Linq;
 
 using ConUnit = ControlKey.ControlUnit;
 
@@ -12,27 +14,38 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
     public ControlKey target;
     public int please;
     public PotentialControlNameSet controlSet;
+    public ControlKey menuNavKey;
 
     //public StringPair[] keyMaps, mouseMaps, gamepadMaps;
 
     private Text[] displays;
+    private string[] inputs;
     private ConUnit unit;
+    private BaseInputModule UIInput;
+
     private int inputIndex = 0;
-    private bool listen = false;
+    private bool listen = false, buttonSafeguard = false;
     // Start is called before the first frame update
     void Start()
     {
         displays = GetComponentsInChildren<Text>();
+        inputs = new string[displays.Length];
+        UIInput = EventSystem.current.currentInputModule;
     }
 
     private void Update()
     {
+        UIInput.enabled = !listen;
+        menuNavKey.enabled = !listen;
         if (listen)
         {
-            string input = ListenForInput();
-            Debug.Log("Input found: " + input);
-            if (input != null && input != "---")
-                RemapInput(input);
+            StringPair input = ListenForInput();
+            Debug.Log("Input found: " + input.val);
+            if (input != null)
+            {
+                RemapInput(input.val);
+                //menuNavKey.enabled = true;
+            }
         }
     }
 
@@ -52,14 +65,16 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
         int n = 0;
         foreach (string s in unit.keyCodes)
         {
-            displays[n].text = s;
+            displays[n].text = controlSet.KeyboardRetrieve(s);
+            inputs[n] = s;
             if (++n >= displays.Length)
                 return;
         }
 
         foreach (string s in unit.mouseButtons)
         {
-            displays[n].text = s;
+            displays[n].text = controlSet.MouseRetrieve(s);
+            inputs[n] = s;
             if (n++ >= displays.Length)
                 return;
         }
@@ -70,7 +85,8 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
         int n = 0;
         foreach (string s in unit.gamePadButtons)
         {
-            displays[n].text = s;
+            displays[n].text = controlSet.GamepadRetrieve(s);
+            inputs[n] = s;
             if (n++ >= displays.Length)
                 return;
         }
@@ -82,82 +98,107 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
             return;
         inputIndex = n;
         listen = true;
+        buttonSafeguard = false;
+        //menuNavKey.enabled = false;
     }
 
-    public string ListenForInput()
+    public StringPair ListenForInput()
     {
+        //EventSystem.current.currentInputModule.enabled = false;
+
         if (Gamepad.current == null)
         {
-            foreach (InputControl ic in Keyboard.current.allKeys)
-                if (ic.IsPressed())
-                {
-                    string s = controlSet.RetrieveDisplayName(ic.name);
-                    if (s != null)
-                    {
-                        listen = false;
-                        return ic.name;
-                    }
-                }
+            foreach (StringPair p in controlSet.keyMaps)
+                if (Keyboard.current[p.val].IsPressed())
+                    return p;
 
-            foreach (InputControl ic in Mouse.current.allControls)
-                if (ic.IsPressed())
-                {
-                    string s = controlSet.RetrieveDisplayName(ic.name);
-                    if (s != null)
-                    {
-                        listen = false;
-                        return ic.name;
-                    }
-                }
+            foreach (StringPair p in controlSet.mouseMaps)
+                if (Mouse.current[p.val].IsPressed())
+                    return p;
         }
         else
         {
-            foreach (InputControl ic in Gamepad.current.allControls)
-                if (ic.IsPressed())
-                {
-                    string s = controlSet.RetrieveDisplayName(ic.name);
-                    if (s != null)
-                    {
-                        listen = false;
-                        return ic.name;
-                    }
-                }
+            if (!Gamepad.current["buttonsouth"].IsPressed())
+                buttonSafeguard = true;
+
+            foreach(StringPair p in controlSet.gamepadMaps)
+                if(Gamepad.current[p.val].IsPressed())
+                    if(p.val != "buttonsouth" || buttonSafeguard)
+                        return p;
         }
-        return "---";
+        return null;
     }
 
     public void RemapInput(string newValue)
     {
-        int n = 0;
-        Debug.Log("New Value: " + newValue + " at index " + inputIndex);
+        //Debug.Log("New Value: " + newValue + " at index " + inputIndex);
         if(Gamepad.current == null)
         {
-            foreach (string s in unit.keyCodes)
+            bool isKey = false;
+            int keys = unit.keyCodes.Length;
+
+            foreach (StringPair p in controlSet.keyMaps)
+                if (p.val == newValue)
+                    isKey = true;
+
+            if (isKey)
             {
-                if (n++ == inputIndex)
+                if (inputIndex < keys)
+                    unit.keyCodes[inputIndex] = newValue;
+                else
                 {
-                    //newValue.CopyTo(0, s, 0, newValue.Length);
-                    s.Replace(s, newValue);
-                    Debug.Log(s);
+                    if (inputIndex < keys + unit.mouseButtons.Length)
+                    {
+                        Array.Resize(ref unit.keyCodes, keys + 1);
+                        unit.keyCodes[inputIndex] = newValue;
+
+                        List<string> ls = unit.mouseButtons.ToList();
+                        ls.RemoveAt(inputIndex - keys);
+                        unit.mouseButtons = ls.ToArray();
+                    }
+                    else
+                    {
+                        Array.Resize(ref unit.keyCodes, keys + 1);
+                        unit.keyCodes[inputIndex] = newValue;
+                    }
                 }
             }
-
-            foreach (string s in unit.mouseButtons)
+            else
             {
-                if (n++ == inputIndex)
-                    s.Replace(s, newValue);
+                if(inputIndex < keys)
+                {
+                    List<string> ls = unit.keyCodes.ToList();
+                    ls.RemoveAt(inputIndex);
+                    unit.keyCodes = ls.ToArray();
+
+                    string[] newArr = new string[unit.mouseButtons.Length + 1];
+                    newArr[0] = newValue;
+                    Array.Copy(unit.mouseButtons, 0, newArr, 1, unit.mouseButtons.Length);
+                }
+                else if (inputIndex < keys + unit.mouseButtons.Length)
+                    unit.mouseButtons[inputIndex - keys] = newValue;
+                else
+                {
+                    Array.Resize(ref unit.mouseButtons, unit.mouseButtons.Length + 1);
+                    unit.mouseButtons[inputIndex - keys] = newValue;
+                }
             }
             SetToKeyboardInputs();
         }
         else
         {
-            foreach (string s in unit.gamePadButtons)
+            if (inputIndex < unit.gamePadButtons.Length)
+                unit.gamePadButtons[inputIndex] = newValue;
+            else
             {
-                if (n++ == inputIndex)
-                    s.Replace(s, newValue);
+                string[] newArr = new string[unit.gamePadButtons.Length + 1];
+                unit.gamePadButtons.CopyTo(newArr, 0);
+                newArr[newArr.Length - 1] = newValue;
+                unit.gamePadButtons = newArr;
             }
             SetToGamepadInputs();
         }
+        listen = false;
     }
 }
 
@@ -166,16 +207,24 @@ public class PotentialControlNameSet
 {
     public StringPair[] keyMaps, mouseMaps, gamepadMaps;
 
-    public string RetrieveDisplayName(string s)
+    public string KeyboardRetrieve(string s)
     {
         foreach (StringPair p in keyMaps)
             if (p.val == s)
                 return p.name;
+        return null;
+    }
 
+    public string MouseRetrieve(string s)
+    {
         foreach (StringPair p in mouseMaps)
             if (p.val == s)
                 return p.name;
+        return null;
+    }
 
+    public string GamepadRetrieve(string s)
+    {
         foreach (StringPair p in gamepadMaps)
             if (p.val == s)
                 return p.name;
@@ -184,7 +233,7 @@ public class PotentialControlNameSet
 }
 
 [Serializable]
-public struct StringPair
+public class StringPair
 {
     public string name;
     public string val;

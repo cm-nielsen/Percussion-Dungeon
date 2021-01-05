@@ -15,7 +15,6 @@ public class PauseMenu : MonoBehaviour
 
     private ControlKey input;
     private PlayerController pcon;
-    //private EnemyScript[] ens;
     // Start is called before the first frame update
     void Start()
     {
@@ -101,17 +100,12 @@ public class PauseMenu : MonoBehaviour
     private void EnterPauseState()
     {
         Time.timeScale = 0;
-        //pcon = GameObject.FindObjectOfType<PlayerController>();
-        //if (pcon)
-        //    pcon.enabled = false;
         playerKey.enabled = false;
-        //playerKey["dodge"] = false;
     }
 
     private void ExitPauseState()
     {
         Time.timeScale = 1;
-        //pcon.enabled = true;
         playerKey.enabled = true;
     }
 }

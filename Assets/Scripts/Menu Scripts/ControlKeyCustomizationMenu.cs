@@ -9,40 +9,62 @@ using ConUnit = ControlKey.ControlUnit;
 
 public class ControlKeyCustomizationMenu : MonoBehaviour
 {
+    /// <summary>
+    /// control key whihc the menu is modifying
+    /// </summary>
     public ControlKey target;
+    /// <summary>
+    /// set of mapaple controls seperated by iunput device
+    /// </summary>
     public PotentialControlNameSet controlSet;
+    /// <summary>
+    /// used to disable menu navigation when remapping inputs
+    /// </summary>
     public ControlKey menuNavKey;
 
-    //public StringPair[] keyMaps, mouseMaps, gamepadMaps;
-
+    /// <summary>
+    /// control mapping text displays
+    /// </summary>
     private Text[] displays;
-    private string[] inputs;
+    /// <summary>
+    /// the current input being edited
+    /// </summary>
     private ConUnit unit;
+    /// <summary>
+    /// used to disable menu navigation when remappinginput
+    /// </summary>
     private BaseInputModule UIInput;
-
+    /// <summary>
+    /// which slot is being edited
+    /// </summary>
     private int inputIndex = 0;
-    private bool listen = false, buttonSafeguard = false;
+
+    private enum State { idle, listen, buttonSafeListen, noisePrevention}
+    private State state = State.idle;
     // Start is called before the first frame update
     void Start()
     {
         displays = GetComponentsInChildren<Text>();
-        inputs = new string[displays.Length];
         UIInput = EventSystem.current.currentInputModule;
     }
 
     private void Update()
     {
-        UIInput.enabled = !listen;
-        menuNavKey.enabled = !listen;
-        if (listen)
+        if (state == State.listen || state == State.buttonSafeListen)
         {
             StringPair input = ListenForInput();
-            //Debug.Log("Input found: " + input.val);
             if (input != null)
             {
                 RemapInput(input.val);
-                //menuNavKey.enabled = true;
+                state = State.noisePrevention;
+                displays[inputIndex].GetComponent<BlinkOnInterval>().EndBlink();
             }
+        }
+        else if (state == State.noisePrevention && IsNoInput())
+        {
+            state = State.idle;
+            UIInput.enabled = true;
+            menuNavKey.enabled = true;
         }
     }
 
@@ -58,12 +80,10 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
 
     public void SetToKeyboardInputs()
     {
-        //Debug.Log(displays.Length);
         int n = 0;
         foreach (string s in unit.keyCodes)
         {
             displays[n].text = controlSet.KeyboardRetrieve(s);
-            inputs[n] = s;
             if (++n >= displays.Length)
                 return;
         }
@@ -71,7 +91,6 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
         foreach (string s in unit.mouseButtons)
         {
             displays[n].text = controlSet.MouseRetrieve(s);
-            inputs[n] = s;
             if (n++ >= displays.Length)
                 return;
         }
@@ -89,9 +108,14 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
         foreach (string s in unit.gamePadButtons)
         {
             displays[n].text = controlSet.GamepadRetrieve(s);
-            inputs[n] = s;
             if (n++ >= displays.Length)
                 return;
+        }
+
+        while (n < displays.Length)
+        {
+            displays[n].text = "---";
+            n++;
         }
     }
 
@@ -100,15 +124,18 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
         if (unit == null)
             return;
         inputIndex = n;
-        listen = true;
-        buttonSafeguard = false;
-        //menuNavKey.enabled = false;
+        displays[inputIndex].GetComponent<BlinkOnInterval>().blink = true;
+        state = State.listen;
+        
+        UIInput.enabled = false;
+        menuNavKey.enabled = false;
     }
-
+    /// <summary>
+    /// find inpuy value to use for remapping
+    /// </summary>
+    /// <returns></returns>
     public StringPair ListenForInput()
     {
-        //EventSystem.current.currentInputModule.enabled = false;
-
         if (Gamepad.current == null)
         {
             foreach (StringPair p in controlSet.keyMaps)
@@ -122,26 +149,51 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
         else
         {
             if (!Gamepad.current["buttonsouth"].IsPressed())
-                buttonSafeguard = true;
+                state = State.buttonSafeListen;
 
             foreach(StringPair p in controlSet.gamepadMaps)
                 if(Gamepad.current[p.val].IsPressed())
-                    if(p.val != "buttonsouth" || buttonSafeguard)
+                    if(p.val != "buttonsouth" || state == State.buttonSafeListen)
                         return p;
         }
         return null;
     }
+    /// <summary>
+    /// checks to see if all input is silent, prevents unintentional menu navigation
+    /// </summary>
+    /// <returns></returns>
+    public bool IsNoInput()
+    {
+        if (Gamepad.current == null)
+        {
+            foreach (StringPair p in controlSet.keyMaps)
+                if (Keyboard.current[p.val].IsPressed())
+                    return false;
 
+            foreach (StringPair p in controlSet.mouseMaps)
+                if (Mouse.current[p.val].IsPressed())
+                    return false;
+        }
+        else
+            foreach (StringPair p in controlSet.gamepadMaps)
+                if (Gamepad.current[p.val].IsPressed())
+                    return false;
+
+        return true;
+    }
+    /// <summary>
+    /// remaps the selected input slot with the given input value
+    /// </summary>
+    /// <param name="newValue"></param>
     public void RemapInput(string newValue)
     {
-        //Debug.Log("New Value: " + newValue + " at index " + inputIndex);
-        if(Gamepad.current == null)
+        if (Gamepad.current == null)
         {
             bool isKey = false;
             int keys = unit.keyCodes.Length;
 
             foreach (StringPair p in controlSet.keyMaps)
-                if (p.val == newValue)
+                if (p.val.ToLower() == newValue.ToLower())
                     isKey = true;
 
             if (isKey)
@@ -202,10 +254,12 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
             }
             SetToGamepadInputs();
         }
-        listen = false;
     }
 }
 
+/// <summary>
+/// set of acceptable input codes, seperated by input device
+/// </summary>
 [Serializable]
 public class PotentialControlNameSet
 {
@@ -214,7 +268,7 @@ public class PotentialControlNameSet
     public string KeyboardRetrieve(string s)
     {
         foreach (StringPair p in keyMaps)
-            if (p.val == s)
+            if (p.val.ToLower() == s.ToLower())
                 return p.name;
         return null;
     }
@@ -222,7 +276,7 @@ public class PotentialControlNameSet
     public string MouseRetrieve(string s)
     {
         foreach (StringPair p in mouseMaps)
-            if (p.val == s)
+            if (p.val.ToLower() == s.ToLower())
                 return p.name;
         return null;
     }
@@ -230,15 +284,23 @@ public class PotentialControlNameSet
     public string GamepadRetrieve(string s)
     {
         foreach (StringPair p in gamepadMaps)
-            if (p.val == s)
+            if (p.val.ToLower() == s.ToLower())
                 return p.name;
         return null;
     }
 }
 
+/// <summary>
+/// Serializable string tuple
+/// </summary>
 [Serializable]
 public class StringPair
 {
     public string name;
     public string val;
+
+    public override string ToString()
+    {
+        return "Display Name: " + name + " Value: " + val;
+    }
 } 

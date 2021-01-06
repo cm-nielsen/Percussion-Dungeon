@@ -22,7 +22,7 @@ public class DamageDealer : MonoBehaviour
         if (!rec)
             return;
 
-        rec.TakeDamage(dType, movementValue * damageMultiplier);
+        rec.TakeDamage(dType, movementValue * damageMultiplier, transform.position);
     }
 
     private void StartSwing()

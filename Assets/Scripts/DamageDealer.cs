@@ -33,9 +33,9 @@ public class DamageDealer : MonoBehaviour
     private void OnEnable()
     {
         ignore.Clear();
-        PlayerController pCon = GameObject.FindObjectOfType<PlayerController>();
-        if (pCon)
-            if (pCon.GetComponent<SpriteRenderer>().flipX)
+        SpriteRenderer parentSprite = GetComponentInParent<SpriteRenderer>();
+        if (parentSprite)
+            if (parentSprite.flipX)
                 transform.localScale = new Vector2(-1, 1);
             else
                 transform.localScale = new Vector2(1, 1);

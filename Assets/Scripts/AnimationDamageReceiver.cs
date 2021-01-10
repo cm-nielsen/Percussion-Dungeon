@@ -29,7 +29,7 @@ public class AnimationDamageReceiver : DamageReceiver
             return;
 
         //health - amount;
-        Debug.Log(gameObject.name + " took " + amount + " damage");
+        //Debug.Log(gameObject.name + " took " + amount + " damage");
         switch (dtype)
         {
             case DamageType.light:

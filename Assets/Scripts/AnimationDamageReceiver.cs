@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class AnimationDamageReceiver : DamageReceiver
 {
+    public bool invulnerable = false;
+
     private Animator anim;
 
-    private bool invulnerable = false;
     private bool lightAnim = false, heavyAnim = false;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ public class AnimationDamageReceiver : DamageReceiver
             return;
 
         //health - amount;
-
+        Debug.Log(gameObject.name + " took " + amount + " damage");
         switch (dtype)
         {
             case DamageType.light:

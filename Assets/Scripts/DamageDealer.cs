@@ -5,6 +5,8 @@ using UnityEngine;
 public class DamageDealer : MonoBehaviour
 {
     public DamageType dType = DamageType.light;
+    public Material damageTextMaterial;
+    public GameObject damageTextPrefab;
     public float movementValue = 1;
 
 
@@ -23,6 +25,12 @@ public class DamageDealer : MonoBehaviour
             return;
 
         rec.TakeDamage(dType, movementValue * damageMultiplier, transform.position);
+
+        if (damageTextPrefab)
+        {
+            GameObject g = Instantiate(damageTextPrefab, collision.transform.position, Quaternion.identity);
+            g.GetComponent<LerpFromPoint>().Initiate(damageTextMaterial, movementValue * damageMultiplier);
+        }
     }
 
     private void StartSwing()

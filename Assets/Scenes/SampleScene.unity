@@ -1509,6 +1509,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 0
+  damageTextMaterial: {fileID: 2100000, guid: 903c498f0e5b1304987aaaa67b560310, type: 2}
+  damageTextPrefab: {fileID: 1127431808502476526, guid: 775808d4686c6f548b29a53a6b3964f6,
+    type: 3}
   movementValue: 1
 --- !u!61 &177858612
 BoxCollider2D:
@@ -9853,6 +9856,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 1
+  damageTextMaterial: {fileID: 2100000, guid: 7e31eb9787d38f54bad55648bce873f0, type: 2}
+  damageTextPrefab: {fileID: 1127431808502476526, guid: 775808d4686c6f548b29a53a6b3964f6,
+    type: 3}
   movementValue: 2
 --- !u!61 &936435884
 BoxCollider2D:
@@ -15192,6 +15198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 0
+  damageTextMaterial: {fileID: 0}
+  damageTextPrefab: {fileID: 0}
   movementValue: 1
 --- !u!61 &2069628644
 BoxCollider2D:

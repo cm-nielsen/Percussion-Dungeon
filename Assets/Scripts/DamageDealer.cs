@@ -19,18 +19,23 @@ public class DamageDealer : MonoBehaviour
             return;
 
         ignore.Add(collision);
-        DamageReceiver rec = collision.GetComponent<DamageReceiver>();
+        DamageReceiver[] rec = collision.GetComponents<DamageReceiver>();
 
-        if (!rec)
+        Vector2 dir = GetComponent<BoxCollider2D>().offset;
+        dir -= (Vector2)transform.parent.position;
+        dir += ((Vector2)transform.localScale - Vector2.up) * 1f;
+
+        if (rec == null)
             return;
 
-        rec.TakeDamage(dType, movementValue * damageMultiplier, transform.position);
+        foreach(DamageReceiver r in rec)
+            r.TakeDamage(dType, movementValue * damageMultiplier, dir);
 
-        if (damageTextPrefab)
-        {
-            GameObject g = Instantiate(damageTextPrefab, collision.transform.position, Quaternion.identity);
-            g.GetComponent<LerpFromPoint>().Initiate(damageTextMaterial, movementValue * damageMultiplier);
-        }
+        //if (damageTextPrefab)
+        //{
+        //    GameObject g = Instantiate(damageTextPrefab, dir, Quaternion.identity);
+        //    g.GetComponent<LerpFromPoint>().Initiate(damageTextMaterial, movementValue * damageMultiplier);
+        //}
     }
 
     private void StartSwing()

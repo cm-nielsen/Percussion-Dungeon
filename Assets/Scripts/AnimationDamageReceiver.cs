@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class AnimationDamageReceiver : DamageReceiver
 {
-    public bool invulnerable = false;
-
     private Animator anim;
+    private SpriteRenderer rend;
 
     private bool lightAnim = false, heavyAnim = false;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        rend = GetComponent<SpriteRenderer>();
 
         foreach (AnimatorControllerParameter p in anim.parameters)
         {
@@ -30,6 +30,8 @@ public class AnimationDamageReceiver : DamageReceiver
 
         //health - amount;
         //Debug.Log(gameObject.name + " took " + amount + " damage");
+
+        rend.flipX = point.x > 0;
         switch (dtype)
         {
             case DamageType.light:
@@ -40,6 +42,13 @@ public class AnimationDamageReceiver : DamageReceiver
                 if (heavyAnim)
                     anim.SetTrigger("heavy hit");
                 break;
+        }
+
+        if (damageTextPrefab)
+        {
+            GameObject g = Instantiate(damageTextPrefab, transform.position, Quaternion.identity);
+            LerpFromPoint l = g.GetComponent<LerpFromPoint>();
+            l.Initiate(amount);
         }
     }
 }

@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 903c498f0e5b1304987aaaa67b560310, type: 2}
+  m_Material: {fileID: 2100000, guid: a8ba93418cccfaa4289f71c719258772, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
@@ -154,5 +154,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a90e1a414ec3374b8a601924661b5c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 0.5
-  val: 0.5
+  distance: 0.3
+  val: 0.3

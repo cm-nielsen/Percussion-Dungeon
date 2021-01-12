@@ -34,4 +34,14 @@ public class LerpFromPoint : MonoBehaviour
             t.text = n.ToString();
         }
     }
+
+    public void Initiate(float n)
+    {
+
+        Text t = GetComponent<Text>();
+        if (t)
+        {
+            t.text = n.ToString();
+        }
+    }
 }

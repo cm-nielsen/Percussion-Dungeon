@@ -14,8 +14,17 @@ public class KnockBackReceiver : DamageReceiver
 
     public override void TakeDamage(DamageType dtype, float amount, Vector2 point)
     {
+        if (invulnerable)
+            return;
         //health - amount;
-        rb.AddForce(((Vector2)transform.position - point).normalized *
-            amount * knockbackStrengthMod, ForceMode2D.Impulse);
+        rb.AddForce((point.normalized) *amount * knockbackStrengthMod,
+            ForceMode2D.Impulse);
+
+        if (damageTextPrefab)
+        {
+            GameObject g = Instantiate(damageTextPrefab, point, Quaternion.identity);
+            LerpFromPoint l = g.GetComponent<LerpFromPoint>();
+            l.Initiate(amount);
+        }
     }
 }

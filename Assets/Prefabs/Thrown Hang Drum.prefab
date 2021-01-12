@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 2560
 --- !u!1 &1433697070427386555
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.71875, y: 0.71875}
+  m_Size: {x: 0.71875, y: 0.75}
   m_EdgeRadius: 0
 --- !u!114 &7424350661832966859
 MonoBehaviour:
@@ -239,4 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 1
+  damageTextMaterial: {fileID: 0}
+  damageTextPrefab: {fileID: 1127431808502476526, guid: 775808d4686c6f548b29a53a6b3964f6,
+    type: 3}
   movementValue: 2

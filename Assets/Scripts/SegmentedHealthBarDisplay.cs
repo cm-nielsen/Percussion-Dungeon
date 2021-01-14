@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class PlayerHealthDisplay : HealthDisplay
+public class SegmentedHealthBarDisplay : HealthDisplay
 {
     public Transform barEnd;
     public GameObject midBarPrefab;
@@ -11,30 +11,34 @@ public class PlayerHealthDisplay : HealthDisplay
     public float pointsPerSegment;
 
     public List<HealthBarDisplay> barSegments;
+
+    public int partialIndex;
     // Start is called before the first frame update
     void Start()
     {
         barSegments = GetComponentsInChildren<HealthBarDisplay>().ToList();
-        barSegments.Last().canDrain = true;
-        for(int i = barSegments.Count - 1; i > 0; i--)
-        {
-            barSegments[i].setNextSegment(barSegments[i - 1]);
-        }
+
+        AssignConnections();
 
         AdjustSegmentCount(6);
-        AdjustSegmentCount(8);
-        //AdjustSegmentCount(1);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //AdjustSegmentCount(8);
+        AdjustSegmentCount(1);
     }
 
     public override void UpdateDisplay(float ratio)
     {
         ratio *= barSegments.Count;
+
+        //float ratCopy = -ratio;
+        //for(int i = barSegments.IndexOf(barSegments.Last()); i >=0; i--)
+        //{
+        //    if(ratCopy > 1)
+        //    {
+        //        barSegments[i].canDrain = true;
+        //        break;
+        //    }
+        //    ratCopy += 1;
+        //}
 
         foreach(HealthBarDisplay bd in barSegments)
         {
@@ -64,6 +68,7 @@ public class PlayerHealthDisplay : HealthDisplay
             barSegments.Insert(i - 1, g.GetComponentInChildren<HealthBarDisplay>());
         }
 
+        partialIndex = barSegments.Count - 1;
         AssignConnections();
     }
 
@@ -79,9 +84,27 @@ public class PlayerHealthDisplay : HealthDisplay
     private void AssignConnections()
     {
         barSegments.Last().canDrain = true;
-        for (int i = barSegments.Count - 1; i > 0; i--)
-        {
-            barSegments[i].setNextSegment(barSegments[i - 1]);
-        }
+
+        for (int i = 0; i < barSegments.Count; i++)
+            barSegments[i].Initialize(this, i);
+    }
+
+    public void NotifyDrain(int n)
+    {
+        partialIndex = n - 1;
+        if (partialIndex < 0)
+            partialIndex = 0;
+
+        foreach (HealthBarDisplay bd in barSegments)
+            bd.canDrain = false;
+        barSegments[partialIndex].canDrain = true;
+    }
+
+    public void NotifyFill(int n)
+    {
+        partialIndex = n;
+        foreach (HealthBarDisplay bd in barSegments)
+            bd.canDrain = false;
+        barSegments[partialIndex].canDrain = true;
     }
 }

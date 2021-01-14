@@ -11,9 +11,10 @@ public class HealthBarDisplay : HealthDisplay
 
     private SpriteRenderer fill;
     private HealthBarDisplay next;
+    private SegmentedHealthBarDisplay segBar;
 
     private float maxWidth, rat = 1, backRat = 1;
-    private int timer = 0;
+    private int timer = 0, index;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,8 +42,11 @@ public class HealthBarDisplay : HealthDisplay
                     backRat = rat;
                     backFill.size = new Vector2(rat * maxWidth, fill.size.y);
                     timer = 0;
-                    if (rat == 0 && next)
-                        next.canDrain = true;
+                    if (rat == 0 && segBar)
+                    {
+                        segBar.NotifyDrain(index);
+                        canDrain = false;
+                    }
                 }
             }
             timer++;
@@ -56,9 +60,12 @@ public class HealthBarDisplay : HealthDisplay
         {
             backRat = rat;
             backFill.size = new Vector2(backRat * maxWidth, backFill.size.y);
+            timer = 0;
+
+            segBar.NotifyFill(index);
         }
         fill.size = new Vector2(ratio * maxWidth, fill.size.y);
     }
 
-    public void setNextSegment(HealthBarDisplay d) {  next = d; }
+    public void Initialize(SegmentedHealthBarDisplay seg,  int n) { segBar = seg; index = n; }
 }

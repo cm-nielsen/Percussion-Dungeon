@@ -7,11 +7,12 @@ public enum DamageType { light, heavy};
 public class DamageReceiver : MonoBehaviour
 {
     [System.Flags]
-    public enum KnockbackTypes { animation, physics}
+    public enum KnockbackTypes { none, animation, physics }
     public KnockbackTypes recoil;
 
     public GameObject damageTextPrefab;
-    public bool invulnerable, animationRecoil, physicsRecoil;
+    public float deathForce = 40;
+    public bool invulnerable;
 
     private Health health;
     private Animator anim;
@@ -19,11 +20,11 @@ public class DamageReceiver : MonoBehaviour
     private Rigidbody2D rb;
 
     public float knockbackStrengthMod = 1;
-    private bool lightAnim = false, heavyAnim = false;
+    private bool lightAnim = false, heavyAnim = false, deathAnim = false;
 
     private void Start()
     {
-        if (animationRecoil)
+        if ((recoil & KnockbackTypes.animation) != 0)
         {
             anim = GetComponent<Animator>();
             rend = GetComponent<SpriteRenderer>();
@@ -34,15 +35,16 @@ public class DamageReceiver : MonoBehaviour
                     lightAnim = true;
                 if (p.name == "heavy hit")
                     heavyAnim = true;
+                if (p.name == "die")
+                    deathAnim = true;
             }
         }
-        if (physicsRecoil)
-        {
-            rb = GetComponent<Rigidbody2D>();
-        }
 
-        if (!health)
-            health = GetComponent<Health>();
+        rb = GetComponent<Rigidbody2D>();
+        health = GetComponent<Health>();
+
+        //animationRecoil = (recoil & KnockbackTypes.animation) != 0;
+        //physicsRecoil = (recoil & KnockbackTypes.physics) != 0;
     }
 
     public void TakeDamage(DamageType dtype, float amount, Vector2 point)
@@ -50,10 +52,30 @@ public class DamageReceiver : MonoBehaviour
         if (invulnerable)
             return;
 
+        bool death = false;
         if(health)
-            health.Reduce(amount);
+            death = health.Reduce(amount);
 
-        if(animationRecoil)
+
+        if (damageTextPrefab)
+        {
+            GameObject g = Instantiate(damageTextPrefab, transform.position, Quaternion.identity);
+            LerpFromPoint l = g.GetComponent<LerpFromPoint>();
+            l.Initiate(amount);
+        }
+
+        if (death)
+        {
+            Die(point);
+            return;
+        }
+
+        Recoil(dtype, amount, point);
+    }
+
+    private void Recoil(DamageType dtype, float amount, Vector2 point)
+    {
+        if((recoil & KnockbackTypes.animation) != 0)
         {
             rend.flipX = point.x > 0;
             switch (dtype)
@@ -69,17 +91,23 @@ public class DamageReceiver : MonoBehaviour
             }
         }
 
-        if(physicsRecoil)
+        if((recoil & KnockbackTypes.physics) != 0)
         {
             rb.AddForce((point.normalized) * amount * knockbackStrengthMod,
             ForceMode2D.Impulse);
         }
+    }
 
-        if (damageTextPrefab)
+    private void Die(Vector2 point)
+    {
+        if ((recoil & KnockbackTypes.animation) != 0)
         {
-            GameObject g = Instantiate(damageTextPrefab, transform.position, Quaternion.identity);
-            LerpFromPoint l = g.GetComponent<LerpFromPoint>();
-            l.Initiate(amount);
+            rend.flipX = point.x > 0;
+            if (deathAnim)
+                anim.SetTrigger("die");
         }
+
+        if((recoil & KnockbackTypes.physics) != 0)
+            rb.AddForce((point.normalized) * deathForce,ForceMode2D.Impulse);
     }
 }

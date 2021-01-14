@@ -19,17 +19,24 @@ public class Health : MonoBehaviour
             display = GetComponentInChildren<HealthDisplay>();
     }
 
-    public void Reduce(float dam)
+    /// <summary>
+    /// reduces health by goven value, returns true if target has been killed
+    /// </summary>
+    public bool Reduce(float dam)
     {
+        bool dead = false;
         amount -= dam;
         if (amount <= 0)
         {
             amount = 0;
             OnDeath();
+            dead = true;
         }
 
         if (display)
             display.UpdateDisplay(amount / max);
+
+        return dead;
     }
 
     public void Heal(float am)
@@ -44,6 +51,7 @@ public class Health : MonoBehaviour
 
     private void OnDeath()
     {
-        Destroy(gameObject);
+        Debug.Log(gameObject.name + " has been killed.");
+        //Destroy(gameObject);
     }
 }

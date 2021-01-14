@@ -7,10 +7,11 @@ public class DamageDealer : MonoBehaviour
     public DamageType dType = DamageType.light;
     public Material damageTextMaterial;
     public GameObject damageTextPrefab;
-    public float movementValue = 1;
+    public float movementValue = 1, vampMultiplier = 0;
 
 
     private List<Collider2D> ignore = new List<Collider2D>();
+    private Health health;
     private float damageMultiplier = 1;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,6 +31,8 @@ public class DamageDealer : MonoBehaviour
 
         foreach(DamageReceiver r in rec)
             r.TakeDamage(dType, movementValue * damageMultiplier, dir);
+
+        health.Heal(movementValue * damageMultiplier * vampMultiplier);
 
         //if (damageTextPrefab)
         //{
@@ -53,5 +56,6 @@ public class DamageDealer : MonoBehaviour
             else
                 transform.localScale = new Vector2(1, 1);
 
+        health = GetComponentInParent<Health>();
     }
 }

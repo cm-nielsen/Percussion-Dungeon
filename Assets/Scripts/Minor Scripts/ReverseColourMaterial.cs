@@ -8,13 +8,6 @@ public class ReverseColourMaterial : MonoBehaviour
     public Material referenceMaterial, modifiedMaterial;
     public string propertyName;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         Color c = ReverseColour(referenceMaterial.GetColor(propertyName));

@@ -3,7 +3,9 @@ guid: e1741fc1eb9aa5442841d5971c07ed28
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - deadMeat: {fileID: 6200000, guid: ac5786b3448c99a4a9e22ba9bd71812e, type: 2}
+  - damageTextPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

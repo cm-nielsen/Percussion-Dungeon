@@ -22,23 +22,12 @@ public class SegmentedHealthBarDisplay : HealthDisplay
 
         AdjustSegmentCount(6);
         //AdjustSegmentCount(8);
-        AdjustSegmentCount(1);
+        //AdjustSegmentCount(1);
     }
 
     public override void UpdateDisplay(float ratio)
     {
         ratio *= barSegments.Count;
-
-        //float ratCopy = -ratio;
-        //for(int i = barSegments.IndexOf(barSegments.Last()); i >=0; i--)
-        //{
-        //    if(ratCopy > 1)
-        //    {
-        //        barSegments[i].canDrain = true;
-        //        break;
-        //    }
-        //    ratCopy += 1;
-        //}
 
         foreach(HealthBarDisplay bd in barSegments)
         {

@@ -1,0 +1,401 @@
+fileFormatVersion: 2
+guid: f1eebc246be23f745a0b18bfacf1babb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8635962201812869004
+    second: stix die_0
+  - first:
+      213: -5216419838289571582
+    second: stix die_1
+  - first:
+      213: 1354841760602428742
+    second: stix die_2
+  - first:
+      213: -1270567019075662866
+    second: stix die_3
+  - first:
+      213: -4251849790185750879
+    second: stix die_4
+  - first:
+      213: -4167402313134629817
+    second: stix die_5
+  - first:
+      213: 6949166080319960490
+    second: stix die_6
+  - first:
+      213: -8412235726548220505
+    second: stix die_7
+  - first:
+      213: -821223564093800922
+    second: stix die_8
+  - first:
+      213: -7285521977877183176
+    second: stix die_9
+  - first:
+      213: -6928364814374548928
+    second: stix die_10
+  - first:
+      213: 1505801418674741752
+    second: stix die_11
+  - first:
+      213: -7075753358160993381
+    second: stix die_12
+  - first:
+      213: 1228554556071144919
+    second: stix die_13
+  - first:
+      213: -2155869962594798545
+    second: stix die_14
+  - first:
+      213: -3593251210660546712
+    second: stix die_15
+  - first:
+      213: -2447873676926684635
+    second: stix die_16
+  - first:
+      213: -2333117078509243496
+    second: stix die_17
+  - first:
+      213: -2769873733042005708
+    second: stix die_18
+  - first:
+      213: 5448899471682934699
+    second: stix die_19
+  - first:
+      213: 34030386182333420
+    second: stix die_20
+  - first:
+      213: 3736857420846927905
+    second: stix die_21
+  - first:
+      213: -3480588222447874846
+    second: stix die_22
+  - first:
+      213: 6492556157745859230
+    second: stix die_23
+  - first:
+      213: 4015203107638010245
+    second: stix die_24
+  - first:
+      213: 1380616573084391412
+    second: stix die_25
+  - first:
+      213: -6417500238917862224
+    second: stix die_26
+  - first:
+      213: 4258854323211372573
+    second: stix die_27
+  - first:
+      213: 6464055457060917905
+    second: stix die_28
+  - first:
+      213: 7396888001401476066
+    second: stix die_29
+  - first:
+      213: 4693287279437438948
+    second: stix die_30
+  - first:
+      213: 6981471552628534030
+    second: stix die_31
+  - first:
+      213: -5861392183203329945
+    second: stix die_32
+  - first:
+      213: -339847295007221462
+    second: stix die_33
+  - first:
+      213: -768683926481044574
+    second: stix die_34
+  - first:
+      213: -4036204114996007525
+    second: stix die_35
+  - first:
+      213: 4065204923170900770
+    second: stix die_36
+  - first:
+      213: 5524886616314432241
+    second: stix die_37
+  - first:
+      213: -8367477231443831995
+    second: stix die_38
+  - first:
+      213: 4120044947144777114
+    second: stix die_39
+  - first:
+      213: 8632595302842924497
+    second: stix die_40
+  - first:
+      213: 3819376379023240677
+    second: stix die_41
+  - first:
+      213: -4609070480280063886
+    second: stix die_42
+  - first:
+      213: 5540749036038822680
+    second: stix die_43
+  - first:
+      213: -3802672503738350929
+    second: stix die_44
+  - first:
+      213: -2387834313963474828
+    second: stix die_45
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: stix die_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4706e3bf126e62880800000000000000
+      internalID: -8635962201812869004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix die_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 201137b7bcd8b97b0800000000000000
+      internalID: -5216419838289571582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix die_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 645929b276d5dc210800000000000000
+      internalID: 1354841760602428742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix die_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeb0ba4270a0e5ee0800000000000000
+      internalID: -1270567019075662866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix die_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aeb8a1a4256ef4c0800000000000000
+      internalID: -4251849790185750879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix die_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c18711da96a26c0800000000000000
+      internalID: -4167402313134629817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stix die_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa53aa65bb5607060800000000000000
+      internalID: 6949166080319960490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

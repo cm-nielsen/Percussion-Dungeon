@@ -1127,7 +1127,7 @@ GameObject:
   - component: {fileID: 111943162}
   - component: {fileID: 111943161}
   - component: {fileID: 111943160}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1939,7 +1939,7 @@ GameObject:
   - component: {fileID: 291705565}
   - component: {fileID: 291705564}
   - component: {fileID: 291705569}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: dodge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2468,6 +2468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 1
+  deadMeat: {fileID: 0}
   damageTextPrefab: {fileID: 0}
   deathForce: 40
   invulnerable: 0
@@ -3009,7 +3010,7 @@ GameObject:
   - component: {fileID: 433433337}
   - component: {fileID: 433433339}
   - component: {fileID: 433433340}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: input 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8807,6 +8808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 0
+  deadMeat: {fileID: 0}
   damageTextPrefab: {fileID: 0}
   deathForce: 40
   invulnerable: 0
@@ -9064,7 +9066,7 @@ GameObject:
   - component: {fileID: 807447866}
   - component: {fileID: 807447865}
   - component: {fileID: 807447870}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9649,7 +9651,7 @@ GameObject:
   - component: {fileID: 909389432}
   - component: {fileID: 909389431}
   - component: {fileID: 909389436}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9959,7 +9961,7 @@ GameObject:
   - component: {fileID: 955033476}
   - component: {fileID: 955033475}
   - component: {fileID: 955033478}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: input 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11121,7 +11123,7 @@ GameObject:
   - component: {fileID: 1244507729}
   - component: {fileID: 1244507728}
   - component: {fileID: 1244507733}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: alt attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11546,8 +11548,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 1
+  deadMeat: {fileID: 6200000, guid: ac5786b3448c99a4a9e22ba9bd71812e, type: 2}
   damageTextPrefab: {fileID: 0}
-  deathForce: 40
+  deathForce: 7
   invulnerable: 0
   knockbackStrengthMod: 1
 --- !u!114 &1287635648
@@ -11698,7 +11701,7 @@ GameObject:
   - component: {fileID: 1397621255}
   - component: {fileID: 1397621254}
   - component: {fileID: 1397621259}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12335,7 +12338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1494737907
 Rigidbody2D:
   serializedVersion: 4
@@ -12462,6 +12465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 2
+  deadMeat: {fileID: 0}
   damageTextPrefab: {fileID: 0}
   deathForce: 40
   invulnerable: 0
@@ -12542,8 +12546,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 8
+  m_SortingLayerID: -2116477043
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1535537150
 RectTransform:
@@ -12744,7 +12748,7 @@ GameObject:
   - component: {fileID: 1583063005}
   - component: {fileID: 1583063004}
   - component: {fileID: 1583063009}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13549,7 +13553,7 @@ GameObject:
   - component: {fileID: 1699021841}
   - component: {fileID: 1699021840}
   - component: {fileID: 1699021846}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13782,7 +13786,7 @@ GameObject:
   - component: {fileID: 1725875247}
   - component: {fileID: 1725875246}
   - component: {fileID: 1725875245}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14066,7 +14070,7 @@ GameObject:
   - component: {fileID: 1772592643}
   - component: {fileID: 1772592642}
   - component: {fileID: 1772592645}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: input 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15837,7 +15841,7 @@ GameObject:
   - component: {fileID: 2077118978}
   - component: {fileID: 2077118977}
   - component: {fileID: 2077118980}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: input 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

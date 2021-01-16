@@ -10,14 +10,17 @@ public class DamageReceiver : MonoBehaviour
     public enum KnockbackTypes { none, animation, physics }
     public KnockbackTypes recoil;
 
+    public PhysicsMaterial2D deadMeat;
+
     public GameObject damageTextPrefab;
-    public float deathForce = 40;
+    public float deathForce = 10;
     public bool invulnerable;
 
     private Health health;
     private Animator anim;
     private SpriteRenderer rend;
     private Rigidbody2D rb;
+    private Vector2 v;
 
     public float knockbackStrengthMod = 1;
     private bool lightAnim = false, heavyAnim = false, deathAnim = false;
@@ -100,6 +103,8 @@ public class DamageReceiver : MonoBehaviour
 
     private void Die(Vector2 point)
     {
+        v = point;
+
         if ((recoil & KnockbackTypes.animation) != 0)
         {
             rend.flipX = point.x > 0;
@@ -107,7 +112,21 @@ public class DamageReceiver : MonoBehaviour
                 anim.SetTrigger("die");
         }
 
-        if((recoil & KnockbackTypes.physics) != 0)
-            rb.AddForce((point.normalized) * deathForce,ForceMode2D.Impulse);
+        if ((recoil & KnockbackTypes.physics) != 0)
+            AddDeathForce();
+    }
+
+    public void AddDeathForce()
+    {
+        if (!rb)
+            rb = GetComponent<Rigidbody2D>();
+
+        if (!rb)
+            return;
+
+        v *= 4;
+        GetComponent<Collider2D>().sharedMaterial = deadMeat;
+        //rb.sharedMaterial = deadMeat;
+        rb.AddForce((v.normalized) * deathForce, ForceMode2D.Impulse);
     }
 }

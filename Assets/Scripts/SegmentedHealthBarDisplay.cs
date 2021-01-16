@@ -20,9 +20,9 @@ public class SegmentedHealthBarDisplay : HealthDisplay
 
         AssignConnections();
 
-        AdjustSegmentCount(6);
+        //AdjustSegmentCount(6);
         //AdjustSegmentCount(8);
-        //AdjustSegmentCount(1);
+        AdjustSegmentCount(1);
     }
 
     public override void UpdateDisplay(float ratio)

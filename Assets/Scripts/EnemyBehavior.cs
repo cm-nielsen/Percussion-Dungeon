@@ -31,22 +31,13 @@ public class EnemyBehavior : MonoBehaviour
         if (!target)
             return;
 
+        anim.SetBool("turn", hasTurnAnimation &&
+            (rend.flipX && target.transform.position.x > transform.position.x ||
+            !rend.flipX && target.transform.position.x < transform.position.x));
+           
         if (Vector2.Distance(transform.position, target.position) < attackDistance)
             anim.SetTrigger("attack");
 
-        if (hasTurnAnimation)
-        {
-            if (rend.flipX && target.transform.position.x < transform.position.x)
-            {
-                rend.flipX = false;
-                anim.SetTrigger("turn");
-            }
-            else if (!rend.flipX && target.transform.position.x > transform.position.x)
-            {
-                rend.flipX = true;
-                anim.SetTrigger("turn");
-            }
-        }
     }
 
     private void AquireTarget()

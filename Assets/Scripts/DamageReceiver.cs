@@ -13,7 +13,7 @@ public class DamageReceiver : MonoBehaviour
     public PhysicsMaterial2D deadMeat;
 
     public GameObject damageTextPrefab;
-    public float deathForce = 10;
+    public float bullyability = 4, deathForce = 10;
     public bool invulnerable;
 
     private Health health;
@@ -23,6 +23,7 @@ public class DamageReceiver : MonoBehaviour
     private Vector2 v;
 
     public float knockbackStrengthMod = 1;
+    private float stunlockCounter = 0;
     private bool lightAnim = false, heavyAnim = false, deathAnim = false;
 
     private void Start()
@@ -73,7 +74,16 @@ public class DamageReceiver : MonoBehaviour
             return;
         }
 
+        stunlockCounter += amount;
+        if (stunlockCounter >= bullyability)
+            return;
+
         Recoil(dtype, amount, point);
+    }
+
+    public void OnHit()
+    {
+        stunlockCounter = 0;
     }
 
     private void Recoil(DamageType dtype, float amount, Vector2 point)

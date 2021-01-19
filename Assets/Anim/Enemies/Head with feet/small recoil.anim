@@ -20,13 +20,19 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -8568024921929439109, guid: 2fdd20320fe442d4da218dc1047b0326,
+      value: {fileID: 6513819521330061693, guid: 3d228e2e5ddea134c9ad4b6941d9bfda,
         type: 3}
     - time: 0.0625
-      value: {fileID: 2179120565202516298, guid: 2fdd20320fe442d4da218dc1047b0326,
+      value: {fileID: 3155869353994974151, guid: 3d228e2e5ddea134c9ad4b6941d9bfda,
         type: 3}
     - time: 0.125
-      value: {fileID: 392101482618922112, guid: 2fdd20320fe442d4da218dc1047b0326,
+      value: {fileID: -8114741386422821193, guid: 3d228e2e5ddea134c9ad4b6941d9bfda,
+        type: 3}
+    - time: 0.1875
+      value: {fileID: -4461887244013321760, guid: 3d228e2e5ddea134c9ad4b6941d9bfda,
+        type: 3}
+    - time: 0.25
+      value: {fileID: 3331485121338071861, guid: 3d228e2e5ddea134c9ad4b6941d9bfda,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -47,15 +53,17 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -8568024921929439109, guid: 2fdd20320fe442d4da218dc1047b0326, type: 3}
-    - {fileID: 2179120565202516298, guid: 2fdd20320fe442d4da218dc1047b0326, type: 3}
-    - {fileID: 392101482618922112, guid: 2fdd20320fe442d4da218dc1047b0326, type: 3}
+    - {fileID: 6513819521330061693, guid: 3d228e2e5ddea134c9ad4b6941d9bfda, type: 3}
+    - {fileID: 3155869353994974151, guid: 3d228e2e5ddea134c9ad4b6941d9bfda, type: 3}
+    - {fileID: -8114741386422821193, guid: 3d228e2e5ddea134c9ad4b6941d9bfda, type: 3}
+    - {fileID: -4461887244013321760, guid: 3d228e2e5ddea134c9ad4b6941d9bfda, type: 3}
+    - {fileID: 3331485121338071861, guid: 3d228e2e5ddea134c9ad4b6941d9bfda, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.1875
+    m_StopTime: 0.3125
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -80,5 +88,19 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 1
+    intParameter: -2
+    messageOptions: 0
+  - time: 0.0625
+    functionName: Move
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: -1
+    messageOptions: 0
+  - time: 0.125
+    functionName: Move
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: -1
     messageOptions: 0

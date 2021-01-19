@@ -2439,7 +2439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005006eb6eab91e4a82913664ece9822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 10
+  max: 50
   amount: 10
   display: {fileID: 339620813}
 --- !u!114 &339620822
@@ -2457,6 +2457,7 @@ MonoBehaviour:
   recoil: 1
   deadMeat: {fileID: 0}
   damageTextPrefab: {fileID: 0}
+  bullyability: 4
   deathForce: 40
   invulnerable: 0
   knockbackStrengthMod: 13
@@ -8797,6 +8798,7 @@ MonoBehaviour:
   recoil: 0
   deadMeat: {fileID: 0}
   damageTextPrefab: {fileID: 0}
+  bullyability: 0
   deathForce: 40
   invulnerable: 0
   knockbackStrengthMod: 1
@@ -9905,7 +9907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 1
-  movementValue: 4
+  movementValue: 5
   vampMultiplier: 0
 --- !u!61 &936435884
 BoxCollider2D:
@@ -11586,6 +11588,7 @@ MonoBehaviour:
   recoil: 1
   deadMeat: {fileID: 6200000, guid: ac5786b3448c99a4a9e22ba9bd71812e, type: 2}
   damageTextPrefab: {fileID: 0}
+  bullyability: 1000000
   deathForce: 7
   invulnerable: 0
   knockbackStrengthMod: 1
@@ -12503,6 +12506,7 @@ MonoBehaviour:
   recoil: 2
   deadMeat: {fileID: 0}
   damageTextPrefab: {fileID: 0}
+  bullyability: 0
   deathForce: 40
   invulnerable: 0
   knockbackStrengthMod: 25

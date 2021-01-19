@@ -17,6 +17,10 @@ public class DamageDealer : MonoBehaviour
         if (ignore.Contains(collision))
             return;
 
+        DamageReceiver self = GetComponentInParent<DamageReceiver>();
+        if (self)
+            self.OnHit();
+
         ignore.Add(collision);
         DamageReceiver[] rec = collision.GetComponents<DamageReceiver>();
 

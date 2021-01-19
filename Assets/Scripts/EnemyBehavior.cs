@@ -34,9 +34,10 @@ public class EnemyBehavior : MonoBehaviour
         anim.SetBool("turn", hasTurnAnimation &&
             (rend.flipX && target.transform.position.x > transform.position.x ||
             !rend.flipX && target.transform.position.x < transform.position.x));
-           
-        if (Vector2.Distance(transform.position, target.position) < attackDistance)
-            anim.SetTrigger("attack");
+
+        anim.SetBool("attack", Vector2.Distance(transform.position, target.position) < attackDistance);
+        //if (Vector2.Distance(transform.position, target.position) < attackDistance)
+        //    anim.SetTrigger("attack");
 
     }
 

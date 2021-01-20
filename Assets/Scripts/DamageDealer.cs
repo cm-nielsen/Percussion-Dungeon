@@ -18,6 +18,13 @@ public class DamageDealer : MonoBehaviour
     {
         selfReciever = GetComponentInParent<DamageReceiver>();
         parentSprite = GetComponentInParent<SpriteRenderer>();
+        health = GetComponentInParent<Health>();
+
+        if (parentSprite)
+            if (parentSprite.flipX)
+                transform.localScale = new Vector2(-1, 1);
+            else
+                transform.localScale = new Vector2(1, 1);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -58,8 +65,6 @@ public class DamageDealer : MonoBehaviour
                 transform.localScale = new Vector2(-1, 1);
             else
                 transform.localScale = new Vector2(1, 1);
-
-        health = GetComponentInParent<Health>();
     }
 
     private void OnDisable()

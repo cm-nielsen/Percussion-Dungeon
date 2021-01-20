@@ -10,10 +10,8 @@ public class DamageReceiver : MonoBehaviour
     public enum KnockbackTypes { none, animation, physics }
     public KnockbackTypes recoil;
 
-    public PhysicsMaterial2D deadMeat;
-
     public GameObject damageTextPrefab;
-    public float bullyability = 4, deathForce = 10;
+    public float knockbackStrengthMod = 1, bullyability = 4, deathForce = 10;
     public bool invulnerable;
 
     private Health health;
@@ -22,7 +20,6 @@ public class DamageReceiver : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 v;
 
-    public float knockbackStrengthMod = 1;
     private float stunlockCounter = 0;
     private bool lightAnim = false, heavyAnim = false, deathAnim = false;
 
@@ -135,8 +132,11 @@ public class DamageReceiver : MonoBehaviour
             return;
 
         v *= 4;
-        GetComponent<Collider2D>().sharedMaterial = deadMeat;
         //rb.sharedMaterial = deadMeat;
         rb.AddForce((v.normalized) * deathForce, ForceMode2D.Impulse);
+
+        gameObject.AddComponent<CorpseBehavior>();
+
+        Destroy(this);
     }
 }

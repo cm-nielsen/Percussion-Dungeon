@@ -10,16 +10,23 @@ public class DamageDealer : MonoBehaviour
 
     private List<Collider2D> ignore = new List<Collider2D>();
     private Health health;
+    private DamageReceiver selfReciever;
+    private SpriteRenderer parentSprite;
     private float damageMultiplier = 1;
+
+    private void Start()
+    {
+        selfReciever = GetComponentInParent<DamageReceiver>();
+        parentSprite = GetComponentInParent<SpriteRenderer>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (ignore.Contains(collision))
             return;
 
-        DamageReceiver self = GetComponentInParent<DamageReceiver>();
-        if (self)
-            self.OnHit();
+        if (selfReciever)
+            selfReciever.ResetStunCount();
 
         ignore.Add(collision);
         DamageReceiver[] rec = collision.GetComponents<DamageReceiver>();
@@ -45,7 +52,7 @@ public class DamageDealer : MonoBehaviour
     private void OnEnable()
     {
         ignore.Clear();
-        SpriteRenderer parentSprite = GetComponentInParent<SpriteRenderer>();
+
         if (parentSprite)
             if (parentSprite.flipX)
                 transform.localScale = new Vector2(-1, 1);
@@ -53,5 +60,11 @@ public class DamageDealer : MonoBehaviour
                 transform.localScale = new Vector2(1, 1);
 
         health = GetComponentInParent<Health>();
+    }
+
+    private void OnDisable()
+    {
+        if (selfReciever)
+            selfReciever.ResetStunCount();
     }
 }

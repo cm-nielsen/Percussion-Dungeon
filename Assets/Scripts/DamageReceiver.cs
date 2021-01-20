@@ -81,7 +81,7 @@ public class DamageReceiver : MonoBehaviour
         Recoil(dtype, amount, point);
     }
 
-    public void OnHit()
+    public void ResetStunCount()
     {
         stunlockCounter = 0;
     }

@@ -45,8 +45,9 @@ public class CorpseBehavior : MonoBehaviour
     }
 }
 
-[CreateAssetMenu(fileName = "Dynamic Material Settings", menuName = "Scriptable Objects/Create Dynamic Material Settings", order = 1)]
-public class DynamicMaterialSettings : ScriptableObject
+//[CreateAssetMenu(fileName = "Dynamic Material Settings", menuName = "Scriptable Objects/Create Dynamic Material Settings", order = 1)]
+[System.Serializable]
+public struct DynamicMaterialSettings
 {
     public Shader shader;
     public Texture2D tex;

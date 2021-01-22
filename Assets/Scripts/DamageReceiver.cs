@@ -72,7 +72,7 @@ public class DamageReceiver : MonoBehaviour
         }
 
         stunlockCounter += amount;
-        if (stunlockCounter >= bullyability)
+        if (stunlockCounter >= bullyability && bullyability > 0)
             return;
 
         Recoil(dtype, amount, point);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public ControlKey input;
+    private ControlKey input;
     public Transform jumpChecker;
     public Vector2 moveForce;
     public LayerMask isGround;
@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         canDodge = true;
+
+        input = GameObject.Find("Player Control Key").GetComponent<ControlKey>();
     }
 
     private void Update()

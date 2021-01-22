@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7047467901214825879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7047467901214825877}
+  - component: {fileID: 7047467901214825878}
+  m_Layer: 0
+  m_Name: Player Control Key
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7047467901214825877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7047467901214825879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7047467901214825878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7047467901214825879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d6521411856ad41b26558961e507ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputs:
+  - identifier: left
+    val: 0
+    holdTime: 0
+    toggleInput: 0
+    keyCodes:
+    - leftarrow
+    - a
+    mouseButtons: []
+    gamePadButtons:
+    - dpad/left
+    - leftStick/left
+  - identifier: right
+    val: 0
+    holdTime: 0
+    toggleInput: 0
+    keyCodes:
+    - rightarrow
+    - d
+    mouseButtons: []
+    gamePadButtons:
+    - dpad/right
+    - leftStick/right
+  - identifier: jump
+    val: 0
+    holdTime: 0.2
+    toggleInput: 1
+    keyCodes:
+    - uparrow
+    - w
+    - space
+    mouseButtons: []
+    gamePadButtons:
+    - dpad/up
+    - buttonsouth
+  - identifier: down
+    val: 0
+    holdTime: 0
+    toggleInput: 0
+    keyCodes:
+    - downarrow
+    - s
+    mouseButtons: []
+    gamePadButtons:
+    - dpad/down
+    - leftStick/down
+  - identifier: attack
+    val: 0
+    holdTime: 0
+    toggleInput: 1
+    keyCodes:
+    - j
+    mouseButtons:
+    - leftButton
+    gamePadButtons:
+    - rightShoulder
+    - rightTrigger
+  - identifier: alt attack
+    val: 0
+    holdTime: 0
+    toggleInput: 1
+    keyCodes:
+    - k
+    mouseButtons:
+    - rightButton
+    gamePadButtons:
+    - leftShoulder
+    - leftTrigger
+  - identifier: dodge
+    val: 0
+    holdTime: 0
+    toggleInput: 1
+    keyCodes:
+    - shift
+    mouseButtons:
+    - middleButton
+    gamePadButtons:
+    - buttonEast
+    - buttonWest

@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &234926341
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2398,9 +2398,9 @@ MonoBehaviour:
   - {fileID: 4743320766704859657, guid: 9aa0300c1ebd81f40ab063dde2f77770, type: 3}
   width: 20
   height: 20
-  snakeCount: 3
-  snakeHopLength: 6
-  count: 0
+  maxCount: 12
+  minCount: 6
+  rolls: 2
 --- !u!4 &969473559
 Transform:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ public class LevelGenerator : MonoBehaviour
         public void Fill(Tilemap map)
         {
             Vector3Int v = pos - ((Vector3Int)room.size / 2);
-            Debug.Log(pos);
+            //Debug.Log(pos);
             for(int i = 0; i < room.size.x; i++)
             {
                 v.y = pos.y - (room.size.y / 2);
@@ -38,7 +38,7 @@ public class LevelGenerator : MonoBehaviour
                 {
                     map.SetTile(v, room.map.GetTile(v - pos));
                     v.y++;
-                    Debug.Log(v);
+                    //Debug.Log(v);
                 }
                 v.x++;
             }
@@ -50,11 +50,15 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (roomSetObjects.Length < 1)
+            return;
+        Vector2Int size = roomSetObjects[0].GetComponentInChildren<Room>().size;
+
         roomSet = new List<Room>();
         foreach(GameObject g in roomSetObjects)
         {
             Room r = g.GetComponentInChildren<Room>();
-            if (r && !roomSet.Contains(r))
+            if (r && !roomSet.Contains(r) && r.size == size)
             {
                 r.UpdateAttributes();
                 roomSet.Add(r);
@@ -64,24 +68,15 @@ public class LevelGenerator : MonoBehaviour
         GenerateLevel();
     }
 
-    private List<Room> GetRoomsOfType(Doors doors)
-    {
-        return roomSet.Where(x => 
-            ((x.doors & doors) == doors)).ToList();
-    }
-
-    private List<Room> GetRoomsOfType(Doors doors, Doors walls)
-    {
-        return roomSet.Where(x =>
-        ((x.doors & doors) == doors) && ((x.doors & walls) == Doors.none)).ToList();
-    }
-
     private PotentialRoom MakeRoom(Doors doors, Vector3Int pos)
     {
         List<Room> ls = roomSet.Where(x =>
             ((x.doors & doors) == doors)).ToList();
         if (ls.Count < 1)
+        {
+            Debug.Log("[Level Generation]\nNo suitable room found. Set may not be comprehensive.");
             return null;
+        }
 
         return new PotentialRoom(ls[Random.Range(0, ls.Count)], pos);
     }
@@ -91,9 +86,26 @@ public class LevelGenerator : MonoBehaviour
         List<Room> ls = roomSet.Where(x =>
         ((x.doors & doors) == doors) && ((x.doors & walls) == Doors.none)).ToList();
         if (ls.Count < 1)
+        {
+            Debug.Log("[Level Generation]\nNo suitable room found. Set may not be comprehensive.");
             return null;
+        }
 
         return new PotentialRoom(ls[Random.Range(0, ls.Count)], pos);
+    }
+
+    private Room FindRoomOfType(Doors doors, Doors walls)
+    {
+        List<Room> ls = roomSet.Where(x =>
+        ((x.doors & doors) == doors) && ((x.doors & walls) == Doors.none)).ToList();
+        if (ls.Count < 1)
+        {
+            Debug.Log("[Level Generation]\nNo suitable room found. Set may not be comprehensive." +
+                "doors: " + doors.ToString() + ", walls: " + walls);
+            return null;
+        }
+
+        return ls[Random.Range(0, ls.Count)];
     }
 
     private bool AddRoom(PotentialRoom pr)
@@ -138,6 +150,11 @@ public class LevelGenerator : MonoBehaviour
             GenerateLevel();
             return;
         }
+
+        foreach (PotentialRoom pr in rooms)
+        {
+            Close(pr);
+        }
         FillRooms();
     }
 
@@ -151,6 +168,49 @@ public class LevelGenerator : MonoBehaviour
             AddRoom(MakeRoom(Doors.up, pr.pos + Vector3Int.down * pr.room.size.y));
 
         pr.branched = true;
+    }
+
+    private bool Close(PotentialRoom pr)
+    {
+        bool changed = false;
+        Vector3Int v = pr.pos + Vector3Int.left * pr.room.size.x;
+        changed |= CloseHelper(pr, v, Doors.left, Doors.right);
+        v.x += pr.room.size.x * 2;
+        changed |= CloseHelper(pr, v, Doors.right, Doors.left);
+        v = pr.pos + Vector3Int.down * pr.room.size.y;
+        return changed | CloseHelper(pr, v, Doors.down, Doors.up);
+    }
+
+    private bool CloseHelper(PotentialRoom pr, Vector3Int v, Doors open, Doors opp)
+    {
+        if ((pr.room.doors & open) == 0)
+            return false;
+
+        if (occupiedPositions.Contains(v))
+        {
+            PotentialRoom connected = FindPotRoomAtPos(v);
+            if ((connected.room.doors & opp) == 0)
+            {
+                Doors newDoors = connected.room.doors | opp;
+                connected.room = FindRoomOfType(newDoors, ~newDoors);
+                return true;
+            }
+            return false;
+        }
+        else
+        {
+            Doors newDoors = pr.room.doors & ~open;
+            pr.room = FindRoomOfType(newDoors, ~newDoors);
+            return true;
+        }
+    }
+
+    private PotentialRoom FindPotRoomAtPos(Vector3Int v)
+    {
+        foreach (PotentialRoom pr in rooms)
+            if (pr.pos == v)
+                return pr;
+        return null;
     }
 
     private void FillRooms()

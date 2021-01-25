@@ -7,18 +7,16 @@ public class CameraFollow : MonoBehaviour
     [Header("Object to follow")]
     public GameObject player;
     [Header("Fraction by which to follow in each direction")]
-    [Range(0, 1)]
-    public float xMod = 0.075f;
-    [Range(0, 1)]
-    public float yMod = 0.1f;
-    [Header("How much velocity to apply as an position offset")]
-    [Range(0, 1)]
-    public float velMod = 0.35f;
+    public Vector2 followMod;
+
+    private float maxYDist;
 
     private void Start()
     {
         if (player == null)
             player = GameObject.FindObjectOfType<PlayerController>().gameObject;
+
+        maxYDist = GetComponent<Camera>().orthographicSize * 2 / 3;
     }
 
     /// <summary>
@@ -27,12 +25,19 @@ public class CameraFollow : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
+        if (!player)
+            return;
 
-        Vector3 camPos = transform.position, pPos = player.transform.position, velocity = player.GetComponent<Rigidbody2D>().velocity;
-        pPos += velocity * velMod;
+        Vector2 pos = player.transform.position;
+        transform.position = new Vector3(
+            Mathf.Lerp(transform.position.x, pos.x, followMod.x),
+            Mathf.Lerp(transform.position.y, pos.y, followMod.y), -10);
 
-        transform.position = new Vector3
-            (camPos.x - (camPos.x - pPos.x) * xMod,
-            camPos.y - (camPos.y - pPos.y) * yMod, -10);
+        if (transform.position.y > pos.y + maxYDist)
+            transform.position = new Vector3(transform.position.x,
+                pos.y + maxYDist, -10);
+        if (transform.position.y < pos.y - maxYDist)
+            transform.position = new Vector3(transform.position.x,
+                pos.y - maxYDist, -10);
     }
 }

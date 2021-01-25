@@ -8,6 +8,8 @@ public class CameraFollow : MonoBehaviour
     public GameObject player;
     [Header("Fraction by which to follow in each direction")]
     public Vector2 followMod;
+    [Range(0, 1f)]
+    public float maxYRatio;
 
     private float maxYDist;
 
@@ -16,7 +18,7 @@ public class CameraFollow : MonoBehaviour
         if (player == null)
             player = GameObject.FindObjectOfType<PlayerController>().gameObject;
 
-        maxYDist = GetComponent<Camera>().orthographicSize * 2 / 3;
+        maxYDist = GetComponent<Camera>().orthographicSize * maxYRatio;
     }
 
     /// <summary>

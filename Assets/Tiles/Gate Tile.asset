@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804d0007461d9a24eb25e5f1b8ccc56e, type: 3}
+  m_Name: Gate Tile
+  m_EditorClassIdentifier: 
+  extendAllTiles: 0
+  ignoreSelf: 0
+  sibling: {fileID: 11400000, guid: 375af7b7f3a9f874e9867a33c6cfdb9e, type: 2}
+  m_DefaultSprite: {fileID: 21300000, guid: a76221cf583622a439b48d42c1a749c7, type: 3}
+  m_DefaultGameObject: {fileID: 7003917462064070112, guid: 017e18b9372cdef4c9692c83f4a0f132,
+    type: 3}
+  m_DefaultColliderType: 0
+  m_TilingRules: []

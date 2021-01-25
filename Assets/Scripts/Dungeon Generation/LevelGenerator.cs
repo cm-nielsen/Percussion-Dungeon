@@ -6,11 +6,12 @@ using System.Linq;
 
 public class LevelGenerator : MonoBehaviour
 {
+    public List<GameObject> roomSetObjects;
     public Tilemap map;
-    public TileBase tile;
-    public GameObject[] roomSetObjects;
+    public RuleTile tile, gate, spawn;
+    public Vector2Int overflowSize;
 
-    public int width, height, maxCount, minCount, rolls;
+    public int maxCount, minCount, rolls;
 
     private List<Room> roomSet;
     private List<PotentialRoom> rooms;
@@ -27,7 +28,7 @@ public class LevelGenerator : MonoBehaviour
             room = r;
             pos = v;
         }
-        public void Fill(Tilemap map)
+        public void Fill(Tilemap map, TileBase tile)
         {
             Vector3Int v = pos - ((Vector3Int)room.size / 2);
             //Debug.Log(pos);
@@ -36,7 +37,9 @@ public class LevelGenerator : MonoBehaviour
                 v.y = pos.y - (room.size.y / 2);
                 for(int j = 0; j < room.size.y; j++)
                 {
-                    map.SetTile(v, room.map.GetTile(v - pos));
+                    TileBase t = room.map.GetTile(v - pos);
+                    if (t == tile)
+                        map.SetTile(v, room.map.GetTile(v - pos));
                     v.y++;
                     //Debug.Log(v);
                 }
@@ -45,12 +48,10 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    private Vector2 roomSize;
-
     // Start is called before the first frame update
     void Start()
     {
-        if (roomSetObjects.Length < 1)
+        if (roomSetObjects.Count < 1)
             return;
         Vector2Int size = roomSetObjects[0].GetComponentInChildren<Room>().size;
 
@@ -217,7 +218,28 @@ public class LevelGenerator : MonoBehaviour
     {
         foreach(PotentialRoom r in rooms)
         {
-            r.Fill(map);
+            r.Fill(map, tile);
         }
+
+        Vector3Int min = Vector3Int.zero, max = Vector3Int.zero;
+        foreach(Vector2Int v in occupiedPositions)
+        {
+            if (v.x < min.x)
+                min.x = v.x;
+            if (v.y < min.y)
+                min.y = v.y;
+
+            if (v.x > max.x)
+                max.x = v.x;
+            if (v.y > max.y)
+                max.y = v.y;
+        }
+        map.FloodFill(min - (Vector3Int)overflowSize, tile);
+        map.FloodFill(max + (Vector3Int)overflowSize, tile);
+
+        rooms[0].Fill(map, spawn);
+
+        PotentialRoom gateRoom = rooms[Random.Range(rooms.Count / 2, rooms.Count)];
+        gateRoom.Fill(map, gate);
     }
 }

@@ -7,7 +7,7 @@ public enum DamageType { light, heavy};
 public class DamageReceiver : MonoBehaviour
 {
     [System.Flags]
-    public enum KnockbackTypes { none, animation, physics }
+    public enum KnockbackTypes { none = 0, animation = 1, physics = 2, breakable = 4 }
     public KnockbackTypes recoil;
 
     public GameObject damageTextPrefab;
@@ -48,7 +48,7 @@ public class DamageReceiver : MonoBehaviour
         //physicsRecoil = (recoil & KnockbackTypes.physics) != 0;
     }
 
-    public void TakeDamage(DamageType dtype, float amount, Vector2 point)
+    public virtual void TakeDamage(DamageType dtype, float amount, Vector2 point)
     {
         if (invulnerable)
             return;

@@ -7,12 +7,12 @@ using System.Linq;
 public class LevelGenerator : MonoBehaviour
 {
     public List<GameObject> roomSetObjects;
-    public Tilemap map;
     public RuleTile tile, gate, spawn;
     public Vector2Int overflowSize;
 
     public int maxCount, minCount, rolls;
 
+    private Tilemap map;
     private List<Room> roomSet;
     private List<PotentialRoom> rooms;
     private List<Vector3Int> occupiedPositions;
@@ -51,6 +51,8 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        map = GetComponentInChildren<Tilemap>();
+
         if (roomSetObjects.Count < 1)
             return;
         Vector2Int size = roomSetObjects[0].GetComponentInChildren<Room>().size;

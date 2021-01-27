@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Blue Slider mat
   m_Shader: {fileID: 4800000, guid: 7f9298310f0e6bc4cbeb38d343dd80af, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

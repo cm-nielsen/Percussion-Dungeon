@@ -124,7 +124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7941904971488535853
 Transform:
   m_ObjectHideFlags: 0
@@ -204,7 +204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd594f06a42b1d4c8094deb26a8e2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 0}
   jumpChecker: {fileID: 7941904970352953957}
   moveForce: {x: 2, y: 5}
   isGround:

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   extendAllTiles: 0
   ignoreSelf: 0
-  sibling: {fileID: 11400000, guid: 205a9066edd819f418fdadbb7ebcbf58, type: 2}
+  sibling: {fileID: 0}
   m_DefaultSprite: {fileID: -7530679221909551479, guid: 1785dcbfdeeb0dd4aad0a134b9924137,
     type: 3}
   m_DefaultGameObject: {fileID: 0}

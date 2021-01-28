@@ -139,3 +139,5 @@ MonoBehaviour:
     a: 0.75
     b: 2
   deadMeat: {fileID: 6200000, guid: ac5786b3448c99a4a9e22ba9bd71812e, type: 2}
+  platformTile: {fileID: 11400000, guid: 375af7b7f3a9f874e9867a33c6cfdb9e, type: 2}
+  jarTile: {fileID: 11400000, guid: 6ce7825232992404e9c97616c551b3da, type: 2}

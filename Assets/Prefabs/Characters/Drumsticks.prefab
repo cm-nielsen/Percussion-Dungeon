@@ -121,7 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd594f06a42b1d4c8094deb26a8e2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 0}
   jumpChecker: {fileID: 9075661051922936272}
   moveForce: {x: 3, y: 7}
   isGround:
@@ -325,4 +324,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dType: 0
   movementValue: 1
-  vampMultiplier: 0.5
+  vampMultiplier: 0

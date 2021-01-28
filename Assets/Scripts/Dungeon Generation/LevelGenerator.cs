@@ -7,7 +7,8 @@ using System.Linq;
 public class LevelGenerator : MonoBehaviour
 {
     public List<GameObject> roomSetObjects;
-    public RuleTile tile, gate, spawn;
+    public RuleTile[] nonVariableTiles;
+    public RuleTile gate, spawn;
     public Vector2Int overflowSize;
 
     public int maxCount, minCount, rolls;
@@ -39,6 +40,24 @@ public class LevelGenerator : MonoBehaviour
                 {
                     TileBase t = room.map.GetTile(v - pos);
                     if (t == tile)
+                        map.SetTile(v, room.map.GetTile(v - pos));
+                    v.y++;
+                    //Debug.Log(v);
+                }
+                v.x++;
+            }
+        }
+        public void Fill(Tilemap map, TileBase[] tiles)
+        {
+            Vector3Int v = pos - ((Vector3Int)room.size / 2);
+            //Debug.Log(pos);
+            for (int i = 0; i < room.size.x; i++)
+            {
+                v.y = pos.y - (room.size.y / 2);
+                for (int j = 0; j < room.size.y; j++)
+                {
+                    TileBase t = room.map.GetTile(v - pos);
+                    if (tiles.Contains(t))
                         map.SetTile(v, room.map.GetTile(v - pos));
                     v.y++;
                     //Debug.Log(v);
@@ -159,6 +178,9 @@ public class LevelGenerator : MonoBehaviour
             Close(pr);
         }
         FillRooms();
+
+        //foreach (SpawnRandom s in GetComponentsInChildren<SpawnRandom>())
+        //    s.Spawn();
     }
 
     private void Branch(PotentialRoom pr)
@@ -220,7 +242,7 @@ public class LevelGenerator : MonoBehaviour
     {
         foreach(PotentialRoom r in rooms)
         {
-            r.Fill(map, tile);
+            r.Fill(map, nonVariableTiles);
         }
 
         Vector3Int min = Vector3Int.zero, max = Vector3Int.zero;
@@ -236,8 +258,8 @@ public class LevelGenerator : MonoBehaviour
             if (v.y > max.y)
                 max.y = v.y;
         }
-        map.FloodFill(min - (Vector3Int)overflowSize, tile);
-        map.FloodFill(max + (Vector3Int)overflowSize, tile);
+        map.FloodFill(min - (Vector3Int)overflowSize, nonVariableTiles[0]);
+        map.FloodFill(max + (Vector3Int)overflowSize, nonVariableTiles[0]);
 
         rooms[0].Fill(map, spawn);
 

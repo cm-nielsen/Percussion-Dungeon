@@ -25,11 +25,12 @@ public class HealthJar : DamageReceiver
     {
         while(orbs > 0)
         {
-            Instantiate(healthOrbPrefab);
+            Instantiate(healthOrbPrefab, transform.position, Quaternion.identity);
             orbs--;
         }
 
         GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
 
         pSystem.Play();
         killable = true;

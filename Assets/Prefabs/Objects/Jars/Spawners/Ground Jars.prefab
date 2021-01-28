@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5626251522934505403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2455755194772133822}
+  - component: {fileID: 5359518124808443014}
+  m_Layer: 0
+  m_Name: Ground Jars
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2455755194772133822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626251522934505403}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5359518124808443014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626251522934505403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59952612f631cb94ca8a1d33cbbab692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnChance: 0.025
+  pool:
+  - {fileID: 3164478222966118137, guid: c2303ddad4f1601439433bd3fbe04352, type: 3}
+  - {fileID: 5643853976771198281, guid: c0f58dec632b4ec4d8323595a64be7ea, type: 3}
+  - {fileID: 87138153600715317, guid: 8ad75474ebd74f545afcb9fc034ae243, type: 3}
+  - {fileID: 549817178789140126, guid: 53f41622856f1534f8a31417127ab15d, type: 3}
+  - {fileID: 2043626729413278306, guid: b9b162c250ad8d34daf3b87b924ceea3, type: 3}

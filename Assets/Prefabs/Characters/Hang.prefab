@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dType: 0
   movementValue: 1
-  vampMultiplier: 0.5
+  vampMultiplier: 0
 --- !u!1 &7941904971488535848
 GameObject:
   m_ObjectHideFlags: 0

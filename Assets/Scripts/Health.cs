@@ -39,14 +39,17 @@ public class Health : MonoBehaviour
         return dead;
     }
 
-    public void Heal(float am)
+    public bool Heal(float am)
     {
+        bool change = amount < max;
         amount += am;
         if (amount > max)
             amount = max;
 
         if (display)
             display.UpdateDisplay(amount / max);
+
+        return change;
     }
 
     private void OnDeath()

@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 1
-  movementValue: 5
+  movementValue: 2
   vampMultiplier: 0
 --- !u!1 &7989843426610759745
 GameObject:
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005006eb6eab91e4a82913664ece9822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 20
+  max: 10
   amount: 10
   display: {fileID: 7989843426610759751}
 --- !u!114 &7989843426610759751

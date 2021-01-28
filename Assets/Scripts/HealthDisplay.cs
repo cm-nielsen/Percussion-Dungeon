@@ -6,6 +6,6 @@ public class HealthDisplay : MonoBehaviour
 {
     public virtual void UpdateDisplay(float ratio)
     {
-        Debug.Log(gameObject.name + "'s new health: " + ratio * 100 + "%");
+        //Debug.Log(gameObject.name + "'s new health: " + ratio * 100 + "%");
     }
 }

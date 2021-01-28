@@ -13,18 +13,22 @@ public class HealthOrb : MonoBehaviour
             v.y *= -1;
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (!rb)
+            rb = GetComponentInParent<Rigidbody2D>();
+        if (!rb)
+            return;
+
         rb.velocity = v;
         rb.angularVelocity = Random.Range(-90, 90) * initialVelocity;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D c)
     {
-        Health h = collision.gameObject.GetComponent<Health>();
+        Health h = c.GetComponent<Health>();
         if (!h)
             return;
 
-        h.Heal(healAmount);
-
-        Destroy(gameObject);
+        if (h.Heal(healAmount))
+            Destroy(gameObject);
     }
 }

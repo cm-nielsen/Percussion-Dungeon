@@ -17,6 +17,7 @@ public class UpgradePickup : MonoBehaviour
                 GameObject.FindObjectOfType<PlayerController>().GetComponent<Health>().UpgradeMax();
                 break;
             case UpgradeType.bux:
+                Debug.Log("OMG!! VBUX!!!!!11!!");
                 //increase bux by one
                 break;
         }

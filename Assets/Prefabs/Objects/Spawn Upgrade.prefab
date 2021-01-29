@@ -46,3 +46,4 @@ MonoBehaviour:
   spawnChance: 1
   pool:
   - {fileID: 2658804264808251468, guid: 4f0b2ac89389aa748a12e811ed49c4c0, type: 3}
+  - {fileID: 3918967005829667190, guid: b8e20c7d73c6820408f57f9438ff907e, type: 3}

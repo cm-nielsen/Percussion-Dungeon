@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8876706954719900375}
   - component: {fileID: 7226822998961553738}
   - component: {fileID: 1676827009977562927}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Thicc Jar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

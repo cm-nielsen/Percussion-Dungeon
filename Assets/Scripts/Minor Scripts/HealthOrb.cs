@@ -29,6 +29,9 @@ public class HealthOrb : MonoBehaviour
             return;
 
         if (h.Heal(healAmount))
-            Destroy(gameObject);
+        {
+            GetComponentInParent<Animator>().SetTrigger("start");
+            this.enabled = false;
+        }
     }
 }

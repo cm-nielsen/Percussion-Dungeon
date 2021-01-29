@@ -10,7 +10,6 @@ public class HealthBarDisplay : HealthDisplay
     public bool canDrain = false;
 
     private SpriteRenderer fill;
-    private HealthBarDisplay next;
     private SegmentedHealthBarDisplay segBar;
 
     private float maxWidth, rat = 1, backRat = 1;
@@ -64,7 +63,8 @@ public class HealthBarDisplay : HealthDisplay
 
             segBar.NotifyFill(index);
         }
-        fill.size = new Vector2(ratio * maxWidth, fill.size.y);
+        if(fill)
+            fill.size = new Vector2(ratio * maxWidth, fill.size.y);
     }
 
     public void Initialize(SegmentedHealthBarDisplay seg,  int n) { segBar = seg; index = n; }

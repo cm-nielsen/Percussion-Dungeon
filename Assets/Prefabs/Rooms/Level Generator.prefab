@@ -74,16 +74,17 @@ MonoBehaviour:
   - {fileID: 3513635649977920517, guid: 9eea151860a380449bf44d7a6a33dcea, type: 3}
   - {fileID: 8296504931352313053, guid: 40f8018fffbe2a94c9a849429140abee, type: 3}
   - {fileID: 7305841771320731156, guid: 5a253cbe6b386c347b45e36615177559, type: 3}
-  nonVariableTiles:
-  - {fileID: 11400000, guid: 375af7b7f3a9f874e9867a33c6cfdb9e, type: 2}
-  - {fileID: 11400000, guid: 6ce7825232992404e9c97616c551b3da, type: 2}
-  - {fileID: 11400000, guid: 8272e8bfe2df3ab428d5e53e9801614f, type: 2}
+  platform: {fileID: 11400000, guid: 375af7b7f3a9f874e9867a33c6cfdb9e, type: 2}
+  jar: {fileID: 11400000, guid: 6ce7825232992404e9c97616c551b3da, type: 2}
+  enemy: {fileID: 11400000, guid: 8272e8bfe2df3ab428d5e53e9801614f, type: 2}
   gate: {fileID: 11400000, guid: cb7dc985fae7241459dd13936626ff1f, type: 2}
   spawn: {fileID: 11400000, guid: 162c09a26e691f742ab1a8962aa199ec, type: 2}
+  upgrade: {fileID: 11400000, guid: 62d8b3adb3ef18541906c4a33748c6a8, type: 2}
   overflowSize: {x: 25, y: 20}
   maxCount: 20
   minCount: 12
   rolls: 2
+  spawnUpgrade: 1
 --- !u!1 &247557387836651185
 GameObject:
   m_ObjectHideFlags: 0

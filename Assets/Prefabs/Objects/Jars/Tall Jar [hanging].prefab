@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2226598247491307213}
   - component: {fileID: 7009035584383189075}
   - component: {fileID: 7380365013905832970}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Tall Jar [hanging]
   m_TagString: Untagged
   m_Icon: {fileID: 0}

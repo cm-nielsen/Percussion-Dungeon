@@ -7,11 +7,11 @@ using System.Linq;
 public class LevelGenerator : MonoBehaviour
 {
     public List<GameObject> roomSetObjects;
-    public RuleTile[] nonVariableTiles;
-    public RuleTile gate, spawn;
+    public RuleTile platform, jar, enemy, gate, spawn, upgrade;
     public Vector2Int overflowSize;
 
     public int maxCount, minCount, rolls;
+    public bool spawnUpgrade;
 
     private Tilemap map;
     private List<Room> roomSet;
@@ -242,7 +242,7 @@ public class LevelGenerator : MonoBehaviour
     {
         foreach(PotentialRoom r in rooms)
         {
-            r.Fill(map, nonVariableTiles);
+            r.Fill(map, new TileBase[] { platform, jar, enemy });
         }
 
         Vector3Int min = Vector3Int.zero, max = Vector3Int.zero;
@@ -258,12 +258,21 @@ public class LevelGenerator : MonoBehaviour
             if (v.y > max.y)
                 max.y = v.y;
         }
-        map.FloodFill(min - (Vector3Int)overflowSize, nonVariableTiles[0]);
-        map.FloodFill(max + (Vector3Int)overflowSize, nonVariableTiles[0]);
+        map.FloodFill(min - (Vector3Int)overflowSize, platform);
+        map.FloodFill(max + (Vector3Int)overflowSize, platform);
 
         rooms[0].Fill(map, spawn);
 
-        PotentialRoom gateRoom = rooms[Random.Range(rooms.Count / 2, rooms.Count)];
+        int rand = Random.Range(rooms.Count / 2, rooms.Count), rand2 = 0;
+        PotentialRoom gateRoom = rooms[rand];
         gateRoom.Fill(map, gate);
+        if (spawnUpgrade)
+        {
+            rand2 = Random.Range(rooms.Count / 2, rooms.Count);
+            while (rand2 == rand)
+                rand2 = Random.Range(rooms.Count / 2, rooms.Count);
+            PotentialRoom upgradeRoom = rooms[rand2];
+            upgradeRoom.Fill(map, upgrade);
+        }
     }
 }

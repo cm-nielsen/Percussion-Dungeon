@@ -8,11 +8,11 @@ public class SegmentedHealthBarDisplay : HealthDisplay
     public Transform barEnd;
     public GameObject midBarPrefab;
 
-    public float pointsPerSegment;
-
     public List<HealthBarDisplay> barSegments;
 
-    public int partialIndex;
+    public int maxSegments;
+
+    private int partialIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +38,8 @@ public class SegmentedHealthBarDisplay : HealthDisplay
 
     public void AdjustSegmentCount(int num)
     {
+        if (num == maxSegments)
+            return;
         if (num <= 2)
         {
             barEnd.localPosition = Vector2.zero;
@@ -46,7 +48,7 @@ public class SegmentedHealthBarDisplay : HealthDisplay
             return;
         }
 
-        barEnd.localPosition = ((num - 2) / 2 * Vector2.right);
+        barEnd.localPosition = ((num - 2) / 2f * Vector2.right);
 
         RemoveAllMids();
 

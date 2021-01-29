@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max: 10
+  upgradeAmount: 5
   amount: 10
   display: {fileID: 0}
 --- !u!1 &9075661051922936273

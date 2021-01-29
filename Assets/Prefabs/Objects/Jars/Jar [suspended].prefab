@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2415324706980614749}
   - component: {fileID: 2415324706980614723}
   - component: {fileID: 2415324706980614722}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Jar [suspended]
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6854451182268136212}
-  - component: {fileID: 861076007211062454}
+  - component: {fileID: 2053365885278379066}
   - component: {fileID: 335341484113641285}
   m_Layer: 11
   m_Name: Collection Hitbox
@@ -32,8 +32,8 @@ Transform:
   m_Father: {fileID: 3823975171435190454}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &861076007211062454
-BoxCollider2D:
+--- !u!58 &2053365885278379066
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -46,18 +46,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.03125, y: 0.03125}
-  m_EdgeRadius: 0
+  m_Radius: 0.125
 --- !u!114 &335341484113641285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,9 +72,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3823975171435190454}
   - component: {fileID: 3823975171435190453}
-  - component: {fileID: 3823975171435190452}
+  - component: {fileID: 8212287176575116570}
   - component: {fileID: 3823975171435190443}
-  - component: {fileID: 7996744566546762132}
+  - component: {fileID: 5712423986095055578}
+  - component: {fileID: 36389386411690487}
   m_Layer: 13
   m_Name: Health Orb
   m_TagString: Untagged
@@ -101,7 +92,7 @@ Transform:
   m_GameObject: {fileID: 3823975171435190442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6854451182268136212}
   m_Father: {fileID: 0}
@@ -146,7 +137,8 @@ SpriteRenderer:
   m_SortingLayerID: -1398332871
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aac626a823c641f428ffe6ce4bfcf688, type: 3}
+  m_Sprite: {fileID: 8307602312631718364, guid: 925ba49cba72308449aa91fcc2952611,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -157,8 +149,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3823975171435190452
-BoxCollider2D:
+--- !u!58 &8212287176575116570
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -171,18 +163,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.03125, y: 0.03125}
-    newSize: {x: 0.03125, y: 0.03125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.03125, y: 0.03125}
-  m_EdgeRadius: 0
+  m_Radius: 0.125
 --- !u!50 &3823975171435190443
 Rigidbody2D:
   serializedVersion: 4
@@ -204,17 +186,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7996744566546762132
+--- !u!95 &5712423986095055578
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823975171435190442}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 050ced21e10634a4ea2560935b86c576, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &36389386411690487
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3823975171435190442}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e12842b75a381304baf893d254c21232, type: 3}
+  m_Script: {fileID: 11500000, guid: 6277cd44423d572408797a935863926c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healAmount: 1
-  initialVelocity: 3

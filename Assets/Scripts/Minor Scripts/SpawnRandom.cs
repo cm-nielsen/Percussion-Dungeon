@@ -10,7 +10,7 @@ public class SpawnRandom : MonoBehaviour
 
     public void Start()
     {
-        if (pool.Length > 0 && Random.Range(0, 1f) < spawnChance)
+        if (pool.Length > 0 && Random.Range(0, 1f) <= spawnChance)
         {
             Instantiate(pool[Random.Range(0, pool.Length)],
                 transform.position, Quaternion.identity);

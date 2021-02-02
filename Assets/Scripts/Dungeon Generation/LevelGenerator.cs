@@ -178,9 +178,6 @@ public class LevelGenerator : MonoBehaviour
             Close(pr);
         }
         FillRooms();
-
-        //foreach (SpawnRandom s in GetComponentsInChildren<SpawnRandom>())
-        //    s.Spawn();
     }
 
     private void Branch(PotentialRoom pr)

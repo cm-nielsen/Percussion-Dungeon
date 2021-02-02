@@ -17,6 +17,13 @@ public class Health : MonoBehaviour
             display = GetComponent<HealthDisplay>();
         if (!display)
             display = GetComponentInChildren<HealthDisplay>();
+
+        if (display)
+        {
+            if (display is SegmentedHealthBarDisplay)
+                (display as SegmentedHealthBarDisplay).AdjustSegmentCount(max / upgradeAmount);
+            display.UpdateDisplay(amount / max);
+        }
     }
 
     /// <summary>

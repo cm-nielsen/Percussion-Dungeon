@@ -20,9 +20,7 @@ public class SegmentedHealthBarDisplay : HealthDisplay
 
         AssignConnections();
 
-        //AdjustSegmentCount(6);
-        //AdjustSegmentCount(8);
-        AdjustSegmentCount(1);
+        //AdjustSegmentCount(1);
     }
 
     public override void UpdateDisplay(float ratio)
@@ -38,7 +36,7 @@ public class SegmentedHealthBarDisplay : HealthDisplay
 
     public void AdjustSegmentCount(int num)
     {
-        if (num == maxSegments)
+        if (num > maxSegments)
             return;
         if (num <= 2)
         {
@@ -65,6 +63,8 @@ public class SegmentedHealthBarDisplay : HealthDisplay
 
     private void RemoveAllMids()
     {
+        barSegments = GetComponentsInChildren<HealthBarDisplay>().ToList();
+
         while (barSegments.Count > 2)
         {
             Destroy(barSegments[1].transform.parent.gameObject);

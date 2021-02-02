@@ -121,4 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f653a5f3daa60949ba39a78896472f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: Shop
+  targetScene: Hub
+  loadingScene: 

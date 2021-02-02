@@ -687,12 +687,11 @@ MonoBehaviour:
   barEnd: {fileID: 3279576359119962721}
   midBarPrefab: {fileID: 5025212407309459548, guid: 6d29b4bc8c8aba747bfa5f1cf125d8f5,
     type: 3}
-  pointsPerSegment: 0
   barSegments:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  partialIndex: 0
+  maxSegments: 10
 --- !u!114 &3279576360644638761
 MonoBehaviour:
   m_ObjectHideFlags: 0

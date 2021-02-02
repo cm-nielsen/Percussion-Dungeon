@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7047467901214825878}
   m_Layer: 0
   m_Name: Player Control Key
-  m_TagString: Untagged
+  m_TagString: pControl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

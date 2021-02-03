@@ -19,8 +19,6 @@ public class SegmentedHealthBarDisplay : HealthDisplay
         barSegments = GetComponentsInChildren<HealthBarDisplay>().ToList();
 
         AssignConnections();
-
-        //AdjustSegmentCount(1);
     }
 
     public override void UpdateDisplay(float ratio)
@@ -65,11 +63,17 @@ public class SegmentedHealthBarDisplay : HealthDisplay
     {
         barSegments = GetComponentsInChildren<HealthBarDisplay>().ToList();
 
-        while (barSegments.Count > 2)
-        {
-            Destroy(barSegments[1].transform.parent.gameObject);
-            barSegments.RemoveAt(1);
-        }
+        foreach (HealthBarDisplay d in barSegments)
+            if (d.CompareTag("healthBarMid"))
+                Destroy(d.transform.parent.gameObject);
+
+        barSegments.RemoveAll(x => x.CompareTag("healthBarMid"));
+
+        //while (barSegments.Count > 2)
+        //{
+        //    Destroy(barSegments[1].transform.parent.gameObject);
+        //    barSegments.RemoveAt(1);
+        //}
     }
 
     private void AssignConnections()

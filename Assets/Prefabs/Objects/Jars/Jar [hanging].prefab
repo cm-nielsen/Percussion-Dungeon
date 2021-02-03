@@ -132,6 +132,7 @@ MonoBehaviour:
   invulnerable: 0
   healthOrbPrefab: {fileID: 3823975171435190442, guid: ae2005bbe78e2bc4da748f4cc7139dcf,
     type: 3}
+  breakSound: {fileID: 8300000, guid: a0f96fd2dcf65314794a6f7c3b207395, type: 3}
   orbs: 2
 --- !u!198 &774567605577965966
 ParticleSystem:

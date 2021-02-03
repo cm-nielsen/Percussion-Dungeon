@@ -21,28 +21,6 @@ public class GameController : MonoBehaviour
         }
         Destroy(gameObject);
     }
-
-    //private void OnLoad()
-    //{
-    //    if (!instance)
-    //    {
-    //        instance = gameObject;
-    //        DontDestroyOnLoad(gameObject);
-    //        LoadFromFile();
-    //    }
-    //    if (instance == gameObject)
-    //        ApplyParameters();
-
-    //    if (instance != gameObject)
-    //    {
-    //        Destroy(gameObject);
-    //        return;
-    //    }
-
-    //    Debug.Log("Yo");
-    //}
-
-    // Update is called once per frame
     void Update()
     {
         debug = GameData.healthUpgrades;
@@ -56,9 +34,9 @@ public class GameController : MonoBehaviour
 
     public void ApplyParameters(Scene s, LoadSceneMode m)
     {
-        Debug.Log("onScene load");
         Health h = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
         h.upgradeAmount = healthIncrement;
+        h.FindDisplay();
         h.SetMax((GameData.healthUpgrades + 2) * healthIncrement);
         //h.max = (GameData.healthUpgrades + 2) * healthIncrement;
     }

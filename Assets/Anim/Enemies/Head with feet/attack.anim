@@ -678,6 +678,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.4375
+    functionName: PlayClip
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: e4621f800e3424d499dbf785ea593a93,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.5625
     functionName: Move
     data: 

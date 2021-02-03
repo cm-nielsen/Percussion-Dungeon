@@ -6,6 +6,9 @@ public class CorpseBehavior : MonoBehaviour
 {
     public static DynamicMaterialSettings matSet;
     public static PhysicsMaterial2D deadMeat;
+    public static AudioClip thudSound;
+
+    private PlaySound audioPlayer;
 
     private Material mat;
     private float fade = 0, fadeDelay = 0.75f, fadeLength = 2f;
@@ -13,8 +16,6 @@ public class CorpseBehavior : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        //matSet = (DynamicMaterialSettings)Resources.Load("Scriptable Objects/Corpse Settings");
-        //Debug.Log(matSet.a);
         SpriteRenderer rend = GetComponent<SpriteRenderer>();
         if (rend)
         {
@@ -28,6 +29,8 @@ public class CorpseBehavior : MonoBehaviour
 
         fadeDelay = matSet.a;
         fadeLength = matSet.b;
+
+        audioPlayer = gameObject.AddComponent<PlaySound>();
     }
 
     // Update is called once per frame
@@ -42,6 +45,11 @@ public class CorpseBehavior : MonoBehaviour
             Destroy(mat);
             Destroy(gameObject);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        audioPlayer.PlayClip(thudSound);
     }
 }
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5025212406371895302}
   m_Layer: 0
   m_Name: reverse colour backing
-  m_TagString: Untagged
+  m_TagString: healthBarMid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 5025212406472078346}
   m_Layer: 0
   m_Name: fill
-  m_TagString: Untagged
+  m_TagString: healthBarMid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 5025212407309459522}
   m_Layer: 0
   m_Name: health bar mid
-  m_TagString: Untagged
+  m_TagString: healthBarMid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

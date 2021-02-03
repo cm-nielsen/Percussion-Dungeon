@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 7989843426610759769}
   - component: {fileID: 7989843426610759775}
   - component: {fileID: 7989843426610759751}
+  - component: {fileID: 5781084035189315907}
   m_Layer: 12
   m_Name: Head with feet
   m_TagString: Untagged
@@ -287,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max: 10
+  upgradeAmount: 0
   amount: 10
   display: {fileID: 7989843426610759751}
 --- !u!114 &7989843426610759751
@@ -299,5 +301,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5ebcaf21c1568e4da0413d98912e6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5781084035189315907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7989843426610759745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

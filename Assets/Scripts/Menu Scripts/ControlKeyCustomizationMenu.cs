@@ -12,7 +12,7 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
     /// <summary>
     /// control key whihc the menu is modifying
     /// </summary>
-    public ControlKey target;
+    private ControlKey target;
     /// <summary>
     /// set of mapaple controls seperated by iunput device
     /// </summary>
@@ -46,6 +46,7 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
     {
         displays = GetComponentsInChildren<Text>();
         UIInput = EventSystem.current.currentInputModule;
+        target = GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>();
     }
 
     private void Update()

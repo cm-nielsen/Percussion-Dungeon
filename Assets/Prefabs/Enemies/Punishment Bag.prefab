@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4723121523490382393}
   - component: {fileID: 4723121523490382387}
   - component: {fileID: 4723121523490382384}
+  - component: {fileID: 6178595179599191032}
   m_Layer: 12
   m_Name: Punishment Bag
   m_TagString: Untagged
@@ -194,5 +195,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bf908e44144c4645b09d4565c8cbb8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6178595179599191032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4723121523490382392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

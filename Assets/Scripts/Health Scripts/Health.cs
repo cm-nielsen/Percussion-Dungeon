@@ -13,19 +13,19 @@ public class Health : MonoBehaviour
     {
         amount = max;
 
+        FindDisplay();
+    }
+
+    public void FindDisplay()
+    {
+        if (GetComponent<PlayerController>())
+            display = GameObject.FindGameObjectWithTag("pHealth").GetComponent<SegmentedHealthBarDisplay>();
+
         if (!display)
             display = GetComponent<HealthDisplay>();
         if (!display)
             display = GetComponentInChildren<HealthDisplay>();
-
-        //if (display)
-        //{
-        //    if (display is SegmentedHealthBarDisplay)
-        //        (display as SegmentedHealthBarDisplay).AdjustSegmentCount(max / upgradeAmount);
-        //    display.UpdateDisplay(amount / max);
-        //}
     }
-
     /// <summary>
     /// reduces health by goven value, returns true if target has been killed
     /// </summary>

@@ -10,14 +10,23 @@ public class AssignStaticVariables : MonoBehaviour
 
     public DynamicMaterialSettings corpseMatSettings;
     public PhysicsMaterial2D deadMeat;
+    public AudioClip corpseSound;
+
     public TileBase platformTile, jarTile;
+
+    public AudioSourceSettings audioSettings;
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = frameRate;
+
         CorpseBehavior.matSet = corpseMatSettings;
         CorpseBehavior.deadMeat = deadMeat;
+        CorpseBehavior.thudSound = corpseSound;
+
         Room.platformTile = platformTile;
         Room.jarTile = jarTile;
+
+        PlaySound.settings = audioSettings;
     }
 }

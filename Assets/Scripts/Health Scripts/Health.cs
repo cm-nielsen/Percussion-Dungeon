@@ -18,12 +18,12 @@ public class Health : MonoBehaviour
         if (!display)
             display = GetComponentInChildren<HealthDisplay>();
 
-        if (display)
-        {
-            if (display is SegmentedHealthBarDisplay)
-                (display as SegmentedHealthBarDisplay).AdjustSegmentCount(max / upgradeAmount);
-            display.UpdateDisplay(amount / max);
-        }
+        //if (display)
+        //{
+        //    if (display is SegmentedHealthBarDisplay)
+        //        (display as SegmentedHealthBarDisplay).AdjustSegmentCount(max / upgradeAmount);
+        //    display.UpdateDisplay(amount / max);
+        //}
     }
 
     /// <summary>
@@ -62,6 +62,19 @@ public class Health : MonoBehaviour
     public void UpgradeMax()
     {
         max += upgradeAmount;
+        amount = max;
+
+        if (display)
+        {
+            if (display is SegmentedHealthBarDisplay)
+                (display as SegmentedHealthBarDisplay).AdjustSegmentCount(max / upgradeAmount);
+            display.UpdateDisplay(amount / max);
+        }
+    }
+
+    public void SetMax(int newMax)
+    {
+        max = newMax;
         amount = max;
 
         if (display)

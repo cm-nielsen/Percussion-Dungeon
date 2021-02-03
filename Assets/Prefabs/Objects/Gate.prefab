@@ -123,3 +123,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetScene: Hub
   loadingScene: 
+  transitionObject: {fileID: 8060022835938908057, guid: 1abb89810197f7a4ab6106ff79683411,
+    type: 3}

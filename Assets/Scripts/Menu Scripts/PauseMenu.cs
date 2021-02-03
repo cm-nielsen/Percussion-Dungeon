@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject baseMenu;
     public GameObject[] subMenus;
     public GameObject pointer;
-    public ControlKey playerKey;
+    private ControlKey playerKey;
 
     private enum State { closed, main, sub }
     private State state = State.closed;
@@ -21,6 +21,8 @@ public class PauseMenu : MonoBehaviour
         input = GetComponent<ControlKey>();
         if (!pointer)
             pointer = GameObject.FindObjectOfType<UIPointer>().gameObject;
+
+        playerKey = GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>();
     }
 
     // Update is called once per frame

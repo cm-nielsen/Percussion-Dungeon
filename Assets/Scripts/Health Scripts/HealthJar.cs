@@ -16,6 +16,8 @@ public class HealthJar : DamageReceiver
     {
         pSystem = GetComponent<ParticleSystem>();
         aSource = gameObject.AddComponent<AudioSource>();
+        AudioClipPlayer.ApplyParameters(aSource);
+
         aSource.clip = breakSound;
     }
 

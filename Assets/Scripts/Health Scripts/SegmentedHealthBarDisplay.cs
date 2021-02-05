@@ -14,7 +14,7 @@ public class SegmentedHealthBarDisplay : HealthDisplay
 
     private int partialIndex;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         barSegments = GetComponentsInChildren<HealthBarDisplay>().ToList();
 
@@ -40,6 +40,7 @@ public class SegmentedHealthBarDisplay : HealthDisplay
         {
             barEnd.localPosition = Vector2.zero;
             RemoveAllMids();
+            partialIndex = 1;
             AssignConnections();
             return;
         }
@@ -68,12 +69,6 @@ public class SegmentedHealthBarDisplay : HealthDisplay
                 Destroy(d.transform.parent.gameObject);
 
         barSegments.RemoveAll(x => x.CompareTag("healthBarMid"));
-
-        //while (barSegments.Count > 2)
-        //{
-        //    Destroy(barSegments[1].transform.parent.gameObject);
-        //    barSegments.RemoveAt(1);
-        //}
     }
 
     private void AssignConnections()

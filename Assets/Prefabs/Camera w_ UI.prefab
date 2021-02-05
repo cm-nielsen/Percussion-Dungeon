@@ -139,10 +139,12 @@ MonoBehaviour:
   audioSettings:
     spatialBlend: 1
     volume: 1
+    rollMode: 1
     pitch: 1
     doppler: 1
-    minDist: 0.1
-    maxDist: 10
+    spread: 180
+    minDist: 0
+    maxDist: 5
 --- !u!1001 &2861695402609933647
 PrefabInstance:
   m_ObjectHideFlags: 0

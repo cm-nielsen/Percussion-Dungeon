@@ -118,9 +118,12 @@ GameObject:
   - component: {fileID: 7941904971488535850}
   - component: {fileID: 7941904971488535849}
   - component: {fileID: 7941904971488535854}
+  - component: {fileID: 4438073548056870162}
+  - component: {fileID: 7391389665346756082}
+  - component: {fileID: 8784684795094972270}
   m_Layer: 8
   m_Name: Hang
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -291,3 +294,49 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4438073548056870162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7941904971488535848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1741fc1eb9aa5442841d5971c07ed28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recoil: 2
+  damageTextPrefab: {fileID: 0}
+  knockbackStrengthMod: 1
+  bullyability: 0
+  deathForce: 7
+  invulnerable: 0
+--- !u!114 &7391389665346756082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7941904971488535848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 005006eb6eab91e4a82913664ece9822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max: 6
+  upgradeAmount: 3
+  amount: 0
+  display: {fileID: 0}
+--- !u!114 &8784684795094972270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7941904971488535848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

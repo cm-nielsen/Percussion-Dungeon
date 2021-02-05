@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 9075661051462715636}
   - component: {fileID: 9075661051462715531}
   - component: {fileID: 326456782272598116}
-  - component: {fileID: 1038778240570185228}
   m_Layer: 8
   m_Name: Drumsticks
   m_TagString: Player
@@ -206,7 +205,7 @@ MonoBehaviour:
   recoil: 1
   damageTextPrefab: {fileID: 0}
   knockbackStrengthMod: 1
-  bullyability: 1000000
+  bullyability: 0
   deathForce: 7
   invulnerable: 0
 --- !u!114 &9075661051462715531
@@ -221,8 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005006eb6eab91e4a82913664ece9822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 10
-  upgradeAmount: 5
+  max: 9
+  upgradeAmount: 3
   amount: 10
   display: {fileID: 0}
 --- !u!114 &326456782272598116
@@ -237,14 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!81 &1038778240570185228
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9075661051462715644}
-  m_Enabled: 1
 --- !u!1 &9075661051922936273
 GameObject:
   m_ObjectHideFlags: 0

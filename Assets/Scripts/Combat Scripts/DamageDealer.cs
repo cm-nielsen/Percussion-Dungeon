@@ -39,8 +39,12 @@ public class DamageDealer : MonoBehaviour
         DamageReceiver[] rec = collision.GetComponents<DamageReceiver>();
 
         Vector2 dir = GetComponent<BoxCollider2D>().offset;
-        dir -= (Vector2)transform.parent.position;
-        dir += ((Vector2)transform.localScale - Vector2.up) * 1f;
+        //dir -= (Vector2)transform.parent.position;
+        if (parentSprite && parentSprite.flipX)
+            dir.x *= -1;
+        dir.x += transform.localScale.x;
+
+        dir -= Vector2.up;
 
         if (rec == null)
             return;
@@ -48,7 +52,8 @@ public class DamageDealer : MonoBehaviour
         foreach(DamageReceiver r in rec)
             r.TakeDamage(dType, movementValue * damageMultiplier, dir);
 
-        health.Heal(movementValue * damageMultiplier * vampMultiplier);
+        if(health && vampMultiplier > 0)
+            health.Heal(movementValue * damageMultiplier * vampMultiplier);
     }
 
     private void StartSwing()

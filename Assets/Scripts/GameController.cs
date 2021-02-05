@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 {
     private static GameObject instance = null;
 
-    public int healthIncrement = 5, debug;
+    public int healthIncrement = 5, minHealthUpgrades;
 
     private void OnEnable()
     {
@@ -21,10 +21,6 @@ public class GameController : MonoBehaviour
         }
         Destroy(gameObject);
     }
-    void Update()
-    {
-        debug = GameData.healthUpgrades;
-    }
 
     private void LoadFromFile()
     {
@@ -37,8 +33,13 @@ public class GameController : MonoBehaviour
         Health h = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
         h.upgradeAmount = healthIncrement;
         h.FindDisplay();
-        h.SetMax((GameData.healthUpgrades + 2) * healthIncrement);
-        //h.max = (GameData.healthUpgrades + 2) * healthIncrement;
+        h.max = (GameData.healthUpgrades + minHealthUpgrades - 1) * healthIncrement;
+        h.UpgradeMax();
+    }
+
+    public static void SaveGameData()
+    {
+
     }
 }
 

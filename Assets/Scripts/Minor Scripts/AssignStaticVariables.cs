@@ -27,6 +27,6 @@ public class AssignStaticVariables : MonoBehaviour
         Room.platformTile = platformTile;
         Room.jarTile = jarTile;
 
-        PlaySound.settings = audioSettings;
+        AudioClipPlayer.settings = audioSettings;
     }
 }

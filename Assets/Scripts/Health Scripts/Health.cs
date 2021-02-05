@@ -72,19 +72,6 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void SetMax(int newMax)
-    {
-        max = newMax;
-        amount = max;
-
-        if (display)
-        {
-            if (display is SegmentedHealthBarDisplay)
-                (display as SegmentedHealthBarDisplay).AdjustSegmentCount(max / upgradeAmount);
-            display.UpdateDisplay(amount / max);
-        }
-    }
-
     private void OnDeath()
     {
         //Debug.Log(gameObject.name + " has been killed.");

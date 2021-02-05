@@ -16,11 +16,12 @@ public class UpgradePickup : MonoBehaviour
             case UpgradeType.health:
                 GameObject.FindObjectOfType<PlayerController>().GetComponent<Health>().UpgradeMax();
                 GameData.healthUpgrades++;
+                GameController.SaveGameData();
                 break;
             case UpgradeType.bux:
                 Debug.Log("OMG!! VBUX!!!!!11!!");
                 GameData.castas++;
-                //increase bux by one
+                GameController.SaveGameData();
                 break;
         }
         Destroy(gameObject);

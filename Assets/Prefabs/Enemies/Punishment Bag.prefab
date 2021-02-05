@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 4723121523490382396}
   - component: {fileID: 4723121523490382399}
   - component: {fileID: 4723121523490382398}
-  - component: {fileID: 4723121523490382393}
   - component: {fileID: 4723121523490382387}
-  - component: {fileID: 4723121523490382384}
   - component: {fileID: 6178595179599191032}
+  - component: {fileID: 3752095888711337384}
   m_Layer: 12
   m_Name: Punishment Bag
   m_TagString: Untagged
@@ -155,18 +154,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.8}
   m_EdgeRadius: 0
---- !u!114 &4723121523490382393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4723121523490382392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b202e17aafe6748aa25f819e48258d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4723121523490382387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,23 +167,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 1
-  damageTextPrefab: {fileID: 0}
+  damageTextPrefab: {fileID: 1127431808502476526, guid: 775808d4686c6f548b29a53a6b3964f6,
+    type: 3}
   knockbackStrengthMod: 1
   bullyability: 0
   deathForce: 40
   invulnerable: 0
---- !u!114 &4723121523490382384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4723121523490382392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bf908e44144c4645b09d4565c8cbb8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6178595179599191032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,5 +183,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3752095888711337384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4723121523490382392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b202e17aafe6748aa25f819e48258d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

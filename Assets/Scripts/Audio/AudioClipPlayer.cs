@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaySound : MonoBehaviour
+public class AudioClipPlayer : MonoBehaviour
 {
     public static AudioSourceSettings settings;
 
@@ -26,16 +26,22 @@ public class PlaySound : MonoBehaviour
     public void PlayClip(AudioClip clip)
     {
         AudioSource s = gameObject.AddComponent<AudioSource>();
+        ApplyParameters(s);
+
+        s.clip = clip;
+        s.Play();
+        sources.Add(s);
+    }
+
+    public static void ApplyParameters(AudioSource s)
+    {
         s.volume = settings.volume;
         s.pitch = settings.pitch;
         s.dopplerLevel = settings.doppler;
         s.minDistance = settings.minDist;
         s.maxDistance = settings.maxDist;
-        s.spatialBlend = 1;
-
-        s.clip = clip;
-        s.Play();
-        sources.Add(s);
+        s.spatialBlend = settings.spatialBlend;
+        s.rolloffMode = settings.rollMode;
     }
 }
 
@@ -44,5 +50,6 @@ public struct AudioSourceSettings
 {
     [Range(0, 1)]
     public float spatialBlend, volume;
-    public float pitch, doppler, minDist, maxDist;
+    public AudioRolloffMode rollMode;
+    public float pitch, doppler, spread, minDist, maxDist;
 }

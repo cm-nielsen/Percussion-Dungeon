@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
         }
         anim.SetFloat("vy", rb.velocity.y);
         anim.SetBool("ground", canJump);
+        anim.SetBool("down", input["down"]);
     }
 
     // --------------------------------------------------------------------------------

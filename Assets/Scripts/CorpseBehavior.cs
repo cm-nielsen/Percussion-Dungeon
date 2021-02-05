@@ -8,7 +8,8 @@ public class CorpseBehavior : MonoBehaviour
     public static PhysicsMaterial2D deadMeat;
     public static AudioClip thudSound;
 
-    private PlaySound audioPlayer;
+    private AudioClipPlayer audioPlayer;
+    private float velocityThreshold = 2f;
 
     private Material mat;
     private float fade = 0, fadeDelay = 0.75f, fadeLength = 2f;
@@ -30,7 +31,7 @@ public class CorpseBehavior : MonoBehaviour
         fadeDelay = matSet.a;
         fadeLength = matSet.b;
 
-        audioPlayer = gameObject.AddComponent<PlaySound>();
+        audioPlayer = gameObject.AddComponent<AudioClipPlayer>();
     }
 
     // Update is called once per frame
@@ -49,7 +50,9 @@ public class CorpseBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        audioPlayer.PlayClip(thudSound);
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb && rb.velocity.magnitude > velocityThreshold)
+            audioPlayer.PlayClip(thudSound);
     }
 }
 

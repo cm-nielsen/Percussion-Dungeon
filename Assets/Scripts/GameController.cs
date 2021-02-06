@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     private void LoadFromFile()
     {
         GameData.healthUpgrades = 0;
-        GameData.castas = 1;
+        GameData.castas = 0;
     }
 
     public void ApplyParameters(Scene s, LoadSceneMode m)

@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour
         canDodge = true;
 
         input = GameObject.Find("Player Control Key").GetComponent<ControlKey>();
+
+        Music.onBeat.Add(OnBeat);
+        Music.offBeat.Add(OffBeat);
     }
 
     private void Update()
@@ -84,6 +87,17 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("vy", rb.velocity.y);
         anim.SetBool("ground", canJump);
         anim.SetBool("down", input["down"]);
+    }
+
+    [HideInInspector]
+    private void OnBeat()
+    {
+        anim.SetBool("beat", true);
+    }
+    [HideInInspector]
+    public void OffBeat()
+    {
+        anim.SetBool("beat", false);
     }
 
     // --------------------------------------------------------------------------------

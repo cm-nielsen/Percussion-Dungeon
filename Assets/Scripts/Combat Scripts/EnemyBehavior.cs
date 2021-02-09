@@ -35,7 +35,9 @@ public class EnemyBehavior : MonoBehaviour
             (rend.flipX && target.transform.position.x > transform.position.x ||
             !rend.flipX && target.transform.position.x < transform.position.x));
 
-        anim.SetBool("attack", Vector2.Distance(transform.position, target.position) < attackDistance);
+        bool shouldAttack = Vector2.Distance(transform.position, target.position) < attackDistance;
+        shouldAttack &= Music.beat;
+        anim.SetBool("attack", shouldAttack);
         //if (Vector2.Distance(transform.position, target.position) < attackDistance)
         //    anim.SetTrigger("attack");
 

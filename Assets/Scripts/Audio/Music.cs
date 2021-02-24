@@ -57,11 +57,11 @@ public class Music : MonoBehaviour
 
     private void OnBeat()
     {
-        GetComponent<SpriteRenderer>().enabled = true;
+        //GetComponent<SpriteRenderer>().enabled = true;
     }
 
     private void OffBeat()
     {
-        GetComponent<SpriteRenderer>().enabled = false;
+        //GetComponent<SpriteRenderer>().enabled = false;
     }
 }

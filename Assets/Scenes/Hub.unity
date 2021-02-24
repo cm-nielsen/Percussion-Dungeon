@@ -2016,7 +2016,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 120
-  beat: 0
 --- !u!1 &7429383182124708002
 GameObject:
   m_ObjectHideFlags: 0

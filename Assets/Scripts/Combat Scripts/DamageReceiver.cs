@@ -67,15 +67,12 @@ public class DamageReceiver : MonoBehaviour
 
         if (death)
         {
-            Die(point);
+            Die(point, amount);
             return;
         }
 
+        Recoil(dtype, amount, point, stunlockCounter >= bullyability && bullyability > 0);
         stunlockCounter += amount;
-        if (stunlockCounter >= bullyability && bullyability > 0)
-            return;
-
-        Recoil(dtype, amount, point);
     }
 
     public void ResetStunCount()
@@ -83,8 +80,19 @@ public class DamageReceiver : MonoBehaviour
         stunlockCounter = 0;
     }
 
-    private void Recoil(DamageType dtype, float amount, Vector2 point)
+    private void Recoil(DamageType dtype, float amount, Vector2 point, bool bully)
     {
+        if((recoil & KnockbackTypes.physics) != 0)
+        {
+            Vector2 v = (point.normalized) * amount * knockbackStrengthMod;
+            if (bully)
+                v /= 2;
+            rb.AddForce(v, ForceMode2D.Impulse);
+        }
+
+        if (bully)
+            return;
+
         if((recoil & KnockbackTypes.animation) != 0)
         {
             rend.flipX = point.x > 0;
@@ -101,14 +109,9 @@ public class DamageReceiver : MonoBehaviour
             }
         }
 
-        if((recoil & KnockbackTypes.physics) != 0)
-        {
-            rb.AddForce((point.normalized) * amount * knockbackStrengthMod,
-            ForceMode2D.Impulse);
-        }
     }
 
-    private void Die(Vector2 point)
+    private void Die(Vector2 point, float amount)
     {
         v = point;
 
@@ -120,7 +123,7 @@ public class DamageReceiver : MonoBehaviour
         }
 
         if ((recoil & KnockbackTypes.physics) != 0)
-            AddDeathForce();
+            AddDeathForce(amount);
     }
 
     public void AddDeathForce()
@@ -131,12 +134,26 @@ public class DamageReceiver : MonoBehaviour
         if (!rb)
             return;
 
-        v *= 4;
+        v += Vector2.up;
         //rb.sharedMaterial = deadMeat;
         rb.AddForce((v.normalized) * deathForce, ForceMode2D.Impulse);
 
         gameObject.AddComponent<CorpseBehavior>();
 
+        Destroy(this);
+    }
+
+    public void AddDeathForce(float amount)
+    {
+        if (!rb)
+            rb = GetComponent<Rigidbody2D>();
+        if (!rb)
+            return;
+
+        v *= 4;
+        v = (v.normalized) * (deathForce + amount * knockbackStrengthMod);
+        rb.AddForce(v, ForceMode2D.Impulse);
+        gameObject.AddComponent<CorpseBehavior>();
         Destroy(this);
     }
 }

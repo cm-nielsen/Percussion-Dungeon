@@ -14,7 +14,7 @@ public class UpgradePickup : MonoBehaviour
         switch (type)
         {
             case UpgradeType.health:
-                GameObject.FindObjectOfType<PlayerController>().GetComponent<Health>().UpgradeMax();
+                GameObject.FindObjectOfType<PlayerHealth>().UpgradeMax();
                 GameData.healthUpgrades++;
                 GameController.SaveGameData();
                 break;

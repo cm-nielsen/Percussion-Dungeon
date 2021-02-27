@@ -16,7 +16,11 @@ public class CameraFollow : MonoBehaviour
     private void Start()
     {
         if (player == null)
-            player = GameObject.FindObjectOfType<PlayerController>().gameObject;
+        {
+            PlayerController pcon = GameObject.FindObjectOfType<PlayerController>();
+            if(pcon)
+                player = pcon.gameObject;
+        }
 
         maxYDist = GetComponent<Camera>().orthographicSize * maxYRatio;
     }
@@ -27,6 +31,12 @@ public class CameraFollow : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
+        if (player == null)
+        {
+            PlayerController pcon = GameObject.FindObjectOfType<PlayerController>();
+            if (pcon)
+                player = pcon.gameObject;
+        }
         if (!player)
             return;
 

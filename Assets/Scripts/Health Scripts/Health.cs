@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int max, upgradeAmount;
+    public int max;
     public float amount;
 
     public HealthDisplay display;
@@ -57,19 +57,6 @@ public class Health : MonoBehaviour
             display.UpdateDisplay(amount / max);
 
         return change;
-    }
-
-    public void UpgradeMax()
-    {
-        max += upgradeAmount;
-        amount = max;
-
-        if (display)
-        {
-            if (display is SegmentedHealthBarDisplay)
-                (display as SegmentedHealthBarDisplay).AdjustSegmentCount(max / upgradeAmount);
-            display.UpdateDisplay(amount / max);
-        }
     }
 
     private void OnDeath()

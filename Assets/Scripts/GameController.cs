@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
     private static GameObject instance = null;
 
     public int healthIncrement = 5, minHealthUpgrades;
+    public GameObject currentWeaponPrefab;
+    public WeaponSet weaponSet;
 
     private void OnEnable()
     {
@@ -26,15 +28,19 @@ public class GameController : MonoBehaviour
     {
         GameData.healthUpgrades = 0;
         GameData.castas = 0;
+        GameData.unlocks = WeaponUnlocks.drumsticks;
+        GameData.current = WeaponUnlocks.rainstick;
     }
 
     public void ApplyParameters(Scene s, LoadSceneMode m)
     {
-        Health h = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
-        h.upgradeAmount = healthIncrement;
-        h.FindDisplay();
-        h.max = (GameData.healthUpgrades + minHealthUpgrades - 1) * healthIncrement;
-        h.UpgradeMax();
+        //Health h = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+        //h.upgradeAmount = healthIncrement;
+        //h.FindDisplay();
+        //h.max = (GameData.healthUpgrades + minHealthUpgrades - 1) * healthIncrement;
+        //h.UpgradeMax();
+
+        currentWeaponPrefab = weaponSet.GetWeapon(GameData.current);
     }
 
     public static void SaveGameData()
@@ -61,5 +67,36 @@ public struct GameData
     public static int healthUpgrades,
         castas;
 
-    public static WeaponUnlocks unlocks;
+    public static WeaponUnlocks unlocks, current;
+}
+
+[System.Serializable]
+public class WeaponSet
+{
+    public GameObject drumsticks, hang, rainstick, bongos,
+            triangle, cowbell, cymbals, marracas;
+
+    public GameObject GetWeapon(WeaponUnlocks u)
+    {
+        switch (u)
+        {
+            case WeaponUnlocks.drumsticks:
+                return drumsticks;
+            case WeaponUnlocks.hang:
+                return hang;
+            case WeaponUnlocks.rainstick:
+                return rainstick;
+            case WeaponUnlocks.bongos:
+                return bongos;
+            case WeaponUnlocks.triangle:
+                return triangle;
+            case WeaponUnlocks.cowbell:
+                return cowbell;
+            case WeaponUnlocks.cymbals:
+                return cymbals;
+            case WeaponUnlocks.marracas:
+                return marracas;
+        }
+        return drumsticks;
+    }
 }

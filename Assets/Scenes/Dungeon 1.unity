@@ -1435,6 +1435,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drumsticks
       objectReference: {fileID: 0}
+    - target: {fileID: 9075661051462715644, guid: 1503484e5f2de5549b0bc9bfe03643d0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1503484e5f2de5549b0bc9bfe03643d0, type: 3}
 --- !u!1001 &1932502734

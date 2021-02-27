@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 7941904971488535854}
   - component: {fileID: 4438073548056870162}
   - component: {fileID: 7391389665346756082}
+  - component: {fileID: 1358944884160600880}
   - component: {fileID: 8784684795094972270}
   m_Layer: 8
   m_Name: Hang
@@ -136,7 +137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7941904971488535848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.25, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7941904970662955074}
@@ -319,15 +320,30 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7941904971488535848}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 005006eb6eab91e4a82913664ece9822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   max: 6
-  upgradeAmount: 3
   amount: 0
   display: {fileID: 0}
+--- !u!114 &1358944884160600880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7941904971488535848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15783c5e04eacf408037b2da0f03b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max: 6
+  amount: 0
+  display: {fileID: 0}
+  upgradeAmount: 3
 --- !u!114 &8784684795094972270
 MonoBehaviour:
   m_ObjectHideFlags: 0

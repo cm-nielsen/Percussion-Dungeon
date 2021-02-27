@@ -92,12 +92,14 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     private void OnBeat()
     {
-        anim.SetBool("beat", true);
+        if(anim)
+            anim.SetBool("beat", true);
     }
     [HideInInspector]
     public void OffBeat()
     {
-        anim.SetBool("beat", false);
+        if(anim)
+            anim.SetBool("beat", false);
     }
 
     // --------------------------------------------------------------------------------

@@ -77,6 +77,96 @@ TextureImporter:
   - first:
       213: -6193393965933002741
     second: rainstick alt swing 2_24
+  - first:
+      213: -4276258936359153680
+    second: rainstick alt swing 2_0
+  - first:
+      213: 5618883943772600930
+    second: rainstick alt swing 2_1
+  - first:
+      213: -8415404279765777198
+    second: rainstick alt swing 2_2
+  - first:
+      213: 7441395669399777535
+    second: rainstick alt swing 2_3
+  - first:
+      213: 4528318207908335995
+    second: rainstick alt swing 2_4
+  - first:
+      213: -7187251412731026793
+    second: rainstick alt swing 2_5
+  - first:
+      213: -7211716007982349628
+    second: rainstick alt swing 2_6
+  - first:
+      213: 5885319121220450776
+    second: rainstick alt swing 2_7
+  - first:
+      213: -3310927108280411334
+    second: rainstick alt swing 2_8
+  - first:
+      213: 3080208701152794971
+    second: rainstick alt swing 2_9
+  - first:
+      213: 5516271839397190811
+    second: rainstick alt swing 2_10
+  - first:
+      213: 2691671245765555885
+    second: rainstick alt swing 2_11
+  - first:
+      213: 4356136271750797076
+    second: rainstick alt swing 2_12
+  - first:
+      213: -5156295930957581296
+    second: rainstick alt swing 2_13
+  - first:
+      213: -4645426183991873296
+    second: rainstick alt swing 2_14
+  - first:
+      213: -2169419834607261504
+    second: rainstick alt swing 2_15
+  - first:
+      213: 2542389526869798872
+    second: rainstick alt swing 2_16
+  - first:
+      213: -8783831764736007199
+    second: rainstick alt swing 2_17
+  - first:
+      213: 5483488945791456043
+    second: rainstick alt swing 2_18
+  - first:
+      213: -7325878304194097205
+    second: rainstick alt swing 2_19
+  - first:
+      213: -3588496355265504476
+    second: rainstick alt swing 2_20
+  - first:
+      213: -3916220275819707280
+    second: rainstick alt swing 2_21
+  - first:
+      213: 6881650007350816354
+    second: rainstick alt swing 2_22
+  - first:
+      213: 6802410079967041937
+    second: rainstick alt swing 2_23
+  - first:
+      213: -1284723872809407568
+    second: rainstick alt swing 2_24
+  - first:
+      213: -1241937592871641727
+    second: rainstick alt swing 2_25
+  - first:
+      213: 6591506857267660007
+    second: rainstick alt swing 2_26
+  - first:
+      213: -1579785371718860707
+    second: rainstick alt swing 2_27
+  - first:
+      213: -2128689861111550995
+    second: rainstick alt swing 2_28
+  - first:
+      213: 1401743244364122918
+    second: rainstick alt swing 2_29
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -178,7 +268,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 384
+        y: 448
         width: 128
         height: 64
       alignment: 0
@@ -188,8 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd657794eaff8df50800000000000000
-      internalID: 6906551152594605789
+      spriteID: 0ff09ba672da7a4c0800000000000000
+      internalID: -4276258936359153680
       vertices: []
       indices: 
       edges: []
@@ -199,7 +289,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 384
+        y: 448
         width: 128
         height: 64
       alignment: 0
@@ -209,8 +299,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 653d4b944745c1f10800000000000000
-      internalID: 2241759572953191254
+      spriteID: 26a36be3d294afd40800000000000000
+      internalID: 5618883943772600930
       vertices: []
       indices: 
       edges: []
@@ -220,7 +310,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 384
+        y: 448
         width: 128
         height: 64
       alignment: 0
@@ -230,29 +320,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 530aba9f1330086e0800000000000000
-      internalID: -1837465134790107083
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rainstick alt swing 2_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 384
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 292820863f90843f0800000000000000
-      internalID: -916471583143198062
+      spriteID: 2d4424fe46a763b80800000000000000
+      internalID: -8415404279765777198
       vertices: []
       indices: 
       edges: []
@@ -261,8 +330,8 @@ TextureImporter:
       name: rainstick alt swing 2_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 320
+        x: 128
+        y: 384
         width: 128
         height: 64
       alignment: 0
@@ -272,8 +341,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65f07bc7f184aad30800000000000000
-      internalID: 4443443282427973462
+      spriteID: b715f440b61d7de30800000000000000
+      internalID: 4528318207908335995
       vertices: []
       indices: 
       edges: []
@@ -282,7 +351,28 @@ TextureImporter:
       name: rainstick alt swing 2_5
       rect:
         serializedVersion: 2
-        x: 128
+        x: 256
+        y: 384
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7922eb87be0c14c90800000000000000
+      internalID: -7187251412731026793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainstick alt swing 2_6
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 320
         width: 128
         height: 64
@@ -293,14 +383,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86e0ea36f7e030570800000000000000
-      internalID: 8431598867663687272
+      spriteID: 4c2c6330086daeb90800000000000000
+      internalID: -7211716007982349628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rainstick alt swing 2_6
+      name: rainstick alt swing 2_8
       rect:
         serializedVersion: 2
         x: 256
@@ -314,35 +404,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52f2f9355b6565cc0800000000000000
-      internalID: -3722692705183125723
+      spriteID: a3b1cb946593d02d0800000000000000
+      internalID: -3310927108280411334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rainstick alt swing 2_7
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 320
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5212b0b587f07fdd0800000000000000
-      internalID: -2452474462481997531
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rainstick alt swing 2_8
+      name: rainstick alt swing 2_9
       rect:
         serializedVersion: 2
         x: 0
@@ -356,14 +425,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e87f5505d74885e60800000000000000
-      internalID: 7951250815876200334
+      spriteID: b59974a7e791fba20800000000000000
+      internalID: 3080208701152794971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rainstick alt swing 2_9
+      name: rainstick alt swing 2_10
       rect:
         serializedVersion: 2
         x: 128
@@ -377,50 +446,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fbe4ec050ad6a440800000000000000
-      internalID: 4946880955939089394
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rainstick alt swing 2_10
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 110f423dee5919480800000000000000
-      internalID: -8894162936102850543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rainstick alt swing 2_11
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 129d76bb3ff238660800000000000000
-      internalID: 7386800537685448993
+      spriteID: b9c92cfe20cbd8c40800000000000000
+      internalID: 5516271839397190811
       vertices: []
       indices: 
       edges: []
@@ -440,8 +467,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 350dfdfa53c5befe0800000000000000
-      internalID: -1158731093464068013
+      spriteID: 41796eefbda147c30800000000000000
+      internalID: 4356136271750797076
       vertices: []
       indices: 
       edges: []
@@ -461,8 +488,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01abb7b9b1f6624a0800000000000000
-      internalID: -6618480438010988016
+      spriteID: 0143b768b282178b0800000000000000
+      internalID: -5156295930957581296
       vertices: []
       indices: 
       edges: []
@@ -482,8 +509,197 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83e0cc6e9121801f0800000000000000
-      internalID: -1078592208299618760
+      spriteID: 0f0bdd88f71288fb0800000000000000
+      internalID: -4645426183991873296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainstick alt swing 2_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df6fb5fdc1684320800000000000000
+      internalID: 2542389526869798872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainstick alt swing 2_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e32e187c8f891680800000000000000
+      internalID: -8783831764736007199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainstick alt swing 2_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b235ea7b424491c40800000000000000
+      internalID: 5483488945791456043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainstick alt swing 2_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42b9d9ad399133ec0800000000000000
+      internalID: -3588496355265504476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainstick alt swing 2_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 074859d786ac6a9c0800000000000000
+      internalID: -3916220275819707280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainstick alt swing 2_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ea5bc9838808f50800000000000000
+      internalID: 6881650007350816354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainstick alt swing 2_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292820863f90843f0800000000000000
+      internalID: -916471583143198062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainstick alt swing 2_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5212b0b587f07fdd0800000000000000
+      internalID: -2452474462481997531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainstick alt swing 2_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 129d76bb3ff238660800000000000000
+      internalID: 7386800537685448993
       vertices: []
       indices: 
       edges: []
@@ -492,8 +708,8 @@ TextureImporter:
       name: rainstick alt swing 2_15
       rect:
         serializedVersion: 2
-        x: 384
-        y: 192
+        x: 0
+        y: 128
         width: 128
         height: 64
       alignment: 0
@@ -510,74 +726,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rainstick alt swing 2_16
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97bb3dd028e10a3f0800000000000000
-      internalID: -891679182292796551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rainstick alt swing 2_17
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a541e9e56cca7920800000000000000
-      internalID: 2988926040801363365
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rainstick alt swing 2_18
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 128
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28dca483dde2386d0800000000000000
-      internalID: -2989494199976800894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: rainstick alt swing 2_19
       rect:
         serializedVersion: 2
-        x: 384
-        y: 128
+        x: 128
+        y: 64
         width: 128
         height: 64
       alignment: 0
@@ -589,111 +742,6 @@ TextureImporter:
       bones: []
       spriteID: 9a700560679032890800000000000000
       internalID: -7484127753242933335
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rainstick alt swing 2_20
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cf02df97ec798ed20800000000000000
-      internalID: 3308060839369318652
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rainstick alt swing 2_21
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 136d7a6adde49e730800000000000000
-      internalID: 4028838055550375473
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rainstick alt swing 2_22
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 64
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aed7840ac9df28840800000000000000
-      internalID: 5225017366849027562
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rainstick alt swing 2_23
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 64
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7e2b808985269bb0800000000000000
-      internalID: -4929711469613076867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rainstick alt swing 2_24
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b0004828005ac0aa0800000000000000
-      internalID: -6193393965933002741
       vertices: []
       indices: 
       edges: []

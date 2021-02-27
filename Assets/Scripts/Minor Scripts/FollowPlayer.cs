@@ -12,7 +12,11 @@ public class FollowPlayer : MonoBehaviour
     private void FixedUpdate()
     {
         if (player == null)
-            player = GameObject.FindObjectOfType<PlayerController>().gameObject;
+        {
+            PlayerController pcon = GameObject.FindObjectOfType<PlayerController>();
+            if (pcon)
+                player = pcon.gameObject;
+        }
         if (!player)
             return;
 

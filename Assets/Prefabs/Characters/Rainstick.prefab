@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 192621037982460635}
   - component: {fileID: 192621037982460634}
   - component: {fileID: 192621037982460633}
-  - component: {fileID: 192621037982460632}
   - component: {fileID: 573705831220980091}
   - component: {fileID: 192621037982460455}
   - component: {fileID: 192621037982460454}
@@ -221,21 +220,6 @@ MonoBehaviour:
   bullyability: 0
   deathForce: 7
   invulnerable: 0
---- !u!114 &192621037982460632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192621037982460453}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005006eb6eab91e4a82913664ece9822, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  max: 9
-  amount: 10
-  display: {fileID: 0}
 --- !u!114 &573705831220980091
 MonoBehaviour:
   m_ObjectHideFlags: 0

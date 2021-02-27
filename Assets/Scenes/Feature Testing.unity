@@ -209,7 +209,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max: 0
-  upgradeAmount: 0
   amount: 0
   display: {fileID: 0}
 --- !u!1001 &1363302195
@@ -741,7 +740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ac1b7aaf5b630140828f3d7b264173b, type: 3}
---- !u!1001 &192621038257003608
+--- !u!1001 &2144495782
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2

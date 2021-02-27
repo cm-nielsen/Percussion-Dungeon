@@ -43,6 +43,7 @@ public class Health : MonoBehaviour
         if (display)
             display.UpdateDisplay(amount / max);
 
+        Debug.Log(this.GetType());
         return dead;
     }
 

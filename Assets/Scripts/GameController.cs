@@ -47,6 +47,12 @@ public class GameController : MonoBehaviour
     {
 
     }
+
+    public void SetCurrentWeap(GameObject weap)
+    {
+        currentWeaponPrefab = weap;
+        GameData.current = weaponSet.GetType(weap);
+    }
 }
 
 [System.Flags]
@@ -98,5 +104,28 @@ public class WeaponSet
                 return marracas;
         }
         return drumsticks;
+    }
+
+    public WeaponUnlocks GetType(GameObject g)
+    {
+        if (g.name == drumsticks.name)
+            return WeaponUnlocks.drumsticks;
+        else if (g.name == hang.name)
+            return WeaponUnlocks.hang;
+        else if (g.name == rainstick.name)
+            return WeaponUnlocks.rainstick;
+        else if (g.name == bongos.name)
+            return WeaponUnlocks.bongos;
+        else if (g.name == triangle.name)
+            return WeaponUnlocks.triangle;
+        else if (g.name == cowbell.name)
+            return WeaponUnlocks.cowbell;
+        else if (g.name == cymbals.name)
+            return WeaponUnlocks.cymbals;
+        else if (g.name == marracas.name)
+            return WeaponUnlocks.marracas;
+
+        Debug.Log("weapn prefab not found in set");
+        return WeaponUnlocks.drumsticks;
     }
 }

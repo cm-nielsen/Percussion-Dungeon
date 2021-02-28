@@ -8,7 +8,11 @@ public class PlayerHealth : Health
     // Start is called before the first frame update
     void Start()
     {
+        amount = max;
         GameController gcon = GameObject.FindObjectOfType<GameController>();
+        if (!gcon)
+            return;
+
         upgradeAmount = gcon.healthIncrement;
         FindDisplay();
         max = (GameData.healthUpgrades + gcon.minHealthUpgrades - 1) * upgradeAmount;

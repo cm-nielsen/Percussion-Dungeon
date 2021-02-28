@@ -190,27 +190,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64081a66ec6478f4f9be83c557b548bc, type: 3}
---- !u!1 &515888750 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7941904971488535848, guid: 56c2b278319edc442a5a5fc7681dcb83,
-    type: 3}
-  m_PrefabInstance: {fileID: 1892387592}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &515888759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515888750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005006eb6eab91e4a82913664ece9822, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  max: 0
-  amount: 0
-  display: {fileID: 0}
 --- !u!1001 &1363302195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -740,72 +719,77 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ac1b7aaf5b630140828f3d7b264173b, type: 3}
---- !u!1001 &2144495782
+--- !u!1001 &730985383665990485
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 192621037982460453, guid: abdef71b0c184d148beefd0e575bac7f,
-        type: 3}
-      propertyPath: m_Name
-      value: Rainstick
-      objectReference: {fileID: 0}
-    - target: {fileID: 192621037982460639, guid: abdef71b0c184d148beefd0e575bac7f,
+    - target: {fileID: 614926639923312940, guid: abdef71b0c184d148beefd0e575bac7f,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 192621037982460639, guid: abdef71b0c184d148beefd0e575bac7f,
+    - target: {fileID: 614926639923312940, guid: abdef71b0c184d148beefd0e575bac7f,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 192621037982460639, guid: abdef71b0c184d148beefd0e575bac7f,
+    - target: {fileID: 614926639923312940, guid: abdef71b0c184d148beefd0e575bac7f,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 192621037982460639, guid: abdef71b0c184d148beefd0e575bac7f,
+    - target: {fileID: 614926639923312940, guid: abdef71b0c184d148beefd0e575bac7f,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 192621037982460639, guid: abdef71b0c184d148beefd0e575bac7f,
+    - target: {fileID: 614926639923312940, guid: abdef71b0c184d148beefd0e575bac7f,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 192621037982460639, guid: abdef71b0c184d148beefd0e575bac7f,
+    - target: {fileID: 614926639923312940, guid: abdef71b0c184d148beefd0e575bac7f,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 192621037982460639, guid: abdef71b0c184d148beefd0e575bac7f,
+    - target: {fileID: 614926639923312940, guid: abdef71b0c184d148beefd0e575bac7f,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 192621037982460639, guid: abdef71b0c184d148beefd0e575bac7f,
+    - target: {fileID: 614926639923312940, guid: abdef71b0c184d148beefd0e575bac7f,
         type: 3}
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 192621037982460639, guid: abdef71b0c184d148beefd0e575bac7f,
+    - target: {fileID: 614926639923312940, guid: abdef71b0c184d148beefd0e575bac7f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 192621037982460639, guid: abdef71b0c184d148beefd0e575bac7f,
+    - target: {fileID: 614926639923312940, guid: abdef71b0c184d148beefd0e575bac7f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 192621037982460639, guid: abdef71b0c184d148beefd0e575bac7f,
+    - target: {fileID: 614926639923312940, guid: abdef71b0c184d148beefd0e575bac7f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 614926639923313110, guid: abdef71b0c184d148beefd0e575bac7f,
+        type: 3}
+      propertyPath: m_Name
+      value: Rainstick
+      objectReference: {fileID: 0}
+    - target: {fileID: 614926639923313110, guid: abdef71b0c184d148beefd0e575bac7f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abdef71b0c184d148beefd0e575bac7f, type: 3}

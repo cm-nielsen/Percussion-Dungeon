@@ -5,32 +5,25 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private ControlKey input;
-    public Transform jumpChecker;
+
     public Vector2 moveForce;
     public LayerMask isGround;
-    public float maxFallSpeed, throwForce;
+    public float maxFallSpeed, throwForce, xFriction;
 
     private GameObject thrownDrum;
     private Rigidbody2D rb;
     private SpriteRenderer rend;
     private Animator anim;
+    private BoxCollider2D hitbox;
 
     public bool canJump, canDodge;
 
-    /// <summary>
-    /// Draws shapes in the inpsector window, used to show jump/wall "hitboxes"
-    /// </summary>
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = new Color(1, 0.5f, 0.5f, 0.5f);
-        Gizmos.DrawCube(jumpChecker.position, jumpChecker.localScale);
-    }
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        hitbox = GetComponent<BoxCollider2D>();
         canDodge = true;
 
         input = GameObject.Find("Player Control Key").GetComponent<ControlKey>();
@@ -47,46 +40,71 @@ public class PlayerController : MonoBehaviour
     // is caled at a fixed rate
     void FixedUpdate()
     {
-        rb.velocity *= Vector2.up;
-        if (input["right"] && !canJump && !rend.flipX)
-            rb.velocity += moveForce.x * Vector2.right;
-        else if (input["left"] && !canJump && rend.flipX)
-            rb.velocity += moveForce.x * Vector2.left;
+        if (canJump)
+        {
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("run"))
+                ApplyRunForce();
+            else
+                rb.velocity *= Vector2.up;
+        }
+        else
+        {
+                AirControl();
+            if (rb.velocity.y > maxFallSpeed)
+                rb.velocity = new Vector2(rb.velocity.x, maxFallSpeed);
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("jump") ||
+                anim.GetCurrentAnimatorStateInfo(0).IsName("fall"))
+            {
+                TurnTowardsInput();
+            }
+        }
 
-        if (rb.velocity.y > maxFallSpeed)
-            rb.velocity = new Vector2(rb.velocity.x, maxFallSpeed);
-
-        if (input["jump"])
-            anim.SetTrigger("jump");
     }
 
     private void UpdateAnimator()
     {
-        canJump = Physics2D.OverlapBox(jumpChecker.position, jumpChecker.localScale, 0, isGround);
+        canJump = Physics2D.Raycast(transform.position, Vector2.down, hitbox.size.y / 2 + 0.05f, isGround);
+
+        if (input["jump"])
+            anim.SetTrigger("jump");
 
         if (input["attack"])
             anim.SetTrigger("attack");
         if (input["alt attack"])
             anim.SetTrigger("alt attack");
+
         if (input["dodge"] && canJump && canDodge)
         {
             canDodge = false;
             anim.SetTrigger("dodge");
         }
-        if ((input["right"] && !input["left"] && rend.flipX) ||
-            (input["left"] && !input["right"] && !rend.flipX))
-        {
-            anim.SetBool("run", false);
-            anim.SetBool("turn", true);
-        }
-        else
-        {
-            anim.SetBool("turn", false);
-            anim.SetBool("run", (input["left"] && !input["right"]) || (input["right"] && !input["left"]));
-        }
+
         anim.SetFloat("vy", rb.velocity.y);
+        anim.SetFloat("vx", Mathf.Abs(rb.velocity.x));
         anim.SetBool("ground", canJump);
         anim.SetBool("down", input["down"]);
+
+        anim.SetBool("run", input["left"] || input["right"]);
+    }
+
+    private void ApplyRunForce()
+    {
+        TurnTowardsInput();
+        if (input["right"])
+            rb.AddForce(moveForce.x * Vector2.right);
+        else if (input["left"])
+            rb.AddForce(moveForce.x * Vector2.left);
+        rb.velocity = new Vector2(rb.velocity.x * xFriction, rb.velocity.y);
+    }
+
+    private void AirControl()
+    {
+        if (input["right"])
+            rb.AddForce(moveForce.x * Vector2.right);
+        else if (input["left"])
+            rb.AddForce(moveForce.x * Vector2.left);
+
+        rb.velocity = new Vector2(rb.velocity.x * Mathf.Sqrt(xFriction), rb.velocity.y);
     }
 
     [HideInInspector]
@@ -116,6 +134,8 @@ public class PlayerController : MonoBehaviour
             dir += moveForce.x * Vector2.right;
         if (input["left"])
             dir += moveForce.x * Vector2.left;
+
+        dir.x /= 4;
         rb.AddForce(dir, ForceMode2D.Impulse);
     }
 

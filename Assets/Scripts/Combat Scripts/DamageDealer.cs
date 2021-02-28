@@ -56,7 +56,7 @@ public class DamageDealer : MonoBehaviour
             health.Heal(movementValue * damageMultiplier * vampMultiplier);
     }
 
-    private void StartSwing()
+    public void StartSwing()
     {
         ignore.Clear();
     }

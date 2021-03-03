@@ -74,7 +74,8 @@ AnimationClip:
   - time: 0
     functionName: Jump
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 8300000, guid: c0f6174164c3c6443b8281c880422828,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

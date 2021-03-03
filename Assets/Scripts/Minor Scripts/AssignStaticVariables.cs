@@ -18,7 +18,7 @@ public class AssignStaticVariables : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = frameRate;
+        Application.targetFrameRate = 16;
 
         CorpseBehavior.matSet = corpseMatSettings;
         CorpseBehavior.deadMeat = deadMeat;

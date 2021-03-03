@@ -42,9 +42,10 @@ public class PlayerController : MonoBehaviour
     {
         if (canJump)
         {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("run"))
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("run") ||
+                anim.GetCurrentAnimatorStateInfo(0).IsName("land"))
                 ApplyRunForce();
-            else
+            else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("fall"))
                 rb.velocity *= Vector2.up;
         }
         else
@@ -65,8 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         canJump = Physics2D.Raycast(transform.position, Vector2.down, hitbox.size.y / 2 + 0.05f, isGround);
 
-        if (input["jump"])
-            anim.SetTrigger("jump");
+        anim.SetBool("jump", input["jump"] && canJump);
 
         if (input["attack"])
             anim.SetTrigger("attack");
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
         else if (input["left"])
             rb.AddForce(moveForce.x * Vector2.left);
 
-        rb.velocity = new Vector2(rb.velocity.x * Mathf.Sqrt(xFriction), rb.velocity.y);
+        rb.velocity = new Vector2(rb.velocity.x * Mathf.Pow(xFriction, .6f), rb.velocity.y);
     }
 
     [HideInInspector]
@@ -130,13 +130,15 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         Vector2 dir = moveForce.y * Vector2.up;
-        if (input["right"])
-            dir += moveForce.x * Vector2.right;
-        if (input["left"])
-            dir += moveForce.x * Vector2.left;
+        //if (input["right"])
+        //    dir += moveForce.x * Vector2.right;
+        //if (input["left"])
+        //    dir += moveForce.x * Vector2.left;
 
-        dir.x /= 4;
+        //dir.x /= 4;
         rb.AddForce(dir, ForceMode2D.Impulse);
+        canJump = false;
+        anim.SetBool("ground", false);
     }
 
     private void ThrowDrum(GameObject prefab)

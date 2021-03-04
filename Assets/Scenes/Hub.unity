@@ -171,7 +171,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a8ba93418cccfaa4289f71c719258772, type: 2}
+  - {fileID: 2100000, guid: 6614ff46410d06441a222b22040a7347, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1845,6 +1845,41 @@ PrefabInstance:
     - target: {fileID: 5544768852182859711, guid: 5367988279cf1aa47afc794148f23d96,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025757232457910667, guid: 5367988279cf1aa47afc794148f23d96,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025757232649507039, guid: 5367988279cf1aa47afc794148f23d96,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025757232670136938, guid: 5367988279cf1aa47afc794148f23d96,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025757232801593183, guid: 5367988279cf1aa47afc794148f23d96,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025757233223712230, guid: 5367988279cf1aa47afc794148f23d96,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025757234020615220, guid: 5367988279cf1aa47afc794148f23d96,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025757234115587292, guid: 5367988279cf1aa47afc794148f23d96,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

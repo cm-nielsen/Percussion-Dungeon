@@ -7,14 +7,13 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject baseMenu;
-    public GameObject[] subMenus;
     public GameObject pointer;
-    private ControlKey playerKey;
 
     private enum State { closed, main, sub }
     private State state = State.closed;
 
-    private ControlKey input;
+    private List<GameObject> subMenus;
+    private ControlKey input, playerKey;
     private PlayerController pcon;
 
     private Button back;
@@ -26,6 +25,11 @@ public class PauseMenu : MonoBehaviour
             pointer = GameObject.FindObjectOfType<UIPointer>().gameObject;
 
         playerKey = GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>();
+
+        subMenus = new List<GameObject>();
+        foreach (Transform t in baseMenu.transform.parent)
+            if (t.name.ToLower().Contains("menu"))
+                subMenus.Add(t.gameObject);
     }
 
     // Update is called once per frame

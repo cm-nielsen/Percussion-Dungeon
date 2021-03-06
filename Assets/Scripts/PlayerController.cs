@@ -8,13 +8,14 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 moveForce;
     public LayerMask isGround;
-    public float maxFallSpeed, throwForce, xFriction;
+    public float maxFallSpeed, throwForce, xFriction, coyoteTime = 0.2f;
 
     private GameObject thrownDrum;
     private Rigidbody2D rb;
     private SpriteRenderer rend;
     private Animator anim;
     private BoxCollider2D hitbox;
+    private float cTimer = 0;
 
     public bool canJump, canDodge;
 
@@ -64,7 +65,16 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimator()
     {
-        canJump = Physics2D.Raycast(transform.position, Vector2.down, hitbox.size.y / 2 + 0.05f, isGround);
+        if(Physics2D.Raycast(transform.position, Vector2.down, hitbox.size.y / 2 + 0.05f, isGround))
+        {
+            canJump = true;
+            cTimer = 0;
+        }
+        else
+        {
+            canJump = cTimer < coyoteTime;
+            cTimer += Time.deltaTime;
+        }
 
         anim.SetBool("jump", input["jump"] && canJump);
 
@@ -129,6 +139,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
+        rb.velocity *= Vector2.right;
         Vector2 dir = moveForce.y * Vector2.up;
         //if (input["right"])
         //    dir += moveForce.x * Vector2.right;
@@ -139,6 +150,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(dir, ForceMode2D.Impulse);
         canJump = false;
         anim.SetBool("ground", false);
+        cTimer = coyoteTime;
     }
 
     private void ThrowDrum(GameObject prefab)

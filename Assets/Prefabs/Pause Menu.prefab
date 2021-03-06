@@ -64,6 +64,7 @@ MonoBehaviour:
   colourPreview: {fileID: 9170316955532104440}
   colourView: {fileID: 8431465610436764206}
   presetButton: {fileID: 8642346218109683211}
+  back: {fileID: 6016182709625151441}
 --- !u!1 &818655175225620740
 GameObject:
   m_ObjectHideFlags: 0
@@ -12390,7 +12391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 2
+    m_Mode: 3
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}

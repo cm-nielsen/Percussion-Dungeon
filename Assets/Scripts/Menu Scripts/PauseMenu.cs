@@ -30,6 +30,9 @@ public class PauseMenu : MonoBehaviour
         foreach (Transform t in baseMenu.transform.parent)
             if (t.name.ToLower().Contains("menu"))
                 subMenus.Add(t.gameObject);
+
+        foreach (GameObject g in subMenus)
+            g.SetActive(false);
     }
 
     // Update is called once per frame

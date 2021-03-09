@@ -1,21 +1,20 @@
-﻿Shader "Custom/ColourCustomization"
+﻿Shader "Custom/VisualEffects"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-		_MonoCol ("Mono Colour", Color) = (0, 0, 0, 0)
-		_MainCol("Main Colour", Color) = (1, 1, 1, 1)
     }
+		
     SubShader
     {
-		Tags{
-			"Queue" = "Transparent"
-		}
         // No culling or depth
         Cull Off ZWrite Off ZTest Always
 
+		Tags{ "RenderType" = "Transparent" }
+
         Pass
         {
+				Tags { "LightMode" = "ForwardBase" }
 		Blend SrcAlpha OneMinusSrcAlpha
             CGPROGRAM
             #pragma vertex vert
@@ -44,26 +43,20 @@
             }
 
             sampler2D _MainTex;
-			fixed4 _MonoCol;
-			fixed4 _MainCol;
-			int _DualMono;
+			float _ColSpace;
+			float _Vignette;
 
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
-				//if (col.a > 0 && col.r == 0 && col.g == 0 && col.b == 0)
-				//	col = _MonoCol;
-				//else
-				//	col *= _MainCol;
-
-				float n = step(col.r + col.g + col.b, .1);
-
-				col.rgb = ((_MonoCol * n) + (col.rgb * (1.0 - n))).rgb;
-				col.rgb *= ((col.rgb * n) + (_MainCol * (1.0 - n))).rgb;
-
-				col.rgb = ((1 - _DualMono) * col.rgb) +
-					(_DualMono * ((_MonoCol * n) + (_MainCol* (1.0 - n))).rgb);
-
+			
+				// vignette
+			    col.rgb *= (1 - _Vignette) + ((1.5 - 2 * distance(i.uv.y, 0.5)) * _Vignette);
+				
+				// colour space reduction
+				col.r = floor(col.r * _ColSpace) / _ColSpace;
+				col.g = floor(col.g * _ColSpace) / _ColSpace;
+				col.b = floor(col.b * _ColSpace) / _ColSpace;
                 return col;
             }
             ENDCG

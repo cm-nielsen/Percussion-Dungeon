@@ -24,7 +24,7 @@ public class ManualCameraRenderer : MonoBehaviour
             elapsed -= threshhold;
             cam.Render();
         }
-        Debug.Log("YEET");
-        cam.Render();
+        //Debug.Log("YEET");
+        //cam.Render();
     }
 }

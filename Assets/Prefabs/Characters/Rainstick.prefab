@@ -110,6 +110,7 @@ MonoBehaviour:
   maxFallSpeed: 100
   throwForce: 10
   xFriction: 0.8
+  coyoteTime: 0.2
   canJump: 0
   canDodge: 0
 --- !u!114 &614926639923312943

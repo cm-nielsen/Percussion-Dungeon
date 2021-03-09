@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player:
     main: {r: 0, g: 0, b: 0, a: 1}
-    mono: {r: 1, g: 1, b: 1, a: 1}
+    mono: {r: 0, g: 0, b: 0, a: 1}
   enemy:
     main: {r: 0, g: 0, b: 0, a: 1}
-    mono: {r: 1, g: 1, b: 1, a: 1}
+    mono: {r: 0, g: 0, b: 0, a: 1}
   platform:
     main: {r: 0, g: 0, b: 0, a: 1}
     mono: {r: 1, g: 1, b: 1, a: 1}
@@ -29,4 +29,4 @@ MonoBehaviour:
     mono: {r: 1, g: 1, b: 1, a: 1}
   objects:
     main: {r: 0, g: 0, b: 0, a: 1}
-    mono: {r: 1, g: 1, b: 1, a: 1}
+    mono: {r: 0, g: 0, b: 0, a: 1}

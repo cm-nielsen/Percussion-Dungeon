@@ -8,16 +8,10 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
     public List<VisualEffectBoolean> toggleEffects;
     public List<VisualEffectSlider> sliderEffects;
     public List<GameObjectToggle> volumeEffects;
+    public Slider camShakeSlider;
     public Sprite tBox, fBox;
-    public Shader effectShader;
 
     private List<VisualEffect> effects = new List<VisualEffect>();
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Setup();
-    }
 
     public void Setup()
     {
@@ -30,15 +24,78 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
         foreach (VisualEffect e in volumeEffects)
             effects.Add(e);
 
+        ApplySavedSettings();
+
         foreach (VisualEffect e in effects)
             e.SetToDefault();
+    }
+
+    private void ApplySavedSettings()
+    {
+        VisualEffectSettings v = GameData.vfxSettings;
+        for(int i = 0; i < v.toggle.Count; i++)
+        {
+            foreach (VisualEffectBoolean e in toggleEffects)
+                if (e.name == v.toggle[i])
+                    e.defaultValue = v.toggleVal[i];
+        }
+        for (int i = 0; i < v.slider.Count; i++)
+        {
+            foreach (VisualEffectSlider e in sliderEffects)
+                if (e.name == v.slider[i])
+                    e.defaultValue = v.sliderVal[i];
+        }
+        for (int i = 0; i < v.volume.Count; i++)
+        {
+            foreach (GameObjectToggle e in volumeEffects)
+                if (e.name == v.volume[i])
+                    e.defaultValue = v.volumeVal[i];
+        }
+        float shake = GameData.vfxSettings.camShake;
+        Camera.main.GetComponent<CameraFollow>().shakeMultiplier = shake;
+        camShakeSlider.value = shake;
+    }
+
+    private void SaveSettings()
+    {
+        VisualEffectSettings v = GameData.vfxSettings;
+        for (int i = 0; i < v.toggle.Count; i++)
+        {
+            foreach (VisualEffectBoolean e in toggleEffects)
+                if (e.name == v.toggle[i])
+                    v.toggleVal[i] = e.toggle == 1;
+        }
+        for (int i = 0; i < v.slider.Count; i++)
+        {
+            foreach (VisualEffectSlider e in sliderEffects)
+                if (e.name == v.slider[i])
+                    v.sliderVal[i] = Mathf.Pow(e.slider.value, e.exponentialModifier);
+        }
+        for (int i = 0; i < v.volume.Count; i++)
+        {
+            foreach (GameObjectToggle e in volumeEffects)
+                if (e.name == v.volume[i])
+                    v.volumeVal[i] = e.toggle;
+        }
+        GameController.SaveGameData();
     }
 
     public void ToggleEffect(string s)
     {
         foreach (VisualEffect e in effects)
             if (e.name == s)
+            {
                 e.ToggleEffect();
+                SaveSettings();
+                return;
+            }
+    }
+
+    public void SetCamShake()
+    {
+        Camera.main.GetComponent<CameraFollow>().shakeMultiplier = camShakeSlider.value;
+        GameData.vfxSettings.camShake = camShakeSlider.value;
+        GameController.SaveGameData();
     }
 
     [System.Serializable]
@@ -46,7 +103,7 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
     {
         public bool defaultValue = false;
         public Image checkbox;
-        private int toggle = 0;
+        public int toggle = 0;
 
         public override void SetToDefault()
         {
@@ -88,7 +145,7 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
         public GameObject obj;
         public Image checkbox;
         public bool defaultValue;
-        private bool toggle;
+        public bool toggle;
 
         public override void SetToDefault()
         {
@@ -99,7 +156,6 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
 
         public override void ToggleEffect()
         {
-            Debug.Log("YEET");
             toggle = !toggle;
             obj.SetActive(toggle);
             checkbox.sprite = toggle ? tBox : fBox;
@@ -113,5 +169,37 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
 
         public virtual void SetToDefault() { }
         public virtual void ToggleEffect() { }
+    }
+}
+
+public struct VisualEffectSettings
+{
+    public List<string> toggle, slider, volume;
+    public List<bool> toggleVal, volumeVal;
+    public List<float> sliderVal;
+    public float camShake;
+
+    public VisualEffectSettings(bool b = true)
+    {
+        toggle = new List<string>();
+        slider = new List<string>();
+        volume = new List<string>();
+        toggleVal = new List<bool>();
+        volumeVal = new List<bool>();
+        sliderVal = new List<float>();
+
+        toggle.Add("dmono");
+        toggleVal.Add(false);
+        toggle.Add("vignette");
+        toggleVal.Add(true);
+
+        slider.Add("cspace");
+        sliderVal.Add(16);
+        slider.Add("camshake");
+        sliderVal.Add(1);
+
+        volume.Add("CRT");
+        volumeVal.Add(false);
+        camShake = 1;
     }
 }

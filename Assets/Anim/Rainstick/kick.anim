@@ -230,6 +230,34 @@ AnimationClip:
     path: Damage Hitbox
     classID: 114
     script: {fileID: 11500000, guid: 8677d45868bbd914c92e8c4586c95a9c, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.0625
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.1875
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: dType
+    path: Damage Hitbox
+    classID: 114
+    script: {fileID: 11500000, guid: 8677d45868bbd914c92e8c4586c95a9c, type: 3}
   m_PPtrCurves:
   - curve:
     - time: 0
@@ -281,6 +309,13 @@ AnimationClip:
       script: {fileID: 11500000, guid: 8677d45868bbd914c92e8c4586c95a9c, type: 3}
       typeID: 114
       customType: 24
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1878681945
+      attribute: 2805465499
+      script: {fileID: 11500000, guid: 8677d45868bbd914c92e8c4586c95a9c, type: 3}
+      typeID: 114
+      customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 0
@@ -548,6 +583,34 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: movementValue
+    path: Damage Hitbox
+    classID: 114
+    script: {fileID: 11500000, guid: 8677d45868bbd914c92e8c4586c95a9c, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.0625
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.1875
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: dType
     path: Damage Hitbox
     classID: 114
     script: {fileID: 11500000, guid: 8677d45868bbd914c92e8c4586c95a9c, type: 3}

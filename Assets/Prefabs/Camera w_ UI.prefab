@@ -117,6 +117,7 @@ MonoBehaviour:
   player: {fileID: 0}
   followMod: {x: 0.1, y: 0.05}
   maxYRatio: 0.5
+  shakeMultiplier: 1
 --- !u!114 &2621274286632860373
 MonoBehaviour:
   m_ObjectHideFlags: 0

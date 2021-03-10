@@ -21,16 +21,16 @@ public class DamageReceiver : MonoBehaviour
     private Material mat, flashMat;
     private Vector2 v;
 
-    private float stunlockCounter = 0, flashTimer = 0, animPauseTimer = 0;
+    private float stunlockCounter = 0, flashTimer = 0, animPauseTimer = 0, apt2 = 0;
     private bool lightAnim = false, heavyAnim = false, deathAnim = false;
 
     private void Start()
     {
+        rend = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+
         if ((recoil & KnockbackTypes.animation) != 0)
         {
-            anim = GetComponent<Animator>();
-            rend = GetComponent<SpriteRenderer>();
-
             foreach (AnimatorControllerParameter p in anim.parameters)
             {
                 if (p.name == "light hit")
@@ -45,7 +45,7 @@ public class DamageReceiver : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
 
-        mat = rend.material;
+        mat = rend.sharedMaterial;
         flashMat = new Material(mat.shader);
         SetFlashMatColors();
 
@@ -76,9 +76,19 @@ public class DamageReceiver : MonoBehaviour
             return;
         }
 
+        SetFlashMatColors();
         rend.material = flashMat;
-        flashTimer = 2 / 16f;
-        pauseAnimation(2);
+        switch (dtype)
+        {
+            case DamageType.light:
+                flashTimer = 2 / 16f;
+                pauseAnimation(2);
+                break;
+            case DamageType.heavy:
+                flashTimer = 5 / 16f;
+                pauseAnimation(5);
+                break;
+        }
 
         Recoil(dtype, amount, point, stunlockCounter >= bullyability && bullyability > 0);
         stunlockCounter += amount;
@@ -176,6 +186,13 @@ public class DamageReceiver : MonoBehaviour
                 rend.material = mat;
         }
 
+        if(apt2 > 0)
+        {
+            apt2 -= Time.deltaTime;
+            if (apt2 <= 0)
+                anim.speed = 0;
+        }
+
         if(anim.speed < 1)
         {
             if (animPauseTimer > 0)
@@ -187,13 +204,19 @@ public class DamageReceiver : MonoBehaviour
 
     private void SetFlashMatColors()
     {
-        flashMat.SetColor("_MonoCol", ReverseColourMaterial.ReverseColour(mat.GetColor("_MonoCol")));
-        flashMat.SetColor("_MainCol", ReverseColourMaterial.ReverseColour(mat.GetColor("_MainCol")));
+        flashMat.SetColor("_MonoCol", ReverseColour(mat.GetColor("_MonoCol")));
+        flashMat.SetColor("_MainCol", ReverseColour(mat.GetColor("_MainCol")));
+    }
+
+    private Color ReverseColour(Color c)
+    {
+        return new Color(1 - c.r, 1 - c.g, 1 - c.b);
     }
 
     public void pauseAnimation(int frames)
     {
-        anim.speed = 0;
+        //anim.speed = 0f;
+        apt2 = 3 / 32f;
         animPauseTimer = frames / 16f;
     }
 }

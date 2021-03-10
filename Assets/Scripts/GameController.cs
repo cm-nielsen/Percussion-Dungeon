@@ -30,6 +30,8 @@ public class GameController : MonoBehaviour
         GameData.castas = 0;
         GameData.unlocks = WeaponUnlocks.drumsticks;
         GameData.current = WeaponUnlocks.rainstick;
+
+        GameData.vfxSettings = new VisualEffectSettings(true);
     }
 
     public void ApplyParameters(Scene s, LoadSceneMode m)
@@ -74,6 +76,8 @@ public struct GameData
         castas;
 
     public static WeaponUnlocks unlocks, current;
+
+    public static VisualEffectSettings vfxSettings;
 }
 
 [System.Serializable]

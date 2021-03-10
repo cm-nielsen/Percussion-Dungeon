@@ -10,8 +10,12 @@ public class CameraFollow : MonoBehaviour
     public Vector2 followMod;
     [Range(0, 1f)]
     public float maxYRatio;
+    [Range(0, 2f)]
+    public float shakeMultiplier;
 
     private float maxYDist;
+
+    private Vector2 shakeP = Vector2.zero, shakeV;
 
     private void Start()
     {
@@ -45,11 +49,29 @@ public class CameraFollow : MonoBehaviour
             Mathf.Lerp(transform.position.x, pos.x, followMod.x),
             Mathf.Lerp(transform.position.y, pos.y, followMod.y), -10);
 
+        RunShake();
+
         if (transform.position.y > pos.y + maxYDist)
             transform.position = new Vector3(transform.position.x,
                 pos.y + maxYDist, -10);
         if (transform.position.y < pos.y - maxYDist)
             transform.position = new Vector3(transform.position.x,
                 pos.y - maxYDist, -10);
+    }
+
+    private void RunShake()
+    {
+        shakeP += shakeV;
+        shakeV -= shakeP / 10;
+        shakeV *= .8f;
+
+        transform.position += (Vector3)shakeP;
+    }
+
+    public void Shake(Vector2 dir, float amount)
+    {
+        shakeV += (dir.normalized + Random.insideUnitCircle + dir.normalized * amount / 2)
+            * shakeMultiplier / 200;
+        shakeP += shakeV;
     }
 }

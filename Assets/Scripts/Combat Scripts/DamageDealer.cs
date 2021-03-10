@@ -44,12 +44,24 @@ public class DamageDealer : MonoBehaviour
             dir.x *= -1;
         dir.x += transform.localScale.x;
 
-        dir -= Vector2.up;
+        dir += Vector2.up / 2;
 
-        if (rec == null)
+        if (rec == null || rec.Length == 0)
             return;
 
-        selfReciever.pauseAnimation(2);
+        if (selfReciever)
+        {
+            switch (dType)
+            {
+                case DamageType.light:
+                    selfReciever.pauseAnimation(0);
+                    break;
+                case DamageType.heavy:
+                    selfReciever.pauseAnimation(4);
+                    break;
+            }
+        }
+        Camera.main.GetComponent<CameraFollow>().Shake(dir, movementValue);
 
         foreach (DamageReceiver r in rec)
             r.TakeDamage(dType, movementValue * damageMultiplier, dir);

@@ -32,7 +32,13 @@ public class PauseMenu : MonoBehaviour
                 subMenus.Add(t.gameObject);
 
         foreach (GameObject g in subMenus)
+            g.SetActive(true);
+        foreach (RequiresInitialSetup m in GetComponentsInChildren<RequiresInitialSetup>())
+            m.Setup();
+
+        foreach (GameObject g in subMenus)
             g.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -106,4 +112,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         playerKey.enabled = true;
     }
+}
+
+public interface RequiresInitialSetup
+{
+    void Setup();
 }

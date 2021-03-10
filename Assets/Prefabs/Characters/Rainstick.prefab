@@ -312,6 +312,8 @@ MonoBehaviour:
   dType: 1
   movementValue: 6
   vampMultiplier: 0
+  hitspark: {fileID: 1813779937919026860, guid: 1ba11e048fcebb543acd16480602d3ce,
+    type: 3}
 --- !u!114 &614926639973661580
 MonoBehaviour:
   m_ObjectHideFlags: 0

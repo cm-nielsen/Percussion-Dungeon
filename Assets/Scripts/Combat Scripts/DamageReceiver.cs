@@ -18,9 +18,10 @@ public class DamageReceiver : MonoBehaviour
     private Animator anim;
     private SpriteRenderer rend;
     private Rigidbody2D rb;
+    private Material mat, flashMat;
     private Vector2 v;
 
-    private float stunlockCounter = 0;
+    private float stunlockCounter = 0, flashTimer = 0, animPauseTimer = 0;
     private bool lightAnim = false, heavyAnim = false, deathAnim = false;
 
     private void Start()
@@ -43,6 +44,10 @@ public class DamageReceiver : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
+
+        mat = rend.material;
+        flashMat = new Material(mat.shader);
+        SetFlashMatColors();
 
         //animationRecoil = (recoil & KnockbackTypes.animation) != 0;
         //physicsRecoil = (recoil & KnockbackTypes.physics) != 0;
@@ -70,6 +75,10 @@ public class DamageReceiver : MonoBehaviour
             Die(point, amount);
             return;
         }
+
+        rend.material = flashMat;
+        flashTimer = 2 / 16f;
+        pauseAnimation(2);
 
         Recoil(dtype, amount, point, stunlockCounter >= bullyability && bullyability > 0);
         stunlockCounter += amount;
@@ -155,5 +164,36 @@ public class DamageReceiver : MonoBehaviour
         rb.AddForce(v, ForceMode2D.Impulse);
         gameObject.AddComponent<CorpseBehavior>();
         Destroy(this);
+    }
+
+    private void Update()
+    {
+        if(rend.material != mat)
+        {
+            if (flashTimer > 0)
+                flashTimer -= Time.deltaTime;
+            else
+                rend.material = mat;
+        }
+
+        if(anim.speed < 1)
+        {
+            if (animPauseTimer > 0)
+                animPauseTimer -= Time.deltaTime;
+            else
+                anim.speed = 1;
+        }
+    }
+
+    private void SetFlashMatColors()
+    {
+        flashMat.SetColor("_MonoCol", ReverseColourMaterial.ReverseColour(mat.GetColor("_MonoCol")));
+        flashMat.SetColor("_MainCol", ReverseColourMaterial.ReverseColour(mat.GetColor("_MainCol")));
+    }
+
+    public void pauseAnimation(int frames)
+    {
+        anim.speed = 0;
+        animPauseTimer = frames / 16f;
     }
 }

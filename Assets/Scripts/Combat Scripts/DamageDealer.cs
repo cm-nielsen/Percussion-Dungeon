@@ -49,7 +49,9 @@ public class DamageDealer : MonoBehaviour
         if (rec == null)
             return;
 
-        foreach(DamageReceiver r in rec)
+        selfReciever.pauseAnimation(2);
+
+        foreach (DamageReceiver r in rec)
             r.TakeDamage(dType, movementValue * damageMultiplier, dir);
 
         if(health && vampMultiplier > 0)

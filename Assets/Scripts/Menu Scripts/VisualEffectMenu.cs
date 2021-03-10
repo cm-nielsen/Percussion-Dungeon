@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VisualEffectMenu : MonoBehaviour
+public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
 {
     public List<VisualEffectBoolean> toggleEffects;
     public List<VisualEffectSlider> sliderEffects;
@@ -16,6 +16,11 @@ public class VisualEffectMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Setup();
+    }
+
+    public void Setup()
+    {
         VisualEffect.tBox = tBox;
         VisualEffect.fBox = fBox;
         foreach (VisualEffect e in toggleEffects)
@@ -27,8 +32,6 @@ public class VisualEffectMenu : MonoBehaviour
 
         foreach (VisualEffect e in effects)
             e.SetToDefault();
-
-        //Camera.main.SetReplacementShader(effectShader, "RenderType");
     }
 
     public void ToggleEffect(string s)
@@ -96,6 +99,7 @@ public class VisualEffectMenu : MonoBehaviour
 
         public override void ToggleEffect()
         {
+            Debug.Log("YEET");
             toggle = !toggle;
             obj.SetActive(toggle);
             checkbox.sprite = toggle ? tBox : fBox;

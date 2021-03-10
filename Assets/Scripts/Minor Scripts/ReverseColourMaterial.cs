@@ -14,7 +14,7 @@ public class ReverseColourMaterial : MonoBehaviour
         modifiedMaterial.SetColor(propertyName, c);
     }
 
-    private Color ReverseColour(Color c)
+    public static Color ReverseColour(Color c)
     {
         float[] ar = { c.r, c.g, c.b };
 

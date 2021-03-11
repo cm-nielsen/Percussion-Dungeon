@@ -63,6 +63,9 @@ TagManager:
   - name: Interactables
     uniqueID: 2896634425
     locked: 0
+  - name: Effects
+    uniqueID: 3469662187
+    locked: 0
   - name: HUD
     uniqueID: 622531355
     locked: 0

@@ -16,7 +16,8 @@ public class DamageDealer : MonoBehaviour
 
     private void Start()
     {
-        selfReciever = GetComponentInParent<DamageReceiver>();
+        if (!selfReciever)
+            selfReciever = GetComponentInParent<DamageReceiver>();
         parentSprite = GetComponentInParent<SpriteRenderer>();
         health = GetComponentInParent<Health>();
 
@@ -88,7 +89,14 @@ public class DamageDealer : MonoBehaviour
 
     private void OnDisable()
     {
+        ignore.Clear();
         if (selfReciever)
             selfReciever.ResetStunCount();
+    }
+
+    public void SetSelfReceiver(DamageReceiver r)
+    {
+        Debug.Log(r.gameObject.name);
+        selfReciever = r;
     }
 }

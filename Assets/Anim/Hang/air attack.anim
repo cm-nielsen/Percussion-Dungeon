@@ -22,29 +22,35 @@ AnimationClip:
     - time: 0
       value: {fileID: -7012988109636895226, guid: 237cceb3ce432a64e8003b146914d1e7,
         type: 3}
-    - time: 0.125
+    - time: 0.0625
       value: {fileID: 2359888844006238499, guid: 237cceb3ce432a64e8003b146914d1e7,
         type: 3}
-    - time: 0.25
+    - time: 0.125
       value: {fileID: 1833258311871387674, guid: 237cceb3ce432a64e8003b146914d1e7,
         type: 3}
-    - time: 0.375
+    - time: 0.1875
       value: {fileID: 8817803958193168935, guid: 237cceb3ce432a64e8003b146914d1e7,
         type: 3}
-    - time: 0.5
+    - time: 0.25
       value: {fileID: -9058330048832081816, guid: 237cceb3ce432a64e8003b146914d1e7,
         type: 3}
-    - time: 0.625
+    - time: 0.3125
       value: {fileID: -3390486674578100807, guid: 237cceb3ce432a64e8003b146914d1e7,
         type: 3}
-    - time: 0.75
+    - time: 0.375
       value: {fileID: 3168837715164250138, guid: 237cceb3ce432a64e8003b146914d1e7,
+        type: 3}
+    - time: 0.4375
+      value: {fileID: 1239271111897836554, guid: 237cceb3ce432a64e8003b146914d1e7,
+        type: 3}
+    - time: 0.5
+      value: {fileID: -1913614273552996415, guid: 237cceb3ce432a64e8003b146914d1e7,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 8
+  m_SampleRate: 16
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -66,12 +72,14 @@ AnimationClip:
     - {fileID: -9058330048832081816, guid: 237cceb3ce432a64e8003b146914d1e7, type: 3}
     - {fileID: -3390486674578100807, guid: 237cceb3ce432a64e8003b146914d1e7, type: 3}
     - {fileID: 3168837715164250138, guid: 237cceb3ce432a64e8003b146914d1e7, type: 3}
+    - {fileID: 1239271111897836554, guid: 237cceb3ce432a64e8003b146914d1e7, type: 3}
+    - {fileID: -1913614273552996415, guid: 237cceb3ce432a64e8003b146914d1e7, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.875
+    m_StopTime: 0.5625
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -105,25 +113,39 @@ AnimationClip:
     floatParameter: 2
     intParameter: 0
     messageOptions: 0
-  - time: 0.5
+  - time: 0.3125
     functionName: VerticalImpulse
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 1.3
     intParameter: 0
     messageOptions: 0
-  - time: 0.5
+  - time: 0.3125
     functionName: LockPosition
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.5
+  - time: 0.3125
     functionName: ThrowDrum
     data: 
     objectReferenceParameter: {fileID: 210140242927460872, guid: ecd3e4b6cca107b4bb5cdac3d002cf82,
       type: 3}
     floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.4375
+    functionName: VerticalImpulse
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: -1
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
+    functionName: VerticalImpulse
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: -1
     intParameter: 0
     messageOptions: 0

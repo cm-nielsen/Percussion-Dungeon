@@ -19,7 +19,8 @@ public class DamageReceiver : MonoBehaviour
     private SpriteRenderer rend;
     private Rigidbody2D rb;
     private Material mat, flashMat;
-    private Vector2 v;
+    private Vector2 v, prevVel;
+    private RigidbodyConstraints2D prevCon;
 
     private float stunlockCounter = 0, flashTimer = 0, animPauseTimer = 0, apt2 = 0;
     private bool lightAnim = false, heavyAnim = false, deathAnim = false;
@@ -198,7 +199,11 @@ public class DamageReceiver : MonoBehaviour
             if (animPauseTimer > 0)
                 animPauseTimer -= Time.deltaTime;
             else
+            {
                 anim.speed = 1;
+                rb.constraints = prevCon;
+                rb.velocity = prevVel;
+            }
         }
     }
 
@@ -215,7 +220,11 @@ public class DamageReceiver : MonoBehaviour
 
     public void pauseAnimation(int frames)
     {
-        //anim.speed = 0f;
+        Debug.Log("YEET");
+        prevVel = rb.velocity;
+        if (rb.constraints != RigidbodyConstraints2D.FreezeAll)
+            prevCon = rb.constraints;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
         apt2 = 3 / 32f;
         animPauseTimer = frames / 16f;
     }

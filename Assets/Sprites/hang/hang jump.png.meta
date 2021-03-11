@@ -17,6 +17,24 @@ TextureImporter:
   - first:
       213: 7307219153367806980
     second: hang jump_4
+  - first:
+      213: 8772749143786103880
+    second: hang jump_0
+  - first:
+      213: -8502474689130635106
+    second: hang jump_1
+  - first:
+      213: -2595253107975459802
+    second: hang jump_2
+  - first:
+      213: 1078409835329073818
+    second: hang jump_3
+  - first:
+      213: -4273514660890982467
+    second: hang jump_4
+  - first:
+      213: -4026473563290490015
+    second: hang jump_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,6 +136,90 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844abf2cdd01fb970800000000000000
+      internalID: 8772749143786103880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hang jump_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e906e9a7154210a80800000000000000
+      internalID: -8502474689130635106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hang jump_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ce4ec6c0fcbfbd0800000000000000
+      internalID: -2595253107975459802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hang jump_3
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92b315180847fe00800000000000000
+      internalID: 1078409835329073818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hang jump_4
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 100
         height: 100
@@ -128,14 +230,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2adf3c4aef15bf60800000000000000
-      internalID: 8049375000156690986
+      spriteID: db74b27de0d61b4c0800000000000000
+      internalID: -4273514660890982467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hang jump_1
+      name: hang jump_5
       rect:
         serializedVersion: 2
         x: 100
@@ -149,71 +251,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d93391dbb1df8a0a0800000000000000
-      internalID: -6869962935975201891
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hang jump_2
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3fff7b4b35562f820800000000000000
-      internalID: 2950532116069744627
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hang jump_3
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90a3eef642828ad50800000000000000
-      internalID: 6748688178576505353
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hang jump_4
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4043b6cca15786560800000000000000
-      internalID: 7307219153367806980
+      spriteID: 16ba19a90a71f18c0800000000000000
+      internalID: -4026473563290490015
       vertices: []
       indices: 
       edges: []

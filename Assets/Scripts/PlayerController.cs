@@ -65,7 +65,11 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimator()
     {
-        if(Physics2D.Raycast(transform.position, Vector2.down, hitbox.size.y / 2 + 0.05f, isGround))
+        Vector3 groundCheckOffset = hitbox.size / 2 * Vector2.right;
+        if(Physics2D.Raycast(transform.position + groundCheckOffset, Vector2.down, 
+            hitbox.size.y / 2 + 0.05f, isGround)
+        || Physics2D.Raycast(transform.position - groundCheckOffset, Vector2.down, 
+        hitbox.size.y / 2 + 0.05f, isGround))
         {
             canJump = true;
             cTimer = 0;
@@ -158,6 +162,8 @@ public class PlayerController : MonoBehaviour
         thrownDrum = Instantiate(prefab, transform.position, Quaternion.identity);
         thrownDrum.GetComponent<SpriteRenderer>().flipX = rend.flipX;
         Rigidbody2D r = thrownDrum.GetComponent<Rigidbody2D>();
+        thrownDrum.GetComponentInChildren<DamageDealer>().
+            SetSelfReceiver(GetComponent<DamageReceiver>());
 
         if (r)
             r.velocity = rb.velocity + throwForce * Vector2.down;

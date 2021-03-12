@@ -8,7 +8,7 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
     public List<VisualEffectBoolean> toggleEffects;
     public List<VisualEffectSlider> sliderEffects;
     public List<GameObjectToggle> volumeEffects;
-    public Slider camShakeSlider;
+    public Slider camShakeSlider, shakeFreqSlider;
     public Sprite tBox, fBox;
 
     private List<VisualEffect> effects = new List<VisualEffect>();
@@ -51,9 +51,14 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
                 if (e.name == v.volume[i])
                     e.defaultValue = v.volumeVal[i];
         }
+
         float shake = GameData.vfxSettings.camShake;
         Camera.main.GetComponent<CameraFollow>().shakeMultiplier = shake;
         camShakeSlider.value = shake;
+
+        shake = GameData.vfxSettings.shakeFreq;
+        Camera.main.GetComponent<CameraFollow>().shakeFrequency = shake;
+        shakeFreqSlider.value = shake;
     }
 
     private void SaveSettings()
@@ -95,6 +100,13 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
     {
         Camera.main.GetComponent<CameraFollow>().shakeMultiplier = camShakeSlider.value;
         GameData.vfxSettings.camShake = camShakeSlider.value;
+        GameController.SaveGameData();
+    }
+
+    public void SetCamShakeFrequency()
+    {
+        Camera.main.GetComponent<CameraFollow>().shakeFrequency = shakeFreqSlider.value;
+        GameData.vfxSettings.shakeFreq = shakeFreqSlider.value;
         GameController.SaveGameData();
     }
 
@@ -177,7 +189,7 @@ public struct VisualEffectSettings
     public List<string> toggle, slider, volume;
     public List<bool> toggleVal, volumeVal;
     public List<float> sliderVal;
-    public float camShake;
+    public float camShake, shakeFreq;
 
     public VisualEffectSettings(bool b = true)
     {
@@ -200,6 +212,7 @@ public struct VisualEffectSettings
 
         volume.Add("CRT");
         volumeVal.Add(false);
-        camShake = 1;
+        camShake = 2;
+        shakeFreq = 2;
     }
 }

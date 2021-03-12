@@ -10,8 +10,8 @@ public class CameraFollow : MonoBehaviour
     public Vector2 followMod;
     [Range(0, 1f)]
     public float maxYRatio;
-    [Range(0, 2f)]
-    public float shakeMultiplier;
+
+    public float shakeMultiplier, shakeFrequency;
 
     private float maxYDist;
 
@@ -61,9 +61,9 @@ public class CameraFollow : MonoBehaviour
 
     private void RunShake()
     {
-        shakeP += shakeV;
+        shakeP += shakeV * shakeFrequency;
         shakeV -= shakeP / 10;
-        shakeV *= .8f;
+        shakeV *= .8f;// / Mathf.Max(Mathf.Sqrt(shakeFrequency), 1);
 
         transform.position += (Vector3)shakeP;
     }

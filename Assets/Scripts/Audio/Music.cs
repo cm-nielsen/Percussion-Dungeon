@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Music : MonoBehaviour
 {
-    public static List<System.Action> onBeat, offBeat;
+    public static List<System.Action> onBeat = new List<System.Action>(), offBeat = new List<System.Action>();
     public static bool beat = false;
 
     public float bpm;
@@ -18,6 +18,8 @@ public class Music : MonoBehaviour
     void Awake()
     {
         OnSceneLoad();
+        onBeat.Add(OnBeat);
+        offBeat.Add(OffBeat);
         aSource = GetComponent<AudioSource>();
 
         SceneManager.sceneLoaded += OnSceneLoad;
@@ -49,10 +51,8 @@ public class Music : MonoBehaviour
 
     private void OnSceneLoad(Scene s = default(Scene), LoadSceneMode m = LoadSceneMode.Single)
     {
-        onBeat = new List<System.Action>();
-        offBeat = new List<System.Action>();
-        onBeat.Add(OnBeat);
-        offBeat.Add(OffBeat);
+        onBeat.RemoveAll(x => x == null);
+        offBeat.RemoveAll(x => x == null);
     }
 
     private void OnBeat()

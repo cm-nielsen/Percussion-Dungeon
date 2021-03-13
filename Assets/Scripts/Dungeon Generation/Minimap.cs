@@ -6,28 +6,35 @@ using UnityEngine.SceneManagement;
 
 public class Minimap : MonoBehaviour
 {
-    public Sprite pPos, roomNode;
+    public Sprite pPos, roomNode, connection;
     //public Material platformMat, playerMat;
-    public float nodeDistance;
+    public float nodeDistance, blinkTime = 0.25f;
 
     private List<GameObject> nodes = new List<GameObject>();
-    private List<Vector2> nodePositions = new List<Vector2>();
-    private GameObject pPointer;
+    private List<Vector2> nodePositions = new List<Vector2>(),
+        bridges = new List<Vector2>();
+    private SpriteRenderer pPointer;
     private ControlKey con;
     private Transform player;
     private Vector2 refPos = Vector2.zero;
     private Vector2 roomSize;
 
-    private bool valid = false;
+    private float blinkTimer = 0;
+    private bool valid = false, active = false, blink;
     // Start is called before the first frame update
     void Awake()
     {
         con = GetComponent<ControlKey>();
-        pPointer = Instantiate(new GameObject(), transform);
-        SpriteRenderer s = pPointer.AddComponent<SpriteRenderer>();
-        s.sprite = pPos;
-        s.sortingLayerName = "UI";
+        GameObject pPointerObj = Instantiate(new GameObject(), transform);
+        pPointer = pPointerObj.AddComponent<SpriteRenderer>();
+        pPointer.sprite = pPos;
+        pPointer.sortingLayerName = "UI";
         //s.material = playerMat;
+
+        foreach (SpriteRenderer r in GetComponentsInChildren<SpriteRenderer>())
+            r.enabled = active;
+
+        Music.onBeat.Add(OnBeat);
 
         valid = false;
         LevelGenerator lg = GameObject.FindObjectOfType<LevelGenerator>();
@@ -43,9 +50,20 @@ public class Minimap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool active = con["map"];
-        foreach (SpriteRenderer r in GetComponentsInChildren<SpriteRenderer>())
-            r.enabled = active;
+        if (active != con["map"])
+        {
+            active = con["map"];
+            foreach (SpriteRenderer r in GetComponentsInChildren<SpriteRenderer>())
+                r.enabled = active;
+        }
+
+        //blinkTimer += Time.deltaTime;
+        //if(blinkTimer >= blinkTime)
+        //{
+        //    blinkTimer -= blinkTime;
+        //    blink = !blink;
+        //    pPointer.enabled = blink && active;
+        //}
 
         if (!valid)
             return;
@@ -70,27 +88,15 @@ public class Minimap : MonoBehaviour
             OnRoomEnter(Vector2.down);
     }
 
-    private void OnSceneLoad(Scene s, LoadSceneMode m)
-    {
-        nodes.Clear();
-        nodePositions.Clear();
-
-        valid = false;
-        LevelGenerator lg = GameObject.FindObjectOfType<LevelGenerator>();
-        if (lg == null)
-            return;
-
-        valid = true;
-        roomSize = lg.size;
-        roomSize /= 4f;
-        OnRoomEnter(Vector2.zero);
-    }
-
     public void OnRoomEnter(Vector2 dir)
     {
+        if (dir != Vector2.zero)
+            MakeBridge(dir);
+
         refPos += roomSize * dir;
         Vector2 nodePos = (refPos / roomSize) * nodeDistance;
         pPointer.transform.localPosition = nodePos;
+        transform.localPosition = -(Vector3)nodePos + Vector3.forward * 10;
 
         if (nodePositions.Any(x => x == nodePos))
             return;
@@ -100,9 +106,36 @@ public class Minimap : MonoBehaviour
         SpriteRenderer s = g.AddComponent<SpriteRenderer>();
         s.sprite = roomNode;
         s.sortingLayerName = "UI";
+        s.enabled = active;
         //s.material = platformMat;
 
         nodes.Add(g);
         nodePositions.Add(nodePos);
+    }
+
+    public void MakeBridge(Vector2 dir)
+    {
+        Vector2 pos = ((refPos + roomSize * dir / 2) / roomSize) * nodeDistance;
+
+        if (bridges.Any(x => x == pos))
+            return;
+
+        GameObject g = Instantiate(new GameObject(), transform);
+        g.transform.localPosition = pos;
+        SpriteRenderer s = g.AddComponent<SpriteRenderer>();
+        s.sprite = connection;
+        s.sortingLayerName = "UI";
+        s.enabled = active;
+        if (dir.x == 0)
+            g.transform.localRotation = Quaternion.Euler(0, 0, 90);
+
+        bridges.Add(pos);
+    }
+
+    private void OnBeat()
+    {
+        blink = !blink;
+        if (pPointer)
+            pPointer.enabled = active && blink;
     }
 }

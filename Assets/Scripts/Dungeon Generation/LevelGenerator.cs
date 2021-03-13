@@ -9,6 +9,7 @@ public class LevelGenerator : MonoBehaviour
     public List<GameObject> roomSetObjects;
     public RuleTile platform, jar, enemy, gate, spawn, upgrade;
     public Vector2Int overflowSize;
+    public Vector2Int size { get { return roomSetObjects[0].GetComponentInChildren<Room>().size; } }
 
     public int maxCount, minCount, rolls;
     public bool spawnUpgrade;

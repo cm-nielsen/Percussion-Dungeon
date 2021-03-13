@@ -220,7 +220,6 @@ public class DamageReceiver : MonoBehaviour
 
     public void pauseAnimation(int frames)
     {
-        Debug.Log("YEET");
         prevVel = rb.velocity;
         if (rb.constraints != RigidbodyConstraints2D.FreezeAll)
             prevCon = rb.constraints;

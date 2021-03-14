@@ -71,14 +71,19 @@ public class DamageReceiver : MonoBehaviour
             l.Initiate(amount);
         }
 
+        SetFlashMatColors();
+        rend.material = flashMat;
         if (death)
         {
+            if (GetComponent<PlayerController>())
+            {
+                flashTimer = 8 / 16f;
+                pauseAnimation(8);
+            }
             Die(point, amount);
             return;
         }
 
-        SetFlashMatColors();
-        rend.material = flashMat;
         switch (dtype)
         {
             case DamageType.light:

@@ -6,6 +6,8 @@
 		_NoiseTex("Noise Texture", 2D) = "defaulttexture"{}
 
 		_Foo ("Foo", Range(0, 1)) = 0.5
+		_MonoCol("Mono Colour", Color) = (0, 0, 0, 0)
+		_MainCol("Main Colour", Color) = (1, 1, 1, 1)
     }
     SubShader
     {
@@ -46,15 +48,28 @@
 
             sampler2D _MainTex;
 			sampler2D _NoiseTex;
+			fixed3 _MainCol;
+			fixed3 _MonoCol;
 			float _Foo;
+			int _DualMono;
 
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
+				//dissolve effect
 				fixed4 nos = tex2D(_NoiseTex, i.uv);
 				if (nos.r + nos.b + nos.g > 3 * _Foo)
 					col.a = 0;
-				col.rgb *= 0.5;
+
+				// colour customization
+				float n = step(col.r + col.g + col.b, .1);
+
+				col.rgb = ((_MonoCol * n) + (col.rgb * (1.0 - n))).rgb;
+				col.rgb *= ((col.rgb * n) + (_MainCol * (1.0 - n))).rgb;
+
+				col.rgb = ((1 - _DualMono) * col.rgb) +
+					(_DualMono * ((_MonoCol * n) + (_MainCol * (1.0 - n))).rgb);
+
                 return col;
             }
             ENDCG

@@ -282,8 +282,8 @@ TextureImporter:
       name: stix die_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 0
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -303,7 +303,7 @@ TextureImporter:
       name: stix die_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 64
         width: 64
         height: 64
@@ -324,8 +324,8 @@ TextureImporter:
       name: stix die_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
+        x: 0
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -345,8 +345,8 @@ TextureImporter:
       name: stix die_5
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
+        x: 64
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -358,27 +358,6 @@ TextureImporter:
       bones: []
       spriteID: 74c18711da96a26c0800000000000000
       internalID: -4167402313134629817
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stix die_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa53aa65bb5607060800000000000000
-      internalID: 6949166080319960490
       vertices: []
       indices: 
       edges: []

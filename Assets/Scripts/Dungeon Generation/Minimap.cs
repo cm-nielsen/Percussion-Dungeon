@@ -8,24 +8,28 @@ public class Minimap : MonoBehaviour
 {
     public Sprite pPos, roomNode, connection;
     //public Material platformMat, playerMat;
-    public float nodeDistance, blinkTime = 0.25f;
+    public float nodeDistance;
 
     private List<GameObject> nodes = new List<GameObject>();
     private List<Vector2> nodePositions = new List<Vector2>(),
         bridges = new List<Vector2>();
+    private Draggable nodeParent;
     private SpriteRenderer pPointer;
     private ControlKey con;
     private Transform player;
     private Vector2 refPos = Vector2.zero;
     private Vector2 roomSize;
 
-    private float blinkTimer = 0;
-    private bool valid = false, active = false, blink;
+    private bool valid = false, active = false, blink = false;
     // Start is called before the first frame update
     void Awake()
     {
         con = GetComponent<ControlKey>();
-        GameObject pPointerObj = Instantiate(new GameObject(), transform);
+
+        nodeParent = Instantiate(new GameObject(), transform).AddComponent<Draggable>();
+        nodeParent.name = "Map";
+
+        GameObject pPointerObj = Instantiate(new GameObject(), nodeParent.transform);
         pPointer = pPointerObj.AddComponent<SpriteRenderer>();
         pPointer.sprite = pPos;
         pPointer.sortingLayerName = "UI";
@@ -52,18 +56,15 @@ public class Minimap : MonoBehaviour
     {
         if (active != con["map"])
         {
+            if(Time.timeScale == 0)
+            {
+                active = false;
+                return;
+            }
             active = con["map"];
             foreach (SpriteRenderer r in GetComponentsInChildren<SpriteRenderer>())
                 r.enabled = active;
         }
-
-        //blinkTimer += Time.deltaTime;
-        //if(blinkTimer >= blinkTime)
-        //{
-        //    blinkTimer -= blinkTime;
-        //    blink = !blink;
-        //    pPointer.enabled = blink && active;
-        //}
 
         if (!valid)
             return;
@@ -101,7 +102,7 @@ public class Minimap : MonoBehaviour
         if (nodePositions.Any(x => x == nodePos))
             return;
 
-        GameObject g = Instantiate(new GameObject(), transform);
+        GameObject g = Instantiate(new GameObject(), nodeParent.transform);
         g.transform.localPosition = nodePos;
         SpriteRenderer s = g.AddComponent<SpriteRenderer>();
         s.sprite = roomNode;
@@ -111,6 +112,7 @@ public class Minimap : MonoBehaviour
 
         nodes.Add(g);
         nodePositions.Add(nodePos);
+        nodeParent.ExpandLimits(nodePos);
     }
 
     public void MakeBridge(Vector2 dir)
@@ -120,7 +122,7 @@ public class Minimap : MonoBehaviour
         if (bridges.Any(x => x == pos))
             return;
 
-        GameObject g = Instantiate(new GameObject(), transform);
+        GameObject g = Instantiate(new GameObject(), nodeParent.transform);
         g.transform.localPosition = pos;
         SpriteRenderer s = g.AddComponent<SpriteRenderer>();
         s.sprite = connection;

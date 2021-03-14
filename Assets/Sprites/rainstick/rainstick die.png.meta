@@ -1,49 +1,19 @@
 fileFormatVersion: 2
-guid: 6f1305aeb8bec3e4d803764461d9bec7
+guid: e6ab792df7f9d4146845078a5cbb976f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5472622456429545312
-    second: Sample Icons_0
+      213: -3495022316542444105
+    second: rainstick die_0
   - first:
-      213: 2021227475286647677
-    second: Sample Icons_1
+      213: -5987973441049393330
+    second: rainstick die_1
   - first:
-      213: 2599793873489544633
-    second: Sample Icons_2
+      213: -8524296734489000181
+    second: rainstick die_2
   - first:
-      213: -2065068781429578982
-    second: Sample Icons_3
-  - first:
-      213: 3481206203878553541
-    second: Sample Icons_4
-  - first:
-      213: 630013733095070543
-    second: Sample Icons_5
-  - first:
-      213: -331998900244725621
-    second: Sample Icons_0
-  - first:
-      213: 6480819709541641913
-    second: Sample Icons_1
-  - first:
-      213: -4200427853470565907
-    second: Sample Icons_2
-  - first:
-      213: -8636158070291326459
-    second: Sample Icons_3
-  - first:
-      213: 5905445929826561989
-    second: Sample Icons_4
-  - first:
-      213: -6497561240157345758
-    second: Sample Icons_5
-  - first:
-      213: 8050404632472776203
-    second: Sample Icons_6
-  - first:
-      213: 144274267985998438
-    second: Sample Icons_7
+      213: 6875278009790080975
+    second: rainstick die_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -141,34 +111,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sample Icons_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b0ee2b04c58c8bf60800000000000000
-      internalID: 8050404632472776203
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sample Icons_0
+      name: rainstick die_0
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,41 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a8f0befed65d04b0800000000000000
-      internalID: -5472622456429545312
+      spriteID: 7bdbc6478bf2f7fc0800000000000000
+      internalID: -3495022316542444105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sample Icons_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7368ba0ea7dc0c10800000000000000
-      internalID: 2021227475286647677
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sample Icons_2
+      name: rainstick die_1
       rect:
         serializedVersion: 2
         x: 64
         y: 64
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b5c49ee0c2541420800000000000000
-      internalID: 2599793873489544633
+      spriteID: e4707c981e176eca0800000000000000
+      internalID: -5987973441049393330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sample Icons_3
+      name: rainstick die_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 32
-        height: 32
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,62 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a13242e62e66753e0800000000000000
-      internalID: -2065068781429578982
+      spriteID: b07c2cc984d93b980800000000000000
+      internalID: -8524296734489000181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sample Icons_4
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c73114299abf4030800000000000000
-      internalID: 3481206203878553541
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sample Icons_5
+      name: rainstick die_3
       rect:
         serializedVersion: 2
         x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f4bdfbcf6224eb800800000000000000
-      internalID: 630013733095070543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sample Icons_7
-      rect:
-        serializedVersion: 2
-        x: 32
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,8 +188,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 662f88daea0900200800000000000000
-      internalID: 144274267985998438
+      spriteID: fc7a7915ce4e96f50800000000000000
+      internalID: 6875278009790080975
       vertices: []
       indices: 
       edges: []

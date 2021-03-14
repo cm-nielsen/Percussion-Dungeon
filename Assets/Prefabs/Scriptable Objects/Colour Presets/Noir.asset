@@ -30,3 +30,6 @@ MonoBehaviour:
   objects:
     main: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
     mono: {r: 0, g: 0, b: 0, a: 1}
+  corpse:
+    main: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+    mono: {r: 0, g: 0, b: 0, a: 1}

@@ -24,6 +24,9 @@ public class CorpseBehavior : MonoBehaviour
             mat.SetTexture("_NoiseTex", matSet.tex);
             mat.SetFloat("_Foo", 1);
             rend.material = mat;
+
+            mat.SetColor("_MainCol", matSet.refMat.GetColor("_MainCol"));
+            mat.SetColor("_MonoCol", matSet.refMat.GetColor("_MonoCol"));
         }
 
         GetComponent<Collider2D>().sharedMaterial = deadMeat;
@@ -61,6 +64,7 @@ public class CorpseBehavior : MonoBehaviour
 public struct DynamicMaterialSettings
 {
     public Shader shader;
+    public Material refMat;
     public Texture2D tex;
     public float a, b;
 }

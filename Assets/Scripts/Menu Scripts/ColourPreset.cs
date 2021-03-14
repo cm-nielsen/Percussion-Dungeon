@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Colour Preset", menuName = "Scriptable Objects/Create Colour Preset", order = 1)]
 public class ColourPreset : ScriptableObject, IEnumerable<ColourPair>
 {
-    public ColourPair player, enemy, platform, background, health, objects;
+    public ColourPair player, enemy, platform, background, health, objects, corpse;
 
     public IEnumerator<ColourPair> GetEnumerator()
     {
@@ -15,6 +15,7 @@ public class ColourPreset : ScriptableObject, IEnumerable<ColourPair>
         yield return objects;
         yield return platform;
         yield return health;
+        yield return corpse;
     }
 
     IEnumerator IEnumerable.GetEnumerator()

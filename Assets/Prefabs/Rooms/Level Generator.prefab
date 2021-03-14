@@ -81,8 +81,8 @@ MonoBehaviour:
   spawn: {fileID: 11400000, guid: 162c09a26e691f742ab1a8962aa199ec, type: 2}
   upgrade: {fileID: 11400000, guid: 62d8b3adb3ef18541906c4a33748c6a8, type: 2}
   overflowSize: {x: 30, y: 26}
-  maxCount: 5
-  minCount: 3
+  maxCount: 15
+  minCount: 8
   rolls: 2
   spawnUpgrade: 1
 --- !u!1 &247557387836651185

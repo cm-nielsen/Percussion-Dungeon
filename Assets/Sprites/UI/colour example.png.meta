@@ -20,6 +20,9 @@ TextureImporter:
   - first:
       213: -3326158666673105774
     second: colour example_5
+  - first:
+      213: 1713673551547938136
+    second: colour example_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -162,8 +165,8 @@ TextureImporter:
       name: colour example_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 64
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -183,7 +186,7 @@ TextureImporter:
       name: colour example_3
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 32
         width: 32
         height: 32
@@ -204,8 +207,8 @@ TextureImporter:
       name: colour example_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 32
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -225,8 +228,8 @@ TextureImporter:
       name: colour example_5
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 64
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -238,6 +241,27 @@ TextureImporter:
       bones: []
       spriteID: 294dc5eb05c17d1d0800000000000000
       internalID: -3326158666673105774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colour example_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8553ff4040138c710800000000000000
+      internalID: 1713673551547938136
       vertices: []
       indices: 
       edges: []

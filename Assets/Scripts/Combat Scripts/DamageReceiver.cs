@@ -79,6 +79,11 @@ public class DamageReceiver : MonoBehaviour
             {
                 flashTimer = 8 / 16f;
                 pauseAnimation(8);
+                DelayedSceneTransition t = Instantiate(new GameObject()).
+                    AddComponent<DelayedSceneTransition>();
+                t.delay = 3;
+                t.targetScene = "Hub";
+                t.loadAsynchronously = true;
             }
             Die(point, amount);
             return;

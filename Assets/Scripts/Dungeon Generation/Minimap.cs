@@ -17,6 +17,7 @@ public class Minimap : MonoBehaviour
     private SpriteRenderer pPointer;
     private ControlKey con;
     private Transform player;
+    private PlayerController pCon;
     private Vector2 refPos = Vector2.zero;
     private Vector2 roomSize;
 
@@ -39,6 +40,7 @@ public class Minimap : MonoBehaviour
             r.enabled = active;
 
         Music.onBeat.Add(OnBeat);
+        pCon = GameObject.FindObjectOfType<PlayerController>();
 
         valid = false;
         LevelGenerator lg = GameObject.FindObjectOfType<LevelGenerator>();
@@ -64,16 +66,25 @@ public class Minimap : MonoBehaviour
             active = con["map"];
             foreach (SpriteRenderer r in GetComponentsInChildren<SpriteRenderer>())
                 r.enabled = active;
+
         }
+        if (Time.timeScale == 0 && active)
+        {
+            active = false;
+            foreach (SpriteRenderer r in GetComponentsInChildren<SpriteRenderer>())
+                r.enabled = active;
+        }
+        if (pCon)
+            pCon.enabled = !active;
 
         if (!valid)
             return;
 
         if (player == null)
         {
-            PlayerController pcon = GameObject.FindObjectOfType<PlayerController>();
-            if (pcon)
-                player = pcon.transform;
+            pCon = GameObject.FindObjectOfType<PlayerController>();
+            if (pCon)
+                player = pCon.transform;
             else
                 return;
         }

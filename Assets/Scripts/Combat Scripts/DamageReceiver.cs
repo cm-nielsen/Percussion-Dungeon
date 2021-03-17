@@ -23,7 +23,7 @@ public class DamageReceiver : MonoBehaviour
     private RigidbodyConstraints2D prevCon;
 
     private float stunlockCounter = 0, flashTimer = 0, animPauseTimer = 0, apt2 = 0;
-    private bool lightAnim = false, heavyAnim = false, deathAnim = false;
+    private bool lightAnim = false, heavyAnim = false, deathAnim = false, dead = false;
 
     private void Start()
     {
@@ -73,17 +73,21 @@ public class DamageReceiver : MonoBehaviour
 
         SetFlashMatColors();
         rend.material = flashMat;
+        dead |= death;
         if (death)
         {
-            if (GetComponent<PlayerController>())
+            PlayerController pCon = GetComponent<PlayerController>();
+            if (pCon)
             {
-                flashTimer = 8 / 16f;
-                pauseAnimation(8);
+                flashTimer = 6 / 16f;
+                invulnerable = true;
+                pauseAnimation(5);
                 DelayedSceneTransition t = Instantiate(new GameObject()).
                     AddComponent<DelayedSceneTransition>();
-                t.delay = 3;
+                t.delay = 4;
                 t.targetScene = "Hub";
                 t.loadAsynchronously = true;
+                Destroy(pCon);
             }
             Die(point, amount);
             return;
@@ -144,6 +148,7 @@ public class DamageReceiver : MonoBehaviour
     private void Die(Vector2 point, float amount)
     {
         v = point;
+        invulnerable = true;
 
         if ((recoil & KnockbackTypes.animation) != 0)
         {
@@ -167,10 +172,11 @@ public class DamageReceiver : MonoBehaviour
         v += Vector2.up;
         //rb.sharedMaterial = deadMeat;
         rb.AddForce((v.normalized) * deathForce, ForceMode2D.Impulse);
+        prevVel = rb.velocity;
 
         gameObject.AddComponent<CorpseBehavior>();
 
-        Destroy(this);
+        //Destroy(this);
     }
 
     public void AddDeathForce(float amount)
@@ -184,17 +190,20 @@ public class DamageReceiver : MonoBehaviour
         v = (v.normalized) * (deathForce + amount * knockbackStrengthMod);
         rb.AddForce(v, ForceMode2D.Impulse);
         gameObject.AddComponent<CorpseBehavior>();
-        Destroy(this);
+        //Destroy(this);
     }
 
     private void Update()
     {
-        if(rend.material != mat)
+        if(rend.sharedMaterial != mat && !dead)
         {
             if (flashTimer > 0)
                 flashTimer -= Time.deltaTime;
             else
+            {
                 rend.material = mat;
+                Debug.Log("Reset mat");
+            }
         }
 
         if(apt2 > 0)

@@ -35,6 +35,7 @@ public class CorpseBehavior : MonoBehaviour
         fadeLength = matSet.b;
 
         audioPlayer = gameObject.AddComponent<AudioClipPlayer>();
+        Debug.Log("Corpse Behavior Start");
     }
 
     // Update is called once per frame

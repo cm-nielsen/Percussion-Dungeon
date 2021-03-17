@@ -96,7 +96,7 @@ public class DamageDealer : MonoBehaviour
 
     public void SetSelfReceiver(DamageReceiver r)
     {
-        Debug.Log(r.gameObject.name);
+        //Debug.Log(r.gameObject.name);
         selfReciever = r;
     }
 }

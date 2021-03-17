@@ -77,11 +77,11 @@ public class DamageReceiver : MonoBehaviour
         if (death)
         {
             PlayerController pCon = GetComponent<PlayerController>();
-            if (pCon)
-            {
                 flashTimer = 6 / 16f;
                 invulnerable = true;
                 pauseAnimation(5);
+            if (pCon)
+            {
                 DelayedSceneTransition t = Instantiate(new GameObject()).
                     AddComponent<DelayedSceneTransition>();
                 t.delay = 4;
@@ -189,6 +189,7 @@ public class DamageReceiver : MonoBehaviour
         v *= 4;
         v = (v.normalized) * (deathForce + amount * knockbackStrengthMod);
         rb.AddForce(v, ForceMode2D.Impulse);
+        prevVel = rb.velocity;
         gameObject.AddComponent<CorpseBehavior>();
         //Destroy(this);
     }
@@ -200,10 +201,7 @@ public class DamageReceiver : MonoBehaviour
             if (flashTimer > 0)
                 flashTimer -= Time.deltaTime;
             else
-            {
                 rend.material = mat;
-                Debug.Log("Reset mat");
-            }
         }
 
         if(apt2 > 0)

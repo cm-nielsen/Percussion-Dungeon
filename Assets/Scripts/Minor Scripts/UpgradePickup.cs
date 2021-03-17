@@ -19,7 +19,7 @@ public class UpgradePickup : MonoBehaviour
                 GameController.SaveGameData();
                 break;
             case UpgradeType.bux:
-                Debug.Log("OMG!! VBUX!!!!!11!!");
+                //Debug.Log("OMG!! VBUX!!!!!11!!");
                 GameData.castas++;
                 GameController.SaveGameData();
                 break;

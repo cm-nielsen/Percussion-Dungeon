@@ -25,6 +25,15 @@ public class ReverseColourMaterial : MonoBehaviour
         ar[minIndex] = ar[maxIndex];
         ar[maxIndex] = x;
 
+        Color reversed = new Color(ar[0], ar[1], ar[2]);
+        if (ColourDifference(c, reversed) < 0.4f)
+            return new Color(1 - c.r, 1 - c.g, 1 - c.b);
+
         return new Color(ar[0], ar[1], ar[2]);
+    }
+
+    private static float ColourDifference(Color a, Color b)
+    {
+        return Mathf.Abs(a.r - b.r) + Mathf.Abs(a.g - b.g) + Mathf.Abs(a.b - b.b);
     }
 }

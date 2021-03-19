@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class GameController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameController : MonoBehaviour
     public int healthIncrement = 5, minHealthUpgrades;
     public GameObject currentWeaponPrefab;
     public WeaponSet weaponSet;
+    public List<int> levels;
 
     private void OnEnable()
     {
@@ -32,6 +34,9 @@ public class GameController : MonoBehaviour
         GameData.current = WeaponUnlocks.rainstick;
 
         GameData.vfxSettings = new VisualEffectSettings(true);
+
+        GameData.experience = new WeaponExperience();
+        GameData.experience.levels = levels;
     }
 
     public void ApplyParameters(Scene s, LoadSceneMode m)
@@ -54,6 +59,17 @@ public class GameController : MonoBehaviour
     {
         currentWeaponPrefab = weap;
         GameData.current = weaponSet.GetType(weap);
+    }
+
+    public static void GainExp(int amount)
+    {
+        float rat = GameData.experience.AddExperience(amount, GameData.current);
+        Debug.Log("level : " + GameData.experience.LevelOf(GameData.current) +
+            "Ratio :" + rat);
+        ExperienceBarDisplay bar = FindObjectOfType<ExperienceBarDisplay>();
+        if (!bar)
+            return;
+        bar.UpdateDisplay(rat);
     }
 }
 
@@ -78,6 +94,8 @@ public struct GameData
     public static WeaponUnlocks unlocks, current;
 
     public static VisualEffectSettings vfxSettings;
+
+    public static WeaponExperience experience;
 }
 
 [System.Serializable]
@@ -131,5 +149,102 @@ public class WeaponSet
 
         Debug.Log("weapn prefab not found in set");
         return WeaponUnlocks.drumsticks;
+    }
+}
+
+[System.Serializable]
+public class WeaponExperience
+{
+    public List<int> levels;
+    public int drumsticks, hang, rainstick, bongos,
+            triangle, cowbell, cymbals, marracas;
+    public int totalLevel { get {
+            return (LevelOf(drumsticks) + LevelOf(hang) + LevelOf(rainstick) +
+                    LevelOf(bongos) + LevelOf(triangle) + LevelOf(cowbell) +
+                    LevelOf(cymbals) + LevelOf(marracas)) / 4;
+        } }
+
+    public float AddExperience(int amount, WeaponUnlocks u)
+    {
+        switch (u)
+        {
+            case WeaponUnlocks.drumsticks:
+                drumsticks += amount;
+                return RemainingRatio(drumsticks);
+            case WeaponUnlocks.hang:
+                hang += amount;
+                return RemainingRatio(hang);
+            case WeaponUnlocks.rainstick:
+                rainstick += amount;
+                return RemainingRatio(rainstick);
+            case WeaponUnlocks.bongos:
+                bongos += amount;
+                return RemainingRatio(bongos);
+            case WeaponUnlocks.triangle:
+                triangle += amount;
+                return RemainingRatio(triangle);
+            case WeaponUnlocks.cowbell:
+                cowbell += amount;
+                return RemainingRatio(cowbell);
+            case WeaponUnlocks.cymbals:
+                cymbals += amount;
+                return RemainingRatio(cymbals);
+            case WeaponUnlocks.marracas:
+                marracas += amount;
+                return RemainingRatio(marracas);
+        }
+        return 0;
+    }
+
+    public int LevelOf(WeaponUnlocks u)
+    {
+        switch (u)
+        {
+            case WeaponUnlocks.drumsticks:
+                return LevelOf(drumsticks);
+            case WeaponUnlocks.hang:
+                return LevelOf(hang);
+            case WeaponUnlocks.rainstick:
+                return LevelOf(rainstick);
+            case WeaponUnlocks.bongos:
+                return LevelOf(bongos);
+            case WeaponUnlocks.triangle:
+                return LevelOf(triangle);
+            case WeaponUnlocks.cowbell:
+                return LevelOf(cowbell);
+            case WeaponUnlocks.cymbals:
+                return LevelOf(cymbals);
+            case WeaponUnlocks.marracas:
+                return LevelOf(marracas);
+        }
+        return drumsticks;
+    }
+
+    private int LevelOf(int n)
+    {
+        for(int i = 0; i < levels.Count; i++)
+        {
+            if(levels[i] > n)
+                return i;
+        }
+        return levels.Count;
+        //int res = 0;
+        //foreach (int i in levels)
+        //    if (n > i)
+        //        res++;
+        //    else
+        //        return res;
+        //return res;
+    }
+
+    private float RemainingRatio(int n)
+    {
+        int prev = 0;
+        foreach (int i in levels)
+            if (n < i)
+                return (n - prev) / (float)(i - prev);
+            else
+                prev = i;
+        return 1;
     }
 }

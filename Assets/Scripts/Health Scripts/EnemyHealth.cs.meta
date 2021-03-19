@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0b22acb70c298844398da5006cbfe2bc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - display: {instanceID: 0}
+  - expOrbPrefab: {fileID: 5067735000811720593, guid: d2fdfaffb9fd63a42b28cda1ef12ed44,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

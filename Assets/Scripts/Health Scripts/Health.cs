@@ -59,7 +59,7 @@ public class Health : MonoBehaviour
         return change;
     }
 
-    private void OnDeath()
+    public virtual void OnDeath()
     {
         //Debug.Log(gameObject.name + " has been killed.");
         //Destroy(gameObject);

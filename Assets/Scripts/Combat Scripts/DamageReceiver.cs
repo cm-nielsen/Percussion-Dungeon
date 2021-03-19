@@ -73,13 +73,13 @@ public class DamageReceiver : MonoBehaviour
 
         SetFlashMatColors();
         rend.material = flashMat;
-        dead |= death;
-        if (death)
+        if (death && !dead)
         {
+            dead |= death;
             PlayerController pCon = GetComponent<PlayerController>();
-                flashTimer = 6 / 16f;
-                invulnerable = true;
-                pauseAnimation(5);
+            flashTimer = 6 / 16f;
+            invulnerable = true;
+            pauseAnimation(5);
             if (pCon)
             {
                 DelayedSceneTransition t = Instantiate(new GameObject()).
@@ -147,6 +147,7 @@ public class DamageReceiver : MonoBehaviour
 
     private void Die(Vector2 point, float amount)
     {
+        health.OnDeath();
         v = point;
         invulnerable = true;
 

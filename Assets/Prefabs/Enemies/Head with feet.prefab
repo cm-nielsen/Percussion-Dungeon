@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 7989843426610759748}
   - component: {fileID: 7989843426610759772}
   - component: {fileID: 7989843426610759769}
-  - component: {fileID: 7989843426610759775}
+  - component: {fileID: 636188559330935909}
   - component: {fileID: 5781084035189315907}
   m_Layer: 12
   m_Name: Head with feet
@@ -618,7 +618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   attackDistance: 1
---- !u!114 &7989843426610759775
+--- !u!114 &636188559330935909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -627,12 +627,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7989843426610759745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005006eb6eab91e4a82913664ece9822, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b22acb70c298844398da5006cbfe2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   max: 10
-  amount: 10
+  amount: 0
   display: {fileID: 0}
+  expOrbPrefab: {fileID: 5067735000811720593, guid: d2fdfaffb9fd63a42b28cda1ef12ed44,
+    type: 3}
+  experience: 2
+  group: 0
 --- !u!114 &5781084035189315907
 MonoBehaviour:
   m_ObjectHideFlags: 0

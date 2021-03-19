@@ -434,6 +434,7 @@ MonoBehaviour:
     cowbell: {fileID: 0}
     cymbals: {fileID: 0}
     marracas: {fileID: 0}
+  levels: 050000000f0000001e0000003c00000078000000
 --- !u!4 &153194924
 Transform:
   m_ObjectHideFlags: 0

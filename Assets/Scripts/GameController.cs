@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class GameController : MonoBehaviour
 {
@@ -28,15 +30,16 @@ public class GameController : MonoBehaviour
 
     private void LoadFromFile()
     {
-        GameData.healthUpgrades = 0;
-        GameData.castas = 0;
-        GameData.unlocks = WeaponUnlocks.drumsticks;
-        GameData.current = WeaponUnlocks.rainstick;
-
-        GameData.vfxSettings = new VisualEffectSettings(true);
-
-        GameData.experience = new WeaponExperience();
         GameData.experience.levels = levels;
+        if (File.Exists(Application.persistentDataPath + "/save.drum"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream fStream = File.Open(Application.persistentDataPath + "/save.drum",
+                FileMode.Open);
+            GameData.Load((GameDataInstance)bf.Deserialize(fStream));
+            fStream.Close();
+            Debug.Log("GameData Loaded");
+        }
     }
 
     public void ApplyParameters(Scene s, LoadSceneMode m)
@@ -52,7 +55,24 @@ public class GameController : MonoBehaviour
 
     public static void SaveGameData()
     {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream fStream = File.Create(Application.persistentDataPath + "/save.drum");
+        bf.Serialize(fStream, new GameDataInstance(false));
+        fStream.Close();
+        Debug.Log("GameData saved");
+    }
 
+    public static void WipeGameData()
+    {
+        GameData.healthUpgrades = 0;
+        GameData.castas = 0;
+        GameData.unlocks = WeaponUnlocks.drumsticks;
+        GameData.current = WeaponUnlocks.rainstick;
+
+        GameData.vfxSettings = new VisualEffectSettings(true);
+
+        GameData.experience = new WeaponExperience();
+        SaveGameData();
     }
 
     public void SetCurrentWeap(GameObject weap)
@@ -64,8 +84,9 @@ public class GameController : MonoBehaviour
     public static void GainExp(int amount)
     {
         float rat = GameData.experience.AddExperience(amount, GameData.current);
-        Debug.Log("level : " + GameData.experience.LevelOf(GameData.current) +
-            "Ratio :" + rat);
+        //Debug.Log("level : " + GameData.experience.LevelOf(GameData.current) +
+        //    "Ratio :" + rat);
+        SaveGameData();
         ExperienceBarDisplay bar = FindObjectOfType<ExperienceBarDisplay>();
         if (!bar)
             return;
@@ -96,6 +117,35 @@ public struct GameData
     public static VisualEffectSettings vfxSettings;
 
     public static WeaponExperience experience;
+
+    public static void Load(GameDataInstance i)
+    {
+        healthUpgrades = i.healthUpgrades;
+        castas = i.castas;
+        unlocks = i.unlocks;
+        current = i.current;
+        vfxSettings = i.vfxSettings;
+        experience = i.experience;
+    }
+}
+
+[System.Serializable]
+public struct GameDataInstance
+{
+    public int healthUpgrades, castas;
+    public WeaponUnlocks unlocks, current;
+    public VisualEffectSettings vfxSettings;
+    public WeaponExperience experience;
+
+    public GameDataInstance(bool b = false)
+    {
+        healthUpgrades = GameData.healthUpgrades;
+        castas = GameData.castas;
+        unlocks = GameData.unlocks;
+        current = GameData.current;
+        vfxSettings = GameData.vfxSettings;
+        experience = GameData.experience;
+    }
 }
 
 [System.Serializable]

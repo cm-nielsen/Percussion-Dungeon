@@ -183,7 +183,7 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
         public virtual void ToggleEffect() { }
     }
 }
-
+[System.Serializable]
 public struct VisualEffectSettings
 {
     public List<string> toggle, slider, volume;

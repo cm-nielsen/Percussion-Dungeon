@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour
 
     private void LoadFromFile()
     {
+        GameData.experience = new WeaponExperience();
         GameData.experience.levels = levels;
         if (File.Exists(Application.persistentDataPath + "/save.drum"))
         {
@@ -38,18 +39,12 @@ public class GameController : MonoBehaviour
                 FileMode.Open);
             GameData.Load((GameDataInstance)bf.Deserialize(fStream));
             fStream.Close();
-            Debug.Log("GameData Loaded");
+            //Debug.Log("GameData Loaded");
         }
     }
 
     public void ApplyParameters(Scene s, LoadSceneMode m)
     {
-        //Health h = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
-        //h.upgradeAmount = healthIncrement;
-        //h.FindDisplay();
-        //h.max = (GameData.healthUpgrades + minHealthUpgrades - 1) * healthIncrement;
-        //h.UpgradeMax();
-
         currentWeaponPrefab = weaponSet.GetWeapon(GameData.current);
     }
 
@@ -59,7 +54,7 @@ public class GameController : MonoBehaviour
         FileStream fStream = File.Create(Application.persistentDataPath + "/save.drum");
         bf.Serialize(fStream, new GameDataInstance(false));
         fStream.Close();
-        Debug.Log("GameData saved");
+        //Debug.Log("GameData saved");
     }
 
     public static void WipeGameData()
@@ -112,6 +107,8 @@ public struct GameData
     public static int healthUpgrades,
         castas;
 
+    public static float masterVol, musicVol, sfxVol;
+
     public static WeaponUnlocks unlocks, current;
 
     public static VisualEffectSettings vfxSettings;
@@ -122,6 +119,9 @@ public struct GameData
     {
         healthUpgrades = i.healthUpgrades;
         castas = i.castas;
+        masterVol = i.masterVol;
+        musicVol = i.musicVol;
+        sfxVol = i.sfxVol;
         unlocks = i.unlocks;
         current = i.current;
         vfxSettings = i.vfxSettings;
@@ -133,6 +133,7 @@ public struct GameData
 public struct GameDataInstance
 {
     public int healthUpgrades, castas;
+    public float masterVol, musicVol, sfxVol;
     public WeaponUnlocks unlocks, current;
     public VisualEffectSettings vfxSettings;
     public WeaponExperience experience;
@@ -141,6 +142,9 @@ public struct GameDataInstance
     {
         healthUpgrades = GameData.healthUpgrades;
         castas = GameData.castas;
+        masterVol = GameData.masterVol;
+        musicVol = GameData.musicVol;
+        sfxVol = GameData.sfxVol;
         unlocks = GameData.unlocks;
         current = GameData.current;
         vfxSettings = GameData.vfxSettings;

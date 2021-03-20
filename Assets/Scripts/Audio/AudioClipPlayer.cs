@@ -52,4 +52,11 @@ public struct AudioSourceSettings
     public float spatialBlend, volume;
     public AudioRolloffMode rollMode;
     public float pitch, doppler, spread, minDist, maxDist;
+
+    public void Apply(AudioSourceSettings s)
+    {
+        float vol = volume;
+        this = s;
+        volume = vol;
+    }
 }

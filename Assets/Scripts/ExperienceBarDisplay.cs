@@ -47,7 +47,7 @@ public class ExperienceBarDisplay : MonoBehaviour
         rat = ratio;
         if (rat < frontRat)
         {
-            frontRat = rat;
+            frontRat = 0;
             frontFill.size = new Vector2(frontRat * maxWidth, frontFill.size.y);
             timer = 0;
         }

@@ -66,6 +66,7 @@ public class GameController : MonoBehaviour
     {
         GameData.healthUpgrades = 0;
         GameData.castas = 0;
+        GameData.masterVol = GameData.musicVol = GameData.sfxVol = .5f;
         GameData.unlocks = WeaponUnlocks.drumsticks;
         GameData.current = WeaponUnlocks.drumsticks;
 
@@ -74,7 +75,8 @@ public class GameController : MonoBehaviour
         GameData.experience = new WeaponExperience();
         GameData.pControls = GameObject.FindGameObjectWithTag("pControl").
             GetComponent<ControlKey>().inputs;
-        SaveGameData();
+        if (Application.platform != RuntimePlatform.WebGLPlayer)
+            SaveGameData();
     }
 
     public void SetCurrentWeap(GameObject weap)

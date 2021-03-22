@@ -55,6 +55,10 @@ public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
         UIInput = EventSystem.current.currentInputModule;
         target = GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>();
         //target.inputs = GameData.pControls;
+        if (GameData.pControls.Count < 2 || 
+            Application.platform == RuntimePlatform.WebGLPlayer)
+            return;
+
         target.inputs.Clear();
         foreach (ConUnit u in GameData.pControls)
             target.inputs.Add(new ConUnit(u));

@@ -27,10 +27,11 @@ public class Minimap : MonoBehaviour
     {
         con = GetComponent<ControlKey>();
 
-        nodeParent = Instantiate(new GameObject(), transform).AddComponent<Draggable>();
-        nodeParent.name = "Map";
+        nodeParent = new GameObject("Map").AddComponent<Draggable>();
+        nodeParent.transform.parent = transform;
 
-        GameObject pPointerObj = Instantiate(new GameObject(), nodeParent.transform);
+        GameObject pPointerObj = new GameObject("Player Position");
+        pPointerObj.transform.parent = nodeParent.transform;
         pPointer = pPointerObj.AddComponent<SpriteRenderer>();
         pPointer.sprite = pPos;
         pPointer.sortingLayerName = "UI";
@@ -113,7 +114,8 @@ public class Minimap : MonoBehaviour
         if (nodePositions.Any(x => x == nodePos))
             return;
 
-        GameObject g = Instantiate(new GameObject(), nodeParent.transform);
+        GameObject g = new GameObject("Room Node " + nodes.Count);
+        g.transform.parent = nodeParent.transform;
         g.transform.localPosition = nodePos;
         SpriteRenderer s = g.AddComponent<SpriteRenderer>();
         s.sprite = roomNode;
@@ -133,8 +135,10 @@ public class Minimap : MonoBehaviour
         if (bridges.Any(x => x == pos))
             return;
 
-        GameObject g = Instantiate(new GameObject(), nodeParent.transform);
+        GameObject g = new GameObject("Bridge Node " + bridges.Count);
+        g.transform.parent = nodeParent.transform;
         g.transform.localPosition = pos;
+        //g.name = "Bridge Node " + bridges.Count;
         SpriteRenderer s = g.AddComponent<SpriteRenderer>();
         s.sprite = connection;
         s.sortingLayerName = "UI";

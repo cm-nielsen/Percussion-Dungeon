@@ -18,7 +18,9 @@ public class EnemyHealth : Health
 
     public override void OnDeath()
     {
+        if (!expOrbPrefab) return;
         for (int i = 0; i < experience; i++)
             Instantiate(expOrbPrefab, transform.position, Quaternion.identity);
+        expOrbPrefab = null;
     }
 }

@@ -635,7 +635,7 @@ MonoBehaviour:
   display: {fileID: 0}
   expOrbPrefab: {fileID: 5067735000811720593, guid: d2fdfaffb9fd63a42b28cda1ef12ed44,
     type: 3}
-  experience: 2
+  experience: 1
   group: 0
 --- !u!114 &5781084035189315907
 MonoBehaviour:

@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using ConUnit = ControlKey.ControlUnit;
 
-public class ControlKeyCustomizationMenu : MonoBehaviour
+public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
 {
     /// <summary>
     /// control key whihc the menu is modifying
@@ -44,9 +44,20 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //displays = GetComponentsInChildren<Text>();
+        UIInput = EventSystem.current.currentInputModule;
+        //target = GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>();
+    }
+
+    public void Setup()
+    {
         displays = GetComponentsInChildren<Text>();
         UIInput = EventSystem.current.currentInputModule;
         target = GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>();
+        //target.inputs = GameData.pControls;
+        target.inputs.Clear();
+        foreach (ConUnit u in GameData.pControls)
+            target.inputs.Add(new ConUnit(u));
     }
 
     private void Update()
@@ -218,6 +229,7 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
                         unit.keyCodes[keys] = newValue;
                     }
                 }
+                unit.keyCodes = unit.keyCodes.Distinct().ToArray();
             }
             else
             {
@@ -239,6 +251,7 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
                     Array.Resize(ref unit.mouseButtons, unit.mouseButtons.Length + 1);
                     unit.mouseButtons[unit.mouseButtons.Length - 1] = newValue;
                 }
+                unit.mouseButtons = unit.mouseButtons.Distinct().ToArray();
             }
             SetToKeyboardInputs();
         }
@@ -251,10 +264,12 @@ public class ControlKeyCustomizationMenu : MonoBehaviour
                 string[] newArr = new string[unit.gamePadButtons.Length + 1];
                 unit.gamePadButtons.CopyTo(newArr, 0);
                 newArr[newArr.Length - 1] = newValue;
-                unit.gamePadButtons = newArr;
+                unit.gamePadButtons = newArr.Distinct().ToArray();
             }
             SetToGamepadInputs();
         }
+        GameData.pControls = target.inputs;
+        GameController.SaveGameData();
     }
 }
 

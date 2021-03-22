@@ -30,17 +30,19 @@ public class GameController : MonoBehaviour
 
     private void LoadFromFile()
     {
-        GameData.experience = new WeaponExperience();
-        GameData.experience.levels = levels;
+        //WipeSave();
         if (File.Exists(Application.persistentDataPath + "/save.drum"))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream fStream = File.Open(Application.persistentDataPath + "/save.drum",
                 FileMode.Open);
-            GameData.Load((GameDataInstance)bf.Deserialize(fStream));
+            GameDataInstance save = (GameDataInstance)bf.Deserialize(fStream);
+            GameData.Load(save);
             fStream.Close();
-            //Debug.Log("GameData Loaded");
         }
+        else
+            WipeSave();
+        GameData.experience.levels = levels;
     }
 
     public void ApplyParameters(Scene s, LoadSceneMode m)
@@ -52,21 +54,26 @@ public class GameController : MonoBehaviour
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream fStream = File.Create(Application.persistentDataPath + "/save.drum");
-        bf.Serialize(fStream, new GameDataInstance(false));
+        GameDataInstance save = new GameDataInstance(false);
+        //foreach (ControlKey.ControlUnit u in save.pControls)
+        //    Debug.Log(u.identifier);
+        bf.Serialize(fStream, save);
         fStream.Close();
         //Debug.Log("GameData saved");
     }
 
-    public static void WipeGameData()
+    public static void WipeSave()
     {
         GameData.healthUpgrades = 0;
         GameData.castas = 0;
         GameData.unlocks = WeaponUnlocks.drumsticks;
-        GameData.current = WeaponUnlocks.rainstick;
+        GameData.current = WeaponUnlocks.drumsticks;
 
         GameData.vfxSettings = new VisualEffectSettings(true);
 
         GameData.experience = new WeaponExperience();
+        GameData.pControls = GameObject.FindGameObjectWithTag("pControl").
+            GetComponent<ControlKey>().inputs;
         SaveGameData();
     }
 
@@ -74,6 +81,7 @@ public class GameController : MonoBehaviour
     {
         currentWeaponPrefab = weap;
         GameData.current = weaponSet.GetType(weap);
+        GainExp(0);
     }
 
     public static void GainExp(int amount)
@@ -85,7 +93,7 @@ public class GameController : MonoBehaviour
         ExperienceBarDisplay bar = FindObjectOfType<ExperienceBarDisplay>();
         if (!bar)
             return;
-        bar.UpdateDisplay(rat);
+        bar.UpdateDisplay(rat, GameData.experience.LevelOf(GameData.current));
     }
 }
 
@@ -115,6 +123,8 @@ public struct GameData
 
     public static WeaponExperience experience;
 
+    public static List<ControlKey.ControlUnit> pControls;
+
     public static void Load(GameDataInstance i)
     {
         healthUpgrades = i.healthUpgrades;
@@ -126,6 +136,7 @@ public struct GameData
         current = i.current;
         vfxSettings = i.vfxSettings;
         experience = i.experience;
+        pControls = i.pControls;
     }
 }
 
@@ -137,6 +148,7 @@ public struct GameDataInstance
     public WeaponUnlocks unlocks, current;
     public VisualEffectSettings vfxSettings;
     public WeaponExperience experience;
+    public List<ControlKey.ControlUnit> pControls;
 
     public GameDataInstance(bool b = false)
     {
@@ -149,6 +161,7 @@ public struct GameDataInstance
         current = GameData.current;
         vfxSettings = GameData.vfxSettings;
         experience = GameData.experience;
+        pControls = GameData.pControls;
     }
 }
 
@@ -212,6 +225,19 @@ public class WeaponExperience
     public List<int> levels;
     public int drumsticks, hang, rainstick, bongos,
             triangle, cowbell, cymbals, marracas;
+
+    public WeaponExperience() { levels = new List<int>(); }
+    public WeaponExperience(List<int> l = null)
+    {
+        if (l != null)
+            levels = l;
+        else
+            levels = new List<int>();
+
+        drumsticks = hang = rainstick = bongos =
+            triangle = cowbell = cymbals = marracas = 0;
+    }
+
     public int totalLevel { get {
             return (LevelOf(drumsticks) + LevelOf(hang) + LevelOf(rainstick) +
                     LevelOf(bongos) + LevelOf(triangle) + LevelOf(cowbell) +

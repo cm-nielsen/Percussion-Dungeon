@@ -144,7 +144,7 @@ public class ControlKey : MonoBehaviour
         /// <summary>
         /// used to track the times at which a control was pressed, released (for input holding)
         /// </summary>
-        private float timePressed = -100, timeReleased;
+        private float timePressed = -100, timeReleased = 0;
         /// <summary>
         /// used for toggleInput feature
         /// </summary>
@@ -153,6 +153,25 @@ public class ControlKey : MonoBehaviour
         /// used to make timePressed only reflect the time the control was actuated, not held
         /// </summary>
         private bool timeToggle = true;
+
+        /// <summary>
+        /// Copy constructor
+        /// </summary>
+        /// <param name="u">Control Unit to copy</param>
+        public ControlUnit(ControlUnit u)
+        {
+            identifier = u.identifier;
+            val = false;
+            holdTime = u.holdTime;
+            toggleInput = u.toggleInput;
+            keyCodes = u.keyCodes;
+            mouseButtons = u.mouseButtons;
+            gamePadButtons = u.gamePadButtons;
+            timePressed = -100;
+            timeReleased = 0;
+            toggle = false;
+            timeToggle = true;
+        }
 
         /// <summary>
         /// called by encapsulating class, updates val to reflect keyboard input

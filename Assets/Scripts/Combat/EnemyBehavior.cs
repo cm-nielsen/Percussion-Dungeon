@@ -45,6 +45,8 @@ public class EnemyBehavior : MonoBehaviour
 
     private void AquireTarget()
     {
-        target = GameObject.FindObjectOfType<PlayerController>().transform;
+        PlayerController pCon = GameObject.FindObjectOfType<PlayerController>();
+        if(pCon)
+            target = pCon.transform;
     }
 }

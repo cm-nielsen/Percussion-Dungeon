@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 moveForce;
     public LayerMask isGround;
-    public float maxFallSpeed, throwForce, xFriction, coyoteTime = 0.2f;
+    public float maxFallSpeed, throwForce, xFriction, coyoteTime = 0.2f, adaptiveGravity;
 
     private GameObject thrownDrum;
     private Rigidbody2D rb;
@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     // is caled at a fixed rate
     void FixedUpdate()
     {
+        rb.AddForce(Mathf.Abs(rb.velocity.y) * adaptiveGravity * Vector2.down);
         if (canJump)
         {
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("run") ||
@@ -52,8 +53,8 @@ public class PlayerController : MonoBehaviour
         else
         {
                 AirControl();
-            if (rb.velocity.y > maxFallSpeed)
-                rb.velocity = new Vector2(rb.velocity.x, maxFallSpeed);
+            if (rb.velocity.y < -maxFallSpeed)
+                rb.velocity = new Vector2(rb.velocity.x, -maxFallSpeed);
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("jump") ||
                 anim.GetCurrentAnimatorStateInfo(0).IsName("fall"))
             {

@@ -20,6 +20,9 @@ public class LevelGenerator : MonoBehaviour
     private List<Vector3Int> occupiedPositions;
 
     private int rollCount = 0;
+
+    private EdgeCollider2D edgeguard;
+    private int roomIndex = 0, roomRowIndex = 0, rowsPerFrame = 5;
     private class PotentialRoom
     {
         public Room room;
@@ -66,6 +69,25 @@ public class LevelGenerator : MonoBehaviour
                 v.x++;
             }
         }
+        public bool FillColumn(Tilemap map, TileBase[] tiles, int row)
+        {
+            if (row >= room.size.x)
+                return true;
+            Vector3Int v = pos - ((Vector3Int)room.size / 2);
+            v.x += row;
+
+            int i = row;
+            v.y = pos.y - (room.size.y / 2);
+            for (int j = 0; j < room.size.y; j++)
+            {
+                TileBase t = room.map.GetTile(v - pos);
+                if (tiles.Contains(t))
+                    map.SetTile(v, room.map.GetTile(v - pos));
+                v.y++;
+                //Debug.Log(v);
+            }
+            return false;
+        }
     }
 
     // Start is called before the first frame update
@@ -89,6 +111,72 @@ public class LevelGenerator : MonoBehaviour
         }
 
         GenerateLevel();
+    }
+
+    private void Update()
+    {
+
+        if(roomIndex < rooms.Count)
+        {
+            for (int i = 0; i < rowsPerFrame; i++)
+            {
+                if (rooms[roomIndex].FillColumn(map, new TileBase[] { platform, jar, enemy }, roomRowIndex++))
+                {
+                    roomIndex++;
+                    roomRowIndex = 0;
+                    break;
+                }
+            }
+            if (Time.deltaTime > 1 / 16.0 && rowsPerFrame > 1)
+                rowsPerFrame--;
+            else
+                rowsPerFrame++;
+
+            //rooms[roomIndex].Fill(map, new TileBase[] { platform, jar, enemy });
+            //roomIndex++;
+        }else if(roomIndex == rooms.Count)
+        {
+            Vector3Int min = Vector3Int.zero;
+            foreach (Vector2Int v in occupiedPositions)
+            {
+                if (v.x < min.x)
+                    min.x = v.x;
+                if (v.y < min.y)
+                    min.y = v.y;
+            }
+            map.FloodFill(min - (Vector3Int)overflowSize, platform);
+            
+            roomIndex++;
+        }else if(roomIndex == rooms.Count + 1)
+        {
+            Vector3Int max = Vector3Int.zero;
+            foreach (Vector2Int v in occupiedPositions)
+            {
+                if (v.x > max.x)
+                    max.x = v.x;
+                if (v.y > max.y)
+                    max.y = v.y;
+            }
+            map.FloodFill(max + (Vector3Int)overflowSize, platform);
+
+            roomIndex++;
+        }
+        else if(roomIndex == rooms.Count + 2)
+        {
+            int rand = Random.Range(rooms.Count / 2, rooms.Count), rand2 = 0;
+            PotentialRoom gateRoom = rooms[rand];
+            gateRoom.Fill(map, gate);
+            if (spawnUpgrade)
+            {
+                rand2 = Random.Range(rooms.Count / 2, rooms.Count);
+                while (rand2 == rand)
+                    rand2 = Random.Range(rooms.Count / 2, rooms.Count);
+                PotentialRoom upgradeRoom = rooms[rand2];
+                upgradeRoom.Fill(map, upgrade);
+            }
+            Destroy(edgeguard);
+            roomIndex++;
+        }
     }
 
     private PotentialRoom MakeRoom(Doors doors, Vector3Int pos)
@@ -178,7 +266,17 @@ public class LevelGenerator : MonoBehaviour
         {
             Close(pr);
         }
-        FillRooms();
+        //FillRooms();
+        rooms[roomIndex++].Fill(map, new TileBase[] { platform, jar, enemy });
+        rooms[0].Fill(map, spawn);
+        edgeguard = gameObject.AddComponent<EdgeCollider2D>();
+        Vector2 v = (Vector2)rooms[0].room.size / 8f;
+        Vector2[] ar = new Vector2[5];
+        ar[0] = ar[4] = v;
+        ar[1] = new Vector2(v.x, -v.y);
+        ar[2] = new Vector2(-v.x, -v.y);
+        ar[3] = new Vector2(-v.x, v.y);
+        edgeguard.points = ar;
     }
 
     private void Branch(PotentialRoom pr)

@@ -20,4 +20,6 @@ public class SceneTransition : MonoBehaviour
     {
         GetComponentInChildren<Text>().enabled = true;
     }
+
+    private void SpawnObject(GameObject g) { Instantiate(g); }
 }

@@ -22,6 +22,7 @@ public class LevelGenerator : MonoBehaviour
     private int rollCount = 0;
 
     private EdgeCollider2D edgeguard;
+    private Vector3Int min = Vector3Int.zero, max = Vector3Int.zero;
     private int roomIndex = 0, roomRowIndex = 0, rowsPerFrame = 5;
     private class PotentialRoom
     {
@@ -136,39 +137,83 @@ public class LevelGenerator : MonoBehaviour
             //roomIndex++;
         }else if(roomIndex == rooms.Count)
         {
-            Vector3Int min = Vector3Int.zero;
+            Vector3Int pos;
             foreach (Vector2Int v in occupiedPositions)
             {
                 if (v.x < min.x)
                     min.x = v.x;
                 if (v.y < min.y)
                     min.y = v.y;
-            }
-            map.FloodFill(min - (Vector3Int)overflowSize, platform);
-            
-            roomIndex++;
-        }else if(roomIndex == rooms.Count + 1)
-        {
-            Vector3Int max = Vector3Int.zero;
-            foreach (Vector2Int v in occupiedPositions)
-            {
+
                 if (v.x > max.x)
                     max.x = v.x;
                 if (v.y > max.y)
                     max.y = v.y;
             }
-            map.FloodFill(max + (Vector3Int)overflowSize, platform);
+            //min -= (Vector3Int)size / 2;
+            //max += (Vector3Int)size / 2;
+            pos = min - (Vector3Int)overflowSize;
+            pos.x += size.x / 4;
+            do
+            {
+                do
+                {
+                    map.SetTile(pos, platform);
+                    pos.y++;
+                } while (map.GetTile(pos) != platform && pos.y < max.y + overflowSize.y);
+                pos.y = max.y + overflowSize.y;
+                do
+                {
+                    map.SetTile(pos, platform);
+                    pos.y--;
+                } while (map.GetTile(pos) != platform && pos.y > min.y - overflowSize.y);
+                pos.x += size.x / 4;
+                pos.y = min.y - overflowSize.y;
+            } while (pos.x <= max.x + overflowSize.x);
+
+            pos = min - (Vector3Int)overflowSize;
+            pos.y += size.y / 4;
+            do
+            {
+                do
+                {
+                    map.SetTile(pos, platform);
+                    pos.x++;
+                } while (map.GetTile(pos) != platform && pos.x < max.x + overflowSize.x);
+                pos.x = max.x + overflowSize.x;
+                do
+                {
+                    map.SetTile(pos, platform);
+                    pos.x--;
+                } while (map.GetTile(pos) != platform && pos.x > min.x - overflowSize.x);
+                pos.y += size.y / 4;
+                pos.x = min.x - overflowSize.x;
+            } while (pos.y <= max.y + overflowSize.y);
+            roomRowIndex = 0;
+            //min += (Vector3Int)size / 2;
+            //max -= (Vector3Int)size / 2;
+            //map.FloodFill(min - (Vector3Int)overflowSize, platform);
 
             roomIndex++;
+        }else if(roomIndex == rooms.Count + 1)
+        {
+            //Vector3Int pos = min;
+            //pos.y += roomRowIndex * size.y / 4 + 1;
+            //map.FloodFill(pos - (Vector3Int)overflowSize, platform);
+            //roomRowIndex++;
+
+            //if(pos.y > max.y + overflowSize.y)
+                roomIndex++;
+            Debug.Log(Time.deltaTime * 16);
         }
         else if(roomIndex == rooms.Count + 2)
         {
-            int rand = Random.Range(rooms.Count / 2, rooms.Count), rand2 = 0;
+            int rand = Random.Range(rooms.Count / 2, rooms.Count);
             PotentialRoom gateRoom = rooms[rand];
             gateRoom.Fill(map, gate);
             if (spawnUpgrade)
             {
-                rand2 = Random.Range(rooms.Count / 2, rooms.Count);
+                int rand2 = Random.Range(rooms.Count / 2, rooms.Count);
                 while (rand2 == rand)
                     rand2 = Random.Range(rooms.Count / 2, rooms.Count);
                 PotentialRoom upgradeRoom = rooms[rand2];
@@ -176,6 +221,7 @@ public class LevelGenerator : MonoBehaviour
             }
             Destroy(edgeguard);
             roomIndex++;
+            LoadingScreen.loaded = true;
         }
     }
 

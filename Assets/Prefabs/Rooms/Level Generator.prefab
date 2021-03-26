@@ -80,10 +80,11 @@ MonoBehaviour:
   gate: {fileID: 11400000, guid: cb7dc985fae7241459dd13936626ff1f, type: 2}
   spawn: {fileID: 11400000, guid: 162c09a26e691f742ab1a8962aa199ec, type: 2}
   upgrade: {fileID: 11400000, guid: 62d8b3adb3ef18541906c4a33748c6a8, type: 2}
-  overflowSize: {x: 30, y: 26}
+  overflowSize: {x: 30, y: 20}
   maxCount: 15
   minCount: 8
-  rolls: 2
+  rolls: 4
+  floodDivision: 6
   spawnUpgrade: 1
 --- !u!1 &247557387836651185
 GameObject:

@@ -21,16 +21,28 @@ public class BackgroundFollowCamera : MonoBehaviour
     void Update()
     {
         float dif = stepPos.x - cam.position.x;
-        if (dif < -tileSize.x)
+        while (dif < -tileSize.x)
+        {
             stepPos.x += tileSize.x;
-        else if (dif > tileSize.x)
+            dif = stepPos.x - cam.position.x;
+        }
+        while (dif > tileSize.x)
+        {
             stepPos.x -= tileSize.x;
+            dif = stepPos.x - cam.position.x;
+        }
 
         dif = stepPos.y - cam.position.y;
-        if (dif < -tileSize.y)
+        while (dif < -tileSize.y)
+        {
             stepPos.y += tileSize.y;
-        if (dif > tileSize.y)
+            dif = stepPos.y - cam.position.y;
+        }
+        while (dif > tileSize.y)
+        {
             stepPos.y -= tileSize.y;
+            dif = stepPos.y - cam.position.y;
+        }
 
         parallaxOffset = cam.position * parallaxRatio;
         transform.position = stepPos + parallaxOffset;

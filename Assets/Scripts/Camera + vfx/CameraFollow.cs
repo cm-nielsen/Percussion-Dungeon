@@ -15,7 +15,9 @@ public class CameraFollow : MonoBehaviour
 
     private float maxYDist;
 
-    private Vector2 shakeP = Vector2.zero, shakeV;
+    private Vector2 shakeP = Vector2.zero, shakeV, overridePos;
+
+    private bool overrideFollow = false;
 
     private void Start()
     {
@@ -45,9 +47,13 @@ public class CameraFollow : MonoBehaviour
             return;
 
         Vector2 pos = player.transform.position;
+        if (overrideFollow)
+            pos = overridePos;
+
         transform.position = new Vector3(
             Mathf.Lerp(transform.position.x, pos.x, followMod.x),
             Mathf.Lerp(transform.position.y, pos.y, followMod.y), -10);
+        
 
         RunShake();
 
@@ -73,5 +79,17 @@ public class CameraFollow : MonoBehaviour
         shakeV += (dir.normalized + Random.insideUnitCircle + dir.normalized * amount / 2)
             * shakeMultiplier / 200;
         shakeP += shakeV;
+    }
+
+    public void OverrideFollow(Vector2 offset)
+    {
+        transform.position = offset;
+        overridePos = offset;
+        overrideFollow = true;
+    }
+
+    public void ResetFollowOverride()
+    {
+        overrideFollow = false;
     }
 }

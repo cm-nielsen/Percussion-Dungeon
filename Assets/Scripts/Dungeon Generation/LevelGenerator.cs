@@ -11,7 +11,7 @@ public class LevelGenerator : MonoBehaviour
     public Vector2Int overflowSize;
     public Vector2Int size { get { return roomSetObjects[0].GetComponentInChildren<Room>().size; } }
 
-    public int maxCount, minCount, rolls;
+    public int maxCount, minCount, rolls, floodDivision;
     public bool spawnUpgrade;
 
     private Tilemap map;
@@ -22,7 +22,7 @@ public class LevelGenerator : MonoBehaviour
     private int rollCount = 0;
 
     private EdgeCollider2D edgeguard;
-    private Vector3Int min = Vector3Int.zero, max = Vector3Int.zero;
+    private List<Vector3Int> floodPositions = new List<Vector3Int>();
     private int roomIndex = 0, roomRowIndex = 0, rowsPerFrame = 5;
     private class PotentialRoom
     {
@@ -128,7 +128,7 @@ public class LevelGenerator : MonoBehaviour
                     break;
                 }
             }
-            if (Time.deltaTime > 1 / 16.0 && rowsPerFrame > 1)
+            if (Time.unscaledDeltaTime > 1 / 16.0 && rowsPerFrame > 1)
                 rowsPerFrame--;
             else
                 rowsPerFrame++;
@@ -137,7 +137,7 @@ public class LevelGenerator : MonoBehaviour
             //roomIndex++;
         }else if(roomIndex == rooms.Count)
         {
-            Vector3Int pos;
+            Vector3Int min = Vector3Int.zero, max = Vector3Int.zero;
             foreach (Vector2Int v in occupiedPositions)
             {
                 if (v.x < min.x)
@@ -150,61 +150,51 @@ public class LevelGenerator : MonoBehaviour
                 if (v.y > max.y)
                     max.y = v.y;
             }
-            //min -= (Vector3Int)size / 2;
-            //max += (Vector3Int)size / 2;
-            pos = min - (Vector3Int)overflowSize;
-            pos.x += size.x / 4;
-            do
-            {
-                do
-                {
-                    map.SetTile(pos, platform);
-                    pos.y++;
-                } while (map.GetTile(pos) != platform && pos.y < max.y + overflowSize.y);
-                pos.y = max.y + overflowSize.y;
-                do
-                {
-                    map.SetTile(pos, platform);
-                    pos.y--;
-                } while (map.GetTile(pos) != platform && pos.y > min.y - overflowSize.y);
-                pos.x += size.x / 4;
-                pos.y = min.y - overflowSize.y;
-            } while (pos.x <= max.x + overflowSize.x);
+            min -= (Vector3Int)size;
+            max += (Vector3Int)size;
 
-            pos = min - (Vector3Int)overflowSize;
-            pos.y += size.y / 4;
-            do
+            map.SetTile(min - (Vector3Int)size / 2, platform);
+            map.SetTile(max + (Vector3Int)size / 2, platform);
+
+            int baseY = min.y;
+            while(min.x <= max.x)
             {
-                do
+                while(min.y <= max.y)
                 {
-                    map.SetTile(pos, platform);
-                    pos.x++;
-                } while (map.GetTile(pos) != platform && pos.x < max.x + overflowSize.x);
-                pos.x = max.x + overflowSize.x;
-                do
-                {
-                    map.SetTile(pos, platform);
-                    pos.x--;
-                } while (map.GetTile(pos) != platform && pos.x > min.x - overflowSize.x);
-                pos.y += size.y / 4;
-                pos.x = min.x - overflowSize.x;
-            } while (pos.y <= max.y + overflowSize.y);
+                    if (!occupiedPositions.Contains(min) && BordersRoom(min))
+                        PrepFloodRoom(min);
+                    min.y += size.y;
+                }
+                min.x += size.x;
+                min.y = baseY;
+            }
+
             roomRowIndex = 0;
-            //min += (Vector3Int)size / 2;
-            //max -= (Vector3Int)size / 2;
-            //map.FloodFill(min - (Vector3Int)overflowSize, platform);
-
             roomIndex++;
         }else if(roomIndex == rooms.Count + 1)
         {
-            //Vector3Int pos = min;
-            //pos.y += roomRowIndex * size.y / 4 + 1;
-            //map.FloodFill(pos - (Vector3Int)overflowSize, platform);
-            //roomRowIndex++;
+            TileBase[] fillTiles = new TileBase[size.x * size.y / (floodDivision * floodDivision)];
+            for (int i = 0; i < fillTiles.Length; i++)
+                fillTiles[i] = platform;
 
-            //if(pos.y > max.y + overflowSize.y)
-                roomIndex++;
-            Debug.Log(Time.deltaTime * 16);
+            Vector3Int v = (Vector3Int)size / floodDivision;
+            v.z = 1;
+
+            for (int i = 0; i < rowsPerFrame; i++)
+            {
+                if (roomRowIndex >= floodPositions.Count)
+                {
+                    roomIndex++;
+                    return;
+                }
+                map.SetTilesBlock(new BoundsInt(floodPositions[roomRowIndex++], v), fillTiles);
+            }
+
+
+            if (Time.unscaledDeltaTime > 1 / 16.0 && rowsPerFrame > 1)
+                rowsPerFrame--;
+            else
+                rowsPerFrame++;
         }
         else if(roomIndex == rooms.Count + 2)
         {
@@ -219,10 +209,54 @@ public class LevelGenerator : MonoBehaviour
                 PotentialRoom upgradeRoom = rooms[rand2];
                 upgradeRoom.Fill(map, upgrade);
             }
+            rooms[0].Fill(map, spawn);
             Destroy(edgeguard);
             roomIndex++;
             LoadingScreen.loaded = true;
         }
+    }
+
+    private void PrepFloodRoom(Vector3Int v)
+    {
+        Vector3Int pos = v - (Vector3Int)size / 2;
+
+        Vector3Int pos2;
+        int num = size.y / floodDivision;
+        do
+        {
+            floodPositions.Add(pos);
+            do
+            {
+                if (--num == 0)
+                {
+                    pos2 = pos;
+                    floodPositions.Add(pos2);
+                    num = (size.y / floodDivision) - 1;
+                }
+                pos.y++;
+            } while (pos.y < v.y + size.y / 2);
+
+            pos.x += size.x / floodDivision;
+            pos.y = v.y - size.y / 2;
+            num = size.y / floodDivision;
+        } while (pos.x < v.x + size.x / 2);
+    }
+
+    private bool BordersRoom(Vector3Int v)
+    {
+        if (occupiedPositions.Contains(v + Vector3Int.right * size.x) ||
+            occupiedPositions.Contains(v + Vector3Int.left * size.x) ||
+            occupiedPositions.Contains(v + Vector3Int.up * size.y) ||
+            occupiedPositions.Contains(v + Vector3Int.down * size.y))
+            return true;
+
+        Vector3Int s = (Vector3Int)size;
+        Vector3Int s2 = s;
+        s2.x = -s.x;
+        return occupiedPositions.Contains(v + s) ||
+            occupiedPositions.Contains(v - s) ||
+            occupiedPositions.Contains(v + s2) ||
+            occupiedPositions.Contains(v - s2);
     }
 
     private PotentialRoom MakeRoom(Doors doors, Vector3Int pos)
@@ -314,7 +348,6 @@ public class LevelGenerator : MonoBehaviour
         }
         //FillRooms();
         rooms[roomIndex++].Fill(map, new TileBase[] { platform, jar, enemy });
-        rooms[0].Fill(map, spawn);
         edgeguard = gameObject.AddComponent<EdgeCollider2D>();
         Vector2 v = (Vector2)rooms[0].room.size / 8f;
         Vector2[] ar = new Vector2[5];

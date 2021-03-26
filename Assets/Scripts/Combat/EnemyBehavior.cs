@@ -29,7 +29,10 @@ public class EnemyBehavior : MonoBehaviour
     void Update()
     {
         if (!target)
+        {
+            AquireTarget();
             return;
+        }
 
         anim.SetBool("turn", hasTurnAnimation &&
             (rend.flipX && target.transform.position.x > transform.position.x ||

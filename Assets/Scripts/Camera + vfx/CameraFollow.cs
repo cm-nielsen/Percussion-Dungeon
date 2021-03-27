@@ -19,7 +19,7 @@ public class CameraFollow : MonoBehaviour
 
     private bool overrideFollow = false;
 
-    private void Start()
+    private void Awake()
     {
         if (player == null)
         {
@@ -29,6 +29,10 @@ public class CameraFollow : MonoBehaviour
         }
 
         maxYDist = GetComponent<Camera>().orthographicSize * maxYRatio;
+
+        LoadingScreen l = GameObject.FindObjectOfType<LoadingScreen>();
+        if (l)
+            l.OnLoad(this);
     }
 
     /// <summary>
@@ -81,9 +85,10 @@ public class CameraFollow : MonoBehaviour
         shakeP += shakeV;
     }
 
-    public void OverrideFollow(Vector2 offset)
+    public void OverrideFollow(Vector2 offset, bool setPos = false)
     {
-        transform.position = offset;
+        if (setPos)
+            transform.position = (Vector3)offset - Vector3.forward * 10;
         overridePos = offset;
         overrideFollow = true;
     }

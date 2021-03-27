@@ -149,11 +149,3 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.125
-    functionName: SpawnObject
-    data: 
-    objectReferenceParameter: {fileID: 6490072508014507232, guid: 45137aac125835145a414a31f939f1be,
-      type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0

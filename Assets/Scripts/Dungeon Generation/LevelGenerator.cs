@@ -128,7 +128,8 @@ public class LevelGenerator : MonoBehaviour
             // fill rooms column by column in dynamic batches
             for (int i = 0; i < rowsPerFrame; i++)
             {
-                if (rooms[roomIndex].FillColumn(map, new TileBase[] { platform, jar, enemy }, roomRowIndex++))
+                if (rooms[roomIndex].FillColumn(map, 
+                    new TileBase[] { platform, jar, enemy }, roomRowIndex++))
                 {
                     roomIndex++;
                     roomRowIndex = 0;

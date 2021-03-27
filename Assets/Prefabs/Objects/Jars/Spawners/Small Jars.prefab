@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59952612f631cb94ca8a1d33cbbab692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnChance: 0.025
+  spawnChance: 0.015
   pool:
   - {fileID: 3164478222966118137, guid: c2303ddad4f1601439433bd3fbe04352, type: 3}
   - {fileID: 5643853976771198281, guid: c0f58dec632b4ec4d8323595a64be7ea, type: 3}

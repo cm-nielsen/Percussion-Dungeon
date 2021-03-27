@@ -13,6 +13,7 @@ public class LoadingScreen : MonoBehaviour
 
     private CameraFollow cam;
     private LevelGenerator generator;
+    private Vector2 camOffset;
     private float maxBarWidth;
     private bool trigger = true;
     // Start is called before the first frame update
@@ -34,9 +35,10 @@ public class LoadingScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(trigger && Vector2.Distance(transform.position, cam.transform.position) < .1)
+        if(trigger && Vector2.Distance(transform.position, cam.transform.position) < 3)
         {
             SceneManager.LoadScene(targetScene);
+            camOffset = (Vector2)cam.transform.position - (Vector2)transform.position;
             trigger = false;
         }
 
@@ -52,8 +54,11 @@ public class LoadingScreen : MonoBehaviour
 
     public void OnLoad(CameraFollow cam)
     {
+        //Debug.Log(offset);
+        cam.OverrideFollow(position);
+        cam.transform.position = (Vector3)(position + camOffset) - Vector3.forward * 10;
+        //cam.transform.position = (Vector3)position + cam.transform.position - transform.position;
         transform.position = position;
-        cam.OverrideFollow(transform.position, true);
         this.cam = cam;
         generator = GameObject.FindObjectOfType<LevelGenerator>();
     }

@@ -10,15 +10,20 @@ public class SpawnRandom : MonoBehaviour
 
     public void Start()
     {
+        GameObject g = null;
         if (pool.Length > 0 && Random.Range(0, 1f) <= spawnChance)
         {
-            Instantiate(pool[Random.Range(0, pool.Length)],
+            g = Instantiate(pool[Random.Range(0, pool.Length)],
                 transform.position, Quaternion.identity);
         }
         Destroy(gameObject);
         Tilemap map = GetComponentInParent<Tilemap>();
         if (map)
+        {
             map.SetTile(map.WorldToCell(transform.position), null);
+            if(g)
+                g.transform.parent = map.transform;
+        }
 
     }
 }

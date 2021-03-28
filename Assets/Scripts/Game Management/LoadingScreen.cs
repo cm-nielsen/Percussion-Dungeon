@@ -57,7 +57,6 @@ public class LoadingScreen : MonoBehaviour
         //Debug.Log(offset);
         cam.OverrideFollow(position);
         cam.transform.position = (Vector3)(position + camOffset) - Vector3.forward * 10;
-        //cam.transform.position = (Vector3)position + cam.transform.position - transform.position;
         transform.position = position;
         this.cam = cam;
         generator = GameObject.FindObjectOfType<LevelGenerator>();

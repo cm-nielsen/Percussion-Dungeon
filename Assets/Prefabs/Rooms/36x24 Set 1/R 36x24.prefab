@@ -7075,7 +7075,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1081098537
-  m_SortingLayer: -1
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0.375, z: 0}
@@ -7097,6 +7097,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c815f68a59e41a047a6aa2d073ed15d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformTile: {fileID: 11400000, guid: 375af7b7f3a9f874e9867a33c6cfdb9e, type: 2}
+  jarTile: {fileID: 11400000, guid: 6ce7825232992404e9c97616c551b3da, type: 2}
   doors: 8
   map: {fileID: 544771830073079870}
   size: {x: 36, y: 24}

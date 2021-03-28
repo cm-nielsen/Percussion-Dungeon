@@ -11,7 +11,7 @@ public class LevelGenerator : MonoBehaviour
     public Vector2Int overflowSize;
     public Vector2Int size { get { return roomSetObjects[0].GetComponentInChildren<Room>().size; } }
 
-    public float progress { get { return (float)prog / progMax; } }
+    public float progress { get { return Mathf.Min((float)prog / progMax, 1); } }
     public int maxCount, minCount, rolls, floodDivision;
     public bool spawnUpgrade;
 
@@ -103,6 +103,7 @@ public class LevelGenerator : MonoBehaviour
         roomSet = new List<Room>();
         foreach(GameObject g in roomSetObjects)
         {
+
             Room r = g.GetComponentInChildren<Room>();
             if (r && !roomSet.Contains(r) && r.size == size)
             {
@@ -120,7 +121,7 @@ public class LevelGenerator : MonoBehaviour
         {
             foreach (Vector3Int v in occupiedPositions)
                 FloodRoomBorders(v);
-            progMax = floods.Count + (rooms.Count * size.x) + 3;
+            progMax = floods.Count + (rooms.Count * size.x) + 2;
             roomIndex++;
         }
         if(roomIndex < rooms.Count)
@@ -138,7 +139,7 @@ public class LevelGenerator : MonoBehaviour
                 prog++;
             }
             if (Time.unscaledDeltaTime > 1 / 16.0 && rowsPerFrame > 1)
-                rowsPerFrame--;
+                rowsPerFrame = rowsPerFrame / 2;
             else
                 rowsPerFrame++;
 
@@ -165,7 +166,7 @@ public class LevelGenerator : MonoBehaviour
             }
 
             if (Time.unscaledDeltaTime > 1 / 16.0 && rowsPerFrame > 1)
-                rowsPerFrame--;
+                rowsPerFrame = rowsPerFrame / 2;
             else
                 rowsPerFrame++;
         }
@@ -184,9 +185,27 @@ public class LevelGenerator : MonoBehaviour
                 PotentialRoom upgradeRoom = rooms[rand2];
                 upgradeRoom.Fill(map, upgrade);
             }
-            rooms[0].Fill(map, spawn);
+            //rooms[0].Fill(map, spawn);
             roomIndex++;
+        }else if(roomIndex == rooms.Count + 2)
+        {
+            TileBase t = platform.sibling;
+            Vector3Int v = new Vector3Int(0, size.y / 2, 0);
+            while (map.GetTile(v) == platform || map.GetTile(v + Vector3Int.right) == platform ||
+                map.GetTile(v + Vector3Int.left) == platform)
+                v.y--;
+            v.y++;
+
+            BoundsInt bound = new BoundsInt(new Vector3Int(-1, v.y, 0),
+                new Vector3Int(3, overflowSize.y + ((size.y / 2) - v.y), 1));
+            TileBase[] tiles = new TileBase[bound.size.x * bound.size.y];
+            for (int i = 0; i < tiles.Length; i++)
+                tiles[i] = t;
+            map.SetTilesBlock(bound, tiles);
+
             LoadingScreen.loaded = true;
+            Gate.loaded = true;
+            roomIndex++;
         }
     }
 
@@ -309,7 +328,7 @@ public class LevelGenerator : MonoBehaviour
     {
         rooms = new List<PotentialRoom>();
         occupiedPositions = new List<Vector3Int>();
-        map.ClearAllTiles();
+        //map.ClearAllTiles();
         Vector3Int pos = Vector3Int.zero;
         //intitial room
         AddRoom(MakeRoom(Doors.down, Doors.up, pos));

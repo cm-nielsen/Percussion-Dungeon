@@ -15,9 +15,9 @@ public class Minimap : MonoBehaviour
         bridges = new List<Vector2>();
     private Draggable nodeParent;
     private SpriteRenderer pPointer;
-    private ControlKey con;
+    private ControlKey con, pCon;
     private Transform player;
-    private PlayerController pCon;
+    //private PlayerController pCon;
     private Vector2 refPos = Vector2.zero;
     private Vector2 roomSize;
 
@@ -27,8 +27,16 @@ public class Minimap : MonoBehaviour
     {
         con = GetComponent<ControlKey>();
 
+        foreach (SpriteRenderer r in GetComponentsInChildren<SpriteRenderer>())
+            r.enabled = active;
+
+    }
+
+    public void Initialize()
+    {
         nodeParent = new GameObject("Map").AddComponent<Draggable>();
         nodeParent.transform.parent = transform;
+        nodeParent.transform.localPosition = Vector2.zero;
 
         GameObject pPointerObj = new GameObject("Player Position");
         pPointerObj.transform.parent = nodeParent.transform;
@@ -41,7 +49,7 @@ public class Minimap : MonoBehaviour
             r.enabled = active;
 
         Music.onBeat.Add(OnBeat);
-        pCon = GameObject.FindObjectOfType<PlayerController>();
+        pCon = GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>();
 
         valid = false;
         LevelGenerator lg = GameObject.FindObjectOfType<LevelGenerator>();
@@ -59,17 +67,18 @@ public class Minimap : MonoBehaviour
     {
         if (active != con["map"])
         {
-            if(Time.timeScale == 0)
+            if (PauseMenu.active)
             {
                 active = false;
                 return;
             }
+
             active = con["map"];
             foreach (SpriteRenderer r in GetComponentsInChildren<SpriteRenderer>())
                 r.enabled = active;
 
         }
-        if (Time.timeScale == 0 && active)
+        if (PauseMenu.active && active)
         {
             active = false;
             foreach (SpriteRenderer r in GetComponentsInChildren<SpriteRenderer>())
@@ -83,9 +92,9 @@ public class Minimap : MonoBehaviour
 
         if (player == null)
         {
-            pCon = GameObject.FindObjectOfType<PlayerController>();
-            if (pCon)
-                player = pCon.transform;
+            PlayerController c = GameObject.FindObjectOfType<PlayerController>();
+            if (c)
+                player = c.transform;
             else
                 return;
         }

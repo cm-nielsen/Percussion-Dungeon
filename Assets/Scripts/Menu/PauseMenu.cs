@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static bool active = false;
+
     public GameObject baseMenu;
     public GameObject pointer;
 
@@ -104,12 +106,14 @@ public class PauseMenu : MonoBehaviour
     private void EnterPauseState()
     {
         Time.timeScale = 0;
+        active = true;
         playerKey.enabled = false;
     }
 
     private void ExitPauseState()
     {
         Time.timeScale = 1;
+        active = false;
         playerKey.enabled = true;
     }
 }

@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: 6399878737259261950
     second: gate slide front_4
+  - first:
+      213: -7913075955704054531
+    second: gate slide front_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -117,8 +120,8 @@ TextureImporter:
       name: gate slide front_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 16
+        y: 64
         width: 16
         height: 64
       alignment: 0
@@ -138,8 +141,8 @@ TextureImporter:
       name: gate slide front_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
+        x: 32
+        y: 64
         width: 16
         height: 64
       alignment: 0
@@ -159,8 +162,8 @@ TextureImporter:
       name: gate slide front_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 48
+        y: 64
         width: 16
         height: 64
       alignment: 0
@@ -180,8 +183,8 @@ TextureImporter:
       name: gate slide front_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
+        x: 64
+        y: 64
         width: 16
         height: 64
       alignment: 0
@@ -201,7 +204,7 @@ TextureImporter:
       name: gate slide front_4
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 0
         width: 16
         height: 64
@@ -214,6 +217,27 @@ TextureImporter:
       bones: []
       spriteID: effe9e3bdcfe0d850800000000000000
       internalID: 6399878737259261950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gate slide front_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfc3393f75b1f2290800000000000000
+      internalID: -7913075955704054531
       vertices: []
       indices: 
       edges: []

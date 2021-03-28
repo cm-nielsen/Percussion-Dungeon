@@ -8838,8 +8838,8 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1081098537
-  m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingLayer: 4
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -9100,7 +9100,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7109820969382303720}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7087794900976471993
 SpriteRenderer:
@@ -9240,7 +9240,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -34604029
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e405f5b2b6aebd04ca28c5daecb0ca07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9451,7 +9451,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2116477043
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 4876888198003180755, guid: 8535f39fd058e7040a317bb3abbcaf94,
     type: 3}
@@ -9558,7 +9558,7 @@ GameObject:
   - component: {fileID: 2586360122775994875}
   - component: {fileID: 7630985977384403602}
   m_Layer: 0
-  m_Name: Loading Screen
+  m_Name: Loading Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9576,7 +9576,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7109820969382303720}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2586360122775994875
 SpriteRenderer:
@@ -9761,8 +9761,8 @@ Transform:
   - {fileID: 203312406304211095}
   - {fileID: 2649798775868638925}
   - {fileID: 2725852660046469616}
-  - {fileID: 2850038569571040454}
   - {fileID: 3317515430874553352}
+  - {fileID: 2850038569571040454}
   - {fileID: 2044606101737577430}
   m_Father: {fileID: 0}
   m_RootOrder: 0

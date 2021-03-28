@@ -13,10 +13,10 @@ public enum Doors
     right = 8
 }
 
-[ExecuteInEditMode]
+[ExecuteAlways]
 public class Room : MonoBehaviour
 {
-    public static TileBase platformTile, jarTile;
+    public TileBase platformTile, jarTile;
 
     public Doors doors = Doors.none;
 

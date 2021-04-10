@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyHealth))]
+[RequireComponent(typeof(DamageReceiver))]
+[RequireComponent(typeof(AudioClipPlayer))]
+[RequireComponent(typeof(AnimationMovement))]
 public class EnemyBehavior : MonoBehaviour
 {
-    public enum Type { stationary, roaming, chasing, ranged}
+    public enum Type { stationary, roaming, chasing, charging, ranged}
     public Type type;
 
     public float attackDistance;
@@ -34,13 +38,24 @@ public class EnemyBehavior : MonoBehaviour
             return;
         }
 
-        anim.SetBool("turn", hasTurnAnimation &&
-            (rend.flipX && target.transform.position.x > transform.position.x ||
-            !rend.flipX && target.transform.position.x < transform.position.x));
+        switch (type)
+        {
+            case Type.stationary:
+                StationaryBehavior();
+                break;
+            case Type.roaming:
 
-        bool shouldAttack = Vector2.Distance(transform.position, target.position) < attackDistance;
-        shouldAttack &= Music.beat;
-        anim.SetBool("attack", shouldAttack);
+                break;
+            case Type.chasing:
+
+                break;
+            case Type.charging:
+                ChargeBehavior();
+                break;
+            case Type.ranged:
+
+                break;
+        }
         //if (Vector2.Distance(transform.position, target.position) < attackDistance)
         //    anim.SetTrigger("attack");
 
@@ -51,5 +66,25 @@ public class EnemyBehavior : MonoBehaviour
         PlayerController pCon = GameObject.FindObjectOfType<PlayerController>();
         if(pCon)
             target = pCon.transform;
+    }
+
+    private void StationaryBehavior()
+    {
+        anim.SetBool("turn", hasTurnAnimation &&
+            (rend.flipX && target.transform.position.x > transform.position.x ||
+            !rend.flipX && target.transform.position.x < transform.position.x));
+
+        bool shouldAttack = Vector2.Distance(transform.position, target.position) < attackDistance;
+        shouldAttack &= Music.beat;
+        anim.SetBool("attack", shouldAttack);
+    }
+
+    private void ChargeBehavior()
+    {
+        anim.SetBool("turn", hasTurnAnimation &&
+            (rend.flipX && target.transform.position.x > transform.position.x ||
+            !rend.flipX && target.transform.position.x < transform.position.x));
+
+        anim.SetBool("charge", Vector2.Distance(transform.position, target.position) < attackDistance);
     }
 }

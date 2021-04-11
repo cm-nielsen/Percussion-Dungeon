@@ -30,7 +30,7 @@ public class DamageReceiver : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
-        if ((recoil & KnockbackTypes.animation) != 0)
+        if ((recoil & KnockbackTypes.animation) != 0 && anim)
         {
             foreach (AnimatorControllerParameter p in anim.parameters)
             {
@@ -208,17 +208,17 @@ public class DamageReceiver : MonoBehaviour
         if(apt2 > 0)
         {
             apt2 -= Time.deltaTime;
-            if (apt2 <= 0)
+            if (apt2 <= 0 && anim)
                 anim.speed = 0;
         }
 
-        if(anim.speed < 1)
+        if(anim && anim.speed < 1)
         {
             if (animPauseTimer > 0)
                 animPauseTimer -= Time.deltaTime;
             else
             {
-                anim.speed = 1;
+                if(anim) anim.speed = 1;
                 rb.constraints = prevCon;
                 rb.velocity = prevVel;
             }

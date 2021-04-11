@@ -34,7 +34,8 @@ public class ExperienceOrb : MonoBehaviour
 
         if (!pPos)
         {
-            pPos = GameObject.FindObjectOfType<PlayerController>().transform;
+            PlayerController pCon = GameObject.FindObjectOfType<PlayerController>();
+            if (pCon) pPos = pCon.transform;
             return;
         }
 

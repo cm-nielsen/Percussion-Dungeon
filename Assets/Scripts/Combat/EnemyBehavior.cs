@@ -85,6 +85,13 @@ public class EnemyBehavior : MonoBehaviour
             (rend.flipX && target.transform.position.x > transform.position.x ||
             !rend.flipX && target.transform.position.x < transform.position.x));
 
-        anim.SetBool("charge", Vector2.Distance(transform.position, target.position) < attackDistance);
+        anim.SetBool("attack", Vector2.Distance(transform.position, target.position) < attackDistance);
+    }
+
+    public void OnDeath()
+    {
+        if (!anim) return;
+        anim.SetBool("attack", false);
+        anim.SetBool("turn", false);
     }
 }

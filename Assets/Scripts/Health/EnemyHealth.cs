@@ -22,5 +22,6 @@ public class EnemyHealth : Health
         for (int i = 0; i < experience; i++)
             Instantiate(expOrbPrefab, transform.position, Quaternion.identity);
         expOrbPrefab = null;
+        Destroy(GetComponent<EnemyBehavior>());
     }
 }

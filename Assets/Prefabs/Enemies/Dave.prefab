@@ -109,7 +109,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -182,8 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527e2250438fcf4479baa18651696da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
-  attackDistance: 3
+  type: 0
+  attackDistance: 2
 --- !u!114 &6931561195555472227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b22acb70c298844398da5006cbfe2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 6
+  max: 4
   amount: 0
   display: {fileID: 0}
   expOrbPrefab: {fileID: 5067735000811720593, guid: d2fdfaffb9fd63a42b28cda1ef12ed44,

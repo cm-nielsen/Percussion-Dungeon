@@ -70,12 +70,13 @@ public class EnemyBehavior : MonoBehaviour
 
     private void StationaryBehavior()
     {
-        anim.SetBool("turn", hasTurnAnimation &&
+        bool turn = hasTurnAnimation &&
             (rend.flipX && target.transform.position.x > transform.position.x ||
-            !rend.flipX && target.transform.position.x < transform.position.x));
+            !rend.flipX && target.transform.position.x < transform.position.x);
+        anim.SetBool("turn", turn);
 
-        bool shouldAttack = Vector2.Distance(transform.position, target.position) < attackDistance;
-        shouldAttack &= Music.beat;
+        bool shouldAttack = TargetInSight();// Vector2.Distance(transform.position, target.position) < attackDistance;
+        shouldAttack &= Music.beat & !turn;
         anim.SetBool("attack", shouldAttack);
     }
 
@@ -88,10 +89,9 @@ public class EnemyBehavior : MonoBehaviour
         anim.SetBool("attack", Vector2.Distance(transform.position, target.position) < attackDistance);
     }
 
-    public void OnDeath()
+    private bool TargetInSight()
     {
-        if (!anim) return;
-        anim.SetBool("attack", false);
-        anim.SetBool("turn", false);
+        return (rend.flipX && target.transform.position.x + attackDistance > transform.position.x) ||
+            (!rend.flipX && target.transform.position.x < attackDistance + transform.position.x);
     }
 }

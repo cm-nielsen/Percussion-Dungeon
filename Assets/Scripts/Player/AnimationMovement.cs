@@ -34,6 +34,14 @@ public class AnimationMovement : MonoBehaviour
         rb.velocity += Vector2.up * y;
     }
 
+    private void HorizontalImpulse(float x)
+    {
+        if (rend.flipX)
+            rb.velocity += Vector2.left * x;
+        else
+            rb.velocity += Vector2.right * x;
+    }
+
     private void LockPosition(int i)
     {
         if (i == 0)

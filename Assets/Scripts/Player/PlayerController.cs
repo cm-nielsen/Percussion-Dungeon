@@ -2,13 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AnimationMovement))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(DamageReceiver))]
+[RequireComponent(typeof(PlayerHealth))]
+[RequireComponent(typeof(AudioClipPlayer))]
 public class PlayerController : MonoBehaviour
 {
     private ControlKey input;
 
-    public Vector2 moveForce;
+    public Vector2 moveForce = new Vector2(22, 9.5f);
     public LayerMask isGround;
-    public float maxFallSpeed, throwForce, xFriction, coyoteTime = 0.2f, adaptiveGravity;
+    public float maxFallSpeed = 100, throwForce, xFriction = 0.8f, 
+        coyoteTime = 0.2f, adaptiveGravity = 5;
 
     private GameObject thrownDrum;
     private Rigidbody2D rb;
@@ -45,7 +52,9 @@ public class PlayerController : MonoBehaviour
         if (canJump)
         {
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("run") ||
-                anim.GetCurrentAnimatorStateInfo(0).IsName("land"))
+                anim.GetCurrentAnimatorStateInfo(0).IsName("land") ||
+                anim.GetCurrentAnimatorStateInfo(0).IsName("big run") ||
+                anim.GetCurrentAnimatorStateInfo(0).IsName("big land"))
                 ApplyRunForce();
             else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("fall"))
                 rb.velocity *= Vector2.up;
@@ -190,5 +199,10 @@ public class PlayerController : MonoBehaviour
         {
             rend.flipX = true;
         }
+    }
+
+    private void CheckContact()
+    {
+        anim.SetBool("contact", GetComponentInChildren<AreaCollisionCheck>().Check());
     }
 }

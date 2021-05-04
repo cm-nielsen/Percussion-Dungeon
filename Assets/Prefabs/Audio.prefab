@@ -48,6 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followMod: {x: 1, y: 1}
+  toFollow: {fileID: 0}
+  maintainOffset: 0
+  followPlayer: 1
 --- !u!114 &4985327115496198636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +82,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6f476c3c36a04fc41a8b71460ae11c87, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e6ef4d2d698f2314588920548c01dc4e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.426
   m_Pitch: 1

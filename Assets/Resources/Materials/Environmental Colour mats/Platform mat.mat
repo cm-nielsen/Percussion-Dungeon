@@ -75,7 +75,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainCol: {r: 0.3537736, g: 0.5, b: 0.37672487, a: 1}
+    - _MainCol: {r: 0.2392157, g: 0.39607847, b: 0.29803923, a: 1}
     - _MeatCol: {r: 0, g: 0, b: 0, a: 1}
     - _MonoCol: {r: 0, g: 0, b: 0, a: 1}
     - _WeapCol: {r: 0.49309945, g: 0.5943396, b: 0.4429512, a: 1}

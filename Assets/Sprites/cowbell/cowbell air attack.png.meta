@@ -168,8 +168,8 @@ TextureImporter:
       name: cowbell air attack_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 0
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -189,7 +189,7 @@ TextureImporter:
       name: cowbell air attack_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 64
         width: 64
         height: 64
@@ -210,48 +210,6 @@ TextureImporter:
       name: cowbell air attack_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a517539952f47ae50800000000000000
-      internalID: 6820507183578706266
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cowbell air attack_5
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23ca36e2a4f5566b0800000000000000
-      internalID: -5303728213948388302
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cowbell air attack_6
-      rect:
-        serializedVersion: 2
         x: 0
         y: 0
         width: 64
@@ -263,29 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07a214a11d5a411a0800000000000000
-      internalID: -6839659616561714576
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cowbell air attack_7
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b039cffc7954db3d0800000000000000
-      internalID: -3189316442776628469
+      spriteID: a517539952f47ae50800000000000000
+      internalID: 6820507183578706266
       vertices: []
       indices: 
       edges: []

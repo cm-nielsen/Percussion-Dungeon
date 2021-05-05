@@ -82,10 +82,10 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimator()
     {
-        Vector3 groundCheckOffset = hitbox.size / 2 * Vector2.right;
-        if(Physics2D.Raycast(transform.position + groundCheckOffset, Vector2.down, 
+        Vector3 groundCheckOffset = hitbox.size / 2 * Vector2.right, hOff = hitbox.offset;
+        if(Physics2D.Raycast(transform.position + groundCheckOffset + hOff, Vector2.down, 
             hitbox.size.y / 2 + 0.05f, isGround)
-        || Physics2D.Raycast(transform.position - groundCheckOffset, Vector2.down, 
+        || Physics2D.Raycast(transform.position - groundCheckOffset + hOff, Vector2.down, 
         hitbox.size.y / 2 + 0.05f, isGround))
         {
             canJump = true;

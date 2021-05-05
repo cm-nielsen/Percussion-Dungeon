@@ -38,6 +38,7 @@ public class WeaponSelectionMenu : MonoBehaviour
 
     public void ChangeWeapon(GameObject weapPrefab)
     {
+        Debug.Log(weapPrefab);
         pKey["down"] = false;
         active = false;
         timer = 0;

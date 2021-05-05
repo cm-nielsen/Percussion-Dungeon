@@ -207,9 +207,9 @@ public class WeaponSet
             return WeaponUnlocks.hang;
         else if (g.name == rainstick.name)
             return WeaponUnlocks.rainstick;
-        else if (g.name == bongos.name)
+        else if (bongos && g.name == bongos.name)
             return WeaponUnlocks.bongos;
-        else if (g.name == triangle.name)
+        else if (triangle && g.name == triangle.name)
             return WeaponUnlocks.triangle;
         else if (g.name == cowbell.name)
             return WeaponUnlocks.cowbell;

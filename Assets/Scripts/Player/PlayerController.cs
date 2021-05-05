@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 moveForce = new Vector2(22, 9.5f);
     public LayerMask isGround;
-    public float maxFallSpeed = 100, throwForce, xFriction = 0.8f, 
-        coyoteTime = 0.2f, adaptiveGravity = 5;
+    public float maxFallSpeed = 100, throwForce, xFriction = 0.8f,
+        coyoteTime = 0.2f, adaptiveGravity = 5, runSpeed = 1.5f;
 
     private GameObject thrownDrum;
     private Rigidbody2D rb;
@@ -55,9 +55,14 @@ public class PlayerController : MonoBehaviour
                 anim.GetCurrentAnimatorStateInfo(0).IsName("land") ||
                 anim.GetCurrentAnimatorStateInfo(0).IsName("big run") ||
                 anim.GetCurrentAnimatorStateInfo(0).IsName("big land"))
-                ApplyRunForce();
-            else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("fall"))
-                rb.velocity *= Vector2.up;
+                    ApplyRunForce();
+                //else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("fall"))
+                //    rb.velocity *= Vector2.up;
+            rb.velocity = new Vector2(rb.velocity.x * xFriction, rb.velocity.y);
+            if (rb.velocity.x > runSpeed)
+                rb.velocity = new Vector2(runSpeed, rb.velocity.y);
+            else if(rb.velocity.x < -runSpeed)
+                rb.velocity = new Vector2(-runSpeed, rb.velocity.y);
         }
         else
         {
@@ -65,7 +70,9 @@ public class PlayerController : MonoBehaviour
             if (rb.velocity.y < -maxFallSpeed)
                 rb.velocity = new Vector2(rb.velocity.x, -maxFallSpeed);
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("jump") ||
-                anim.GetCurrentAnimatorStateInfo(0).IsName("fall"))
+                anim.GetCurrentAnimatorStateInfo(0).IsName("big jump") ||
+                anim.GetCurrentAnimatorStateInfo(0).IsName("fall")||
+                anim.GetCurrentAnimatorStateInfo(0).IsName("big fall"))
             {
                 TurnTowardsInput();
             }
@@ -118,7 +125,6 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(moveForce.x * Vector2.right);
         else if (input["left"])
             rb.AddForce(moveForce.x * Vector2.left);
-        rb.velocity = new Vector2(rb.velocity.x * xFriction, rb.velocity.y);
     }
 
     private void AirControl()

@@ -5,62 +5,91 @@ using UnityEngine;
 public class WeaponSelectionMenu : MonoBehaviour
 {
     public GameObject canvas;
+    public SpriteRenderer back, icon;
 
+    private Animator anim;
     private GameController gcon;
     private ControlKey pKey;
-
-    private int timer;
-    private bool active = false;
+    private CameraFollow camFollow;
+ 
+    private bool interactable = false, open = false, input = false, inputToggle = true;
     // Start is called before the first frame update
     void Start()
     {
         //canvas = GetComponentInChildren<Canvas>().gameObject;
+        anim = GetComponent<Animator>();
         gcon = GameObject.FindObjectOfType<GameController>();
         pKey = GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>();
+        camFollow = Camera.main.GetComponent<CameraFollow>();
         canvas.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (active && pKey["down"])
-        {
-            canvas.SetActive(true);
-            pKey["down"] = false;
-            pKey.enabled = false;
-            Time.timeScale = 0;
-        }
-        if (!active)
-        {
-            timer++;
-        }
+        if (inputToggle)
+            inputToggle = pKey["down"];
+        else
+            input = pKey["down"];
+
+        if (interactable && input)
+            ToggleCabinet();
+
     }
 
     public void ChangeWeapon(GameObject weapPrefab)
     {
         Debug.Log(weapPrefab);
-        pKey["down"] = false;
-        active = false;
-        timer = 0;
         canvas.SetActive(false);
-        pKey.enabled = true;
-        Time.timeScale = 1;
+        camFollow.ResetFollowOverride();
+        //pKey.enabled = true;
+        //Time.timeScale = 1;
         gcon.SetCurrentWeap(weapPrefab);
-        Destroy(GameObject.FindGameObjectWithTag("Player"));
+        //Destroy(GameObject.FindGameObjectWithTag("Player"));
         Instantiate(weapPrefab, transform.position, Quaternion.identity);
+    }
+
+    private void ToggleCabinet()
+    {
+        input = false;
+        inputToggle = true;
+        open = !open;
+        if (open)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Player"));
+            camFollow.OverrideFollow((Vector2)transform.position + Vector2.up / 2);
+        }
+        else
+        {
+            camFollow.ResetFollowOverride();
+            Instantiate(gcon.currentWeaponPrefab,
+                (Vector2)transform.position + Vector2.down * .8f, Quaternion.identity);
+        }
+        anim.SetBool("open", open);
+        canvas.SetActive(open);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (timer < 8 || !collision.CompareTag("Player"))
+        if (!collision.CompareTag("Player"))
             return;
-        active = true;
+        interactable = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (timer < 8 || !collision.CompareTag("Player"))
+        if (open || !collision.CompareTag("Player"))
             return;
-        active = false;
+        interactable = false;
+    }
+
+    private void OnDoorOpen()
+    {
+        back.enabled = icon.enabled = true;
+    }
+
+    private void OnDoorClose()
+    {
+        back.enabled = icon.enabled = false;
     }
 }

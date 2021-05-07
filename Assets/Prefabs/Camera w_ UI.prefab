@@ -141,8 +141,6 @@ MonoBehaviour:
     b: 2
   deadMeat: {fileID: 6200000, guid: ac5786b3448c99a4a9e22ba9bd71812e, type: 2}
   corpseSound: {fileID: 8300000, guid: d72b3ce4358f2084cb0e27d02427489f, type: 3}
-  platformTile: {fileID: 11400000, guid: 375af7b7f3a9f874e9867a33c6cfdb9e, type: 2}
-  jarTile: {fileID: 11400000, guid: 6ce7825232992404e9c97616c551b3da, type: 2}
   audioSettings:
     spatialBlend: 1
     volume: 1
@@ -249,7 +247,7 @@ PrefabInstance:
     - target: {fileID: 2354568715290151701, guid: 8edb90f74130a3b4d92ff7e885eb769e,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2354568715290151703, guid: 8edb90f74130a3b4d92ff7e885eb769e,
         type: 3}

@@ -47,12 +47,14 @@ public class CameraFollow : MonoBehaviour
             if (pcon)
                 player = pcon.gameObject;
         }
-        if (!player)
-            return;
 
-        Vector2 pos = player.transform.position;
+        Vector2 pos;
         if (overrideFollow)
             pos = overridePos;
+        else if (player)
+            pos = player.transform.position;
+        else
+            return;
 
         transform.position = new Vector3(
             Mathf.Lerp(transform.position.x, pos.x, followMod.x),

@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class WeaponSelectionMenu : MonoBehaviour
 {
-    public GameObject canvas;
-    public SpriteRenderer back, icon, prevIcon;
+    public GameObject canvas, iconParent;
+    public SpriteRenderer icon;
     public List<SelectionItem> options;
     public Text desc, level, overallLevel;
+    public Material playerMat;
 
     public float lerpStart, lerpMod;
 
@@ -16,8 +17,8 @@ public class WeaponSelectionMenu : MonoBehaviour
     private GameController gcon;
     private CameraFollow camFollow;
 
+    private List<PreviousIcon> prevIcons;
     private SelectionItem selected;
-    private Vector2 lerpGoal;
     private ControlToggleProxy activate, left, right;
 
     private float lerpVal = 0;
@@ -29,7 +30,9 @@ public class WeaponSelectionMenu : MonoBehaviour
         anim = GetComponent<Animator>();
         gcon = GameObject.FindObjectOfType<GameController>();
         camFollow = Camera.main.GetComponent<CameraFollow>();
+        prevIcons = new List<PreviousIcon>();
         canvas.SetActive(false);
+        iconParent.SetActive(false);
 
         activate = new ControlToggleProxy();
         left = new ControlToggleProxy();
@@ -76,7 +79,6 @@ public class WeaponSelectionMenu : MonoBehaviour
     {
         open = !open;
         anim.SetBool("open", open);
-        canvas.SetActive(open);
         if (open)
         {
             Destroy(GameObject.FindGameObjectWithTag("Player"));
@@ -92,10 +94,8 @@ public class WeaponSelectionMenu : MonoBehaviour
 
     private void SwitchSelection(int i)
     {
-        prevIcon.enabled = true;
-        prevIcon.transform.localPosition = Vector2.zero;
-        prevIcon.sprite = selected.sprite;
-        lerpGoal = new Vector2(-i, 0) * .75f;
+        prevIcons.Add(new PreviousIcon(icon, transform, new Vector2(-i, 0) * .75f));
+
         lerpVal = lerpStart;
 
         int newIndex = (options.IndexOf(selected) + i) % options.Count;
@@ -117,19 +117,15 @@ public class WeaponSelectionMenu : MonoBehaviour
 
     private void RunSwap()
     {
-        if (open && prevIcon.enabled)
+        if (open)
         {
-            prevIcon.transform.localPosition =
-                Vector2.Lerp(prevIcon.transform.localPosition, lerpGoal, lerpVal);
+            prevIcons.RemoveAll(x => x.rend == null);
+            foreach (PreviousIcon i in prevIcons)
+                i.Update(lerpVal);
+            
             icon.transform.localPosition =
                 Vector2.Lerp(icon.transform.localPosition, Vector2.zero, lerpVal);
             lerpVal *= lerpMod;
-
-            if (Vector2.Distance(icon.transform.localPosition, Vector2.zero) < 0.01f)
-            {
-                prevIcon.enabled = false;
-                icon.transform.localPosition = Vector2.zero;
-            }
         }
     }
 
@@ -147,9 +143,39 @@ public class WeaponSelectionMenu : MonoBehaviour
         interactable = false;
     }
 
-    private void OnDoorOpen() { back.enabled = icon.enabled = true; }
+    private void OnDoorOpen()
+    {
+        iconParent.SetActive(true);
+        canvas.SetActive(true);
+    }
 
-    private void OnDoorClose() { back.enabled = icon.enabled = prevIcon.enabled = false; }
+    private void OnDoorClose()
+    {
+        iconParent.SetActive(false);
+        canvas.SetActive(false);
+    }
+
+    private class PreviousIcon
+    {
+        public SpriteRenderer rend;
+        private Vector2 lerpGoal;
+
+        public PreviousIcon(SpriteRenderer icon, Transform t, Vector2 v)
+        {
+            rend = Instantiate(icon, t);
+            rend.name = "Previous Icon";
+            rend.transform.localPosition = Vector2.zero;
+            lerpGoal = v;
+        }
+
+        public void Update(float lerpVal)
+        {
+            rend.transform.localPosition =
+                    Vector2.Lerp(rend.transform.localPosition, lerpGoal, lerpVal);
+            if (Vector2.Distance(rend.transform.localPosition, lerpGoal) < 0.1f)
+                Destroy(rend.gameObject);
+        }
+    }
 }
 
 [System.Serializable]

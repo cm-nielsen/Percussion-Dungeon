@@ -7,9 +7,10 @@ public class WeaponSelectionMenu : MonoBehaviour
 {
     public GameObject canvas, iconParent;
     public SpriteRenderer icon;
+    public Sprite lockedIcon;
     public List<SelectionItem> options;
-    public Text desc, level, overallLevel;
-    public Material playerMat;
+    public Text desc, proficiency, level;
+    public IconGraph graph;
 
     public float lerpStart, lerpMod;
 
@@ -22,13 +23,13 @@ public class WeaponSelectionMenu : MonoBehaviour
     private ControlToggleProxy activate, left, right;
 
     private float lerpVal = 0;
-    private bool interactable = false, open = false;
+    private bool interactable = false, open = false, locked = true;
     // Start is called before the first frame update
     void Start()
     {
         //canvas = GetComponentInChildren<Canvas>().gameObject;
         anim = GetComponent<Animator>();
-        gcon = GameObject.FindObjectOfType<GameController>();
+        gcon = FindObjectOfType<GameController>();
         camFollow = Camera.main.GetComponent<CameraFollow>();
         prevIcons = new List<PreviousIcon>();
         canvas.SetActive(false);
@@ -72,11 +73,26 @@ public class WeaponSelectionMenu : MonoBehaviour
         foreach (SelectionItem i in options)
             if (i.prefab == gcon.currentWeaponPrefab)
                 selected = i;
+
+        locked = !gcon.IsUnlocked(selected.prefab);
         DisplaySelectedAttributes();
     }
 
     private void ToggleCabinet()
     {
+        if(open && locked)
+        {
+            if(!gcon.UnlockWeapon(selected.prefab, selected.cost))
+            {
+                desc.text = "Not enough Castanets";
+                return;
+            }
+            else
+            {
+                desc.text = "Big Chungus thanks you";
+                return;
+            }
+        }
         open = !open;
         anim.SetBool("open", open);
         if (open)
@@ -104,15 +120,32 @@ public class WeaponSelectionMenu : MonoBehaviour
         selected = options[newIndex];
 
         icon.transform.localPosition = new Vector2(i, 0) * .75f;
-        DisplaySelectedAttributes();
 
-        gcon.SetCurrentWeap(selected.prefab);
+        locked = !gcon.IsUnlocked(selected.prefab);
+        if (!locked)
+            gcon.SetCurrentWeap(selected.prefab);
+        DisplaySelectedAttributes();
     }
 
     private void DisplaySelectedAttributes()
     {
-        icon.sprite = selected.sprite;
-        desc.text = selected.description;
+        if (locked)
+        {
+            icon.sprite = lockedIcon;
+            desc.text = "LOCKED\ncost : " + selected.cost;
+            proficiency.text = "- - -";
+            level.text = "- - -";
+        }
+        else
+        {
+            icon.sprite = selected.sprite;
+            desc.text = selected.description;
+            float[] ar = gcon.GetLevelInfo();
+            proficiency.text = ar[0] + "| +" + ar[1] * 100 + "%";
+            level.text = ar[2] + "| +" + ar[3] * 100 + "%";
+        }
+        if (graph.isActiveAndEnabled)
+            graph.Graph(selected.stats);
     }
 
     private void RunSwap()
@@ -147,10 +180,12 @@ public class WeaponSelectionMenu : MonoBehaviour
     {
         iconParent.SetActive(true);
         canvas.SetActive(true);
+        DisplaySelectedAttributes();
     }
 
     private void OnDoorClose()
     {
+        graph.Clear();
         iconParent.SetActive(false);
         canvas.SetActive(false);
     }
@@ -184,6 +219,7 @@ public class SelectionItem
     public string name, description;
     public GameObject prefab;
     public Sprite sprite;
+    public int cost = 1;
 
     public int[] stats = new int[3]; //speed, power, usability
 }

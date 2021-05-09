@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd594f06a42b1d4c8094deb26a8e2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: {x: 22, y: 5}
+  moveForce: {x: 22, y: 6.2}
   isGround:
     serializedVersion: 2
     m_Bits: 2560
@@ -185,7 +185,7 @@ MonoBehaviour:
   throwForce: 10
   xFriction: 0.8
   coyoteTime: 0.2
-  adaptiveGravity: 5
+  adaptiveGravity: 2
   runSpeed: 1.5
   canJump: 0
   canDodge: 0

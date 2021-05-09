@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
 
         input = GameObject.Find("Player Control Key").GetComponent<ControlKey>();
 
+        GetComponentInChildren<DamageDealer>().SetDamageMultiplier();
+
         Music.onBeat.Add(OnBeat);
         Music.offBeat.Add(OffBeat);
     }

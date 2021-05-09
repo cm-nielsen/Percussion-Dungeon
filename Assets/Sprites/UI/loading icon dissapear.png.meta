@@ -1,22 +1,31 @@
 fileFormatVersion: 2
-guid: 8e89961a29690dd49b75d5176305ea5f
+guid: 2a9fd999f0830674eae23d6313eecdc1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8374486571836852862
-    second: weap icons_0
+      213: 8085025867593402460
+    second: loading icon dissapear_0
   - first:
-      213: -8957902743440450060
-    second: weap icons_1
+      213: 2857594826275606360
+    second: loading icon dissapear_1
   - first:
-      213: -7013821142516977529
-    second: weap icons_2
+      213: 2252745536227805531
+    second: loading icon dissapear_2
   - first:
-      213: -3482854511985086820
-    second: weap icons_3
+      213: -1956432044485598768
+    second: loading icon dissapear_3
   - first:
-      213: 3730803815288675993
-    second: weap icons_4
+      213: -6854898937291768489
+    second: loading icon dissapear_4
+  - first:
+      213: -6940008205066150129
+    second: loading icon dissapear_5
+  - first:
+      213: -3916965259965469523
+    second: loading icon dissapear_6
+  - first:
+      213: -8002101295072106885
+    second: loading icon dissapear_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -114,97 +123,160 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: weap icons_0
+      name: loading icon dissapear_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 54
-        width: 14
-        height: 54
+        y: 128
+        width: 19
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7a4d9aca27283470800000000000000
-      internalID: 8374486571836852862
+      spriteID: c58cfb5b038c33070800000000000000
+      internalID: 8085025867593402460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: weap icons_1
+      name: loading icon dissapear_1
       rect:
         serializedVersion: 2
-        x: 14
-        y: 54
-        width: 14
-        height: 54
+        x: 19
+        y: 128
+        width: 19
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fd1cb47ae22fa380800000000000000
-      internalID: -8957902743440450060
+      spriteID: 85fc624ba5738a720800000000000000
+      internalID: 2857594826275606360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: weap icons_2
+      name: loading icon dissapear_2
       rect:
         serializedVersion: 2
-        x: 28
-        y: 54
-        width: 14
-        height: 54
+        x: 38
+        y: 128
+        width: 19
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 780b62ae4d6e9ae90800000000000000
-      internalID: -7013821142516977529
+      spriteID: b598430312c534f10800000000000000
+      internalID: 2252745536227805531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: weap icons_3
+      name: loading icon dissapear_3
       rect:
         serializedVersion: 2
-        x: 42
-        y: 54
-        width: 14
-        height: 54
+        x: 57
+        y: 128
+        width: 19
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9e23c8364a6aafc0800000000000000
-      internalID: -3482854511985086820
+      spriteID: 0d1ae31db6b59d4e0800000000000000
+      internalID: -1956432044485598768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: weap icons_4
+      name: loading icon dissapear_4
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 128
+        width: 19
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d758f3cb18ed0a0800000000000000
+      internalID: -6854898937291768489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loading icon dissapear_5
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 128
+        width: 19
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0f5cb6ae4320bf90800000000000000
+      internalID: -6940008205066150129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loading icon dissapear_6
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 128
+        width: 19
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dac663a59d424a9c0800000000000000
+      internalID: -3916965259965469523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loading icon dissapear_7
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 14
-        height: 54
+        y: 109
+        width: 19
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,8 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99e14f8ad4a76c330800000000000000
-      internalID: 3730803815288675993
+      spriteID: b76a882e443d2f090800000000000000
+      internalID: -8002101295072106885
       vertices: []
       indices: 
       edges: []

@@ -8,18 +8,18 @@ using System.IO;
 
 public class GameController : MonoBehaviour
 {
-    private static GameObject instance = null;
+    private static GameController instance = null;
 
     public int healthIncrement = 5, minHealthUpgrades;
     public GameObject currentWeaponPrefab;
     public WeaponSet weaponSet;
-    public List<int> levels;
+    public float profIncrement, LevelIncrement;
 
     private void OnEnable()
     {
         if (!instance)
         {
-            instance = gameObject;
+            instance = this;
             DontDestroyOnLoad(gameObject);
             LoadFromFile();
             SceneManager.sceneLoaded += ApplyParameters;
@@ -42,7 +42,6 @@ public class GameController : MonoBehaviour
         }
         else
             WipeSave();
-        GameData.experience.levels = levels;
     }
 
     public void ApplyParameters(Scene s, LoadSceneMode m)
@@ -98,6 +97,39 @@ public class GameController : MonoBehaviour
         if (!bar)
             return;
         bar.UpdateDisplay(rat, GameData.experience.LevelOf(GameData.current));
+    }
+
+    public static float GetDamageMod()
+    {
+        float f = GameData.experience.LevelOf(GameData.current) * instance.profIncrement;
+        return 1 + f + GameData.experience.totalLevel * instance.LevelIncrement;
+    }
+
+    public float[] GetLevelInfo()
+    {
+        float[] ar = new float[4];
+        ar[0] = GameData.experience.LevelOf(GameData.current);
+        ar[1] = ar[0] * profIncrement;
+        ar[2] = GameData.experience.totalLevel;
+        ar[3] = ar[2] * LevelIncrement;
+        return ar;
+    }
+
+    public bool UnlockWeapon(GameObject prefab, int n)
+    {
+        if (n > GameData.castas)
+            return false;
+        GameData.castas -= n;
+        GameData.unlocks |= weaponSet.GetType(prefab);
+        SaveGameData();
+        return true;
+    }
+
+    public bool IsUnlocked(GameObject prefab)
+    {
+        if (weaponSet.GetType(prefab) == 0)
+            return true;
+        return (GameData.unlocks & weaponSet.GetType(prefab)) != 0;
     }
 }
 
@@ -201,24 +233,24 @@ public class WeaponSet
 
     public WeaponUnlocks GetType(GameObject g)
     {
-        if (g.name == drumsticks.name)
+        if (drumsticks && g.name == drumsticks.name)
             return WeaponUnlocks.drumsticks;
-        else if (g.name == hang.name)
+        else if (hang && g.name == hang.name)
             return WeaponUnlocks.hang;
-        else if (g.name == rainstick.name)
+        else if (rainstick && g.name == rainstick.name)
             return WeaponUnlocks.rainstick;
         else if (bongos && g.name == bongos.name)
             return WeaponUnlocks.bongos;
         else if (triangle && g.name == triangle.name)
             return WeaponUnlocks.triangle;
-        else if (g.name == cowbell.name)
+        else if (cowbell && g.name == cowbell.name)
             return WeaponUnlocks.cowbell;
-        else if (g.name == cymbals.name)
+        else if (cymbals && g.name == cymbals.name)
             return WeaponUnlocks.cymbals;
-        else if (g.name == marracas.name)
+        else if (marracas && g.name == marracas.name)
             return WeaponUnlocks.marracas;
 
-        Debug.Log("weapn prefab not found in set");
+        Debug.Log("weapon prefab not found in set");
         return WeaponUnlocks.drumsticks;
     }
 }
@@ -226,18 +258,11 @@ public class WeaponSet
 [System.Serializable]
 public class WeaponExperience
 {
-    public List<int> levels;
     public int drumsticks, hang, rainstick, bongos,
             triangle, cowbell, cymbals, marracas;
 
-    public WeaponExperience() { levels = new List<int>(); }
-    public WeaponExperience(List<int> l = null)
+    public WeaponExperience()
     {
-        if (l != null)
-            levels = l;
-        else
-            levels = new List<int>();
-
         drumsticks = hang = rainstick = bongos =
             triangle = cowbell = cymbals = marracas = 0;
     }
@@ -306,29 +331,27 @@ public class WeaponExperience
 
     private int LevelOf(int n)
     {
-        for(int i = 0; i < levels.Count; i++)
+        int i = 0;
+        while (true)
         {
-            if(levels[i] > n)
+            if (Mathf.Pow(i, 2) * 10 >= n)
                 return i;
+            i++;
         }
-        return levels.Count;
-        //int res = 0;
-        //foreach (int i in levels)
-        //    if (n > i)
-        //        res++;
-        //    else
-        //        return res;
-        //return res;
     }
 
     private float RemainingRatio(int n)
     {
-        int prev = 0;
-        foreach (int i in levels)
-            if (n < i)
-                return (n - prev) / (float)(i - prev);
-            else
-                prev = i;
-        return 1;
+        int i = 0;
+        float prev = 0;
+
+        while (true)
+        {
+            float f = Mathf.Pow(i, 2) * 10;
+            if (f >= n)
+                return (n - prev) /(f - prev);
+            prev = f;
+            i++;
+        }
     }
 }

@@ -6,10 +6,13 @@ public class SecondaryAnimation : MonoBehaviour
 {
     private void Start()
     {
-        Debug.Log(name);
         SpriteRenderer rend = GetComponent<SpriteRenderer>();
-        if(rend)
-            rend.flipX = GameObject.FindObjectOfType<PlayerController>().GetComponent<SpriteRenderer>().flipX;
+        if (rend)
+        {
+            PlayerController p = GameObject.FindObjectOfType<PlayerController>();
+            if (p)
+                rend.flipX = p.GetComponent<SpriteRenderer>().flipX;
+        }
     }
 
     private void Destroy()

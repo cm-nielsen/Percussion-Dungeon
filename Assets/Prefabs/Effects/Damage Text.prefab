@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: a8ba93418cccfaa4289f71c719258772, type: 2}
+  m_Material: {fileID: 2100000, guid: 903c498f0e5b1304987aaaa67b560310, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 0
@@ -129,8 +129,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: f181f15ae09918d4587663592cf2c046, type: 3}
-    m_FontSize: 2
+    m_Font: {fileID: 12800000, guid: 7a081284e33acbb44842036b6cdbd17e, type: 3}
+    m_FontSize: 1
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1

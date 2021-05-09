@@ -28,11 +28,11 @@ public class Gate : MonoBehaviour
     void Update()
     {
         if (generator && loadingBar)
-            loadingBar.size = new Vector2(generator.progress * maxBarWidth, loadingBar.size.y);
+            loadingBar.size = new Vector2(Mathf.Pow(generator.progress, 2) * maxBarWidth, loadingBar.size.y);
 
         if (loaded)
         {
-            if(loadingIcon) loadingIcon.enabled = false;
+            if(loadingIcon) loadingIcon.GetComponent<Animator>().SetTrigger("go");
             if (loadingBar)
             {
                 loadingBar.enabled = false;

@@ -78,6 +78,18 @@ public class GameController : MonoBehaviour
             SaveGameData();
     }
 
+    public static void WipeProgress()
+    {
+        GameData.healthUpgrades = 0;
+        GameData.castas = 0;
+        GameData.unlocks = WeaponUnlocks.drumsticks;
+        GameData.current = WeaponUnlocks.drumsticks;
+
+        GameData.experience = new WeaponExperience();
+        if (Application.platform != RuntimePlatform.WebGLPlayer)
+            SaveGameData();
+    }
+
     public void SetCurrentWeap(GameObject weap)
     {
         currentWeaponPrefab = weap;
@@ -342,7 +354,7 @@ public class WeaponExperience
 
     private float RemainingRatio(int n)
     {
-        int i = 0;
+        int i = 1;
         float prev = 0;
 
         while (true)

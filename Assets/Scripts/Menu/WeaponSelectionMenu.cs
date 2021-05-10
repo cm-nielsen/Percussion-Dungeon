@@ -9,7 +9,7 @@ public class WeaponSelectionMenu : MonoBehaviour
     public SpriteRenderer icon;
     public Sprite lockedIcon;
     public List<SelectionItem> options;
-    public Text desc, proficiency, level;
+    public Text desc, proficiency, level, castas;
     public IconGraph graph;
 
     public float lerpStart, lerpMod;
@@ -21,6 +21,7 @@ public class WeaponSelectionMenu : MonoBehaviour
     private List<PreviousIcon> prevIcons;
     private SelectionItem selected;
     private ControlToggleProxy activate, left, right;
+    private Animator castanim;
 
     private float lerpVal = 0;
     private bool interactable = false, open = false, locked = true;
@@ -32,6 +33,7 @@ public class WeaponSelectionMenu : MonoBehaviour
         gcon = FindObjectOfType<GameController>();
         camFollow = Camera.main.GetComponent<CameraFollow>();
         prevIcons = new List<PreviousIcon>();
+        castanim = iconParent.GetComponentInChildren<Animator>();
         canvas.SetActive(false);
         iconParent.SetActive(false);
 
@@ -42,6 +44,7 @@ public class WeaponSelectionMenu : MonoBehaviour
         activate.Setup(pKey, "down");
         left.Setup(pKey, "left");
         right.Setup(pKey, "right");
+
 
         SelectCurrentWeapon();
     }
@@ -54,7 +57,7 @@ public class WeaponSelectionMenu : MonoBehaviour
         right.Update();
 
         if (interactable && activate.val)
-            ToggleCabinet();
+            Activate();
 
         if (open)
         {
@@ -78,7 +81,7 @@ public class WeaponSelectionMenu : MonoBehaviour
         DisplaySelectedAttributes();
     }
 
-    private void ToggleCabinet()
+    private void Activate()
     {
         if(open && locked)
         {
@@ -89,15 +92,24 @@ public class WeaponSelectionMenu : MonoBehaviour
             }
             else
             {
-                desc.text = "Big Chungus thanks you";
+                gcon.SetCurrentWeap(selected.prefab);
+                locked = false;
+                castas.text = GameData.castas + "";
+                DisplaySelectedAttributes();
                 return;
             }
         }
+        ToggleCabinet();
+    }
+
+    private void ToggleCabinet()
+    {
         open = !open;
         anim.SetBool("open", open);
         if (open)
         {
             Destroy(GameObject.FindGameObjectWithTag("Player"));
+            SelectCurrentWeapon();
             camFollow.OverrideFollow((Vector2)transform.position + Vector2.up / 2);
         }
         else
@@ -125,6 +137,8 @@ public class WeaponSelectionMenu : MonoBehaviour
         if (!locked)
             gcon.SetCurrentWeap(selected.prefab);
         DisplaySelectedAttributes();
+
+        castanim.SetTrigger("go");
     }
 
     private void DisplaySelectedAttributes()
@@ -132,9 +146,10 @@ public class WeaponSelectionMenu : MonoBehaviour
         if (locked)
         {
             icon.sprite = lockedIcon;
-            desc.text = "LOCKED\ncost : " + selected.cost;
+            desc.text = "LOCKED\ncost : " + selected.cost + " castanets";
+            float[] ar = gcon.GetLevelInfo();
             proficiency.text = "- - -";
-            level.text = "- - -";
+            level.text = ar[2] + "| +" + ar[3] * 100 + "%";
         }
         else
         {
@@ -180,6 +195,7 @@ public class WeaponSelectionMenu : MonoBehaviour
     {
         iconParent.SetActive(true);
         canvas.SetActive(true);
+        castas.text = GameData.castas + "";
         DisplaySelectedAttributes();
     }
 

@@ -116,6 +116,25 @@ public class PauseMenu : MonoBehaviour
         active = false;
         playerKey.enabled = true;
     }
+
+    public void WipeSave()
+    {
+        GameController.WipeSave();
+
+        GameController gcon = FindObjectOfType<GameController>();
+        gcon.SetCurrentWeap(gcon.weaponSet.drumsticks);
+
+        PlayerController p = FindObjectOfType<PlayerController>();
+        Vector2 pos = Vector2.zero;
+        if (p)
+        {
+            pos.x = p.transform.position.x;
+            pos.y = p.transform.position.y;
+            Destroy(p.gameObject);
+        }
+
+        Instantiate(gcon.currentWeaponPrefab, pos, Quaternion.identity);
+    }
 }
 
 public interface RequiresInitialSetup

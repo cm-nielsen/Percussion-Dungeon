@@ -96,7 +96,8 @@ public class EnemyBehavior : MonoBehaviour
     private bool TargetInSight()
     {
         return (rend.flipX && target.transform.position.x + attackDistance > transform.position.x) ||
-            (!rend.flipX && target.transform.position.x < attackDistance + transform.position.x);
+            (!rend.flipX && target.transform.position.x < attackDistance + transform.position.x) &&
+            Mathf.Abs(target.transform.position.y - transform.position.y) < attackDistance;
     }
 
     private void Attack(int i)

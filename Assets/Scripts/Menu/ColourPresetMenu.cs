@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ColourPresetMenu : MonoBehaviour
+public class ColourPresetMenu : MonoBehaviour, RequiresInitialSetup
 {
     public List<ColourPreset> presets;
 
@@ -14,7 +14,7 @@ public class ColourPresetMenu : MonoBehaviour
 
     private Image[] previewImages, currentImages;
     // Start is called before the first frame update
-    void Start()
+    public void Setup()
     {
         currentImages = colourView.GetComponentsInChildren<Image>();
         previewImages = colourPreview.GetComponentsInChildren<Image>();
@@ -24,12 +24,6 @@ public class ColourPresetMenu : MonoBehaviour
         MakePresetOptions();
 
         UpdatePreview(0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void MakePresetOptions()

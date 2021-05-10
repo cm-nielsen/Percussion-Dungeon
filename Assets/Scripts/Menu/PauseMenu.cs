@@ -117,9 +117,9 @@ public class PauseMenu : MonoBehaviour
         playerKey.enabled = true;
     }
 
-    public void WipeSave()
+    public void WipeProgress()
     {
-        GameController.WipeSave();
+        GameController.WipeProgress();
 
         GameController gcon = FindObjectOfType<GameController>();
         gcon.SetCurrentWeap(gcon.weaponSet.drumsticks);
@@ -132,8 +132,15 @@ public class PauseMenu : MonoBehaviour
             pos.y = p.transform.position.y;
             Destroy(p.gameObject);
         }
+        else
+            return;
 
         Instantiate(gcon.currentWeaponPrefab, pos, Quaternion.identity);
+    }
+
+    public void WipeSettings()
+    {
+        GameController.WipeSettings();
     }
 }
 

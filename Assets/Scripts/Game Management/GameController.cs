@@ -72,8 +72,11 @@ public class GameController : MonoBehaviour
         GameData.vfxSettings = new VisualEffectSettings(true);
 
         GameData.experience = new WeaponExperience();
-        GameData.pControls = GameObject.FindGameObjectWithTag("pControl").
-            GetComponent<ControlKey>().inputs;
+
+        foreach (ControlKey.ControlUnit u in GameObject.FindGameObjectWithTag("pControl").
+            GetComponent<ControlKey>().inputs)
+            GameData.pControls.Add(u);
+
         if (Application.platform != RuntimePlatform.WebGLPlayer)
             SaveGameData();
     }
@@ -86,6 +89,26 @@ public class GameController : MonoBehaviour
         GameData.current = WeaponUnlocks.drumsticks;
 
         GameData.experience = new WeaponExperience();
+
+        if (Application.platform != RuntimePlatform.WebGLPlayer)
+            SaveGameData();
+    }
+
+    public static void WipeSettings()
+    {
+        GameData.masterVol = GameData.musicVol = GameData.sfxVol = .5f;
+        AudioMenu.SetAll();
+        GameData.vfxSettings = new VisualEffectSettings(true);
+
+        PauseMenu menu = FindObjectOfType<PauseMenu>();
+        menu.GetComponentInChildren<VisualEffectMenu>(true).ApplySavedSettings();
+        menu.GetComponentInChildren<ControlKeyCustomizationMenu>(true).SetToDefaults();
+        menu.GetComponentInChildren<ColourPresetMenu>(true).ApplyPreset(0);
+
+        foreach (ControlKey.ControlUnit u in GameObject.FindGameObjectWithTag("pControl").
+            GetComponent<ControlKey>().inputs)
+            GameData.pControls.Add(new ControlKey.ControlUnit(u));
+
         if (Application.platform != RuntimePlatform.WebGLPlayer)
             SaveGameData();
     }

@@ -24,8 +24,6 @@ public class ParticleBurst : MonoBehaviour
     void Update()
     {
         if (!pSystem.IsAlive())
-        {
             Destroy(gameObject);
-        }
     }
 }

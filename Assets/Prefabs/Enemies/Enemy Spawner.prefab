@@ -45,7 +45,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnChance: 0.75
   pool:
-  - {fileID: 7989843426610759745, guid: a89eebcafad39964da5c539b66fb7f38, type: 3}
-  - {fileID: 4723121523490382392, guid: 2ac1b7aaf5b630140828f3d7b264173b, type: 3}
-  - {fileID: 6931561195555472230, guid: 5bc269f6550af254390c0dea42115667, type: 3}
-  - {fileID: 8293966323208113917, guid: a99ba89238fc2f346a55673ce4c107b7, type: 3}
+  - obj: {fileID: 7989843426610759745, guid: a89eebcafad39964da5c539b66fb7f38, type: 3}
+    weight: 1
+  - obj: {fileID: 6931561195555472230, guid: 5bc269f6550af254390c0dea42115667, type: 3}
+    weight: 1
+  - obj: {fileID: 8293966323208113917, guid: a99ba89238fc2f346a55673ce4c107b7, type: 3}
+    weight: 1
+  - obj: {fileID: 4723121523490382392, guid: 2ac1b7aaf5b630140828f3d7b264173b, type: 3}
+    weight: 1

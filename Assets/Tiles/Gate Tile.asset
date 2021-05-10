@@ -16,7 +16,7 @@ MonoBehaviour:
   ignoreSelf: 0
   sibling: {fileID: 11400000, guid: 375af7b7f3a9f874e9867a33c6cfdb9e, type: 2}
   m_DefaultSprite: {fileID: 21300000, guid: a76221cf583622a439b48d42c1a749c7, type: 3}
-  m_DefaultGameObject: {fileID: 7003917462064070112, guid: 017e18b9372cdef4c9692c83f4a0f132,
+  m_DefaultGameObject: {fileID: 4802936314125763171, guid: e61952f333b80fb47b8c9a1b9b685ad0,
     type: 3}
   m_DefaultColliderType: 0
   m_TilingRules: []

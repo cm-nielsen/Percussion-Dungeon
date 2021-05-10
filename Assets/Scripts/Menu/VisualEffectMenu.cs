@@ -30,7 +30,7 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
             e.SetToDefault();
     }
 
-    private void ApplySavedSettings()
+    public void ApplySavedSettings()
     {
         VisualEffectSettings v = GameData.vfxSettings;
         for(int i = 0; i < v.toggle.Count; i++)

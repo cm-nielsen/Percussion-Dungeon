@@ -9,6 +9,7 @@ using ConUnit = ControlKey.ControlUnit;
 
 public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
 {
+    public ControlKey defaultControls;
     /// <summary>
     /// control key whihc the menu is modifying
     /// </summary>
@@ -61,6 +62,13 @@ public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
 
         target.inputs.Clear();
         foreach (ConUnit u in GameData.pControls)
+            target.inputs.Add(new ConUnit(u));
+    }
+
+    public void SetToDefaults()
+    {
+        target.inputs.Clear();
+        foreach (ConUnit u in defaultControls.inputs)
             target.inputs.Add(new ConUnit(u));
     }
 

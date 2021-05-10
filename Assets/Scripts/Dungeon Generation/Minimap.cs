@@ -118,7 +118,7 @@ public class Minimap : MonoBehaviour
         refPos += roomSize * dir;
         Vector2 nodePos = (refPos / roomSize) * nodeDistance;
         pPointer.transform.localPosition = nodePos;
-        transform.localPosition = -(Vector3)nodePos + Vector3.forward * 10;
+        nodeParent.transform.localPosition = -(Vector3)nodePos + Vector3.forward * 10;
 
         if (nodePositions.Any(x => x == nodePos))
             return;
@@ -134,7 +134,7 @@ public class Minimap : MonoBehaviour
 
         nodes.Add(g);
         nodePositions.Add(nodePos);
-        nodeParent.ExpandLimits(nodePos);
+        nodeParent.ExpandLimits(-nodePos);
     }
 
     public void MakeBridge(Vector2 dir)

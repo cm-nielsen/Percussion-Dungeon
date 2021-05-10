@@ -6,11 +6,15 @@ public class UpgradePickup : MonoBehaviour
 {
     public enum UpgradeType { health = 0, bux = 1}
     public UpgradeType type;
+    public GameObject pickupEffect;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!col.GetComponent<PlayerController>())
             return;
+
+        if (pickupEffect)
+            Instantiate(pickupEffect, transform.position, Quaternion.identity);
         switch (type)
         {
             case UpgradeType.health:

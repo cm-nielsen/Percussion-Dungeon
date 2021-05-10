@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AudioMenu : MonoBehaviour, RequiresInitialSetup
+public class AudioMenu : MonoBehaviour//, RequiresInitialSetup
 {
     public Slider master, sfx, music;
 
-    public void Setup()
+    public void OnEnable()
     {
         float num = GameData.masterVol;
         master.value = num;
@@ -41,5 +41,17 @@ public class AudioMenu : MonoBehaviour, RequiresInitialSetup
         GameObject.FindObjectOfType<Music>().GetComponent<AudioSource>().volume = num;
         GameData.musicVol = num;
         GameController.SaveGameData();
+    }
+
+    public static void SetAll()
+    {
+        float num = GameData.masterVol;
+        AudioListener.volume = num;
+
+        num = GameData.sfxVol;
+        AudioClipPlayer.settings.volume = num;
+
+        num = GameData.musicVol;
+        GameObject.FindObjectOfType<Music>().GetComponent<AudioSource>().volume = num;
     }
 }

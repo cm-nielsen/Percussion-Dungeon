@@ -24,6 +24,8 @@ public class Room : MonoBehaviour
 
     public Vector2Int size;
 
+    public bool rename = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,21 @@ public class Room : MonoBehaviour
         doorCheck.x = -doorCheck.x - 1;
         if (map.GetTile(doorCheck) != platformTile)
             doors |= Doors.right;
+
+        if (rename)
+        {
+            string s = "";
+            if ((doors & Doors.up) != 0)
+                s += "U";
+            if ((doors & Doors.down) != 0)
+                s += "D";
+            if ((doors & Doors.left) != 0)
+                s += "L";
+            if ((doors & Doors.right) != 0)
+                s += "R";
+            s += " " + size.x + " x " + size.y;
+            transform.parent.gameObject.name = s;
+        }
 
         fillWithJars();
     }

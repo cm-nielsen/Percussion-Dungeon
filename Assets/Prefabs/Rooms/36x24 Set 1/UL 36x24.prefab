@@ -6124,6 +6124,7 @@ MonoBehaviour:
   doors: 5
   map: {fileID: 5768242276318052892}
   size: {x: 36, y: 24}
+  rename: 0
 --- !u!1 &6438802518948351915
 GameObject:
   m_ObjectHideFlags: 0

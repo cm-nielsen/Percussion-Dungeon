@@ -34,10 +34,10 @@ public class LevelGenerator : MonoBehaviour
             room = r;
             pos = v;
         }
+        // transfers all tiles of specified type into the given tilemap
         public void Fill(Tilemap map, TileBase tile)
         {
             Vector3Int v = pos - ((Vector3Int)room.size / 2);
-            //Debug.Log(pos);
             for(int i = 0; i < room.size.x; i++)
             {
                 v.y = pos.y - (room.size.y / 2);
@@ -47,15 +47,14 @@ public class LevelGenerator : MonoBehaviour
                     if (t == tile)
                         map.SetTile(v, room.map.GetTile(v - pos));
                     v.y++;
-                    //Debug.Log(v);
                 }
                 v.x++;
             }
         }
+        // transfers all tiles of specified type into the given tilemap
         public void Fill(Tilemap map, TileBase[] tiles)
         {
             Vector3Int v = pos - ((Vector3Int)room.size / 2);
-            //Debug.Log(pos);
             for (int i = 0; i < room.size.x; i++)
             {
                 v.y = pos.y - (room.size.y / 2);
@@ -65,11 +64,28 @@ public class LevelGenerator : MonoBehaviour
                     if (tiles.Contains(t))
                         map.SetTile(v, room.map.GetTile(v - pos));
                     v.y++;
-                    //Debug.Log(v);
                 }
                 v.x++;
             }
         }
+        // transfers all siblings of the tile of specified type into the given tilemap
+        public void FillWithSibling(Tilemap map, RuleTile tile)
+        {
+            Vector3Int v = pos - ((Vector3Int)room.size / 2);
+            for (int i = 0; i < room.size.x; i++)
+            {
+                v.y = pos.y - (room.size.y / 2);
+                for (int j = 0; j < room.size.y; j++)
+                {
+                    TileBase t = room.map.GetTile(v - pos);
+                    if (t == tile.sibling)
+                        map.SetTile(v, tile);
+                    v.y++;
+                }
+                v.x++;
+            }
+        }
+        // transfers all tiles of specified type in specific column into the given tilemap
         public bool FillColumn(Tilemap map, TileBase[] tiles, int row)
         {
             if (row >= room.size.x)
@@ -79,7 +95,6 @@ public class LevelGenerator : MonoBehaviour
             v.x += row;
 
             BoundsInt bound = new BoundsInt(v, new Vector3Int(1, room.size.y, 1));
-            //Debug.Log(bound);
             TileBase[] colTiles = room.map.GetTilesBlock(bound);
             for (int i = 0; i < colTiles.Length; i++)
             {
@@ -132,6 +147,7 @@ public class LevelGenerator : MonoBehaviour
                 if (rooms[roomIndex].FillColumn(map, 
                     new TileBase[] { platform, jar, enemy }, roomRowIndex++))
                 {
+                    rooms[roomIndex].FillWithSibling(map, platform);
                     roomIndex++;
                     roomRowIndex = 0;
                     break;
@@ -183,12 +199,13 @@ public class LevelGenerator : MonoBehaviour
                 while (rand2 == rand)
                     rand2 = Random.Range(rooms.Count / 2, rooms.Count);
                 PotentialRoom upgradeRoom = rooms[rand2];
-                upgradeRoom.Fill(map, upgrade);
+                upgradeRoom.Fill(map, new TileBase[] { upgrade, platform.sibling });
             }
             //rooms[0].Fill(map, spawn);
             roomIndex++;
         }else if(roomIndex == rooms.Count + 2)
         {
+            // drill hole from starting room to hub
             TileBase t = platform.sibling;
             Vector3Int v = new Vector3Int(0, size.y / 2, 0);
             while (map.GetTile(v) == platform || map.GetTile(v + Vector3Int.right) == platform ||

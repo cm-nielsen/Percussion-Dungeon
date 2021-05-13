@@ -356,7 +356,7 @@ MonoBehaviour:
   isGround:
     serializedVersion: 2
     m_Bits: 2560
-  maxFallSpeed: 100
+  maxFallSpeed: 6
   throwForce: 0
   xFriction: 0.8
   coyoteTime: 0.2

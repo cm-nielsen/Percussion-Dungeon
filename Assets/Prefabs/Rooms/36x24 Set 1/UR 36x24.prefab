@@ -4953,3 +4953,4 @@ MonoBehaviour:
   doors: 9
   map: {fileID: 5847122078480439435}
   size: {x: 36, y: 24}
+  rename: 0

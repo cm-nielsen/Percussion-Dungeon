@@ -136,6 +136,8 @@ public class GameController : MonoBehaviour
 
     public static float GetDamageMod()
     {
+        if (!instance)
+            return 1;
         float f = GameData.experience.LevelOf(GameData.current) * instance.profIncrement;
         return 1 + f + GameData.experience.totalLevel * instance.LevelIncrement;
     }

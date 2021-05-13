@@ -6138,3 +6138,4 @@ MonoBehaviour:
   doors: 6
   map: {fileID: 4427236353261771790}
   size: {x: 36, y: 24}
+  rename: 0

@@ -421,7 +421,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1875, y: 0.375}
+  m_Size: {x: 0.1875, y: 0.34375}
   m_EdgeRadius: 0
 --- !u!114 &3942942492400955477
 MonoBehaviour:
@@ -435,11 +435,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1741fc1eb9aa5442841d5971c07ed28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoil: 0
+  recoil: 1
   damageTextPrefab: {fileID: 0}
   knockbackStrengthMod: 1
-  bullyability: 4
-  deathForce: 10
+  bullyability: 0
+  deathForce: 8
   invulnerable: 0
 --- !u!114 &3942942492400955476
 MonoBehaviour:

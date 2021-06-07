@@ -30,7 +30,8 @@ public class DamageDealer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (ignore.Contains(collision))
+        if (ignore.Contains(collision) ||
+            collision.transform.root == selfReciever.transform.root)
             return;
 
         if (selfReciever)

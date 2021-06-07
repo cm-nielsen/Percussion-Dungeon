@@ -14,10 +14,10 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 moveForce = new Vector2(22, 9.5f);
     public LayerMask isGround;
-    public float maxFallSpeed = 100, throwForce, xFriction = 0.8f,
+    public float maxFallSpeed = 100, xFriction = 0.8f,
         coyoteTime = 0.2f, adaptiveGravity = 5, runSpeed = 1.5f;
 
-    private GameObject thrownDrum;
+    private GameObject thrownObject;
     private Rigidbody2D rb;
     private SpriteRenderer rend;
     private Animator anim;
@@ -51,12 +51,12 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.AddForce(Mathf.Abs(rb.velocity.y) * adaptiveGravity * Vector2.down);
+        string currentAnimation = anim.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+        currentAnimation = currentAnimation.ToLower();
         if (canJump)
         {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("run") ||
-                anim.GetCurrentAnimatorStateInfo(0).IsName("land") ||
-                anim.GetCurrentAnimatorStateInfo(0).IsName("big run") ||
-                anim.GetCurrentAnimatorStateInfo(0).IsName("big land"))
+            if (currentAnimation.Contains("run") ||
+                (currentAnimation.Contains("land") && ! currentAnimation.Contains("attack")))
                     ApplyRunForce();
                 //else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("fall"))
                 //    rb.velocity *= Vector2.up;
@@ -71,13 +71,8 @@ public class PlayerController : MonoBehaviour
                 AirControl();
             if (rb.velocity.y < -maxFallSpeed)
                 rb.velocity = new Vector2(rb.velocity.x, -maxFallSpeed);
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("jump") ||
-                anim.GetCurrentAnimatorStateInfo(0).IsName("big jump") ||
-                anim.GetCurrentAnimatorStateInfo(0).IsName("fall")||
-                anim.GetCurrentAnimatorStateInfo(0).IsName("big fall"))
-            {
+            if (currentAnimation.Contains("jump") || currentAnimation.Contains("fall"))
                 TurnTowardsInput();
-            }
         }
 
     }
@@ -173,23 +168,6 @@ public class PlayerController : MonoBehaviour
         canJump = false;
         anim.SetBool("ground", false);
         cTimer = coyoteTime;
-    }
-
-    private void ThrowDrum(GameObject prefab)
-    {
-        thrownDrum = Instantiate(prefab, transform.position, Quaternion.identity);
-        thrownDrum.GetComponent<SpriteRenderer>().flipX = rend.flipX;
-        Rigidbody2D r = thrownDrum.GetComponent<Rigidbody2D>();
-        thrownDrum.GetComponentInChildren<DamageDealer>().
-            SetSelfReceiver(GetComponent<DamageReceiver>());
-
-        if (r)
-            r.velocity = rb.velocity + throwForce * Vector2.down;
-    }
-
-    private void RetrieveDrum()
-    {
-        Destroy(thrownDrum);
     }
 
     private void FinishDodge()

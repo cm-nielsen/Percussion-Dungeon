@@ -266,6 +266,9 @@ AnimationClip:
     - time: 1
       value: {fileID: 4034450134111876320, guid: 08a72c1cd39f2b1469eae11d82cbfc79,
         type: 3}
+    - time: 1.0625
+      value: {fileID: -8177902477346458302, guid: 08a72c1cd39f2b1469eae11d82cbfc79,
+        type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -351,12 +354,13 @@ AnimationClip:
     - {fileID: -2099016403220983706, guid: 08a72c1cd39f2b1469eae11d82cbfc79, type: 3}
     - {fileID: -8108541651746540501, guid: 08a72c1cd39f2b1469eae11d82cbfc79, type: 3}
     - {fileID: 4034450134111876320, guid: 08a72c1cd39f2b1469eae11d82cbfc79, type: 3}
+    - {fileID: -8177902477346458302, guid: 08a72c1cd39f2b1469eae11d82cbfc79, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0625
+    m_StopTime: 1.125
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -579,14 +583,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.25
+  - time: 0.1875
     functionName: TurnTowardsInput
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.4375
+  - time: 0.5
     functionName: SpawnObject
     data: 
     objectReferenceParameter: {fileID: 2083104039279590993, guid: 15f9b2a183cdaeb428233a4be9ec24db,
@@ -594,7 +598,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.4375
+  - time: 0.5
     functionName: PlayClip
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: 4413ac7a120ce9f40a47442bd2f9f802,
@@ -602,33 +606,26 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5
+  - time: 0.5625
     functionName: Move
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: -7
     messageOptions: 0
-  - time: 0.5625
+  - time: 0.625
     functionName: Move
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: -5
     messageOptions: 0
-  - time: 0.625
-    functionName: Move
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: -3
-    messageOptions: 0
   - time: 0.6875
     functionName: Move
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: -2
+    intParameter: -3
     messageOptions: 0
   - time: 0.75
     functionName: Move

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : Health
 {
     public GameObject expOrbPrefab;
-    public int experience, group;
+    public int experience;//, group;
 
     // Start is called before the first frame update
     void Start()

@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1741fc1eb9aa5442841d5971c07ed28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoil: 2
+  recoil: 1
   damageTextPrefab: {fileID: 0}
   knockbackStrengthMod: 1
   bullyability: 0
@@ -357,3 +357,4 @@ MonoBehaviour:
   throwForce: 10
   rollForce: 5
   rollTorque: 0
+  pickupOffset: 0

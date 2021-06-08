@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class DelayedSceneTransition : SceneTransition
 {
+    public static bool loading = false;
+
     public float delay = 3;
 
     private float timer = 0;
@@ -14,6 +16,10 @@ public class DelayedSceneTransition : SceneTransition
     {
         timer += Time.deltaTime;
         if (timer > delay)
+        {
             LoadScene();
+            loading = false;
+            enabled = false;
+        }
     }
 }

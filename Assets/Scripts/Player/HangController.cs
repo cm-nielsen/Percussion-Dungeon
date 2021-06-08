@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HangController : MonoBehaviour
 {
-    public float throwForce = 10, rollForce, rollTorque, pickupOffset;
+    public float throwForce = 10, rollForce, minRollTime;
 
     private PlayerController pCon;
     private GameObject thrownObject;
@@ -14,8 +14,10 @@ public class HangController : MonoBehaviour
     private BoxCollider2D hitbox;
     private CircleCollider2D rollHitbox;
 
-    private float circumference, prevX;
-    private bool rolling = false;
+    private ControlSteadyProxy roll;
+
+    private float circumference, prevX, rollStart = -100;
+    private bool rolling = false, canRoll = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,16 +29,28 @@ public class HangController : MonoBehaviour
         rollHitbox = GetComponent<CircleCollider2D>();
         rollHitbox.enabled = false;
         circumference = rollHitbox.radius * 2 * Mathf.PI;
+
+        roll = new ControlSteadyProxy();
+        roll.Setup(GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>(), "dodge");
     }
 
     // Update is called once per frame
     void Update()
     {
+        bool b = roll.val || rollStart + minRollTime > Time.time;
+        anim.SetBool("roll", b);
+        anim.SetBool("can roll", canRoll);
+        if (roll.val && canRoll)
+            canRoll = false;
+
         if (rolling)
         {
             float deg = 360 * (transform.position.x - prevX) / circumference;
             rb.rotation -= deg;
         }
+        else
+            transform.eulerAngles = new Vector3(0, 0, 0);
+
         prevX = transform.position.x;
         anim.ResetTrigger("recover");
 
@@ -64,6 +78,7 @@ public class HangController : MonoBehaviour
             SetSelfReceiver(GetComponent<DamageReceiver>());
 
         anim.SetBool("naked", true);
+        anim.ResetTrigger("dodge");
 
         if (r)
             r.velocity = rb.velocity + throwForce * Vector2.down;
@@ -88,6 +103,7 @@ public class HangController : MonoBehaviour
         rolling = true;
         hitbox.enabled = false;
         pCon.enabled = false;
+        rollStart = Time.time;
 
         if (rend.flipX)
             rb.AddForce(Vector2.left * rollForce, ForceMode2D.Impulse);
@@ -101,12 +117,8 @@ public class HangController : MonoBehaviour
         pCon.enabled = true;
         rollHitbox.enabled = false;
         rolling = false;
+        canRoll = true;
+        anim.SetBool("can roll", true);
         transform.eulerAngles = new Vector3(0, 0, 0);
     }
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.transform.root.gameObject == thrownObject)
-    //        anim.SetTrigger("recover");
-    //}
 }

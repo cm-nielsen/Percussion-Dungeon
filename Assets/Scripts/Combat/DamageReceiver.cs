@@ -80,8 +80,9 @@ public class DamageReceiver : MonoBehaviour
             flashTimer = 6 / 16f;
             invulnerable = true;
             pauseAnimation(5);
-            if (pCon)
+            if (pCon && !DelayedSceneTransition.loading)
             {
+                DelayedSceneTransition.loading = true;
                 DelayedSceneTransition t = Instantiate(new GameObject()).
                     AddComponent<DelayedSceneTransition>();
                 t.delay = 4;

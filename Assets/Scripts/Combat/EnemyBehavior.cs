@@ -103,7 +103,7 @@ public class EnemyBehavior : MonoBehaviour
     private void Attack(int i)
     {
         bool b = i > 0;
-        DamageDealer dealer = GetComponentInChildren<DamageDealer>();
+        DamageDealer dealer = GetComponentInChildren<DamageDealer>(true);
         dealer.enabled = b;
         dealer.GetComponent<BoxCollider2D>().enabled = b;
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class DamageDealer : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class DamageDealer : MonoBehaviour
             selfReciever = GetComponentInParent<DamageReceiver>();
         parentSprite = GetComponentInParent<SpriteRenderer>();
         health = GetComponentInParent<Health>();
+        ignore = new List<Collider2D>();
 
         if (parentSprite)
             if (parentSprite.flipX)
@@ -30,7 +32,13 @@ public class DamageDealer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (ignore.Contains(collision) ||
+        if (!enabled)
+            return;
+
+        if (ignore.Contains(collision))
+            return;
+
+        if (selfReciever &&
             collision.transform.root == selfReciever.transform.root)
             return;
 

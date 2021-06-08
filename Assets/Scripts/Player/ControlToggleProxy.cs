@@ -36,3 +36,25 @@ public class ControlToggleProxy
             value = key[control];
     }
 }
+
+
+public class ControlSteadyProxy
+{
+    public bool val
+    {
+        get
+        {
+            con.UpdateInputValue();
+            return con.val;
+        }
+    }
+
+    public ControlKey.ControlUnit con;
+
+    public void Setup(ControlKey k, string s)
+    {
+        con = k.GetUnit(s);
+        con = new ControlKey.ControlUnit(con);
+        con.toggleInput = false;
+    }
+}

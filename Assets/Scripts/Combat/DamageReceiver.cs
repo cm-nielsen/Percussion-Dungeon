@@ -130,7 +130,11 @@ public class DamageReceiver : MonoBehaviour
 
         if((recoil & KnockbackTypes.animation) != 0)
         {
-            rend.flipX = point.x > 0;
+            if (point.x > 0)
+                transform.localScale = new Vector2(-1, 1);
+            else
+                transform.localScale = new Vector2(1, 1);
+
             switch (dtype)
             {
                 case DamageType.light:
@@ -154,7 +158,10 @@ public class DamageReceiver : MonoBehaviour
 
         if ((recoil & KnockbackTypes.animation) != 0)
         {
-            rend.flipX = point.x > 0;
+            if (point.x > 0)
+                transform.localScale = new Vector2(-1, 1);
+            else
+                transform.localScale = new Vector2(1, 1);
             if (deathAnim)
                 anim.SetTrigger("die");
         }

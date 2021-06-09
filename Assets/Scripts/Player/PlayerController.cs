@@ -17,13 +17,12 @@ public class PlayerController : MonoBehaviour
     public float maxFallSpeed = 100, xFriction = 0.8f,
         coyoteTime = 0.2f, adaptiveGravity = 5, runSpeed = 1.5f;
 
-    private GameObject thrownObject;
     private Rigidbody2D rb;
     private SpriteRenderer rend;
     private Animator anim;
     private BoxCollider2D hitbox;
-    private float cTimer = 0;
 
+    private float cTimer = 0;
     public bool canJump, canDodge;
 
     void Start()
@@ -51,7 +50,10 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.AddForce(Mathf.Abs(rb.velocity.y) * adaptiveGravity * Vector2.down);
-        string currentAnimation = anim.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+        AnimatorClipInfo[] animInfo = anim.GetCurrentAnimatorClipInfo(0);
+        string currentAnimation = "none";
+        if(animInfo.Length > 0)
+            currentAnimation = animInfo[0].clip.name;
         currentAnimation = currentAnimation.ToLower();
         if (canJump)
         {
@@ -74,7 +76,6 @@ public class PlayerController : MonoBehaviour
             if (currentAnimation.Contains("jump") || currentAnimation.Contains("fall"))
                 TurnTowardsInput();
         }
-
     }
 
     private void UpdateAnimator()
@@ -179,11 +180,13 @@ public class PlayerController : MonoBehaviour
     {
         if (input["right"])
         {
-            rend.flipX = false;
+            //rend.flipX = false;
+            transform.localScale = new Vector2(1, 1);
         }
         else if (input["left"])
         {
-            rend.flipX = true;
+            transform.localScale = new Vector2(-1, 1);
+            //rend.flipX = true;
         }
     }
 

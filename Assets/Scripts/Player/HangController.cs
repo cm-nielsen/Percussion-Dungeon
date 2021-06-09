@@ -72,7 +72,7 @@ public class HangController : MonoBehaviour
     private void ThrowDrum(GameObject prefab)
     {
         thrownObject = Instantiate(prefab, transform.position, Quaternion.identity);
-        thrownObject.GetComponent<SpriteRenderer>().flipX = rend.flipX;
+        thrownObject.transform.localScale = transform.localScale;
         Rigidbody2D r = thrownObject.GetComponent<Rigidbody2D>();
         thrownObject.GetComponentInChildren<DamageDealer>().
             SetSelfReceiver(GetComponent<DamageReceiver>());
@@ -87,10 +87,7 @@ public class HangController : MonoBehaviour
     private void RetrieveDrum()
     {
         Vector2 pos = thrownObject.transform.position;
-        if (thrownObject.GetComponent<SpriteRenderer>().flipX)
-            pos.x -= 14 / 32f;
-        else
-            pos.x += 14 / 32f;
+        pos.x += thrownObject.transform.localScale.x * 19 / 32f;
 
         transform.position = pos;
         anim.SetBool("naked", false);
@@ -105,7 +102,7 @@ public class HangController : MonoBehaviour
         pCon.enabled = false;
         rollStart = Time.time;
 
-        if (rend.flipX)
+        if (transform.localScale.x < 0)
             rb.AddForce(Vector2.left * rollForce, ForceMode2D.Impulse);
         else
             rb.AddForce(Vector2.right * rollForce, ForceMode2D.Impulse);

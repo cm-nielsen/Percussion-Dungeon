@@ -127,6 +127,7 @@ MonoBehaviour:
   loadingScene: 
   transitionObject: {fileID: 8060022835938908057, guid: 1abb89810197f7a4ab6106ff79683411,
     type: 3}
+  colourMirror: {fileID: 2100000, guid: c9705916a6f47104492339cbe7e16e30, type: 2}
 --- !u!1 &7136603181745693656
 GameObject:
   m_ObjectHideFlags: 0

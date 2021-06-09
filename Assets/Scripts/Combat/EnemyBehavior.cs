@@ -83,9 +83,9 @@ public class EnemyBehavior : MonoBehaviour
 
     private void StationaryBehavior()
     {
-        bool turn = hasTurnAnimation &&
-            (rend.flipX && target.transform.position.x > transform.position.x ||
-            !rend.flipX && target.transform.position.x < transform.position.x);
+        float xDiff = target.transform.position.x - transform.position.x;
+        xDiff *= transform.localScale.x;
+        bool turn = hasTurnAnimation && xDiff < 0;
         anim.SetBool("turn", turn);
 
         bool shouldAttack = TargetInSight();// Vector2.Distance(transform.position, target.position) < attackDistance;
@@ -95,8 +95,9 @@ public class EnemyBehavior : MonoBehaviour
 
     private bool TargetInSight()
     {
-        return ((rend.flipX && target.transform.position.x + attackDistance > transform.position.x) ||
-            (!rend.flipX && target.transform.position.x < attackDistance + transform.position.x)) &&
+        bool b = transform.localScale.x < 0;
+        return ((b && target.transform.position.x + attackDistance > transform.position.x) ||
+            (!b && target.transform.position.x < attackDistance + transform.position.x)) &&
             Mathf.Abs(target.transform.position.y - transform.position.y) < attackDistance * .7f;
     }
 

@@ -17,12 +17,13 @@ public class AnimationMovement : MonoBehaviour
 
     private void Flip()
     {
-        rend.flipX = !rend.flipX;
+        //rend.flipX = !rend.flipX;
+        transform.localScale = new Vector2(-transform.localScale.x, 1);
     }
 
     private void Move(int x)
     {
-        if (rend.flipX)
+        if (rend.flipX || transform.localScale.x < 0)
             rb.MovePosition(transform.position + x * Vector3.left * 0.03125f);
         else
             rb.MovePosition(transform.position + x * Vector3.right * 0.03125f);
@@ -36,7 +37,7 @@ public class AnimationMovement : MonoBehaviour
 
     private void HorizontalImpulse(float x)
     {
-        if (rend.flipX)
+        if (rend.flipX || transform.localScale.x < 0)
             rb.velocity += Vector2.left * x;
         else
             rb.velocity += Vector2.right * x;

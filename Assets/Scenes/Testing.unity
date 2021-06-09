@@ -3537,6 +3537,11 @@ PrefabInstance:
       propertyPath: movementValue
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3127505455923268356, guid: f40b722c4b806b149b5b759d01b1c8dc,
+        type: 3}
+      propertyPath: recoil
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3127505455923268367, guid: f40b722c4b806b149b5b759d01b1c8dc,
         type: 3}
       propertyPath: m_RootOrder

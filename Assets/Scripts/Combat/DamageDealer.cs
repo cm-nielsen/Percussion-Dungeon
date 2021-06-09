@@ -21,7 +21,6 @@ public class DamageDealer : MonoBehaviour
             selfReciever = GetComponentInParent<DamageReceiver>();
         parentSprite = GetComponentInParent<SpriteRenderer>();
         health = GetComponentInParent<Health>();
-        ignore = new List<Collider2D>();
 
         if (parentSprite)
             if (parentSprite.flipX)
@@ -32,9 +31,6 @@ public class DamageDealer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!enabled)
-            return;
-
         if (ignore.Contains(collision))
             return;
 
@@ -52,7 +48,7 @@ public class DamageDealer : MonoBehaviour
         //dir -= (Vector2)transform.parent.position;
         if (parentSprite && parentSprite.flipX)
             dir.x *= -1;
-        dir.x += transform.localScale.x;
+        dir.x += transform.lossyScale.x;
 
         dir += Vector2.up / 2;
 

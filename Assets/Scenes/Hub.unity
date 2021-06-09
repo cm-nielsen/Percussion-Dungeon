@@ -13527,6 +13527,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gate
       objectReference: {fileID: 0}
+    - target: {fileID: 7003917462064070112, guid: 017e18b9372cdef4c9692c83f4a0f132,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7003917462064070116, guid: 017e18b9372cdef4c9692c83f4a0f132,
         type: 3}
       propertyPath: m_RootOrder
@@ -14932,6 +14937,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942942492400955478, guid: e9deda7f0e197ea489b210f1bd9821a3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3942942492400955478, guid: e9deda7f0e197ea489b210f1bd9821a3,
         type: 3}

@@ -71,6 +71,9 @@ TextureImporter:
   - first:
       213: 7953668015589004370
     second: cowbell big combo_22
+  - first:
+      213: -7954071144279655030
+    second: cowbell big combo_23
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -604,6 +607,69 @@ TextureImporter:
       bones: []
       spriteID: 5ac6d29164a661770800000000000000
       internalID: 8581162989303721125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big combo_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 111f79a96501f4e80800000000000000
+      internalID: -8192311233016762095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big combo_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 254919a7bea116e60800000000000000
+      internalID: 7953668015589004370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big combo_23
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8db60fcf667d9190800000000000000
+      internalID: -7954071144279655030
       vertices: []
       indices: 
       edges: []

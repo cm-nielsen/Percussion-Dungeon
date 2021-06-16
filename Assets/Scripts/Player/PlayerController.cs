@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         if (canJump)
         {
             if (currentAnimation.Contains("run") ||
-                (currentAnimation.Contains("land") && ! currentAnimation.Contains("attack")))
+                (currentAnimation.Contains("land") && !currentAnimation.Contains("attack")))
                     ApplyRunForce();
                 //else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("fall"))
                 //    rb.velocity *= Vector2.up;
@@ -152,7 +152,8 @@ public class PlayerController : MonoBehaviour
 
     private void SpawnObject(GameObject g)
     {
-        Instantiate(g, transform.position, Quaternion.identity);
+        GameObject inst = Instantiate(g, transform.position, Quaternion.identity);
+        inst.transform.localScale = transform.localScale;
     }
 
     private void Jump()
@@ -180,13 +181,11 @@ public class PlayerController : MonoBehaviour
     {
         if (input["right"])
         {
-            //rend.flipX = false;
             transform.localScale = new Vector2(1, 1);
         }
         else if (input["left"])
         {
             transform.localScale = new Vector2(-1, 1);
-            //rend.flipX = true;
         }
     }
 

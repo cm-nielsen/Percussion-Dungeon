@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4595606417416723911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4595606417416723905}
+  - component: {fileID: 4595606417416723910}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4595606417416723905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595606417416723911}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4595606417416723910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595606417416723911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90f2c9f24a9eb04489fbff02f225f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthIncrement: 3
+  minHealthUpgrades: 2
+  currentWeaponPrefab: {fileID: 0}
+  weaponSet:
+    drumsticks: {fileID: 9075661051462715644, guid: 1503484e5f2de5549b0bc9bfe03643d0,
+      type: 3}
+    hang: {fileID: 7941904971488535848, guid: 56c2b278319edc442a5a5fc7681dcb83, type: 3}
+    rainstick: {fileID: 614926639923313110, guid: abdef71b0c184d148beefd0e575bac7f,
+      type: 3}
+    bongos: {fileID: 0}
+    triangle: {fileID: 0}
+    cowbell: {fileID: 3942942492400955475, guid: e9deda7f0e197ea489b210f1bd9821a3,
+      type: 3}
+    cymbals: {fileID: 0}
+    marracas: {fileID: 0}
+  profIncrement: 0.05
+  LevelIncrement: 0.1

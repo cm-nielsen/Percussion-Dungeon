@@ -5,6 +5,7 @@
         _MainTex ("Texture", 2D) = "white" {}
 		_MonoCol ("Mono Colour", Color) = (0, 0, 0, 0)
 		_MainCol("Main Colour", Color) = (1, 1, 1, 1)
+        _RandCol("Random Colour", Color) = (1, 1, 1, 1)
     }
     SubShader
     {
@@ -46,6 +47,7 @@
             sampler2D _MainTex;
 			fixed4 _MonoCol;
 			fixed4 _MainCol;
+            fixed4 _RandCol;
 			int _DualMono;
 
             fixed4 frag (v2f i) : SV_Target
@@ -64,7 +66,7 @@
 				col.rgb = ((1 - _DualMono) * col.rgb) +
 					(_DualMono * ((_MonoCol * n) + (_MainCol* (1.0 - n))).rgb);
 
-                return col;
+                return col * _RandCol;
             }
             ENDCG
         }

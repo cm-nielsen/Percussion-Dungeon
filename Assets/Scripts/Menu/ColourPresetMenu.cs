@@ -11,6 +11,7 @@ public class ColourPresetMenu : MonoBehaviour, RequiresInitialSetup
     public Shader colourShader;
     public GameObject colourPreview, colourView, presetButton;
     public Button back;
+    //public ColourPresetMaterials materials;
 
     private Image[] previewImages, currentImages;
     // Start is called before the first frame update
@@ -78,6 +79,7 @@ public class ColourPresetMenu : MonoBehaviour, RequiresInitialSetup
         if (index >= presets.Count)
             return;
 
+        //materials.Apply(presets[index]);
         int i = 0;
         foreach (ColourPair p in presets[index])
         {
@@ -86,3 +88,35 @@ public class ColourPresetMenu : MonoBehaviour, RequiresInitialSetup
         }
     }
 }
+
+//[System.Serializable]
+//public class ColourPresetMaterials
+//{
+//    public Material player, enemy, platform, background, health, objects, corpse;
+
+//    public void Apply(ColourPreset preset)
+//    {
+//        IEnumerator<Material> it = GetEnumerator();
+//        foreach (ColourPair p in preset)
+//        {
+//            it.MoveNext();
+//            ApplyColourPair(it.Current, p);
+//        }
+//    }
+
+//    private void ApplyColourPair(Material m, ColourPair p)
+//    {
+//        m.SetColor("_MainCol", p.main);
+//        m.SetColor("_MonoCol", p.mono);
+//    }
+//    public IEnumerator<Material> GetEnumerator()
+//    {
+//        yield return background;
+//        yield return enemy;
+//        yield return player;
+//        yield return objects;
+//        yield return platform;
+//        yield return health;
+//        yield return corpse;
+//    }
+//}

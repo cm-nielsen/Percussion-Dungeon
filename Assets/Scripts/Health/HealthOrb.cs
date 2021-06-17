@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class HealthOrb : MonoBehaviour
 {
-    public float healAmount = 1, initialVelocity;
+    public float healAmount = 1, initialVelocity, magnetism;
+
+    private Rigidbody2D rb;
+    private Transform pPos;
 
     private void Start()
     {
@@ -12,7 +15,7 @@ public class HealthOrb : MonoBehaviour
         if (v.y < 0)
             v.y *= -1;
 
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         if (!rb)
             rb = GetComponentInParent<Rigidbody2D>();
         if (!rb)
@@ -20,6 +23,19 @@ public class HealthOrb : MonoBehaviour
 
         rb.velocity = v;
         rb.angularVelocity = Random.Range(-90, 90) * initialVelocity;
+    }
+
+    private void Update()
+    {
+        if (!pPos)
+        {
+            PlayerController pCon = GameObject.FindObjectOfType<PlayerController>();
+            if (pCon) pPos = pCon.transform;
+            return;
+        }
+
+        Vector2 dir = (pPos.position - transform.position);
+        rb.AddForce(dir.normalized * magnetism / dir.magnitude);
     }
 
     private void OnTriggerEnter2D(Collider2D c)

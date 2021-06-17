@@ -7,14 +7,15 @@ using System.Linq;
 public class LevelGenerator : MonoBehaviour
 {
     public List<GameObject> roomSetObjects;
-    public RuleTile platform, jar, enemy, gate, spawn, upgrade;
+    public RuleTile platform, jar, enemy, gate, upgrade;
     public Vector2Int overflowSize;
     public Vector2Int size { get { return roomSetObjects[0].GetComponentInChildren<Room>().size; } }
 
-    public float progress { get { return Mathf.Min((float)prog / progMax, 1); } }
-    public int maxCount, minCount, rolls, floodDivision;
+    public float progress { get { return Mathf.Min((float)batchIndex / tiles.Length, 1); } }
+    public int maximumRooms, minimumRooms, rolls, minimumFrameRate = 16;
     public bool spawnUpgrade;
 
+    // for room generation
     private Tilemap map;
     private List<Room> roomSet;
     private List<PotentialRoom> rooms;
@@ -22,8 +23,19 @@ public class LevelGenerator : MonoBehaviour
 
     private int rollCount = 0;
 
-    private List<BoundsInt> floods = new List<BoundsInt>();
-    private int roomIndex = 0, roomRowIndex = 0, rowsPerFrame = 2, prog = 0, progMax = 1;
+    // for tile placement
+    private TileBase[] tiles;
+    private List<TileBase> tileList;
+    private Vector3Int[] positions;
+    private List<Vector3Int> positionList;
+
+    private int batchIndex = 0, batchCount = 1000;
+
+    private int prog = 0, progMax = 1;
+
+    private float startTime;
+
+
     private class PotentialRoom
     {
         public Room room;
@@ -34,81 +46,37 @@ public class LevelGenerator : MonoBehaviour
             room = r;
             pos = v;
         }
+
         // transfers all tiles of specified type into the given tilemap
         public void Fill(Tilemap map, TileBase tile)
         {
             Vector3Int v = pos - ((Vector3Int)room.size / 2);
-            for(int i = 0; i < room.size.x; i++)
+            Vector3Int dif;
+            Tilemap sourceMap = room.map;
+            int sizeX = room.size.x;
+            int sizeY = room.size.y;
+            int y = pos.y - (sizeY / 2);
+
+            for (int i = 0; i < sizeX; i++)
             {
-                v.y = pos.y - (room.size.y / 2);
-                for(int j = 0; j < room.size.y; j++)
+                v.y = y;
+                for(int j = 0; j < sizeY; j++)
                 {
-                    TileBase t = room.map.GetTile(v - pos);
+                    dif = v - pos;
+                    TileBase t = sourceMap.GetTile(dif);
                     if (t == tile)
-                        map.SetTile(v, room.map.GetTile(v - pos));
+                        map.SetTile(v, sourceMap.GetTile(dif));
                     v.y++;
                 }
                 v.x++;
             }
-        }
-        // transfers all tiles of specified type into the given tilemap
-        public void Fill(Tilemap map, TileBase[] tiles)
-        {
-            Vector3Int v = pos - ((Vector3Int)room.size / 2);
-            for (int i = 0; i < room.size.x; i++)
-            {
-                v.y = pos.y - (room.size.y / 2);
-                for (int j = 0; j < room.size.y; j++)
-                {
-                    TileBase t = room.map.GetTile(v - pos);
-                    if (tiles.Contains(t))
-                        map.SetTile(v, room.map.GetTile(v - pos));
-                    v.y++;
-                }
-                v.x++;
-            }
-        }
-        // transfers all siblings of the tile of specified type into the given tilemap
-        public void FillWithSibling(Tilemap map, RuleTile tile)
-        {
-            Vector3Int v = pos - ((Vector3Int)room.size / 2);
-            for (int i = 0; i < room.size.x; i++)
-            {
-                v.y = pos.y - (room.size.y / 2);
-                for (int j = 0; j < room.size.y; j++)
-                {
-                    TileBase t = room.map.GetTile(v - pos);
-                    if (t == tile.sibling)
-                        map.SetTile(v, tile);
-                    v.y++;
-                }
-                v.x++;
-            }
-        }
-        // transfers all tiles of specified type in specific column into the given tilemap
-        public bool FillColumn(Tilemap map, TileBase[] tiles, int row)
-        {
-            if (row >= room.size.x)
-                return true;
-
-            Vector3Int v = -((Vector3Int)room.size / 2);
-            v.x += row;
-
-            BoundsInt bound = new BoundsInt(v, new Vector3Int(1, room.size.y, 1));
-            TileBase[] colTiles = room.map.GetTilesBlock(bound);
-            for (int i = 0; i < colTiles.Length; i++)
-            {
-                if (!tiles.Contains(colTiles[i]))
-                    colTiles[i] = null;
-            }
-            map.SetTilesBlock(new BoundsInt(v + pos, new Vector3Int(1, room.size.y, 1)), colTiles);
-            return false;
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        startTime = Time.time;
         map = GetComponentInChildren<Tilemap>();
 
         if (roomSetObjects.Count < 1)
@@ -128,68 +96,31 @@ public class LevelGenerator : MonoBehaviour
         }
 
         GenerateLevel();
+        GenerateTileArray();
     }
 
     private void Update()
     {
-        if (roomIndex < 0)
+        if(batchIndex < tiles.Length)
         {
-            foreach (Vector3Int v in occupiedPositions)
-                FloodRoomBorders(v);
-            progMax = floods.Count + (rooms.Count * size.x) + 2;
-            roomIndex++;
-        }
-        if(roomIndex < rooms.Count)
-        {
-            // fill rooms column by column in dynamic batches
-            for (int i = 0; i < rowsPerFrame; i++)
-            {
-                if (rooms[roomIndex].FillColumn(map, 
-                    new TileBase[] { platform, jar, enemy }, roomRowIndex++))
-                {
-                    rooms[roomIndex].FillWithSibling(map, platform);
-                    roomIndex++;
-                    roomRowIndex = 0;
-                    break;
-                }
-                prog++;
-            }
-            if (Time.unscaledDeltaTime > 1 / 16.0 && rowsPerFrame > 1)
-                rowsPerFrame = rowsPerFrame / 2;
+            // copy tiles from constructed array in dynamic batches
+            if (batchIndex + batchCount > tiles.Length)
+                batchCount = tiles.Length - batchCount;// - 1;
+            map.SetTiles(positions.Skip(batchIndex).Take(batchCount).ToArray(),
+                tiles.Skip(batchIndex).Take(batchCount).ToArray());
+
+            batchIndex += batchCount;
+
+            if (Time.unscaledDeltaTime * minimumFrameRate > 1 && batchCount > 10)
+                batchCount = (batchCount * 3) / 4;
+                //print("batchCount decreased, timestep: " + Time.unscaledDeltaTime * minimumFrameRate);
             else
-                rowsPerFrame++;
-
-        }else if(roomIndex == rooms.Count)
-        {
-            // fill generated edges in dynamic batches
-            BoundsInt bound;
-            TileBase[] fillTiles;
-
-            for (int i = 0; i < rowsPerFrame; i++)
-            {
-                bound = floods[roomRowIndex++];
-                prog++;
-
-                fillTiles = new TileBase[bound.size.x * bound.size.y];
-                for (int j = 0; j < fillTiles.Length; j++)
-                    fillTiles[j] = platform;
-                map.SetTilesBlock(bound, fillTiles);
-                if (roomRowIndex >= floods.Count)
-                {
-                    roomIndex++;
-                    return;
-                }
-            }
-
-            if (Time.unscaledDeltaTime > 1 / 16.0 && rowsPerFrame > 1)
-                rowsPerFrame = rowsPerFrame / 2;
-            else
-                rowsPerFrame++;
+                batchCount = batchCount * 9 / 8;
+            prog = batchIndex;
         }
-        else if(roomIndex == rooms.Count + 1)
+        else
         {
-            prog++;
-            // fill in remaining key stage elements
+            // Spawn Gate and Upgrade
             int rand = Random.Range(rooms.Count / 2, rooms.Count);
             PotentialRoom gateRoom = rooms[rand];
             gateRoom.Fill(map, gate);
@@ -199,30 +130,48 @@ public class LevelGenerator : MonoBehaviour
                 while (rand2 == rand)
                     rand2 = Random.Range(rooms.Count / 2, rooms.Count);
                 PotentialRoom upgradeRoom = rooms[rand2];
-                upgradeRoom.Fill(map, new TileBase[] { upgrade, platform.sibling });
+                upgradeRoom.Fill(map, upgrade);
             }
-            //rooms[0].Fill(map, spawn);
-            roomIndex++;
-        }else if(roomIndex == rooms.Count + 2)
-        {
+
             // drill hole from starting room to hub
-            TileBase t = platform.sibling;
+            List<Vector3Int> vList = new List<Vector3Int>();
+
             Vector3Int v = new Vector3Int(0, size.y / 2, 0);
+            v.y--;
             while (map.GetTile(v) == platform || map.GetTile(v + Vector3Int.right) == platform ||
                 map.GetTile(v + Vector3Int.left) == platform)
+            {
+                vList.Add(v);
+                vList.Add(v + Vector3Int.right);
+                vList.Add(v + Vector3Int.left);
                 v.y--;
-            v.y++;
+            }
 
-            BoundsInt bound = new BoundsInt(new Vector3Int(-1, v.y, 0),
-                new Vector3Int(3, overflowSize.y + ((size.y / 2) - v.y), 1));
-            TileBase[] tiles = new TileBase[bound.size.x * bound.size.y];
+            TileBase[] tiles = new TileBase[vList.Count];
             for (int i = 0; i < tiles.Length; i++)
-                tiles[i] = t;
-            map.SetTilesBlock(bound, tiles);
+                tiles[i] = platform.sibling;
+            map.SetTiles(vList.ToArray(), tiles);
 
+            // wall the sides of the entry hole
+            vList.Clear();
+            v.y = size.y / 2;
+            v.x = 2;
+            while(map.GetTile(v) != platform)
+            {
+                vList.Add(v);
+                vList.Add(v + Vector3Int.left * 4);
+                v.y++;
+            }
+            tiles = new TileBase[vList.Count];
+            for (int i = 0; i < tiles.Length; i++)
+                tiles[i] = platform;
+            map.SetTiles(vList.ToArray(), tiles);
+
+            // finalize loading status
             LoadingScreen.loaded = true;
             Gate.loaded = true;
-            roomIndex++;
+            //print("Level Generation Finished in " + (Time.time - startTime) + " seconds");
+            enabled = false;
         }
     }
 
@@ -252,44 +201,65 @@ public class LevelGenerator : MonoBehaviour
 
     private void FormHorFlood(Vector3Int v, bool down = false)
     {
-        int max = v.x + size.x / 2;
+        int maxX = v.x + size.x / 2;
+        int maxY = v.y - size.y / 2 + overflowSize.y;
         v -= (Vector3Int)size / 2;
+        int x = v.x;
         if (down)
-            v.y += size.y - overflowSize.y;
-
-        Vector3Int bound = new Vector3Int(size.x / floodDivision, overflowSize.y, 1);
-
-        do
         {
-            floods.Add(new BoundsInt(v, bound));
-            v.x += size.x / floodDivision;
-        } while (v.x < max);
+            maxY += size.y - overflowSize.y;
+            v.y += size.y - overflowSize.y;
+        }
+
+        QueueRectFill(v, maxX, maxY, platform.sibling);
     }
 
     private void FormVertFlood(Vector3Int v, bool right = false)
     {
-        int max = v.y + size.y / 2;
+        int maxX = v.x - this.size.x / 2 + this.overflowSize.x;
+        int maxY = v.y + this.size.y / 2;
         v -= (Vector3Int)size / 2;
         if (right)
-            v.x += size.x - overflowSize.x;
-
-        Vector3Int bound = new Vector3Int(overflowSize.x, size.y / floodDivision, 1);
-
-        do
         {
-            floods.Add(new BoundsInt(v, bound));
-            v.y += size.y / floodDivision;
-        } while (v.y < max);
+            maxX += size.x - overflowSize.x;
+            v.x += size.x - overflowSize.x;
+        }
+
+        QueueRectFill(v, maxX, maxY, platform.sibling);
     }
 
     private void FormCornerFlood(Vector3Int v, bool right = false, bool down = false)
     {
+        int maxX = v.x - this.size.x / 2 + this.overflowSize.x;
+        int maxY = v.y - this.size.y / 2 + this.overflowSize.y;
         v -= (Vector3Int)size / 2;
-        if (right)
-            v.x += size.x - overflowSize.x;
         if (down)
+        {
+            maxY += size.y - overflowSize.y;
             v.y += size.y - overflowSize.y;
-        floods.Add(new BoundsInt(v, new Vector3Int(overflowSize.x, overflowSize.y, 1)));
+        }
+        if (right)
+        {
+            maxX += size.x - overflowSize.x;
+            v.x += size.x - overflowSize.x;
+        }
+        QueueRectFill(v, maxX, maxY, platform.sibling);
+    }
+
+    private void QueueRectFill(Vector3Int startPos, int maxX, int maxY, TileBase t)
+    {
+        int x = startPos.x;
+        while (startPos.y < maxY)
+        {
+            startPos.x = x;
+            while (startPos.x < maxX)
+            {
+                tileList.Add(t);
+                positionList.Add(startPos);
+                startPos.x++;
+            }
+            startPos.y++;
+        }
     }
 
     private PotentialRoom MakeRoom(Doors doors, Vector3Int pos)
@@ -360,7 +330,7 @@ public class LevelGenerator : MonoBehaviour
                     Branch(rooms[i]);
                     fin = false;
                 }
-                if (rooms.Count >= maxCount)
+                if (rooms.Count >= maximumRooms)
                     break;
             }
 
@@ -368,7 +338,7 @@ public class LevelGenerator : MonoBehaviour
                 break;
         }
 
-        if(rooms.Count < minCount && rollCount < rolls)
+        if(rooms.Count < minimumRooms && rollCount < rolls)
         {
             rollCount++;
             GenerateLevel();
@@ -379,7 +349,6 @@ public class LevelGenerator : MonoBehaviour
         {
             Close(pr);
         }
-        roomIndex = -1;
     }
 
     private void Branch(PotentialRoom pr)
@@ -435,5 +404,23 @@ public class LevelGenerator : MonoBehaviour
             if (pr.pos == v)
                 return pr;
         return null;
+    }
+
+    private void GenerateTileArray()
+    {
+        tileList = new List<TileBase>();
+        positionList = new List<Vector3Int>();
+        TileBase[] filter = new TileBase[] { platform, platform.sibling, enemy, jar };
+
+        foreach (PotentialRoom r in rooms)
+            r.room.FetchTilePositionSet(filter, r.pos).WriteTiles(tileList, positionList);
+
+        foreach (Vector3Int v in occupiedPositions)
+            FloodRoomBorders(v);
+
+        tiles = tileList.ToArray();
+        positions = positionList.ToArray();
+        batchIndex = 0;
+        progMax = tiles.Length;
     }
 }

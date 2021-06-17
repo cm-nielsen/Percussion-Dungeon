@@ -140,6 +140,14 @@ MonoBehaviour:
   colourView: {fileID: 8431465610436764206}
   presetButton: {fileID: 8642346218109683211}
   back: {fileID: 6016182709625151441}
+  materials:
+    player: {fileID: 2100000, guid: 903c498f0e5b1304987aaaa67b560310, type: 2}
+    enemy: {fileID: 2100000, guid: 7e31eb9787d38f54bad55648bce873f0, type: 2}
+    platform: {fileID: 2100000, guid: 433a5450f0eb6044ea650f3383e120aa, type: 2}
+    background: {fileID: 2100000, guid: 90451df6a7453c947b7fa6395d4e4f73, type: 2}
+    health: {fileID: 2100000, guid: c9705916a6f47104492339cbe7e16e30, type: 2}
+    objects: {fileID: 2100000, guid: 6614ff46410d06441a222b22040a7347, type: 2}
+    corpse: {fileID: 2100000, guid: 8b70b7da4c20c2e47bd9d2cc57a96adc, type: 2}
 --- !u!1 &288312232765605034
 GameObject:
   m_ObjectHideFlags: 0

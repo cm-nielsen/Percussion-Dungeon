@@ -62,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healAmount: 1
   initialVelocity: 3
+  magnetism: 0.2
 --- !u!1 &3823975171435190442
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +136,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1398332871
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 8307602312631718364, guid: 925ba49cba72308449aa91fcc2952611,
     type: 3}
@@ -178,7 +179,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.1
   m_AngularDrag: 0.05
   m_GravityScale: 0.1
   m_Material: {fileID: 0}

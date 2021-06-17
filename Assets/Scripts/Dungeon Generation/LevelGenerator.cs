@@ -21,7 +21,7 @@ public class LevelGenerator : MonoBehaviour
     private List<PotentialRoom> rooms;
     private List<Vector3Int> occupiedPositions;
 
-    private int rollCount = 0;
+    private int rollCount = 0, upgradeRoomIndex;
 
     // for tile placement
     private TileBase[] tiles;
@@ -30,8 +30,6 @@ public class LevelGenerator : MonoBehaviour
     private List<Vector3Int> positionList;
 
     private int batchIndex = 0, batchCount = 1000;
-
-    private int prog = 0, progMax = 1;
 
     private float startTime;
 
@@ -116,22 +114,18 @@ public class LevelGenerator : MonoBehaviour
                 //print("batchCount decreased, timestep: " + Time.unscaledDeltaTime * minimumFrameRate);
             else
                 batchCount = batchCount * 9 / 8;
-            prog = batchIndex;
         }
         else
         {
             // Spawn Gate and Upgrade
-            int rand = Random.Range(rooms.Count / 2, rooms.Count);
-            PotentialRoom gateRoom = rooms[rand];
-            gateRoom.Fill(map, gate);
+            int rand = upgradeRoomIndex;
             if (spawnUpgrade)
             {
-                int rand2 = Random.Range(rooms.Count / 2, rooms.Count);
-                while (rand2 == rand)
-                    rand2 = Random.Range(rooms.Count / 2, rooms.Count);
-                PotentialRoom upgradeRoom = rooms[rand2];
-                upgradeRoom.Fill(map, upgrade);
+                rooms[upgradeRoomIndex].Fill(map, upgrade);
+                while (rand == upgradeRoomIndex)
+                    rand = Random.Range(rooms.Count / 2, rooms.Count);
             }
+            rooms[rand].Fill(map, gate);
 
             // drill hole from starting room to hub
             List<Vector3Int> vList = new List<Vector3Int>();
@@ -349,6 +343,8 @@ public class LevelGenerator : MonoBehaviour
         {
             Close(pr);
         }
+
+        upgradeRoomIndex = Random.Range(rooms.Count / 2, rooms.Count);
     }
 
     private void Branch(PotentialRoom pr)
@@ -415,12 +411,18 @@ public class LevelGenerator : MonoBehaviour
         foreach (PotentialRoom r in rooms)
             r.room.FetchTilePositionSet(filter, r.pos).WriteTiles(tileList, positionList);
 
+        for (int i = 0; i < tileList.Count; i++)
+            if (tileList[i] == platform.sibling)
+                tileList[i] = platform;
+
+        rooms[upgradeRoomIndex].room.FetchTilePositionSet(new TileBase[] { platform.sibling },
+            rooms[upgradeRoomIndex].pos).WriteTiles(tileList, positionList);
+
         foreach (Vector3Int v in occupiedPositions)
             FloodRoomBorders(v);
 
         tiles = tileList.ToArray();
         positions = positionList.ToArray();
         batchIndex = 0;
-        progMax = tiles.Length;
     }
 }

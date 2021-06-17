@@ -119,7 +119,7 @@ public class Room : MonoBehaviour
         Debug.Log(gameObject.name);
     }
 
-    public TilePositionSet FetchTilePositionSet(TileBase[] tileset, Vector3Int offset)
+    public TilePositionSet FetchTilePositionSet(IEnumerable<TileBase> tileset, Vector3Int offset)
     {
         TilePositionSet set = new TilePositionSet();
         Vector3Int v = -(Vector3Int)size / 2;

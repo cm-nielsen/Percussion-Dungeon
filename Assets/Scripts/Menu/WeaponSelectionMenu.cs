@@ -9,7 +9,7 @@ public class WeaponSelectionMenu : MonoBehaviour
     public SpriteRenderer icon;
     public Sprite lockedIcon;
     public List<SelectionItem> options;
-    public Text desc, proficiency, level, castas;
+    public Text desc, proficiency, level, castas, cost, damageBonus;
     public IconGraph graph;
 
     public float lerpStart, lerpMod;
@@ -44,7 +44,6 @@ public class WeaponSelectionMenu : MonoBehaviour
         activate.Setup(pKey, "down");
         left.Setup(pKey, "left");
         right.Setup(pKey, "right");
-
 
         SelectCurrentWeapon();
     }
@@ -143,21 +142,23 @@ public class WeaponSelectionMenu : MonoBehaviour
 
     private void DisplaySelectedAttributes()
     {
+        float[] ar = gcon.GetLevelInfo();
+        cost.enabled = locked;
+        cost.text = "" + selected.cost;
+        proficiency.enabled = !locked;
+        proficiency.text = "+" + ar[0];
+        level.text = "Lv: " + ar[2];// + "| +" + ar[3] * 100 + "%";
         if (locked)
         {
             icon.sprite = lockedIcon;
-            desc.text = "LOCKED\ncost : " + selected.cost + " castanets";
-            float[] ar = gcon.GetLevelInfo();
-            proficiency.text = "- - -";
-            level.text = ar[2] + "| +" + ar[3] * 100 + "%";
+            desc.text = "LOCKED\n" + selected.description;
+            damageBonus.text = "+" + (ar[3] * 100) + "%";
         }
         else
         {
             icon.sprite = selected.sprite;
-            desc.text = selected.description;
-            float[] ar = gcon.GetLevelInfo();
-            proficiency.text = ar[0] + "| +" + ar[1] * 100 + "%";
-            level.text = ar[2] + "| +" + ar[3] * 100 + "%";
+            desc.text = selected.name + "\n" + selected.description;
+            damageBonus.text = "+" + ((ar[1] + ar[3]) * 100) + "%";
         }
         if (graph.isActiveAndEnabled)
             graph.Graph(selected.stats);

@@ -106,6 +106,8 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Attack(int i)
     {
+        if (!enabled)
+            return;
         bool b = i > 0;
         DamageDealer dealer = GetComponentInChildren<DamageDealer>(true);
         dealer.enabled = b;

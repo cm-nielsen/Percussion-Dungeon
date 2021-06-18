@@ -141,7 +141,10 @@ public class GameController : MonoBehaviour
         float f = GameData.experience.LevelOf(GameData.current) * instance.profIncrement;
         return 1 + f + GameData.experience.totalLevel * instance.LevelIncrement;
     }
-
+    /// <summary>
+    /// Fetches level info for the currently selected weapon
+    /// </summary>
+    /// <returns>An array in the format [weapon level, weapon damage bonus, total level, total damage bonus]</returns>
     public float[] GetLevelInfo()
     {
         float[] ar = new float[4];

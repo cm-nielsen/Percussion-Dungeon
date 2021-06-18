@@ -142,6 +142,11 @@ public class PauseMenu : MonoBehaviour
     {
         GameController.WipeSettings();
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
 
 public interface RequiresInitialSetup

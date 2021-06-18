@@ -164,9 +164,12 @@ public class ControlKey : MonoBehaviour
             val = false;
             holdTime = u.holdTime;
             toggleInput = u.toggleInput;
-            keyCodes = u.keyCodes;
-            mouseButtons = u.mouseButtons;
-            gamePadButtons = u.gamePadButtons;
+            keyCodes = new string[u.keyCodes.Length];
+            Array.Copy(u.keyCodes, keyCodes, keyCodes.Length);
+            mouseButtons = new string[u.mouseButtons.Length];
+            Array.Copy(u.mouseButtons, mouseButtons, mouseButtons.Length);
+            gamePadButtons = new string[u.gamePadButtons.Length];
+            Array.Copy(u.gamePadButtons, gamePadButtons, gamePadButtons.Length);
             timePressed = -100;
             timeReleased = 0;
             toggle = false;

@@ -20,6 +20,9 @@ TextureImporter:
   - first:
       213: -3975253493863075123
     second: cabinet icons_5
+  - first:
+      213: -7123350414378191938
+    second: cabinet icons_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -142,9 +145,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 32
+        y: 43
         width: 16
-        height: 32
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,6 +241,27 @@ TextureImporter:
       bones: []
       spriteID: dc23926520015d8c0800000000000000
       internalID: -3975253493863075123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabinet icons_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 53
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb33b5c0a86c42d90800000000000000
+      internalID: -7123350414378191938
       vertices: []
       indices: 
       edges: []

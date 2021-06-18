@@ -8,6 +8,7 @@ public class LevelGenerator : MonoBehaviour
 {
     public List<GameObject> roomSetObjects;
     public RuleTile platform, jar, enemy, gate, upgrade;
+    public TileBase upgradeRoomTile;
     public Vector2Int overflowSize;
     public Vector2Int size { get { return roomSetObjects[0].GetComponentInChildren<Room>().size; } }
 
@@ -29,7 +30,7 @@ public class LevelGenerator : MonoBehaviour
     private Vector3Int[] positions;
     private List<Vector3Int> positionList;
 
-    private int batchIndex = 0, batchCount = 1000;
+    private int batchIndex = 0, batchCount = 400;
 
     private float startTime;
 
@@ -406,17 +407,18 @@ public class LevelGenerator : MonoBehaviour
     {
         tileList = new List<TileBase>();
         positionList = new List<Vector3Int>();
-        TileBase[] filter = new TileBase[] { platform, platform.sibling, enemy, jar };
+        TileBase[] filter = new TileBase[] { platform, platform.sibling, enemy, jar, upgradeRoomTile };
 
         foreach (PotentialRoom r in rooms)
             r.room.FetchTilePositionSet(filter, r.pos).WriteTiles(tileList, positionList);
 
+        TileBase[] replaceWithPlatform = new TileBase[] { platform.sibling, upgradeRoomTile };
         for (int i = 0; i < tileList.Count; i++)
-            if (tileList[i] == platform.sibling)
+            if (replaceWithPlatform.Contains(tileList[i]))
                 tileList[i] = platform;
 
-        rooms[upgradeRoomIndex].room.FetchTilePositionSet(new TileBase[] { platform.sibling },
-            rooms[upgradeRoomIndex].pos).WriteTiles(tileList, positionList);
+        rooms[upgradeRoomIndex].room.FetchTilePositionSet(new TileBase[] { platform.sibling, upgradeRoomTile },
+            rooms[upgradeRoomIndex].pos).SetTypeNull(upgradeRoomTile).WriteTiles(tileList, positionList);
 
         foreach (Vector3Int v in occupiedPositions)
             FloodRoomBorders(v);

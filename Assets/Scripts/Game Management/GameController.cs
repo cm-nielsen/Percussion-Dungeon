@@ -123,11 +123,13 @@ public class GameController : MonoBehaviour
     public static void GainExp(int amount)
     {
         if (!instance) return;
-        
+
+
         float rat = GameData.experience.AddExperience(amount, GameData.current);
         //Debug.Log("level : " + GameData.experience.LevelOf(GameData.current) +
         //    "Ratio :" + rat);
         SaveGameData();
+        FindObjectOfType<PlayerController>()?.UpdateDamage();
         ExperienceBarDisplay bar = FindObjectOfType<ExperienceBarDisplay>();
         if (!bar)
             return;

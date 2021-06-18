@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
         input = GameObject.Find("Player Control Key").GetComponent<ControlKey>();
 
-        GetComponentInChildren<DamageDealer>().SetDamageMultiplier();
+        UpdateDamage();
 
         Music.onBeat.Add(OnBeat);
         Music.offBeat.Add(OffBeat);
@@ -133,6 +133,11 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(moveForce.x * Vector2.left);
 
         rb.velocity = new Vector2(rb.velocity.x * Mathf.Pow(xFriction, .6f), rb.velocity.y);
+    }
+
+    public void UpdateDamage()
+    {
+        GetComponentInChildren<DamageDealer>().SetDamageMultiplier();
     }
 
     [HideInInspector]

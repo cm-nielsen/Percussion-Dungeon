@@ -164,6 +164,14 @@ public class Room : MonoBehaviour
             positions = new List<Vector3Int>();
         }
 
+        public TilePositionSet SetTypeNull(TileBase tile)
+        {
+            for (int i = 0; i < tiles.Count; i++)
+                if (tiles[i] == tile)
+                    tiles[i] = null;
+            return this;
+        }
+
         public void WriteTiles(List<TileBase> t, List<Vector3Int> p)
         {
             t.AddRange(tiles);

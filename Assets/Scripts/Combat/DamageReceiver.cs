@@ -130,24 +130,32 @@ public class DamageReceiver : MonoBehaviour
 
         if((recoil & KnockbackTypes.animation) != 0)
         {
-            if (point.x > 0)
-                transform.localScale = new Vector2(-1, 1);
-            else
-                transform.localScale = new Vector2(1, 1);
-
             switch (dtype)
             {
                 case DamageType.light:
                     if (lightAnim)
+                    {
+                        TurnToward(point);
                         anim.SetTrigger("light hit");
+                    }
                     break;
                 case DamageType.heavy:
                     if (heavyAnim)
+                    {
+                        TurnToward(point);
                         anim.SetTrigger("heavy hit");
+                    }
                     break;
             }
         }
+    }
 
+    private void TurnToward(Vector2 point)
+    {
+        if (point.x > 0)
+            transform.localScale = new Vector2(-1, 1);
+        else
+            transform.localScale = new Vector2(1, 1);
     }
 
     private void Die(Vector2 point, float amount)
@@ -158,12 +166,12 @@ public class DamageReceiver : MonoBehaviour
 
         if ((recoil & KnockbackTypes.animation) != 0)
         {
-            if (point.x > 0)
-                transform.localScale = new Vector2(-1, 1);
-            else
-                transform.localScale = new Vector2(1, 1);
+            TurnToward(point);
             if (deathAnim)
+            {
                 anim.SetTrigger("die");
+                anim.SetBool("dead", true);
+            }
         }
 
         if ((recoil & KnockbackTypes.physics) != 0)

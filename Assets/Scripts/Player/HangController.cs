@@ -74,8 +74,9 @@ public class HangController : MonoBehaviour
         thrownObject = Instantiate(prefab, transform.position, Quaternion.identity);
         thrownObject.transform.localScale = transform.localScale;
         Rigidbody2D r = thrownObject.GetComponent<Rigidbody2D>();
-        thrownObject.GetComponentInChildren<DamageDealer>().
-            SetSelfReceiver(GetComponent<DamageReceiver>());
+        DamageDealer d = thrownObject.GetComponentInChildren<DamageDealer>();
+        d.SetSelfReceiver(GetComponent<DamageReceiver>());
+        d.SetDamageMultiplier();
 
         anim.SetBool("naked", true);
         anim.ResetTrigger("dodge");

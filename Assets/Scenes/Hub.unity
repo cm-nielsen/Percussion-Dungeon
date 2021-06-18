@@ -15608,7 +15608,8 @@ MonoBehaviour:
   enemy: {fileID: 11400000, guid: 8272e8bfe2df3ab428d5e53e9801614f, type: 2}
   gate: {fileID: 11400000, guid: cb7dc985fae7241459dd13936626ff1f, type: 2}
   upgrade: {fileID: 11400000, guid: 62d8b3adb3ef18541906c4a33748c6a8, type: 2}
-  overflowSize: {x: 9, y: 6}
+  upgradeRoomTile: {fileID: 11400000, guid: c5b374c380df3094f80903a5ef64b8a4, type: 2}
+  overflowSize: {x: 12, y: 6}
   maximumRooms: 12
   minimumRooms: 8
   rolls: 4
@@ -15701,11 +15702,7 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 247557387042874346}
     m_ColliderPaths:
-    - - X: -107500000
-        Y: 50000000
-      - X: -2500000
-        Y: 50000000
-      - X: -2500000
+    - - X: -2500000
         Y: 65000000
       - X: -72500000
         Y: 65000000
@@ -15753,6 +15750,10 @@ CompositeCollider2D:
         Y: 117500000
       - X: -107500000
         Y: 117500000
+      - X: -107500000
+        Y: 50000000
+      - X: -2500000
+        Y: 50000000
   m_CompositePaths:
     m_Paths:
     - - {x: -0.2500293, y: 5}

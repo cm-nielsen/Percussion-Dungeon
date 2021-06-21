@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 /// <summary>
 /// <para/>A generalized keyboard control structure, created to abstract input collection.
@@ -160,7 +161,7 @@ public class ControlKey : MonoBehaviour
         /// <param name="u">Control Unit to copy</param>
         public ControlUnit(ControlUnit u)
         {
-            identifier = u.identifier;
+            identifier = String.Copy(u.identifier);
             val = false;
             holdTime = u.holdTime;
             toggleInput = u.toggleInput;
@@ -174,6 +175,15 @@ public class ControlKey : MonoBehaviour
             timeReleased = 0;
             toggle = false;
             timeToggle = true;
+        }
+
+        public bool Equals(ControlUnit u)
+        {
+            if (identifier != u.identifier)
+                return false;
+            return keyCodes.SequenceEqual(u.keyCodes) &&
+                mouseButtons.SequenceEqual(u.mouseButtons) &&
+                gamePadButtons.SequenceEqual(u.gamePadButtons);
         }
 
         /// <summary>

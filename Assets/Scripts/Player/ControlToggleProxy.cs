@@ -37,24 +37,34 @@ public class ControlToggleProxy
     }
 }
 
-
+[System.Serializable]
 public class ControlSteadyProxy
 {
     public bool val
     {
         get
         {
+            if (con == null || Time.timeScale == 0)
+                return false;
+
+            if (!con.Equals(basis))
+                Setup(key, basis.identifier);
             con.UpdateInputValue();
             return con.val;
         }
     }
 
     public ControlKey.ControlUnit con;
+    private ControlKey key;
+    private ControlKey.ControlUnit basis;
 
     public void Setup(ControlKey k, string s)
     {
-        con = k.GetUnit(s);
-        con = new ControlKey.ControlUnit(con);
+        key = k;
+        basis = k.GetUnit(s);
+        if (basis == null)
+            Debug.Log("Steady Control Proxy could not be created: " + s);
+        con = new ControlKey.ControlUnit(basis);
         con.toggleInput = false;
     }
 }

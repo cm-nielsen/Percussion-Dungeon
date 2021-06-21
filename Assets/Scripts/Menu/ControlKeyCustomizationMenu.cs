@@ -28,6 +28,14 @@ public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
     /// </summary>
     private Text[] displays;
     /// <summary>
+    /// used to make the input mapping always return to the correct input header
+    /// </summary>
+    private Button[] displayButtons;
+    /// <summary>
+    /// buttons that delete inputs off the list
+    /// </summary>
+    private GameObject[] deleteButtons;
+    /// <summary>
     /// the current input being edited
     /// </summary>
     private ConUnit unit;
@@ -45,17 +53,22 @@ public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
     // Start is called before the first frame update
     void Start()
     {
-        //displays = GetComponentsInChildren<Text>();
         UIInput = EventSystem.current.currentInputModule;
-        //target = GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>();
     }
 
     public void Setup()
     {
         displays = GetComponentsInChildren<Text>();
+        displayButtons = new Button[displays.Length];
+        deleteButtons = new GameObject[displays.Length];
+        for (int i = 0; i < displays.Length; i++)
+        {
+            displayButtons[i] = displays[i].GetComponent<Button>();
+            deleteButtons[i] = displays[i].GetComponentInChildren<Image>().gameObject;
+        }
+
         UIInput = EventSystem.current.currentInputModule;
         target = GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>();
-        //target.inputs = GameData.pControls;
         if (GameData.pControls.Count < 2 || 
             Application.platform == RuntimePlatform.WebGLPlayer)
             return;
@@ -92,9 +105,17 @@ public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
         }
     }
 
-    public void SetActiveUnit(string identifier)
+    public void SetActiveUnit(Selectable s)
     {
-        unit = target.GetUnit(identifier);
+        unit = target.GetUnit(s.name);
+
+        Navigation n;
+        for (int i = 0; i < displays.Length; i++)
+        {
+            n = displayButtons[i].navigation;
+            n.selectOnLeft = s;
+            displayButtons[i].navigation = n;
+        }
 
         if (Gamepad.current == null)
             SetToKeyboardInputs();
@@ -119,11 +140,7 @@ public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
                 return;
         }
 
-        while(n < displays.Length)
-        {
-            displays[n].text = "---";
-            n++;
-        }
+        ClearRemainingDisplays(n);
     }
 
     public void SetToGamepadInputs()
@@ -135,10 +152,18 @@ public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
             if (n++ >= displays.Length)
                 return;
         }
+        ClearRemainingDisplays(n);
+    }
+
+    private void ClearRemainingDisplays(int n)
+    {
+        foreach (GameObject g in deleteButtons)
+            g.SetActive(true);
 
         while (n < displays.Length)
         {
             displays[n].text = "---";
+            deleteButtons[n].SetActive(false);
             n++;
         }
     }
@@ -280,7 +305,57 @@ public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
             }
             SetToGamepadInputs();
         }
-        GameData.pControls = target.inputs;
+
+        SaveControls();
+    }
+
+    public void RemoveKey(int index)
+    {
+        if (Gamepad.current == null)
+        {
+            if (index >= unit.keyCodes.Length + unit.mouseButtons.Length)
+                return;
+            // removing a keycode
+            if(index < unit.keyCodes.Length)
+            {
+                List<string> l = unit.keyCodes.ToList();
+                l.RemoveAt(index);
+                unit.keyCodes = l.ToArray();
+            }
+            else // removing a mouseButton
+            {
+                index -= unit.keyCodes.Length;
+                List<string> l = unit.mouseButtons.ToList();
+                l.RemoveAt(index);
+                unit.mouseButtons = l.ToArray();
+            }
+            SetToKeyboardInputs();
+        }
+        else
+        {
+            if (index >= unit.gamePadButtons.Length)
+                return;
+            List<string> l = unit.gamePadButtons.ToList();
+            l.RemoveAt(index);
+            unit.gamePadButtons = l.ToArray();
+            SetToGamepadInputs();
+        }
+        SaveControls();
+
+        Button b = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
+        EventSystem.current.SetSelectedGameObject(b.FindSelectableOnLeft().gameObject);
+    }
+
+    private void SaveControls()
+    {
+        if (target.inputs.Count < 2 ||
+               Application.platform == RuntimePlatform.WebGLPlayer)
+            return;
+
+        GameData.pControls.Clear();
+        foreach (ConUnit u in target.inputs)
+            GameData.pControls.Add(new ConUnit(u));
+
         GameController.SaveGameData();
     }
 }

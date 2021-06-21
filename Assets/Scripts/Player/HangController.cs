@@ -14,7 +14,7 @@ public class HangController : MonoBehaviour
     private BoxCollider2D hitbox;
     private CircleCollider2D rollHitbox;
 
-    private ControlSteadyProxy roll;
+    public ControlSteadyProxy roll;
 
     private float circumference, prevX, rollStart = -100;
     private bool rolling = false, canRoll = true;

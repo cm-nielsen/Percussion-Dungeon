@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer rend;
     private Animator anim;
     private BoxCollider2D hitbox;
+    private Vector2 normalmoveForce;
 
     private float cTimer = 0;
     public bool canJump, canDodge;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
         Music.onBeat.Add(OnBeat);
         Music.offBeat.Add(OffBeat);
+        normalmoveForce = moveForce;
     }
 
     private void Update()
@@ -81,6 +83,7 @@ public class PlayerController : MonoBehaviour
     private void UpdateAnimator()
     {
         Vector3 groundCheckOffset = hitbox.size / 2 * Vector2.right, hOff = hitbox.offset;
+        hOff.x *= transform.localScale.x;
         if(Physics2D.Raycast(transform.position + groundCheckOffset + hOff, Vector2.down, 
             hitbox.size.y / 2 + 0.05f, isGround)
         || Physics2D.Raycast(transform.position - groundCheckOffset + hOff, Vector2.down, 
@@ -88,6 +91,19 @@ public class PlayerController : MonoBehaviour
         {
             canJump = true;
             cTimer = 0;
+            //string s = "";
+            //RaycastHit2D rh = Physics2D.Raycast(transform.position + groundCheckOffset + hOff, Vector2.down,
+            //hitbox.size.y / 2 + 0.05f, isGround);
+            //if(rh)
+            //    s = rh.collider.gameObject.name;
+            //if(s != "Platforms")
+            //    print(s);
+            //rh = Physics2D.Raycast(transform.position - groundCheckOffset + hOff, Vector2.down,
+            //hitbox.size.y / 2 + 0.05f, isGround);
+            //if (rh)
+            //    s = rh.collider.gameObject.name;
+            //if (s != "Platforms")
+            //    print(s);
         }
         else
         {
@@ -197,5 +213,16 @@ public class PlayerController : MonoBehaviour
     private void CheckContact()
     {
         anim.SetBool("contact", GetComponentInChildren<AreaCollisionCheck>().Check());
+    }
+
+    private void SetMoveForce(string s)
+    {
+        string[] ar = s.Split(',');
+        if(ar.Length != 2)
+        {
+            moveForce = normalmoveForce;
+            return;
+        }
+        moveForce = new Vector2(float.Parse(ar[0]), float.Parse(ar[1]));
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8512870081388089147}
   - component: {fileID: 6378210607024981714}
   - component: {fileID: 5559624125259040398}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Castanets
   m_TagString: Untagged
   m_Icon: {fileID: 0}

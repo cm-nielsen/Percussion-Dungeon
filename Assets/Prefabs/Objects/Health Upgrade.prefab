@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2658804264808251456}
   - component: {fileID: 2658804264808251457}
   - component: {fileID: 8258114129227727058}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Health Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}

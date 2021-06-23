@@ -14,6 +14,39 @@ TextureImporter:
   - first:
       213: 1614070373982813928
     second: cowbell big run_3
+  - first:
+      213: -1807487656545390181
+    second: cowbell big run_4
+  - first:
+      213: 7829451964516467998
+    second: cowbell big run_5
+  - first:
+      213: -3768037720911756139
+    second: cowbell big run_6
+  - first:
+      213: 8530334370734236068
+    second: cowbell big run_7
+  - first:
+      213: 7378012080934305984
+    second: cowbell big run_8
+  - first:
+      213: -5425734120558458401
+    second: cowbell big run_9
+  - first:
+      213: -1186481104854083256
+    second: cowbell big run_10
+  - first:
+      213: -5085125467869960054
+    second: cowbell big run_11
+  - first:
+      213: 8587137122372604226
+    second: cowbell big run_12
+  - first:
+      213: 8532766042266963926
+    second: cowbell big run_13
+  - first:
+      213: 9210460084076390977
+    second: cowbell big run_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -136,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -156,8 +189,8 @@ TextureImporter:
       name: cowbell big run_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 128
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -177,8 +210,8 @@ TextureImporter:
       name: cowbell big run_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 192
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -190,6 +223,237 @@ TextureImporter:
       bones: []
       spriteID: 8ee3ab31474566610800000000000000
       internalID: 1614070373982813928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big run_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9175b78d838ae6e0800000000000000
+      internalID: -1807487656545390181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big run_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e150dfa541dc7ac60800000000000000
+      internalID: 7829451964516467998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big run_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59448c028ad35bbc0800000000000000
+      internalID: -3768037720911756139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big run_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a16bee1ae5d16670800000000000000
+      internalID: 8530334370734236068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big run_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c041a0b5e6f36660800000000000000
+      internalID: 7378012080934305984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big run_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd9856a609be3b4b0800000000000000
+      internalID: -5425734120558458401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big run_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849957ca8b5c88fe0800000000000000
+      internalID: -1186481104854083256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big run_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a88a15144510e69b0800000000000000
+      internalID: -5085125467869960054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big run_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 241d69857b3ab2770800000000000000
+      internalID: 8587137122372604226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big run_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df86d4c1897a6670800000000000000
+      internalID: 8532766042266963926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big run_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14aa949b5a022df70800000000000000
+      internalID: 9210460084076390977
       vertices: []
       indices: 
       edges: []

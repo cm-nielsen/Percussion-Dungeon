@@ -1,37 +1,52 @@
 fileFormatVersion: 2
-guid: b9948ba6002c6954596cf021aff4f112
+guid: c60f866c662891a41ac40b536ee0c6d1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7983032457305529822
-    second: cowbell run_0
+      213: -3565280532483726775
+    second: cowbell big air alt attack_0
   - first:
-      213: -1434415750447178446
-    second: cowbell run_1
+      213: -7325346213139851537
+    second: cowbell big air alt attack_1
   - first:
-      213: 2120508561437400551
-    second: cowbell run_2
+      213: 1710923772368630696
+    second: cowbell big air alt attack_2
   - first:
-      213: -9159235257607439495
-    second: cowbell run_3
+      213: -6725794417756494119
+    second: cowbell big air alt attack_3
   - first:
-      213: -2400724462959308426
-    second: cowbell run_4
+      213: 8690248461160429865
+    second: cowbell big air alt attack_4
   - first:
-      213: -6420565327574482019
-    second: cowbell run_5
+      213: -7420255006777512861
+    second: cowbell big air alt attack_5
   - first:
-      213: -7707509615116079160
-    second: cowbell run_6
+      213: 2399269810980688634
+    second: cowbell big air alt attack_6
   - first:
-      213: -8172617798998749976
-    second: cowbell run_7
+      213: 2332240458195441802
+    second: cowbell big air alt attack_7
   - first:
-      213: -7911427877343780078
-    second: cowbell run_8
+      213: 2043889295855390889
+    second: cowbell big air alt attack_8
   - first:
-      213: -2085101791180473464
-    second: cowbell run_9
+      213: 1810526253512034248
+    second: cowbell big air alt attack_9
+  - first:
+      213: -2598961030008615360
+    second: cowbell big air alt attack_10
+  - first:
+      213: 8959181394061893555
+    second: cowbell big air alt attack_11
+  - first:
+      213: -210776754186074909
+    second: cowbell big air alt attack_12
+  - first:
+      213: 5415642456839427737
+    second: cowbell big air alt attack_13
+  - first:
+      213: -7639464912154800317
+    second: cowbell big air alt attack_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -129,7 +144,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cowbell run_0
+      name: cowbell big air alt attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edd1c1859bd69ce60800000000000000
-      internalID: 7983032457305529822
+      spriteID: 94221b0de34958ec0800000000000000
+      internalID: -3565280532483726775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell run_1
+      name: cowbell big air alt attack_1
       rect:
         serializedVersion: 2
         x: 64
@@ -164,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23dde5e897ee71ce0800000000000000
-      internalID: -1434415750447178446
+      spriteID: fe6db053e64275a90800000000000000
+      internalID: -7325346213139851537
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell run_2
+      name: cowbell big air alt attack_2
       rect:
         serializedVersion: 2
         x: 128
@@ -185,14 +200,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ed96ab3d4f8d6d10800000000000000
-      internalID: 2120508561437400551
+      spriteID: 8a3bdc92b1c6eb710800000000000000
+      internalID: 1710923772368630696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell run_3
+      name: cowbell big air alt attack_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d6a151ac9d29a2a0800000000000000
+      internalID: -6725794417756494119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big air alt attack_4
       rect:
         serializedVersion: 2
         x: 0
@@ -206,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97b33189f0cd3e080800000000000000
-      internalID: -9159235257607439495
+      spriteID: 9293a59bee6f99870800000000000000
+      internalID: 8690248461160429865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell run_4
+      name: cowbell big air alt attack_5
       rect:
         serializedVersion: 2
         x: 64
@@ -227,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67158bd02d9eeaed0800000000000000
-      internalID: -2400724462959308426
+      spriteID: 36c6632b265f50990800000000000000
+      internalID: -7420255006777512861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell run_5
+      name: cowbell big air alt attack_6
       rect:
         serializedVersion: 2
         x: 128
@@ -248,14 +284,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d93cbb82ad195e6a0800000000000000
-      internalID: -6420565327574482019
+      spriteID: af292d36e2beb4120800000000000000
+      internalID: 2399269810980688634
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell run_6
+      name: cowbell big air alt attack_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8898890758cd5020800000000000000
+      internalID: 2332240458195441802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big air alt attack_8
       rect:
         serializedVersion: 2
         x: 0
@@ -269,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cf291857dc690590800000000000000
-      internalID: -7707509615116079160
+      spriteID: 9a01faf4c7a5d5c10800000000000000
+      internalID: 2043889295855390889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell run_7
+      name: cowbell big air alt attack_9
       rect:
         serializedVersion: 2
         x: 64
@@ -290,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ec05a58967059e80800000000000000
-      internalID: -8172617798998749976
+      spriteID: 8c78a15f808402910800000000000000
+      internalID: 1810526253512034248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell run_8
+      name: cowbell big air alt attack_10
       rect:
         serializedVersion: 2
         x: 128
@@ -311,14 +368,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2132dc81346f43290800000000000000
-      internalID: -7911427877343780078
+      spriteID: 04ec04d86b2aeebd0800000000000000
+      internalID: -2598961030008615360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell run_9
+      name: cowbell big air alt attack_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf19579208655c70800000000000000
+      internalID: 8959181394061893555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big air alt attack_12
       rect:
         serializedVersion: 2
         x: 0
@@ -332,8 +410,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88b3820e7fa3013e0800000000000000
-      internalID: -2085101791180473464
+      spriteID: 3e444d7a8ab231df0800000000000000
+      internalID: -210776754186074909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big air alt attack_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99610760f1a382b40800000000000000
+      internalID: 5415642456839427737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell big air alt attack_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34fc3f4532b2bf590800000000000000
+      internalID: -7639464912154800317
       vertices: []
       indices: 
       edges: []

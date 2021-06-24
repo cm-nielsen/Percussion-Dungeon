@@ -1,52 +1,31 @@
 fileFormatVersion: 2
-guid: 25235bde333dbbd4981fa556b9d8dd41
+guid: 19f4309bf84fd0b4d9986a468cedc65b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9144579333071577400
-    second: cowbell combo_0
+      213: -8182929503306961869
+    second: stix air alt_0
   - first:
-      213: 5457962423820279
-    second: cowbell combo_1
+      213: 5103372033713208880
+    second: stix air alt_1
   - first:
-      213: 2798593402245108042
-    second: cowbell combo_2
+      213: 6074539125983003299
+    second: stix air alt_2
   - first:
-      213: 2464482686029209699
-    second: cowbell combo_3
+      213: -3511030263041355416
+    second: stix air alt_3
   - first:
-      213: 9050538931566307066
-    second: cowbell combo_4
+      213: 8566497370978103581
+    second: stix air alt_4
   - first:
-      213: -8955429779769538418
-    second: cowbell combo_5
+      213: 5666277433911132110
+    second: stix air alt_5
   - first:
-      213: -6307625204316283560
-    second: cowbell combo_6
+      213: 1683795909007564691
+    second: stix air alt_6
   - first:
-      213: 2109769454688061870
-    second: cowbell combo_7
-  - first:
-      213: -7118758085836852706
-    second: cowbell combo_8
-  - first:
-      213: 5398671203264758224
-    second: cowbell combo_9
-  - first:
-      213: 2228980337529684346
-    second: cowbell combo_10
-  - first:
-      213: -5454089038612358743
-    second: cowbell combo_11
-  - first:
-      213: -1225823456823399611
-    second: cowbell combo_12
-  - first:
-      213: 5543359746071359250
-    second: cowbell combo_13
-  - first:
-      213: 6508616433384578662
-    second: cowbell combo_14
+      213: -7453073821119047376
+    second: stix air alt_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -144,91 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cowbell combo_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8312c10147218ee70800000000000000
-      internalID: 9144579333071577400
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cowbell combo_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ff1877ecf3631000800000000000000
-      internalID: 5457962423820279
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cowbell combo_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a41529b2fd996d620800000000000000
-      internalID: 2798593402245108042
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cowbell combo_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3602fdf02f9933220800000000000000
-      internalID: 2464482686029209699
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cowbell combo_4
+      name: stix air alt_0
       rect:
         serializedVersion: 2
         x: 0
@@ -242,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af66ad9d439f99d70800000000000000
-      internalID: 9050538931566307066
+      spriteID: 33c2355c8f4607e80800000000000000
+      internalID: -8182929503306961869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell combo_5
+      name: stix air alt_1
       rect:
         serializedVersion: 2
         x: 64
@@ -263,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e88c1ed201ce7b380800000000000000
-      internalID: -8955429779769538418
+      spriteID: 03e732a63d1d2d640800000000000000
+      internalID: 5103372033713208880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell combo_6
+      name: stix air alt_2
       rect:
         serializedVersion: 2
         x: 128
@@ -284,35 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85d5d60cb40d678a0800000000000000
-      internalID: -6307625204316283560
+      spriteID: 3a2cd6a96291d4450800000000000000
+      internalID: 6074539125983003299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell combo_7
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea9c6a81428674d10800000000000000
-      internalID: 2109769454688061870
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cowbell combo_8
+      name: stix air alt_3
       rect:
         serializedVersion: 2
         x: 0
@@ -326,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1231cbdc37153d90800000000000000
-      internalID: -7118758085836852706
+      spriteID: 86116c7f390564fc0800000000000000
+      internalID: -3511030263041355416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell combo_9
+      name: stix air alt_4
       rect:
         serializedVersion: 2
         x: 64
@@ -347,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d10ab12bdeebea40800000000000000
-      internalID: 5398671203264758224
+      spriteID: d11b77eb8ff42e670800000000000000
+      internalID: 8566497370978103581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell combo_10
+      name: stix air alt_5
       rect:
         serializedVersion: 2
         x: 128
@@ -368,35 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7189cdaecdeeee10800000000000000
-      internalID: 2228980337529684346
+      spriteID: ecfb51f0e49a2ae40800000000000000
+      internalID: 5666277433911132110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell combo_11
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a998289aee2f44b0800000000000000
-      internalID: -5454089038612358743
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cowbell combo_12
+      name: stix air alt_6
       rect:
         serializedVersion: 2
         x: 0
@@ -410,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54b23ba8f000dfee0800000000000000
-      internalID: -1225823456823399611
+      spriteID: 39fd6a6457b0e5710800000000000000
+      internalID: 1683795909007564691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cowbell combo_13
+      name: stix air alt_7
       rect:
         serializedVersion: 2
         x: 64
@@ -431,29 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21f68cea158fdec40800000000000000
-      internalID: 5543359746071359250
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cowbell combo_14
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66e582b7920435a50800000000000000
-      internalID: 6508616433384578662
+      spriteID: 0399f6709dc519890800000000000000
+      internalID: -7453073821119047376
       vertices: []
       indices: 
       edges: []

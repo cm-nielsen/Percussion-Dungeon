@@ -119,4 +119,10 @@ public class HangController : MonoBehaviour
         anim.SetBool("can roll", true);
         transform.eulerAngles = new Vector3(0, 0, 0);
     }
+
+    private void OnDestroy()
+    {
+        if (thrownObject)
+            Destroy(thrownObject);
+    }
 }

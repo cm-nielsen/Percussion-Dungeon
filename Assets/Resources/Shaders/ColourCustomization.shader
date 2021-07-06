@@ -5,9 +5,6 @@
         _MainTex ("Texture", 2D) = "white" {}
 		_MonoCol ("Mono Colour", Color) = (0, 0, 0, 0)
 		_MainCol("Main Colour", Color) = (1, 1, 1, 1)
-        _NoiseTex("Noise", 2D) = "white"{}
-        _NoiseStrength("Noise Strength", Range(0.0, 1.0)) = 0.05
-        _NoiseScale("Noise Scale", Float) = 10
     }
     SubShader
     {
@@ -49,11 +46,8 @@
             }
 
             sampler2D _MainTex;
-            sampler2D _NoiseTex;
 			fixed4 _MonoCol;
 			fixed4 _MainCol;
-            float _NoiseStrength;
-            float _NoiseScale;
 			int _DualMono;
 
             fixed4 frag (v2f i) : SV_Target
@@ -72,9 +66,7 @@
 				col.rgb = ((1 - _DualMono) * col.rgb) +
 					(_DualMono * ((_MonoCol * n) + (_MainCol* (1.0 - n))).rgb);
 
-                fixed4 noiseCol = tex2D(_NoiseTex, i.worldPos / _NoiseScale);
-                noiseCol = lerp(noiseCol, fixed4(1, 1, 1, 1), 1 - _NoiseStrength);
-                return col *noiseCol;
+                return col;
             }
             ENDCG
         }

@@ -1,49 +1,79 @@
 fileFormatVersion: 2
-guid: a42ecb81c47264040b87867cd218b400
+guid: a4a8b70518f148741831950897e93d55
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1632392412686165029
-    second: up chomp_0
+      213: -7347737096896634020
+    second: birth_0
   - first:
-      213: 7233554735305891790
-    second: up chomp_1
+      213: -7862321591629256906
+    second: birth_1
   - first:
-      213: 2601688553441617597
-    second: up chomp_2
+      213: 6969102577535233949
+    second: birth_2
   - first:
-      213: -5696825774853572895
-    second: up chomp_3
+      213: 7796664676098874492
+    second: birth_3
   - first:
-      213: 107849110075934133
-    second: up chomp_4
+      213: 7522824006729926285
+    second: birth_4
   - first:
-      213: -2671392551943361351
-    second: up chomp_5
+      213: 3843518385910368965
+    second: birth_5
   - first:
-      213: -459034573081930378
-    second: up chomp_6
+      213: 5986068438228682130
+    second: birth_6
   - first:
-      213: -5739012303917133966
-    second: up chomp_7
+      213: -996774453755499055
+    second: birth_7
   - first:
-      213: -3673406880201574713
-    second: up chomp_8
+      213: 6061847117336587309
+    second: birth_8
   - first:
-      213: -4999111737694026552
-    second: up chomp_9
+      213: 6146982253390890513
+    second: birth_9
   - first:
-      213: 440036654368849345
-    second: up chomp_10
+      213: -3010122397680947885
+    second: birth_10
   - first:
-      213: 2784200868039713755
-    second: up chomp_11
+      213: -4635069089764490785
+    second: birth_11
   - first:
-      213: 8544308749520485800
-    second: up chomp_12
+      213: 3616207068345094584
+    second: birth_12
   - first:
-      213: -6103856193481159229
-    second: up chomp_13
+      213: -3654829891631468945
+    second: birth_13
+  - first:
+      213: -1691526306252412699
+    second: birth_14
+  - first:
+      213: 1791801705491428839
+    second: birth_15
+  - first:
+      213: -5958365563288005808
+    second: birth_16
+  - first:
+      213: 7639724153995712267
+    second: birth_17
+  - first:
+      213: -8963623947417401205
+    second: birth_18
+  - first:
+      213: -6016610437840011550
+    second: birth_19
+  - first:
+      213: -5899779519630454109
+    second: birth_20
+  - first:
+      213: -3098990489732711219
+    second: birth_21
+  - first:
+      213: -7896379969321480785
+    second: birth_22
+  - first:
+      213: 4285460245844044153
+    second: birth_23
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -141,7 +171,112 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: up chomp_0
+      name: birth_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5324845a08970a90800000000000000
+      internalID: -7347737096896634020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: birth_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637ed053b2c63e290800000000000000
+      internalID: -7862321591629256906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: birth_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9f2f31ded937b060800000000000000
+      internalID: 6969102577535233949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: birth_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c95b3e631533c60800000000000000
+      internalID: 7796664676098874492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: birth_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d860be49390766860800000000000000
+      internalID: 7522824006729926285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: birth_5
       rect:
         serializedVersion: 2
         x: 0
@@ -155,14 +290,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 524a334204c67a610800000000000000
-      internalID: 1632392412686165029
+      spriteID: 5cacedfab9be65530800000000000000
+      internalID: 3843518385910368965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up chomp_1
+      name: birth_6
       rect:
         serializedVersion: 2
         x: 64
@@ -176,14 +311,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecf904de4bfb26460800000000000000
-      internalID: 7233554735305891790
+      spriteID: 2954ccd6789c21350800000000000000
+      internalID: 5986068438228682130
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up chomp_2
+      name: birth_7
       rect:
         serializedVersion: 2
         x: 128
@@ -197,14 +332,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db6661c74fd0b1420800000000000000
-      internalID: 2601688553441617597
+      spriteID: 1dd28ba5aeeba22f0800000000000000
+      internalID: -996774453755499055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up chomp_3
+      name: birth_8
       rect:
         serializedVersion: 2
         x: 192
@@ -218,14 +353,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e6309e042fc0f0b0800000000000000
-      internalID: -5696825774853572895
+      spriteID: d2ca29f06d1002450800000000000000
+      internalID: 6061847117336587309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up chomp_4
+      name: birth_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1168ef59ac77e4550800000000000000
+      internalID: 6146982253390890513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: birth_10
       rect:
         serializedVersion: 2
         x: 0
@@ -239,14 +395,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b50b67b1382f7100800000000000000
-      internalID: 107849110075934133
+      spriteID: 35da7cba0a5e936d0800000000000000
+      internalID: -3010122397680947885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up chomp_5
+      name: birth_11
       rect:
         serializedVersion: 2
         x: 64
@@ -260,14 +416,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bcaacda0ae4dead0800000000000000
-      internalID: -2671392551943361351
+      spriteID: fd1c133783decafb0800000000000000
+      internalID: -4635069089764490785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up chomp_6
+      name: birth_12
       rect:
         serializedVersion: 2
         x: 128
@@ -281,14 +437,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67514d3ec7e21a9f0800000000000000
-      internalID: -459034573081930378
+      spriteID: 8b157fe4b295f2230800000000000000
+      internalID: 3616207068345094584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up chomp_7
+      name: birth_13
       rect:
         serializedVersion: 2
         x: 192
@@ -302,14 +458,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27f4c6757beea50b0800000000000000
-      internalID: -5739012303917133966
+      spriteID: f6ea3d2e39f674dc0800000000000000
+      internalID: -3654829891631468945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up chomp_8
+      name: birth_14
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8a89b59cd7688e0800000000000000
+      internalID: -1691526306252412699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: birth_15
       rect:
         serializedVersion: 2
         x: 0
@@ -323,14 +500,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c6fb1ea7ef650dc0800000000000000
-      internalID: -3673406880201574713
+      spriteID: 7e571c36822cdd810800000000000000
+      internalID: 1791801705491428839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up chomp_9
+      name: birth_16
       rect:
         serializedVersion: 2
         x: 64
@@ -344,14 +521,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c4034a6c569f9ab0800000000000000
-      internalID: -4999111737694026552
+      spriteID: 0535c46c612af4da0800000000000000
+      internalID: -5958365563288005808
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up chomp_10
+      name: birth_17
       rect:
         serializedVersion: 2
         x: 128
@@ -365,14 +542,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cd7ec771035b1600800000000000000
-      internalID: 440036654368849345
+      spriteID: b07d2ec14a0c50a60800000000000000
+      internalID: 7639724153995712267
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up chomp_11
+      name: birth_18
       rect:
         serializedVersion: 2
         x: 192
@@ -386,14 +563,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd367da20f773a620800000000000000
-      internalID: 2784200868039713755
+      spriteID: b88400ad28fca9380800000000000000
+      internalID: -8963623947417401205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up chomp_12
+      name: birth_19
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ee73a42fa4b08ca0800000000000000
+      internalID: -6016610437840011550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: birth_20
       rect:
         serializedVersion: 2
         x: 0
@@ -407,14 +605,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ad3e6ab98b739670800000000000000
-      internalID: 8544308749520485800
+      spriteID: 3a25d4709c5cf1ea0800000000000000
+      internalID: -5899779519630454109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up chomp_13
+      name: birth_21
       rect:
         serializedVersion: 2
         x: 64
@@ -428,8 +626,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cdcc73b12fba4ba0800000000000000
-      internalID: -6103856193481159229
+      spriteID: dccfa29919c2ef4d0800000000000000
+      internalID: -3098990489732711219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: birth_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fad4515314c6a6290800000000000000
+      internalID: -7896379969321480785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: birth_23
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 979a7946363097b30800000000000000
+      internalID: 4285460245844044153
       vertices: []
       indices: 
       edges: []

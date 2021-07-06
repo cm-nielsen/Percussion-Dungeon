@@ -31,6 +31,12 @@ public class DamageDealer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //// you might b etempted to uncomment this,
+        //// In almost every way, it would seem like a great fix
+        //// fuck you it breaks all damage
+        //if (!enabled)
+        //    return;
+
         if (ignore.Contains(collision))
             return;
 

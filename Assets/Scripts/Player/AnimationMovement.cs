@@ -52,4 +52,9 @@ public class AnimationMovement : MonoBehaviour
         else if (i == 2)
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
+
+    private void StopMoving()
+    {
+        rb.velocity = Vector2.zero;
+    }
 }

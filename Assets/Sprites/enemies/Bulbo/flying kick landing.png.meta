@@ -1,37 +1,31 @@
 fileFormatVersion: 2
-guid: 3dcb21a5c6c4cf24d917e6eb5e2a2ffe
+guid: 120257e5c766ff848afa545a522b3143
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 549802610027652716
-    second: roll exit_0
+      213: 8995923453731729987
+    second: flying kick landing_0
   - first:
-      213: 7671488698624341395
-    second: roll exit_1
+      213: -5460378776032193470
+    second: flying kick landing_1
   - first:
-      213: -6622889681355083512
-    second: roll exit_2
+      213: -2401522339423182684
+    second: flying kick landing_2
   - first:
-      213: 589129190506741000
-    second: roll exit_3
+      213: 1354231964247296018
+    second: flying kick landing_3
   - first:
-      213: 8284806494081860390
-    second: roll exit_4
+      213: 380697348657020213
+    second: flying kick landing_4
   - first:
-      213: -5359736452282853850
-    second: roll exit_5
+      213: 6665818848743859082
+    second: flying kick landing_5
   - first:
-      213: 7091267156859323597
-    second: roll exit_6
+      213: -3245773905710866199
+    second: flying kick landing_6
   - first:
-      213: -3885891532719229993
-    second: roll exit_7
-  - first:
-      213: 7632878644266342590
-    second: roll exit_8
-  - first:
-      213: -1561161904049838440
-    second: roll exit_9
+      213: -892757800905083279
+    second: flying kick landing_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -129,70 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: roll exit_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c66e7439f8a41a700800000000000000
-      internalID: 549802610027652716
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: roll exit_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3957deb735a967a60800000000000000
-      internalID: 7671488698624341395
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: roll exit_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 801fa34ace4c614a0800000000000000
-      internalID: -6622889681355083512
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: roll exit_3
+      name: flying kick landing_0
       rect:
         serializedVersion: 2
         x: 0
@@ -206,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80db7fe90e10d2800800000000000000
-      internalID: 589129190506741000
+      spriteID: 342f84ef7b0f7dc70800000000000000
+      internalID: 8995923453731729987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roll exit_4
+      name: flying kick landing_1
       rect:
         serializedVersion: 2
         x: 64
@@ -227,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62349909c9b89f270800000000000000
-      internalID: 8284806494081860390
+      spriteID: 244d48bfe66d834b0800000000000000
+      internalID: -5460378776032193470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roll exit_5
+      name: flying kick landing_2
       rect:
         serializedVersion: 2
         x: 128
@@ -248,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 626d7fff7146e95b0800000000000000
-      internalID: -5359736452282853850
+      spriteID: 4a02486f7241caed0800000000000000
+      internalID: -2401522339423182684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roll exit_6
+      name: flying kick landing_3
       rect:
         serializedVersion: 2
         x: 0
@@ -269,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc48ef378ed396260800000000000000
-      internalID: 7091267156859323597
+      spriteID: 2188074ebc23bc210800000000000000
+      internalID: 1354231964247296018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roll exit_7
+      name: flying kick landing_4
       rect:
         serializedVersion: 2
         x: 64
@@ -290,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d372944d3a821ac0800000000000000
-      internalID: -3885891532719229993
+      spriteID: 53d72a9b832884500800000000000000
+      internalID: 380697348657020213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roll exit_8
+      name: flying kick landing_5
       rect:
         serializedVersion: 2
         x: 128
@@ -311,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb8192dafae6de960800000000000000
-      internalID: 7632878644266342590
+      spriteID: a832b780deeb18c50800000000000000
+      internalID: 6665818848743859082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roll exit_9
+      name: flying kick landing_6
       rect:
         serializedVersion: 2
         x: 0
@@ -332,8 +263,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 896ac380583a55ae0800000000000000
-      internalID: -1561161904049838440
+      spriteID: 9e02fd064d1b4f2d0800000000000000
+      internalID: -3245773905710866199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flying kick landing_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176f79692894c93f0800000000000000
+      internalID: -892757800905083279
       vertices: []
       indices: 
       edges: []

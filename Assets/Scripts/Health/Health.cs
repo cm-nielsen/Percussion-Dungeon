@@ -25,11 +25,13 @@ public class Health : MonoBehaviour
             display = GetComponent<HealthDisplay>();
         if (!display)
             display = GetComponentInChildren<HealthDisplay>();
+        if (!display)
+            display = transform.parent.GetComponentInChildren<HealthDisplay>();
     }
     /// <summary>
     /// reduces health by goven value, returns true if target has been killed
     /// </summary>
-    public bool Reduce(float dam)
+    public virtual bool Reduce(float dam)
     {
         bool dead = false;
         amount -= dam;

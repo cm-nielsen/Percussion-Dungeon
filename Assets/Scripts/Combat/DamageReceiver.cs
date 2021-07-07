@@ -54,10 +54,10 @@ public class DamageReceiver : MonoBehaviour
         //physicsRecoil = (recoil & KnockbackTypes.physics) != 0;
     }
 
-    public virtual void TakeDamage(DamageType dtype, float amount, Vector2 point)
+    public virtual bool TakeDamage(DamageType dtype, float amount, Vector2 point)
     {
         if (invulnerable)
-            return;
+            return false;
 
         bool death = false;
         if(health)
@@ -91,7 +91,7 @@ public class DamageReceiver : MonoBehaviour
                 Destroy(pCon);
             }
             Die(point, amount);
-            return;
+            return true;
         }
 
         switch (dtype)
@@ -108,6 +108,7 @@ public class DamageReceiver : MonoBehaviour
 
         Recoil(dtype, amount, point, stunlockCounter >= bullyability && bullyability > 0);
         stunlockCounter += amount;
+        return true;
     }
 
     public void ResetStunCount()

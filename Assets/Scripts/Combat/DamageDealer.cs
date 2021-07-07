@@ -61,6 +61,14 @@ public class DamageDealer : MonoBehaviour
         if (rec == null || rec.Length == 0)
             return;
 
+        bool miffed = false;
+        foreach (DamageReceiver r in rec)
+            miffed |= !r.TakeDamage(dType, movementValue * damageMultiplier, dir);
+
+        if (miffed) // don't pause/screenshake unless a hit is landed
+            return;
+
+        Camera.main.GetComponent<CameraFollow>().Shake(dir, movementValue);
         if (selfReciever)
         {
             switch (dType)
@@ -73,10 +81,6 @@ public class DamageDealer : MonoBehaviour
                     break;
             }
         }
-        Camera.main.GetComponent<CameraFollow>().Shake(dir, movementValue);
-
-        foreach (DamageReceiver r in rec)
-            r.TakeDamage(dType, movementValue * damageMultiplier, dir);
 
         if(health && vampMultiplier > 0)
             health.Heal(movementValue * damageMultiplier * vampMultiplier);

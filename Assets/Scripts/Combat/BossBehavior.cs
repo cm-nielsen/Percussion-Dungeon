@@ -12,7 +12,7 @@ using UnityEngine;
 public class BossBehavior : MonoBehaviour
 {
     public GameObject childPrefab;
-    public float birthingVelocity;
+    public float birthingVelocity, adaptiveGravity;
     public LayerMask isGround;
 
     private Animator anim;
@@ -43,6 +43,7 @@ public class BossBehavior : MonoBehaviour
         if (!target)
             AquireTarget();
 
+        rb.AddForce(Mathf.Abs(rb.velocity.y) * adaptiveGravity * Vector2.down);
         CheckGround();
         UpdateAnimator();
 
@@ -72,7 +73,8 @@ public class BossBehavior : MonoBehaviour
         xDiff *= transform.localScale.x;
         anim.SetBool("turn", xDiff < 0);
 
-        anim.SetBool("stopped", rb.velocity.magnitude <= 1);
+        anim.SetFloat("vx", Mathf.Abs(rb.velocity.x));
+        anim.SetFloat("vy", rb.velocity.y);
     }
 
     private void CheckGround()

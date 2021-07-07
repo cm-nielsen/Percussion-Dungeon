@@ -51,14 +51,14 @@ TagManager:
   - name: Objects
     uniqueID: 4035211431
     locked: 0
+  - name: Platforms
+    uniqueID: 3213868759
+    locked: 0
   - name: Enemies
     uniqueID: 2244576279
     locked: 0
   - name: Player
     uniqueID: 557835349
-    locked: 0
-  - name: Platforms
-    uniqueID: 3213868759
     locked: 0
   - name: Interactables
     uniqueID: 2896634425

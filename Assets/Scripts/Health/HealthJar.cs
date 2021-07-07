@@ -27,7 +27,7 @@ public class HealthJar : DamageReceiver
             Destroy(gameObject);
     }
 
-    public override void TakeDamage(DamageType dtype, float amount, Vector2 point)
+    public override bool TakeDamage(DamageType dtype, float amount, Vector2 point)
     {
         while(orbs > 0)
         {
@@ -41,5 +41,6 @@ public class HealthJar : DamageReceiver
         pSystem.Play();
         aSource.Play();
         killable = true;
+        return true;
     }
 }

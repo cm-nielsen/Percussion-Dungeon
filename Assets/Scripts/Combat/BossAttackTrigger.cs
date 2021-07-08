@@ -7,8 +7,10 @@ public class BossAttackTrigger : MonoBehaviour
 {
     public string parameterName;
     public bool isBool;
+    public float cooldown = 0;
 
     private Animator anim;
+    private float timeTriggered = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +22,11 @@ public class BossAttackTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player"))
+        float t = Time.time;
+        if (!collision.CompareTag("Player") || t - timeTriggered < cooldown)
             return;
+
+        timeTriggered = t;
         Toggle(true);
     }
 

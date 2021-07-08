@@ -202,6 +202,79 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &153870225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 153870226}
+  - component: {fileID: 153870228}
+  - component: {fileID: 153870227}
+  m_Layer: 10
+  m_Name: Back kick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &153870226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153870225}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1839608354}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &153870227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153870225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d19923ed0ae3a41a8d5fb9ea975920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterName: back kick
+  isBool: 1
+  cooldown: 3
+--- !u!61 &153870228
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153870225}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.5, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!1001 &186346883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -277,7 +350,7 @@ PrefabInstance:
     - target: {fileID: 9075661051462715644, guid: 1503484e5f2de5549b0bc9bfe03643d0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1503484e5f2de5549b0bc9bfe03643d0, type: 3}
@@ -792,6 +865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameterName: drop kick
   isBool: 0
+  cooldown: 0
 --- !u!61 &742097748
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1154,7 +1228,7 @@ PrefabInstance:
     - target: {fileID: 614926639923313110, guid: abdef71b0c184d148beefd0e575bac7f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abdef71b0c184d148beefd0e575bac7f, type: 3}
@@ -1204,6 +1278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameterName: up chomp
   isBool: 0
+  cooldown: 0
 --- !u!61 &1308521526
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1276,6 +1351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameterName: roll
   isBool: 0
+  cooldown: 0
 --- !u!61 &1429354909
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4250,6 +4326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameterName: shoulder check
   isBool: 1
+  cooldown: 0
 --- !u!61 &1594672616
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4263,7 +4340,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.69897103, y: 0}
+  m_Offset: {x: 0.60895544, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4274,7 +4351,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.91124105, y: 1}
+  m_Size: {x: 0.7312099, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &1598367355 stripped
 Transform:
@@ -4785,6 +4862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameterName: cannon ball
   isBool: 0
+  cooldown: 0
 --- !u!61 &1760975615
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4843,6 +4921,7 @@ Transform:
   - {fileID: 1308521524}
   - {fileID: 1760975613}
   - {fileID: 1594672614}
+  - {fileID: 153870226}
   m_Father: {fileID: 1699598812}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

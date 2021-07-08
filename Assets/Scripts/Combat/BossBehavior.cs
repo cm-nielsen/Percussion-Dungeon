@@ -143,14 +143,14 @@ public class BossBehavior : MonoBehaviour
 
     private void SpawnChild()
     {
+        GetComponent<DamageReceiver>().invulnerable = false;
+        preggers = false;
         if (!childPrefab)
             return;
-        preggers = false;
         GameObject child = Instantiate(childPrefab, transform.position, Quaternion.identity);
         child.GetComponent<Animator>().Play("roll");
         Vector2 velocity = new Vector2(-birthingVelocity * transform.localScale.x, 0);
         child.GetComponent<Rigidbody2D>().velocity = velocity;
-        GetComponent<DamageReceiver>().invulnerable = true;
     }
 
     private void Attack(int i)

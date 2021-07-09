@@ -144,14 +144,14 @@ public class LevelGenerator : MonoBehaviour
 
             TileBase[] tiles = new TileBase[vList.Count];
             for (int i = 0; i < tiles.Length; i++)
-                tiles[i] = platform.sibling;
+                tiles[i] = null;// platform.sibling;
             map.SetTiles(vList.ToArray(), tiles);
 
             // wall the sides of the entry hole
             vList.Clear();
             v.y = size.y / 2;
             v.x = 2;
-            while(map.GetTile(v) != platform)
+            while (map.GetTile(v) != platform)
             {
                 vList.Add(v);
                 vList.Add(v + Vector3Int.left * 4);

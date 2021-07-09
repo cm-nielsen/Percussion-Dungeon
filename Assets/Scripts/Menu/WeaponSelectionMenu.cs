@@ -202,6 +202,11 @@ public class WeaponSelectionMenu : MonoBehaviour
 
     private void OnDoorClose()
     {
+        prevIcons.RemoveAll(x => x.rend == null);
+        foreach (PreviousIcon i in prevIcons)
+            Destroy(i.rend.gameObject);
+        prevIcons.Clear();
+
         graph.Clear();
         iconParent.SetActive(false);
         canvas.SetActive(false);

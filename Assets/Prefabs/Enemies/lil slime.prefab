@@ -493,8 +493,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2050391017
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 8793639957104055765, guid: dc40e7f783dc73a4d8559ea8582e77d5,
     type: 3}
@@ -592,7 +592,6 @@ MonoBehaviour:
   expOrbPrefab: {fileID: 5067735000811720593, guid: d2fdfaffb9fd63a42b28cda1ef12ed44,
     type: 3}
   experience: 1
-  group: 0
 --- !u!114 &8293966323208113913
 MonoBehaviour:
   m_ObjectHideFlags: 0

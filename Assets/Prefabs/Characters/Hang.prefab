@@ -153,7 +153,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 557835349
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 2802961106656495488, guid: 1299a6beb70b0834589c54e28755987a,
     type: 3}
@@ -248,7 +248,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.4}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.005
 --- !u!58 &6937462314896610017
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -356,5 +356,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   rollForce: 5
-  rollTorque: 0
-  pickupOffset: 0
+  minRollTime: 0
+  roll:
+    con:
+      identifier: 
+      val: 0
+      holdTime: 0
+      toggleInput: 0
+      keyCodes: []
+      mouseButtons: []
+      gamePadButtons: []

@@ -40,10 +40,7 @@ public class Gate : MonoBehaviour
                     r.enabled = false;
             }
 
-            foreach (Animator a in GetComponentsInChildren<Animator>())
-                a.SetTrigger("go");
-
-            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<Animator>().SetTrigger("go");
             this.enabled = false;
         }
     }

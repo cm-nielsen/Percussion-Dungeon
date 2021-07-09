@@ -77,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 557835349
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -927483191533465759, guid: a5fbdd1c5a552bc479adf7590171d8a7,
     type: 3}
@@ -108,7 +108,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2560
   maxFallSpeed: 6
-  throwForce: 10
   xFriction: 0.8
   coyoteTime: 0.2
   adaptiveGravity: 5
@@ -173,7 +172,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.35}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.005
 --- !u!114 &614926639923312938
 MonoBehaviour:
   m_ObjectHideFlags: 0

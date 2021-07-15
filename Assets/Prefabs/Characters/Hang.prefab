@@ -356,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   rollForce: 5
-  minRollTime: 0
+  minRollTime: 0.6
   roll:
     con:
       identifier: 

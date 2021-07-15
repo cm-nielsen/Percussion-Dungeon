@@ -70,6 +70,9 @@ public class DamageReceiver : MonoBehaviour
             LerpFromPoint l = g.GetComponent<LerpFromPoint>();
             l.Initiate(amount);
         }
+        foreach (IReceiveDamage r in GetComponentsInChildren<IReceiveDamage>())
+            r.Receive(amount);
+
 
         SetFlashMatColors();
         rend.material = flashMat;

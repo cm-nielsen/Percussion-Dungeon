@@ -10,7 +10,7 @@ public class VerticalTextLayout : MonoBehaviour
     public int maxCount = 6;
     public bool extendUpwards;
     public Font font;
-    public int fontSize;
+    public int fontSize, fSizeNewest;
     public FontStyle fStyle;
     public Material material;
 
@@ -50,7 +50,7 @@ public class VerticalTextLayout : MonoBehaviour
         Text t = inst.AddComponent<Text>();
         t.text = s;
         t.font = font;
-        t.fontSize = fontSize;
+        t.fontSize = fSizeNewest;
         t.fontStyle = fStyle;
         t.alignment = TextAnchor.UpperRight;
         t.horizontalOverflow = HorizontalWrapMode.Overflow;
@@ -59,6 +59,11 @@ public class VerticalTextLayout : MonoBehaviour
         t.material = material;
         inst.GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
         text.Add(t);
+
+        int c = text.Count;
+        if (c > 1)
+            text[c - 2].fontSize = fontSize;
+
         //background.size = new Vector2(1, Mathf.Abs(cursor.y));
     }
 

@@ -36,6 +36,7 @@ public class EnemyBehavior : MonoBehaviour
                 hasGroundParam = true;
         AquireTarget();
 
+        rend.color = Random.ColorHSV(0, 1, 0, .2f, .8f, 1, 1, 1);
         //rend.material.enableInstancing = true;
         //rend.material.SetColor("_RandCol", Random.ColorHSV(0, 1, 0, .2f, .8f, 1, 1, 1));
     }

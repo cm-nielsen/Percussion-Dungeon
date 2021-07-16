@@ -494,11 +494,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2050391017
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 4027231136335497432, guid: 02607200b5c02114187a03056727d3bb,
     type: 3}
-  m_Color: {r: 0.9056604, g: 0.512256, b: 0.4528302, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -636,7 +636,6 @@ MonoBehaviour:
   expOrbPrefab: {fileID: 5067735000811720593, guid: d2fdfaffb9fd63a42b28cda1ef12ed44,
     type: 3}
   experience: 2
-  group: 0
 --- !u!114 &5781084035189315907
 MonoBehaviour:
   m_ObjectHideFlags: 0

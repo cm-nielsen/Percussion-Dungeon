@@ -23,10 +23,19 @@ public class AnimationMovement : MonoBehaviour
 
     private void Move(int x)
     {
+        Vector3 offset = Vector2.zero;
         if (rend.flipX || transform.localScale.x < 0)
-            rb.MovePosition(transform.position + x * Vector3.left * 0.03125f);
+            offset = x * Vector3.left * 0.03125f;
         else
-            rb.MovePosition(transform.position + x * Vector3.right * 0.03125f);
+            offset = x * Vector3.right * 0.03125f;
+
+        if (rb.constraints != RigidbodyConstraints2D.FreezeAll)
+            rb.MovePosition(transform.position + offset);
+        else
+        {
+            transform.Translate(offset);
+            rb.MovePosition(transform.position);
+        }
     }
 
     private void VerticalImpulse(float y)

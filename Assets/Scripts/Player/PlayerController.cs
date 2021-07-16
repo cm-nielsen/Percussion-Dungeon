@@ -215,6 +215,21 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("contact", GetComponentInChildren<AreaCollisionCheck>().Check());
     }
 
+    private void ConsumeAttackInputs(int n = 0)
+    {
+        bool b;
+        if (n >= 0)
+        {
+            b = input["attack"];
+            anim.ResetTrigger("attack");
+        }
+        if (n > 0 || n < 0)
+        {
+            b = input["alt attack"];
+            anim.ResetTrigger("alt attack");
+        }
+    }
+
     private void SetMoveForce(string s)
     {
         string[] ar = s.Split(',');

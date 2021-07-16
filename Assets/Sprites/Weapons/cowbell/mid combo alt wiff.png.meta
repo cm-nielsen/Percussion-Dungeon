@@ -1,31 +1,40 @@
 fileFormatVersion: 2
-guid: 19f4309bf84fd0b4d9986a468cedc65b
+guid: a983a1d447462464ea8f69cc8b1770a3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8182929503306961869
-    second: stix air alt_0
+      213: 7160500760290627197
+    second: mid combo alt wiff_0
   - first:
-      213: 5103372033713208880
-    second: stix air alt_1
+      213: 6264413437689495571
+    second: mid combo alt wiff_1
   - first:
-      213: 6074539125983003299
-    second: stix air alt_2
+      213: -9199635647734772433
+    second: mid combo alt wiff_2
   - first:
-      213: -3511030263041355416
-    second: stix air alt_3
+      213: -1425241531908474769
+    second: mid combo alt wiff_3
   - first:
-      213: 8566497370978103581
-    second: stix air alt_4
+      213: 2844059849434092285
+    second: mid combo alt wiff_4
   - first:
-      213: 5666277433911132110
-    second: stix air alt_5
+      213: 4636155798788128054
+    second: mid combo alt wiff_5
   - first:
-      213: 1683795909007564691
-    second: stix air alt_6
+      213: 9029462003535463226
+    second: mid combo alt wiff_6
   - first:
-      213: -7453073821119047376
-    second: stix air alt_7
+      213: 4518796147868059106
+    second: mid combo alt wiff_7
+  - first:
+      213: -7234879533782557523
+    second: mid combo alt wiff_8
+  - first:
+      213: -2639203644521565975
+    second: mid combo alt wiff_9
+  - first:
+      213: -6768721525431418587
+    second: mid combo alt wiff_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -123,7 +132,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stix air alt_0
+      name: mid combo alt wiff_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7e8907e0853f5360800000000000000
+      internalID: 7160500760290627197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mid combo alt wiff_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3108aafc4daafe650800000000000000
+      internalID: 6264413437689495571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mid combo alt wiff_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2d8fb1ce14545080800000000000000
+      internalID: -9199635647734772433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mid combo alt wiff_3
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +209,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33c2355c8f4607e80800000000000000
-      internalID: -8182929503306961869
+      spriteID: f683673c066883ce0800000000000000
+      internalID: -1425241531908474769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix air alt_1
+      name: mid combo alt wiff_4
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +230,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03e732a63d1d2d640800000000000000
-      internalID: 5103372033713208880
+      spriteID: df258755d51287720800000000000000
+      internalID: 2844059849434092285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix air alt_2
+      name: mid combo alt wiff_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d3226b22fe65040800000000000000
+      internalID: 4636155798788128054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mid combo alt wiff_6
       rect:
         serializedVersion: 2
         x: 0
@@ -179,14 +272,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a2cd6a96291d4450800000000000000
-      internalID: 6074539125983003299
+      spriteID: a334e912ad71f4d70800000000000000
+      internalID: 9029462003535463226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix air alt_3
+      name: mid combo alt wiff_7
       rect:
         serializedVersion: 2
         x: 64
@@ -200,14 +293,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86116c7f390564fc0800000000000000
-      internalID: -3511030263041355416
+      spriteID: 2e54416a72df5be30800000000000000
+      internalID: 4518796147868059106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix air alt_4
+      name: mid combo alt wiff_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dac9524656b889b90800000000000000
+      internalID: -7234879533782557523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mid combo alt wiff_9
       rect:
         serializedVersion: 2
         x: 0
@@ -221,14 +335,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d11b77eb8ff42e670800000000000000
-      internalID: 8566497370978103581
+      spriteID: 9e03066b44aaf5bd0800000000000000
+      internalID: -2639203644521565975
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix air alt_5
+      name: mid combo alt wiff_10
       rect:
         serializedVersion: 2
         x: 64
@@ -242,8 +356,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecfb51f0e49a2ae40800000000000000
-      internalID: 5666277433911132110
+      spriteID: 521ce1582aba012a0800000000000000
+      internalID: -6768721525431418587
       vertices: []
       indices: 
       edges: []

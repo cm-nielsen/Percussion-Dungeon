@@ -124,7 +124,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -145,7 +145,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -166,7 +166,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -186,8 +186,8 @@ TextureImporter:
       name: stix air attack_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
+        x: 0
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -207,8 +207,8 @@ TextureImporter:
       name: stix air attack_4
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
+        x: 64
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -228,8 +228,8 @@ TextureImporter:
       name: stix air attack_5
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0
+        x: 128
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -249,7 +249,7 @@ TextureImporter:
       name: stix air attack_6
       rect:
         serializedVersion: 2
-        x: 384
+        x: 0
         y: 0
         width: 64
         height: 64

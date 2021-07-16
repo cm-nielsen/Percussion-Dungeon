@@ -27,6 +27,7 @@
             {
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
+                float4 color : COLOR;
             };
 
             struct v2f
@@ -34,14 +35,16 @@
                 float2 uv : TEXCOORD0;
                 float3 worldPos : TEXCOORD1;
                 float4 vertex : SV_POSITION;
+                float4 color : COLOR;
             };
 
             v2f vert (appdata v)
             {
                 v2f o;
-                o.worldPos = mul(unity_ObjectToWorld, v.vertex);
+                o.worldPos = mul(unity_ObjectToWorld, v.vertex.xyz);
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = v.uv;
+                o.color = v.color;
                 return o;
             }
 
@@ -66,7 +69,7 @@
 				col.rgb = ((1 - _DualMono) * col.rgb) +
 					(_DualMono * ((_MonoCol * n) + (_MainCol* (1.0 - n))).rgb);
 
-                return col;
+                return col * i.color;
             }
             ENDCG
         }

@@ -13,6 +13,7 @@
 
         Pass
         {
+        Blend SrcAlpha OneMinusSrcAlpha
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -56,7 +57,8 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
-                // just invert the colors
+                
+                //Apply Colour Customization effect
                 float n = step(col.r + col.g + col.b, .1);
 
                 col.rgb = ((_MonoCol * n) + (col.rgb * (1.0 - n))).rgb;
@@ -67,20 +69,21 @@
 
                 col *= i.color;
 
+                //Apply PsuedoLighting
                 float light = 0;
                 float3 p;
+                float2 wPos = i.worldPos.xy;
 
                 for (int j = 0; j < _PosCount; j++) {
                     p = _PositionData[j];
-                    float dist = distance(p.xy, i.worldPos.xy);
+                    //float dist = distance(p.xy, i.worldPos.xy);
+                    float dist = pow(p.x - wPos.x, 2) + pow(p.y - wPos.y, 2);
 
-                    light += pow(p.z, 2) / pow(dist, 2);
-
-                    if (light > 1)
-                        break;
+                    light += p.z / dist;
                 }
 
-                return col * clamp(_BaseLight + light, 0, 1);
+                col.xyz *=  clamp(_BaseLight + light, 0, 1);
+                return col;
             }
             ENDCG
         }

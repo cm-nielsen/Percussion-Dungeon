@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Psuedo lighting test mat
+  m_Name: lit background mat
   m_Shader: {fileID: 4800000, guid: 625eafca14bfca94092bce89dc7d026b, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
@@ -75,5 +75,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainCol: {r: 0.47178712, g: 0.7805438, b: 0.8773585, a: 1}
-    - _MonoCol: {r: 0, g: 0, b: 0, a: 0}
+    - _MainCol: {r: 0.5059525, g: 0.5848214, b: 0.72083324, a: 1}
+    - _MonoCol: {r: 0, g: 0, b: 0, a: 1}

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86b16f4b2992ec4fbfe5de10827b215, type: 3}
+  m_Name: Cool
+  m_EditorClassIdentifier: 
+  player:
+    main: {r: 0.53869003, g: 0.7508544, b: 1, a: 1}
+    mono: {r: 0.14901961, g: 0.098039225, b: 0.49803925, a: 1}
+  enemy:
+    main: {r: 0.70437133, g: 0.3991074, b: 0.6160717, a: 1}
+    mono: {r: 0, g: 0, b: 0, a: 1}
+  platform:
+    main: {r: 0.36421585, g: 0.59697133, b: 0.7757178, a: 1}
+    mono: {r: 0, g: 0, b: 0, a: 1}
+  background:
+    main: {r: 0.5238096, g: 0.5848214, b: 0.7967261, a: 1}
+    mono: {r: 0, g: 0, b: 0, a: 1}
+  health:
+    main: {r: 0.4780812, g: 0.81792724, b: 0.6627451, a: 1}
+    mono: {r: 0, g: 0, b: 0, a: 1}
+  objects:
+    main: {r: 0.24627103, g: 0.4039216, b: 0.5048495, a: 1}
+    mono: {r: 0, g: 0, b: 0, a: 1}
+  corpse:
+    main: {r: 0.29423285, g: 0.3201382, b: 0.3584906, a: 1}
+    mono: {r: 0, g: 0, b: 0, a: 1}

@@ -420,12 +420,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb12dbe661d7324b896eb2fc635ba82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRadius: 0.75
-  enemyRadius: 0.5
-  baseLight: 0.6
+  members:
+  - mat: {fileID: 2100000, guid: 272cc5a94598b1f469f64eec11f332f7, type: 2}
+    colourReference: {fileID: 2100000, guid: 90451df6a7453c947b7fa6395d4e4f73, type: 2}
+    playerRadius: 0.5
+    enemyRadius: 0.3
+    baseLight: 0.7
+    playerStrength: 1
+    enemyStrength: 1
+  - mat: {fileID: 2100000, guid: de447e78f84339d4fa18e685fe48a268, type: 2}
+    colourReference: {fileID: 2100000, guid: 433a5450f0eb6044ea650f3383e120aa, type: 2}
+    playerRadius: 0.25
+    enemyRadius: 0.2
+    baseLight: 0.9
+    playerStrength: 1
+    enemyStrength: 1
   maxPoints: 1000
-  materials:
-  - {fileID: 2100000, guid: de447e78f84339d4fa18e685fe48a268, type: 2}
 --- !u!4 &128562800
 Transform:
   m_ObjectHideFlags: 0
@@ -1851,9 +1861,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4499531501684366700, guid: e5e0512a129183148b8e5947727ea5ae,
         type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499531501684366700, guid: e5e0512a129183148b8e5947727ea5ae,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -34604029
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499531501684366700, guid: e5e0512a129183148b8e5947727ea5ae,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 90451df6a7453c947b7fa6395d4e4f73, type: 2}
+      objectReference: {fileID: 2100000, guid: 272cc5a94598b1f469f64eec11f332f7, type: 2}
     - target: {fileID: 4499531501684366701, guid: e5e0512a129183148b8e5947727ea5ae,
         type: 3}
       propertyPath: m_Name
@@ -16522,7 +16542,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 433a5450f0eb6044ea650f3383e120aa, type: 2}
+  - {fileID: 2100000, guid: de447e78f84339d4fa18e685fe48a268, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

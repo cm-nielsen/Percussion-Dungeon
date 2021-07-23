@@ -6,6 +6,7 @@ using System.Linq;
 public class DamageDealer : MonoBehaviour
 {
     public DamageType dType = DamageType.light;
+    public AudioClip heavyNoise, lightNoise;
     public float movementValue = 1, vampMultiplier = 0;
 
 
@@ -13,6 +14,7 @@ public class DamageDealer : MonoBehaviour
     private Health health;
     private DamageReceiver selfReciever;
     private SpriteRenderer parentSprite;
+    private AudioClipPlayer sfxPlayer;
     private float damageMultiplier = 1;
 
     private void Start()
@@ -21,6 +23,9 @@ public class DamageDealer : MonoBehaviour
             selfReciever = GetComponentInParent<DamageReceiver>();
         parentSprite = GetComponentInParent<SpriteRenderer>();
         health = GetComponentInParent<Health>();
+        sfxPlayer = GetComponent<AudioClipPlayer>();
+        if (!sfxPlayer)
+            heavyNoise = lightNoise = null;
 
         if (parentSprite)
             if (parentSprite.flipX)
@@ -75,9 +80,13 @@ public class DamageDealer : MonoBehaviour
             {
                 case DamageType.light:
                     selfReciever.pauseAnimation(0);
+                    if (lightNoise)
+                        sfxPlayer.PlayClip(lightNoise);
                     break;
                 case DamageType.heavy:
                     selfReciever.pauseAnimation(4);
+                    if (heavyNoise)
+                        sfxPlayer.PlayClip(heavyNoise);
                     break;
             }
         }

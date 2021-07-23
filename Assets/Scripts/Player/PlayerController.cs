@@ -23,8 +23,8 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D hitbox;
     private Vector2 normalmoveForce;
 
-    private float cTimer = 0;
-    public bool canJump, canDodge;
+    private float cTimer = Mathf.Infinity;
+    private bool canJump, canDodge, grounded;
 
     void Start()
     {
@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         hitbox = GetComponent<BoxCollider2D>();
         canDodge = true;
+        grounded = false;
 
         input = GameObject.Find("Player Control Key").GetComponent<ControlKey>();
 
@@ -57,7 +58,7 @@ public class PlayerController : MonoBehaviour
         if(animInfo.Length > 0)
             currentAnimation = animInfo[0].clip.name;
         currentAnimation = currentAnimation.ToLower();
-        if (canJump)
+        if (grounded)
         {
             if (currentAnimation.Contains("run") ||
                 (currentAnimation.Contains("land") && !currentAnimation.Contains("attack")))
@@ -75,6 +76,7 @@ public class PlayerController : MonoBehaviour
                 AirControl();
             if (rb.velocity.y < -maxFallSpeed)
                 rb.velocity = new Vector2(rb.velocity.x, -maxFallSpeed);
+
             if (currentAnimation.Contains("jump") || currentAnimation.Contains("fall"))
                 TurnTowardsInput();
         }
@@ -82,6 +84,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimator()
     {
+        grounded = false;
         Vector3 groundCheckOffset = hitbox.size / 2 * Vector2.right, hOff = hitbox.offset;
         hOff.x *= transform.localScale.x;
         if(Physics2D.Raycast(transform.position + groundCheckOffset + hOff, Vector2.down, 
@@ -90,20 +93,8 @@ public class PlayerController : MonoBehaviour
         hitbox.size.y / 2 + 0.05f, isGround))
         {
             canJump = true;
+            grounded = true;
             cTimer = 0;
-            //string s = "";
-            //RaycastHit2D rh = Physics2D.Raycast(transform.position + groundCheckOffset + hOff, Vector2.down,
-            //hitbox.size.y / 2 + 0.05f, isGround);
-            //if(rh)
-            //    s = rh.collider.gameObject.name;
-            //if(s != "Platforms")
-            //    print(s);
-            //rh = Physics2D.Raycast(transform.position - groundCheckOffset + hOff, Vector2.down,
-            //hitbox.size.y / 2 + 0.05f, isGround);
-            //if (rh)
-            //    s = rh.collider.gameObject.name;
-            //if (s != "Platforms")
-            //    print(s);
         }
         else
         {
@@ -126,7 +117,7 @@ public class PlayerController : MonoBehaviour
 
         anim.SetFloat("vy", rb.velocity.y);
         anim.SetFloat("vx", Mathf.Abs(rb.velocity.x));
-        anim.SetBool("ground", canJump);
+        anim.SetBool("ground", grounded);
         anim.SetBool("down", input["down"]);
 
         anim.SetBool("run", input["left"] || input["right"]);
@@ -148,7 +139,10 @@ public class PlayerController : MonoBehaviour
         else if (input["left"])
             rb.AddForce(moveForce.x * Vector2.left);
 
-        rb.velocity = new Vector2(rb.velocity.x * Mathf.Pow(xFriction, .6f), rb.velocity.y);
+        if (cTimer > coyoteTime/2)
+            rb.velocity = new Vector2(rb.velocity.x * Mathf.Pow(xFriction, .6f), rb.velocity.y);
+        else if(rb.velocity.y <= 0)
+            rb.velocity *= Vector2.right * xFriction;
     }
 
     public void UpdateDamage()

@@ -9,7 +9,7 @@ public class CorpseBehavior : MonoBehaviour
     public static AudioClip thudSound;
 
     private AudioClipPlayer audioPlayer;
-    private float velocityThreshold = 2f;
+    private float velocityThreshold = 1f;
 
     private Material mat;
     private float fade = 0, fadeDelay = 0.75f, fadeLength = 2f;

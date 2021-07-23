@@ -185,11 +185,9 @@ MonoBehaviour:
     m_Bits: 2560
   maxFallSpeed: 6
   xFriction: 0.8
-  coyoteTime: 0.2
+  coyoteTime: 0.075
   adaptiveGravity: 2
   runSpeed: 2
-  canJump: 0
-  canDodge: 0
 --- !u!114 &7941904971488535855
 MonoBehaviour:
   m_ObjectHideFlags: 0

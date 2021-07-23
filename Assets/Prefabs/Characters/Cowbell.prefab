@@ -358,11 +358,9 @@ MonoBehaviour:
     m_Bits: 2560
   maxFallSpeed: 6
   xFriction: 0.8
-  coyoteTime: 0.2
+  coyoteTime: 0.075
   adaptiveGravity: 5
   runSpeed: 2
-  canJump: 0
-  canDodge: 0
 --- !u!50 &3942942492400955464
 Rigidbody2D:
   serializedVersion: 4

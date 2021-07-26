@@ -111,7 +111,7 @@ MonoBehaviour:
   xFriction: 0.8
   coyoteTime: 0.075
   adaptiveGravity: 5
-  runSpeed: 1.5
+  runSpeed: 2
 --- !u!114 &614926639923312943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 1
-  damageTextPrefab: {fileID: 0}
+  heavyNoise: []
+  lightNoise: []
   knockbackStrengthMod: 1
   bullyability: 0
   deathForce: 8
@@ -217,6 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStatic: 0
 --- !u!95 &614926639923313109
 Animator:
   serializedVersion: 3
@@ -309,6 +311,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 1
+  heavyNoise:
+  - {fileID: 8300000, guid: 66d95607e7a089d4e8dbc7188ac49863, type: 3}
+  lightNoise: []
   movementValue: 6
   vampMultiplier: 0
 --- !u!114 &614926639973661580
@@ -323,6 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStatic: 0
 --- !u!82 &614926639973661581
 AudioSource:
   m_ObjectHideFlags: 0

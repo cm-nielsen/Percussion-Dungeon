@@ -32,6 +32,12 @@ TextureImporter:
   - first:
       213: -2085101791180473464
     second: cowbell run_9
+  - first:
+      213: -5553115870223686922
+    second: cowbell run_10
+  - first:
+      213: 278024383919984094
+    second: cowbell run_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -334,6 +340,48 @@ TextureImporter:
       bones: []
       spriteID: 88b3820e7fa3013e0800000000000000
       internalID: -2085101791180473464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell run_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f2abb6a98e5fe2b0800000000000000
+      internalID: -5553115870223686922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell run_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edd827244bdbbd300800000000000000
+      internalID: 278024383919984094
       vertices: []
       indices: 
       edges: []

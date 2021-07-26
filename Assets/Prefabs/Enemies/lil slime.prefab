@@ -314,6 +314,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 0
+  heavyNoise: {fileID: 0}
+  lightNoise: {fileID: 0}
   movementValue: 1
   vampMultiplier: 0
 --- !u!1 &8293966323053052421
@@ -605,7 +607,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 3
-  damageTextPrefab: {fileID: 0}
+  heavyNoise: {fileID: 0}
+  lightNoise: {fileID: 0}
   knockbackStrengthMod: 1
   bullyability: 4
   deathForce: 10
@@ -622,6 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStatic: 0
 --- !u!114 &8293966323208113915
 MonoBehaviour:
   m_ObjectHideFlags: 0

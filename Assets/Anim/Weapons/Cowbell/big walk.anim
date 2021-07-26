@@ -137,6 +137,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 5
     messageOptions: 0
+  - time: 0.375
+    functionName: PlayClip
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: dbf48d05a3292534aa61d4ebb3b95d1b,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.5
     functionName: TurnTowardsInput
     data: 
@@ -150,4 +158,12 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 5
+    messageOptions: 0
+  - time: 0.875
+    functionName: PlayClip
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 4b808b82a20ef8a46a64254665624f4d,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0

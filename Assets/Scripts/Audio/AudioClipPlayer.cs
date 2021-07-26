@@ -5,8 +5,19 @@ using UnityEngine;
 public class AudioClipPlayer : MonoBehaviour
 {
     public static AudioSourceSettings settings;
+    public static AudioClipPlayer instance;
 
+    public bool isStatic = false;
     private List<AudioSource> sources = new List<AudioSource>();
+
+    private void Start()
+    {
+        if (isStatic)
+            if (instance == null)
+                instance = this;
+            else
+                Destroy(this);
+    }
 
     private void Update()
     {
@@ -31,6 +42,24 @@ public class AudioClipPlayer : MonoBehaviour
         s.clip = clip;
         s.Play();
         sources.Add(s);
+    }
+
+    public void PlayClipStatic(AudioClip clip)
+    {
+        Play(clip);
+    }
+
+    public static void Play(AudioClip clip)
+    {
+        instance?.PlayClip(clip);
+    }
+
+    public static void PlayRandom(IReadOnlyList<AudioClip> collection)
+    {
+        int n = collection.Count;
+        if (n == 0)
+            return;
+        Play(collection[Random.Range(0, n)]);
     }
 
     public static void ApplyParameters(AudioSource s)

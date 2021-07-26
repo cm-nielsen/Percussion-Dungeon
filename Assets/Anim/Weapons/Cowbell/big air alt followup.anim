@@ -621,3 +621,27 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.1875
+    functionName: PlayClip
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f17afd07f79c5e244960d73f4740bf1a,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.625
+    functionName: PlayClip
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 9b4687207ce72aa429e3d48096a719c6,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.875
+    functionName: PlayClip
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: ef7ff4b3cfb99b54aad821be054f2c57,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

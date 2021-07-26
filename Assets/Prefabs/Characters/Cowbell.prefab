@@ -73,6 +73,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 1
+  heavyNoise:
+  - {fileID: 8300000, guid: 6ab2f532cbd64724680c79384605acbf, type: 3}
+  - {fileID: 8300000, guid: 3e1b909c2f870ac4fadf3fce7ab5c5db, type: 3}
+  - {fileID: 8300000, guid: 6c250bd6690ea5941b67669a14a1fae4, type: 3}
+  - {fileID: 8300000, guid: 55c9ae6d8bc2dae48854e21a1da69d36, type: 3}
+  lightNoise:
+  - {fileID: 8300000, guid: 90b573279e5f35a498a337895f97519a, type: 3}
+  - {fileID: 8300000, guid: 311618b2c067fc9459a8acb31b3764d8, type: 3}
   movementValue: 6
   vampMultiplier: 0
 --- !u!114 &3942942492057888170
@@ -87,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStatic: 0
 --- !u!82 &3942942492057888181
 AudioSource:
   m_ObjectHideFlags: 0
@@ -433,7 +442,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 1
-  damageTextPrefab: {fileID: 0}
+  heavyNoise: []
+  lightNoise: []
   knockbackStrengthMod: 1
   bullyability: 0
   deathForce: 8
@@ -466,3 +476,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStatic: 0

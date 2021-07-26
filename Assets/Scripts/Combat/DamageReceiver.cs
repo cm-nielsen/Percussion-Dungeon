@@ -10,7 +10,7 @@ public class DamageReceiver : MonoBehaviour
     public enum KnockbackTypes { none = 0, animation = 1, physics = 2, breakable = 4 }
     public KnockbackTypes recoil;
 
-    public GameObject damageTextPrefab;
+    public AudioClip[] heavyNoise, lightNoise;
     public float knockbackStrengthMod = 1, bullyability = 4, deathForce = 10;
     public bool invulnerable;
 
@@ -64,12 +64,6 @@ public class DamageReceiver : MonoBehaviour
             death = health.Reduce(amount);
 
 
-        if (damageTextPrefab)
-        {
-            GameObject g = Instantiate(damageTextPrefab, transform.position, Quaternion.identity);
-            LerpFromPoint l = g.GetComponent<LerpFromPoint>();
-            l.Initiate(amount);
-        }
         foreach (IReceiveDamage r in GetComponentsInChildren<IReceiveDamage>())
             r.Receive(amount);
 
@@ -102,10 +96,12 @@ public class DamageReceiver : MonoBehaviour
             case DamageType.light:
                 flashTimer = 2 / 16f;
                 pauseAnimation(2);
+                AudioClipPlayer.PlayRandom(lightNoise);
                 break;
             case DamageType.heavy:
                 flashTimer = 5 / 16f;
                 pauseAnimation(5);
+                AudioClipPlayer.PlayRandom(heavyNoise);
                 break;
         }
 

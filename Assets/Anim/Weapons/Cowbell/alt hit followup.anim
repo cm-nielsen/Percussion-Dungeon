@@ -620,10 +620,42 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: PlayClip
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 31c71318fcaa2ce4d823d1ad35491c5e,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.5625
     functionName: Move
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 16
+    messageOptions: 0
+  - time: 0.6875
+    functionName: PlayClip
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 9b4687207ce72aa429e3d48096a719c6,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.9375
+    functionName: PlayClipStatic
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 9b4687207ce72aa429e3d48096a719c6,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.125
+    functionName: PlayClipStatic
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: ef7ff4b3cfb99b54aad821be054f2c57,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0

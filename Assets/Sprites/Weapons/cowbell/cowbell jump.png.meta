@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: 4234586806734612990
     second: cowbell jump_4
+  - first:
+      213: 4119387939853399879
+    second: cowbell jump_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -214,6 +217,27 @@ TextureImporter:
       bones: []
       spriteID: ef9e8f1d34644ca30800000000000000
       internalID: 4234586806734612990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cowbell jump_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7477dfe71810b2930800000000000000
+      internalID: 4119387939853399879
       vertices: []
       indices: 
       edges: []

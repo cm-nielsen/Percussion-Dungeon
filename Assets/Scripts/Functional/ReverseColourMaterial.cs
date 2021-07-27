@@ -8,7 +8,7 @@ public class ReverseColourMaterial : MonoBehaviour
     public Material referenceMaterial, modifiedMaterial;
     public string propertyName;
 
-    void FixedUpdate()
+    void Update()
     {
         Color c = ReverseColour(referenceMaterial.GetColor(propertyName));
         modifiedMaterial.SetColor(propertyName, c);

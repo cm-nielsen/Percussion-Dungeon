@@ -162,6 +162,8 @@ public class LevelGenerator : MonoBehaviour
                 tiles[i] = platform;
             map.SetTiles(vList.ToArray(), tiles);
 
+            foreach (EnemyBehavior e in GetComponentsInChildren<EnemyBehavior>())
+                e.enabled = false;
             // finalize loading status
             LoadingScreen.loaded = true;
             Gate.loaded = true;

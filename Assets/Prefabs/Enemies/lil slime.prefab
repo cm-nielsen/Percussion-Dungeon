@@ -314,8 +314,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 0
-  heavyNoise: {fileID: 0}
-  lightNoise: {fileID: 0}
+  heavyNoise:
+  - {fileID: 0}
+  lightNoise:
+  - {fileID: 0}
   movementValue: 1
   vampMultiplier: 0
 --- !u!1 &8293966323053052421
@@ -438,7 +440,7 @@ GameObject:
   - component: {fileID: 8293966323208113914}
   m_Layer: 12
   m_Name: lil slime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -607,8 +609,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 3
-  heavyNoise: {fileID: 0}
-  lightNoise: {fileID: 0}
+  heavyNoise:
+  - {fileID: 0}
+  lightNoise:
+  - {fileID: 0}
   knockbackStrengthMod: 1
   bullyability: 4
   deathForce: 10

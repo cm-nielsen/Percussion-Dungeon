@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3752095888711337384}
   m_Layer: 12
   m_Name: Punishment Bag
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 1
-  damageTextPrefab: {fileID: 1127431808502476526, guid: 775808d4686c6f548b29a53a6b3964f6,
-    type: 3}
+  heavyNoise: []
+  lightNoise: []
   knockbackStrengthMod: 1
   bullyability: 0
   deathForce: 40
@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStatic: 0
 --- !u!114 &3752095888711337384
 MonoBehaviour:
   m_ObjectHideFlags: 0

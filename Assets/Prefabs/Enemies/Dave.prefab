@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 6931561195555472225}
   m_Layer: 12
   m_Name: Dave
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2050391017
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -5391235268013987878, guid: d567b7645666e6d4fa63db3692a9b72a,
     type: 3}
@@ -197,7 +197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 3
-  damageTextPrefab: {fileID: 0}
+  heavyNoise: []
+  lightNoise: []
   knockbackStrengthMod: 13
   bullyability: 4
   deathForce: 30
@@ -220,7 +221,6 @@ MonoBehaviour:
   expOrbPrefab: {fileID: 5067735000811720593, guid: d2fdfaffb9fd63a42b28cda1ef12ed44,
     type: 3}
   experience: 1
-  group: 0
 --- !u!114 &6931561195555472225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStatic: 0
 --- !u!1 &6931561195594582924
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +486,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 0
+  heavyNoise: []
+  lightNoise: []
   movementValue: 1
   vampMultiplier: 0
 --- !u!1 &6931561196480110169

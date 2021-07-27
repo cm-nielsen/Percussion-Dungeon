@@ -8,9 +8,9 @@ public class HangController : MonoBehaviour
 
     private PlayerController pCon;
     private GameObject thrownObject;
+    private ProjectileBehavior thrownLogic;
     private Rigidbody2D rb;
     private Animator anim;
-    private SpriteRenderer rend;
     private BoxCollider2D hitbox;
     private CircleCollider2D rollHitbox;
 
@@ -24,7 +24,6 @@ public class HangController : MonoBehaviour
         pCon = GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        rend = GetComponent<SpriteRenderer>();
         hitbox = GetComponent<BoxCollider2D>();
         rollHitbox = GetComponent<CircleCollider2D>();
         rollHitbox.enabled = false;
@@ -40,6 +39,8 @@ public class HangController : MonoBehaviour
         bool b = roll.val || rollStart + minRollTime > Time.time;
         anim.SetBool("roll", b);
         anim.SetBool("can roll", canRoll);
+        if (thrownObject)
+            anim.SetBool("can catch", thrownLogic.catchable);
         if (roll.val && canRoll)
             canRoll = false;
 
@@ -77,12 +78,32 @@ public class HangController : MonoBehaviour
         DamageDealer d = thrownObject.GetComponentInChildren<DamageDealer>();
         d.SetSelfReceiver(GetComponent<DamageReceiver>());
         d.SetDamageMultiplier();
+        thrownLogic = thrownObject.GetComponent<ProjectileBehavior>();
 
         anim.SetBool("naked", true);
+        anim.SetBool("side throw", false);
         anim.ResetTrigger("dodge");
 
         if (r)
             r.velocity = rb.velocity + throwForce * Vector2.down;
+    }
+
+    private void SideThrow(GameObject prefab)
+    {
+        thrownObject = Instantiate(prefab, transform.position, Quaternion.identity);
+        thrownObject.transform.localScale = transform.localScale;
+        Rigidbody2D r = thrownObject.GetComponent<Rigidbody2D>();
+        DamageDealer d = thrownObject.GetComponentInChildren<DamageDealer>();
+        d.SetSelfReceiver(GetComponent<DamageReceiver>());
+        d.SetDamageMultiplier();
+        thrownLogic = thrownObject.GetComponent<ProjectileBehavior>();
+
+        anim.SetBool("naked", true);
+        anim.SetBool("side throw", true);
+        anim.ResetTrigger("dodge");
+
+        if (r)
+            r.velocity = rb.velocity + throwForce * Vector2.right * transform.localScale.x;
     }
 
     private void RetrieveDrum()
@@ -92,6 +113,14 @@ public class HangController : MonoBehaviour
 
         transform.position = pos;
         anim.SetBool("naked", false);
+        Destroy(thrownObject);
+    }
+
+    private void CatchDrum()
+    {
+        transform.localScale = new Vector2(-thrownObject.transform.localScale.x, 1);
+        anim.SetBool("naked", false);
+        canRoll = true;
         Destroy(thrownObject);
     }
 

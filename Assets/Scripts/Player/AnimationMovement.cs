@@ -42,14 +42,18 @@ public class AnimationMovement : MonoBehaviour
     {
         rb.velocity *= Vector2.right;
         rb.velocity += Vector2.up * y;
+        GetComponent<DamageReceiver>().ReceiveImpulse(Vector2.up * y);
     }
 
     private void HorizontalImpulse(float x)
     {
+        Vector2 diff = Vector2.zero;
         if (rend.flipX || transform.localScale.x < 0)
-            rb.velocity += Vector2.left * x;
+            diff = Vector2.left * x;
         else
-            rb.velocity += Vector2.right * x;
+            diff = Vector2.right * x;
+        rb.velocity += diff;
+        GetComponent<DamageReceiver>().ReceiveImpulse(diff);
     }
 
     private void LockPosition(int i)

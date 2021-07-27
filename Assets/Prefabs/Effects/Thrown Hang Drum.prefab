@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 557835349
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -4107498286521533961, guid: 19dec3f1123c8774cadbf9c83b91818e,
     type: 3}
@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStatic: 0
 --- !u!1 &1433697070427386555
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,5 +253,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 1
+  heavyNoise:
+  - {fileID: 8300000, guid: e9c9566c2b6f0d7459b3b8b5b6847cff, type: 3}
+  - {fileID: 8300000, guid: 0b8271fa5c1241b45901bc5581beeea9, type: 3}
+  - {fileID: 8300000, guid: 1801624f76e175f41b4585465cbc5783, type: 3}
+  lightNoise:
+  - {fileID: 8300000, guid: f143356607158d0459aca16e3ad9321b, type: 3}
   movementValue: 4
   vampMultiplier: 0

@@ -28,12 +28,16 @@ public class CameraOverrideArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!collision.CompareTag("Player"))
+            return;
         if (triggerWithCollision)
             Trigger();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (!collision.CompareTag("Player"))
+            return;
         if (resetWithCollision)
             Reset();
     }

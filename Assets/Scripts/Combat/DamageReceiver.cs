@@ -261,4 +261,14 @@ public class DamageReceiver : MonoBehaviour
         apt2 = 3 / 32f;
         animPauseTimer = frames / 16f;
     }
+
+    public void ReceiveImpulse(Vector2 v)
+    {
+        if (v.x == 0)
+            prevVel.y = v.y;
+        else if (v.y == 0)
+            prevVel.x += v.x;
+        else
+            prevVel += v;
+    }
 }

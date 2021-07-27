@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
                 TurnTowardsInput();
         }
     }
-
+    [HideInInspector]
     private void UpdateAnimator()
     {
         grounded = false;
@@ -122,14 +122,14 @@ public class PlayerController : MonoBehaviour
 
         anim.SetBool("run", input["left"] || input["right"]);
     }
-
+    [HideInInspector]
     private void ApplyRunForce()
     {
         TurnTowardsInput();
         if (input["right"])
         {
             rb.AddForce(moveForce.x * Vector2.right);
-            if (rb.velocity.x < 0)
+            if (rb.velocity.x < 0.01)
             {
                 if (canTurn)
                 {
@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
         else if (input["left"])
         {
             rb.AddForce(moveForce.x * Vector2.left);
-            if (rb.velocity.x > 0)
+            if (rb.velocity.x > 0.01)
             {
                 if (canTurn)
                 {
@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
                 canTurn = true;
         }
     }
-
+    [HideInInspector]
     private void AirControl()
     {
         if (input["right"])
@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour
         else if(rb.velocity.y <= 0)
             rb.velocity *= Vector2.right * xFriction;
     }
-
+    [HideInInspector]
     public void UpdateDamage()
     {
         GetComponentInChildren<DamageDealer>().SetDamageMultiplier();
@@ -233,7 +233,10 @@ public class PlayerController : MonoBehaviour
     {
         anim.SetBool("contact", GetComponentInChildren<AreaCollisionCheck>().Check());
     }
-
+    /// <summary>
+    /// Consume attack input triggers for frame perfect input combos,
+    /// 0 for basic, -1 for alt only, 1 for both
+    /// </summary>
     private void ConsumeAttackInputs(int n = 0)
     {
         bool b;

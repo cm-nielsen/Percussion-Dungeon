@@ -8,6 +8,7 @@ TagManager:
   - pHealth
   - healthBarMid
   - back button
+  - Enemy
   layers:
   - Default
   - TransparentFX

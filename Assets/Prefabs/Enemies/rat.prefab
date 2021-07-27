@@ -233,6 +233,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 0
+  heavyNoise: []
+  lightNoise: []
   movementValue: 1
   vampMultiplier: 0
 --- !u!1 &9124018741271327627
@@ -494,7 +496,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2050391017
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -5896209804027768808, guid: d6ccd5de2c0697e4e92bf381dfe83a0f,
     type: 3}
@@ -586,7 +588,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 1
-  damageTextPrefab: {fileID: 0}
+  heavyNoise: []
+  lightNoise: []
   knockbackStrengthMod: 1
   bullyability: 4
   deathForce: 10
@@ -603,6 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStatic: 0
 --- !u!114 &9124018741608730562
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -127,7 +127,7 @@ AnimationClip:
     intParameter: 10
     messageOptions: 0
   - time: 0.125
-    functionName: PlayClip
+    functionName: Step
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: 337bf6332ce3905459c2e7afee1ee894,
       type: 3}
@@ -163,7 +163,7 @@ AnimationClip:
     intParameter: 5
     messageOptions: 0
   - time: 0.5625
-    functionName: PlayClip
+    functionName: Step
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: 337bf6332ce3905459c2e7afee1ee894,
       type: 3}
@@ -178,7 +178,7 @@ AnimationClip:
     intParameter: 6
     messageOptions: 0
   - time: 0.75
-    functionName: PlayClip
+    functionName: Step
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: 337bf6332ce3905459c2e7afee1ee894,
       type: 3}

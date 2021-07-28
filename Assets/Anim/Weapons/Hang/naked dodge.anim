@@ -222,6 +222,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 4
     messageOptions: 0
+  - time: 0.375
+    functionName: Step
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.4375
     functionName: Move
     data: 
@@ -235,6 +242,13 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
+    messageOptions: 0
+  - time: 0.5
+    functionName: Step
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0
   - time: 0.5625
     functionName: FinishDodge

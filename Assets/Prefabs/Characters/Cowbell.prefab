@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 3942942492400955477}
   - component: {fileID: 3942942492400955476}
   - component: {fileID: 3942942492400955479}
+  - component: {fileID: 3883978012395162585}
   m_Layer: 8
   m_Name: Cowbell
   m_TagString: Player
@@ -477,3 +478,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 0
+--- !u!114 &3883978012395162585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942942492400955475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b93b7547311bc6468b71bbd3b101903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStatic: 0
+  footsteps: []

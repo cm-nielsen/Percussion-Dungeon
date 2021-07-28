@@ -579,7 +579,7 @@ AnimationClip:
     intParameter: -1
     messageOptions: 0
   - time: 0.3125
-    functionName: PlayClip
+    functionName: Step
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: 337bf6332ce3905459c2e7afee1ee894,
       type: 3}

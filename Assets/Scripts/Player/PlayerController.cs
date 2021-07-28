@@ -207,6 +207,7 @@ public class PlayerController : MonoBehaviour
 
         //dir.x /= 4;
         rb.AddForce(dir, ForceMode2D.Impulse);
+        GetComponent<DamageReceiver>().ReceiveImpulse(dir);
         canJump = false;
         anim.SetBool("ground", false);
         cTimer = coyoteTime;

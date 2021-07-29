@@ -36,6 +36,9 @@ public class AudioClipPlayer : MonoBehaviour
 
     public void PlayClip(AudioClip clip)
     {
+        if (!clip)
+            return;
+
         AudioSource s = gameObject.AddComponent<AudioSource>();
         ApplyParameters(s);
 

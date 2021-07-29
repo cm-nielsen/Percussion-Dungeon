@@ -13,10 +13,11 @@ public class HangController : MonoBehaviour
     private Animator anim;
     private BoxCollider2D hitbox;
     private CircleCollider2D rollHitbox;
+    private AudioSource rollSound;
 
     public ControlSteadyProxy roll;
 
-    private float circumference, prevX, rollStart = -100;
+    private float circumference, prevX, rollStart = -100, rollVolume = 1;
     private bool rolling = false, canRoll = true;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class HangController : MonoBehaviour
         rollHitbox = GetComponent<CircleCollider2D>();
         rollHitbox.enabled = false;
         circumference = rollHitbox.radius * 2 * Mathf.PI;
+        rollSound = GetComponent<AudioSource>();
 
         roll = new ControlSteadyProxy();
         roll.Setup(GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>(), "dodge");
@@ -48,6 +50,8 @@ public class HangController : MonoBehaviour
         {
             float deg = 360 * (transform.position.x - prevX) / circumference;
             rb.rotation -= deg;
+            rollSound.volume = Mathf.Clamp(rollVolume * Mathf.Abs(deg) / 30,
+                0, rollVolume);
         }
         else
             transform.eulerAngles = new Vector3(0, 0, 0);
@@ -131,6 +135,9 @@ public class HangController : MonoBehaviour
         hitbox.enabled = false;
         pCon.enabled = false;
         rollStart = Time.time;
+        AudioClipPlayer.ApplyParameters(rollSound);
+        rollSound.Play();
+        rollVolume = rollSound.volume;
 
         if (transform.localScale.x < 0)
             rb.AddForce(Vector2.left * rollForce, ForceMode2D.Impulse);
@@ -145,6 +152,7 @@ public class HangController : MonoBehaviour
         rollHitbox.enabled = false;
         rolling = false;
         canRoll = true;
+        rollSound.Stop();
         anim.SetBool("can roll", true);
         transform.eulerAngles = new Vector3(0, 0, 0);
     }

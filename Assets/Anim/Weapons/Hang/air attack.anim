@@ -644,6 +644,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.4375
+    functionName: PlayClip
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: d7732a9925e96b34e960fb6a3af69097,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.5625
     functionName: VerticalImpulse
     data: 

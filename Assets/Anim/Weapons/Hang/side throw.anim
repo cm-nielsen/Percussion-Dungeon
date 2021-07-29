@@ -138,6 +138,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.4375
+    functionName: PlayClipStatic
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 7ae6a25641659894485a5a4e3e9ed263,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.5
     functionName: Step
     data: 

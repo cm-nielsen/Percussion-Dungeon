@@ -165,10 +165,17 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0
+    functionName: ConsumeAttackInputs
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
   - time: 0.0625
     functionName: PlayClip
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: ab16a173ce209594eb31d9c440b66eaa,
+    objectReferenceParameter: {fileID: 8300000, guid: aa7818064e1d6ff4b823566c65b92e2e,
       type: 3}
     floatParameter: 0
     intParameter: 0

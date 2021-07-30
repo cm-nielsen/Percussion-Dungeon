@@ -146,6 +146,7 @@ MonoBehaviour:
   type: 0
   pickupEffect: {fileID: 8683061173967732001, guid: 4ac8a8805be864f4185e8c88861dce8e,
     type: 3}
+  noise: {fileID: 8300000, guid: 3488ce205414d2049963c2acbae3ac7c, type: 3}
 --- !u!114 &8258114129227727058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,3 +159,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStatic: 0

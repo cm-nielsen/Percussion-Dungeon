@@ -5,6 +5,7 @@ using UnityEngine;
 public class HealthOrb : MonoBehaviour
 {
     public float healAmount = 1, initialVelocity, magnetism;
+    public AudioClip noise;
 
     private Rigidbody2D rb;
     private Transform pPos;
@@ -47,6 +48,8 @@ public class HealthOrb : MonoBehaviour
         if (h.Heal(healAmount))
         {
             GetComponentInParent<Animator>().SetTrigger("start");
+            if (noise)
+                AudioClipPlayer.Play(noise);
             this.enabled = false;
         }
     }

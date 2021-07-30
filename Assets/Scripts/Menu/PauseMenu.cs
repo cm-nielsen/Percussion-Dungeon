@@ -7,16 +7,17 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     public static bool active = false;
+    private static AudioClip navigateNoiseStatic;
 
     public GameObject baseMenu;
     public GameObject pointer;
+    public AudioClip pauseNoise, navigateNoise, backNoise;
 
     private enum State { closed, main, sub }
     private State state = State.closed;
 
     private List<GameObject> subMenus;
     private ControlKey input, playerKey;
-    private PlayerController pcon;
 
     private Button back;
     // Start is called before the first frame update
@@ -24,7 +25,7 @@ public class PauseMenu : MonoBehaviour
     {
         input = GetComponent<ControlKey>();
         if (!pointer)
-            pointer = GameObject.FindObjectOfType<UIPointer>().gameObject;
+            pointer = FindObjectOfType<UIPointer>().gameObject;
 
         playerKey = GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>();
 
@@ -41,6 +42,7 @@ public class PauseMenu : MonoBehaviour
         foreach (GameObject g in subMenus)
             g.SetActive(false);
 
+        navigateNoiseStatic = navigateNoise;
     }
 
     // Update is called once per frame
@@ -100,11 +102,13 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitSubMenu()
     {
+        AudioClipPlayer.Play(backNoise);
         state = State.main;
     }
 
     private void EnterPauseState()
     {
+        AudioClipPlayer.Play(pauseNoise);
         Time.timeScale = 0;
         active = true;
         playerKey.enabled = false;
@@ -146,6 +150,12 @@ public class PauseMenu : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public static void OnSelectionChange()
+    {
+        if (navigateNoiseStatic)
+            AudioClipPlayer.Play(navigateNoiseStatic);
     }
 }
 

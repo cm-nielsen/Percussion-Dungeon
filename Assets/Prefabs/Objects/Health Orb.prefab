@@ -63,6 +63,7 @@ MonoBehaviour:
   healAmount: 1
   initialVelocity: 3
   magnetism: 0.2
+  noise: {fileID: 8300000, guid: 95b02bf169a32ca40bb6ef2c0403fcf5, type: 3}
 --- !u!1 &3823975171435190442
 GameObject:
   m_ObjectHideFlags: 0

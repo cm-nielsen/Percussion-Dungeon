@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 95828721}
   - component: {fileID: 95828724}
   - component: {fileID: 95828725}
+  - component: {fileID: 95828726}
   m_Layer: 0
   m_Name: Weapon Cabinet
   m_TagString: Untagged
@@ -282,6 +283,7 @@ MonoBehaviour:
   cost: {fileID: 553846261}
   damageBonus: {fileID: 1335717724}
   graph: {fileID: 1286677984}
+  swapNoise: {fileID: 8300000, guid: cdb8c2355e5cc4e47b8a8df79cf2d101, type: 3}
   lerpStart: 0.5
   lerpMod: 0.9
 --- !u!212 &95828722
@@ -396,6 +398,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &95828726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95828720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStatic: 0
 --- !u!1 &128562798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,6 +1129,7 @@ GameObject:
   - component: {fileID: 501811395}
   - component: {fileID: 501811394}
   - component: {fileID: 501811391}
+  - component: {fileID: 501811396}
   m_Layer: 0
   m_Name: Dungeon Gate
   m_TagString: Untagged
@@ -1151,10 +1167,10 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0, y: 0.5}
+    oldSize: {x: 0.75, y: 1.25}
+    newSize: {x: 0.75, y: 1.25}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -1188,7 +1204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 247557387042874347}
-  tile: {fileID: 0}
   sections:
   - start: {x: 0.25, y: 0}
     end: {x: 1.25, y: 0}
@@ -1198,6 +1213,7 @@ MonoBehaviour:
     end: {x: 0.875, y: -3.875}
     width: 3
     delay: 4
+  noise: {fileID: 8300000, guid: 5d60559b686efd247a1efd53364702d4, type: 3}
   speeds: 0200000001000000010000000100000001000000020000000200000003000000
 --- !u!95 &501811394
 Animator:
@@ -1268,6 +1284,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &501811396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501811389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStatic: 0
 --- !u!1 &514345838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,6 +2581,7 @@ MonoBehaviour:
   icon: {fileID: 3938565264045581432, guid: 7e48e21e19bc69c45872c51dbbaa3f4c, type: 3}
   origin: {x: 0.375, y: 0.28125}
   offset: {x: 0.25, y: 0.3125}
+  noise: {fileID: 8300000, guid: b6d58f68160443349971a13fb04992a9, type: 3}
 --- !u!1 &1334124345
 GameObject:
   m_ObjectHideFlags: 0

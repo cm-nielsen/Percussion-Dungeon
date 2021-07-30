@@ -147,6 +147,7 @@ MonoBehaviour:
   type: 1
   pickupEffect: {fileID: 2144806932094899635, guid: 12f6fa4f292e88b4489df9794952d0e6,
     type: 3}
+  noise: {fileID: 8300000, guid: 3488ce205414d2049963c2acbae3ac7c, type: 3}
 --- !u!114 &6378210607024981714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStatic: 0
 --- !u!82 &5559624125259040398
 AudioSource:
   m_ObjectHideFlags: 0

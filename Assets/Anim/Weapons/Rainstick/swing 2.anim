@@ -1002,7 +1002,7 @@ AnimationClip:
   - time: 0.25
     functionName: PlayClip
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: dc4b9d1366256214cad70d95da29cffd,
+    objectReferenceParameter: {fileID: 8300000, guid: 3e898337cb8a1d94fb67bc499f726383,
       type: 3}
     floatParameter: 0
     intParameter: 0
@@ -1017,7 +1017,7 @@ AnimationClip:
   - time: 0.9375
     functionName: PlayClip
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: cb538e8d5a78a464183cf56d5f730de4,
+    objectReferenceParameter: {fileID: 8300000, guid: 57a2927cffb490c468f9eb24daee5c81,
       type: 3}
     floatParameter: 0
     intParameter: 0
@@ -1028,6 +1028,14 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
+    messageOptions: 0
+  - time: 1.0625
+    functionName: PlayClip
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 3316b80ec4640e9458311f5216c79513,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0
   - time: 1.0625
     functionName: Move

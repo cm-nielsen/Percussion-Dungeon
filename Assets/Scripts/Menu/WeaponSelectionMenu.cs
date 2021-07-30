@@ -11,12 +11,14 @@ public class WeaponSelectionMenu : MonoBehaviour
     public List<SelectionItem> options;
     public Text desc, proficiency, level, castas, cost, damageBonus;
     public IconGraph graph;
+    public AudioClip swapNoise;
 
     public float lerpStart, lerpMod;
 
     private Animator anim;
     private GameController gcon;
     private CameraFollow camFollow;
+    private AudioClipPlayer sfx;
 
     private List<PreviousIcon> prevIcons;
     private SelectionItem selected;
@@ -36,6 +38,7 @@ public class WeaponSelectionMenu : MonoBehaviour
         castanim = iconParent.GetComponentInChildren<Animator>();
         canvas.SetActive(false);
         iconParent.SetActive(false);
+        sfx = GetComponent<AudioClipPlayer>();
 
         activate = new ControlToggleProxy();
         left = new ControlToggleProxy();
@@ -138,6 +141,8 @@ public class WeaponSelectionMenu : MonoBehaviour
         DisplaySelectedAttributes();
 
         castanim.SetTrigger("go");
+        if (swapNoise)
+            sfx.PlayClip(swapNoise);
     }
 
     private void DisplaySelectedAttributes()

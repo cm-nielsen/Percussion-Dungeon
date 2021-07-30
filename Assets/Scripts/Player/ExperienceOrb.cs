@@ -6,6 +6,7 @@ public class ExperienceOrb : MonoBehaviour
 {
     public float initialVelocity, magnetism, collectionDelay;
     public int amount = 1;
+    public AudioClip noise;
 
     private Rigidbody2D rb;
     private Transform pPos;
@@ -51,6 +52,8 @@ public class ExperienceOrb : MonoBehaviour
 
         GameController.GainExp(amount);
         GetComponentInParent<Animator>().SetTrigger("start");
+        if (noise)
+            AudioClipPlayer.Play(noise);
         this.enabled = false;
     }
 }

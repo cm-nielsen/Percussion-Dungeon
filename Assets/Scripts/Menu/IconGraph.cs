@@ -7,6 +7,7 @@ public class IconGraph : MonoBehaviour
     public GameObject icon;
 
     public Vector2 origin, offset;
+    public AudioClip noise;
 
     private List<GameObject> instances = new List<GameObject>();
     private Vector2 pos;
@@ -37,6 +38,9 @@ public class IconGraph : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         instances.Add(Instantiate(icon, pos, Quaternion.identity, transform));
+        if (noise)
+            AudioClipPlayer.Play(noise);
+
         pos.x += offset.x;
         j++;
 

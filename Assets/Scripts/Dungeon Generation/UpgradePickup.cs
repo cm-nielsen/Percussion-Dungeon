@@ -7,6 +7,7 @@ public class UpgradePickup : MonoBehaviour
     public enum UpgradeType { health = 0, bux = 1}
     public UpgradeType type;
     public GameObject pickupEffect;
+    public AudioClip noise;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -29,6 +30,8 @@ public class UpgradePickup : MonoBehaviour
                 break;
         }
         Destroy(gameObject);
+        if (noise)
+            AudioClipPlayer.Play(noise);
         this.enabled = false;
     }
 }

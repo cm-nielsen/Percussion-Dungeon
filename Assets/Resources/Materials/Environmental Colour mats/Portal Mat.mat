@@ -36,5 +36,5 @@ Material:
     - _Speed: 3
     - _Strength: 8
     m_Colors:
-    - _MainCol: {r: 0.4780812, g: 0.81792724, b: 0.6627451, a: 1}
+    - _MainCol: {r: 0.6745098, g: 0.9607844, b: 0.6627451, a: 1}
     - _SecondaryColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}

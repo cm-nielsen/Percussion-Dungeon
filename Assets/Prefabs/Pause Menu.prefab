@@ -237,6 +237,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.75, y: -0.0625, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &3858557964891264422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,6 +858,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.75, y: -0.0625, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &6073816253132577412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1158,6 +1160,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.375, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &662305767541752064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1584,6 +1587,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: 0.9375, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &1664785216285856122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1777,6 +1781,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -1.3125, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &4551783860017701660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2213,6 +2218,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.5625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &4055168603756596602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2495,6 +2501,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.5625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &1502922260838579957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2883,6 +2890,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -1.375, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &4440109814308117231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3033,6 +3041,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -1.375, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &6021115417394526283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3388,6 +3397,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: 1.875, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &4766435971871408228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3581,6 +3591,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.5625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &7177613996536434772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3957,6 +3968,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.625, y: -0.0625, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &3745355429855366634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4343,6 +4355,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -1.1875, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &8541399758170503689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4983,6 +4996,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: 2.125, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &616324389285530754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5236,6 +5250,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.625, y: -0.0625, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &1598503523229178687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5515,6 +5530,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -1.375, y: -0.0625, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &3424038274679868011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5719,6 +5735,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.5625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &7955654161546922957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5965,6 +5982,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: 1.375, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &137682521384443905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6105,6 +6123,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: 0.875, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &8566132556008244277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6299,6 +6318,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.6875, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310619590379098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6555,6 +6575,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.6875, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310619600080286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6714,6 +6735,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.6875, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310619662233380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6854,6 +6876,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.8125, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310619692320024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7092,6 +7115,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: 1.0625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0.5, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310619736919268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7619,6 +7643,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.6875, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310619969408637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7758,6 +7783,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -2.125, y: -0.0625, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310620109103636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7963,6 +7989,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.6875, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310620114450877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8692,6 +8719,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: 1.0625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0.5, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310620260614553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9163,6 +9191,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.5625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310620386820608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9430,6 +9459,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -1.375, y: -0.0625, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310620455781364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9881,6 +9911,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMenu: {fileID: 5059310620431069910}
   pointer: {fileID: 5059310620230636242}
+  pauseNoise: {fileID: 8300000, guid: bb0dd80e3ad5b6f49ba6fba6ce9338c3, type: 3}
+  navigateNoise: {fileID: 8300000, guid: 3df4264714ce7ce4891d5e9855e2e45f, type: 3}
+  backNoise: {fileID: 8300000, guid: ba5438a9cdfcff6499eedee9c7884ba2, type: 3}
 --- !u!1 &5059310620546863551
 GameObject:
   m_ObjectHideFlags: 0
@@ -9977,6 +10010,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -1.75, y: -0.0625, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310620546863490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10464,6 +10498,7 @@ MonoBehaviour:
   objectToMove: {fileID: 0}
   pos: {x: 0, y: 0.3125, z: 0}
   rot: {x: 0, y: 0, z: 0.25, w: -0.25}
+  noise: {fileID: 0}
 --- !u!114 &5059310620706516975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10651,6 +10686,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.5625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310620730784655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10940,6 +10976,7 @@ MonoBehaviour:
   objectToMove: {fileID: 0}
   pos: {x: 0, y: 0.3125, z: 0}
   rot: {x: 0, y: 0, z: 0.25, w: -0.25}
+  noise: {fileID: 0}
 --- !u!114 &5059310620757642784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11129,6 +11166,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: 1.0625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0.5, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310620829366626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11400,6 +11438,7 @@ MonoBehaviour:
   objectToMove: {fileID: 0}
   pos: {x: 0, y: 0.3125, z: 0}
   rot: {x: 0, y: 0, z: 0.25, w: -0.25}
+  noise: {fileID: 0}
 --- !u!114 &5059310620887763267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11650,6 +11689,7 @@ MonoBehaviour:
   objectToMove: {fileID: 0}
   pos: {x: 0, y: 0.3125, z: 0}
   rot: {x: 0, y: 0, z: 0.25, w: -0.25}
+  noise: {fileID: 0}
 --- !u!114 &5059310620898764029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11983,6 +12023,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -2.125, y: -0.0625, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310620952498842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12207,6 +12248,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.6875, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310620967210011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12347,6 +12389,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.6875, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310620989353841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12660,6 +12703,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: 1.0625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0.5, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310621058463075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12888,6 +12932,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.6875, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310621072822281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13027,6 +13072,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.5625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310621092903931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13231,6 +13277,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.5625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310621175721274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13436,6 +13483,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.6875, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310621223643495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13735,6 +13783,7 @@ MonoBehaviour:
   objectToMove: {fileID: 0}
   pos: {x: 0, y: 0.3125, z: 0}
   rot: {x: 0, y: 0, z: 0.25, w: -0.25}
+  noise: {fileID: 0}
 --- !u!114 &5059310621231430413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14199,6 +14248,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.6875, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310621408424353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14339,6 +14389,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.6875, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310621442503869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14751,6 +14802,7 @@ MonoBehaviour:
   objectToMove: {fileID: 0}
   pos: {x: 0, y: 0.3125, z: 0}
   rot: {x: 0, y: 0, z: 0.25, w: -0.25}
+  noise: {fileID: 0}
 --- !u!114 &5059310621511782726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15088,6 +15140,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -1.1875, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &5059310621636871473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15608,6 +15661,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.375, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &3976130152673649758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15845,6 +15899,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: 2.125, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &3596541438210354286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16314,6 +16369,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.375, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &145025191270142072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16732,6 +16788,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.375, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &20009673544365401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16948,6 +17005,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.5625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &3161425700351328587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17266,6 +17324,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -1.125, y: -0.0625, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &851832464356078607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17533,6 +17592,7 @@ MonoBehaviour:
   objectToMove: {fileID: 0}
   pos: {x: 0, y: 0.3125, z: 0}
   rot: {x: 0, y: 0, z: 0.25, w: -0.25}
+  noise: {fileID: 0}
 --- !u!114 &4785208326723863934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17838,6 +17898,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.5625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &1549166420895896220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18120,6 +18181,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -1.375, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &3658393281841674090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18360,6 +18422,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -0.5625, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &542631825090946642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18585,6 +18648,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: 2.125, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &7222810670629155324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18744,6 +18808,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: 1.5, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &620865269709770665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19519,6 +19584,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -1.375, y: -0.0625, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &7291598613217601114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19940,6 +20006,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: 1.375, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &6864265534624538458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20078,6 +20145,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -1.375, y: -0.03125, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &2627601316746930893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20366,6 +20434,7 @@ MonoBehaviour:
   objectToMove: {fileID: 5059310620230636242}
   pos: {x: -1.375, y: -0.0625, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
+  noise: {fileID: 0}
 --- !u!114 &1627497491805071492
 MonoBehaviour:
   m_ObjectHideFlags: 0

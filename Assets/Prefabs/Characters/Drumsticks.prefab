@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 9075661051462715636}
   - component: {fileID: 964765087369622957}
   - component: {fileID: 326456782272598116}
+  - component: {fileID: 2448675488450788276}
   m_Layer: 8
   m_Name: Drumsticks
   m_TagString: Player
@@ -202,7 +203,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoil: 1
-  damageTextPrefab: {fileID: 0}
+  heavyNoise: []
+  lightNoise: []
   knockbackStrengthMod: 1
   bullyability: 0
   deathForce: 8
@@ -235,6 +237,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStatic: 0
+--- !u!114 &2448675488450788276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075661051462715644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b93b7547311bc6468b71bbd3b101903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStatic: 0
+  footsteps: []
 --- !u!1 &9075661052572508794
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 0
+  heavyNoise: []
+  lightNoise: []
   movementValue: 1
   vampMultiplier: 0
 --- !u!114 &9156843952665681159
@@ -322,6 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98f4509ef8c67247aa4c1bd997a20a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStatic: 0
 --- !u!82 &8668002527910029919
 AudioSource:
   m_ObjectHideFlags: 0

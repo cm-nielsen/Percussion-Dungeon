@@ -89,6 +89,6 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainCol: {r: 0.81792724, g: 0.4780812, b: 0.6627451, a: 1}
+    - _MainCol: {r: 0.6745098, g: 0.6627451, b: 0.9607844, a: 1}
     - _MonoCol: {r: 0, g: 0, b: 0, a: 0}
     - _RandCol: {r: 1, g: 1, b: 1, a: 1}

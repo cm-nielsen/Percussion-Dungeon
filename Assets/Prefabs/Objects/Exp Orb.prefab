@@ -114,6 +114,7 @@ MonoBehaviour:
   magnetism: 2
   collectionDelay: 1
   amount: 1
+  noise: {fileID: 8300000, guid: 30c5f288da0a7934ab8bbc00c1b5368a, type: 3}
 --- !u!95 &1509105309837388235
 Animator:
   serializedVersion: 3

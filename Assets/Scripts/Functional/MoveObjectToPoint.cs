@@ -8,6 +8,7 @@ public class MoveObjectToPoint : MonoBehaviour
 
     public Vector3 pos;
     public Quaternion rot;
+    public AudioClip noise;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +23,6 @@ public class MoveObjectToPoint : MonoBehaviour
 
         objectToMove.transform.position = transform.position + pos;
         objectToMove.transform.rotation = rot;
+        PauseMenu.OnSelectionChange();
     }
 }

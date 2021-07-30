@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 996084129173125768}
   - component: {fileID: 614926639923313108}
   - component: {fileID: 614926639923313109}
+  - component: {fileID: 42402599600193588}
   m_Layer: 8
   m_Name: Rainstick
   m_TagString: Player
@@ -238,6 +239,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &42402599600193588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614926639923313110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b93b7547311bc6468b71bbd3b101903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStatic: 0
+  footsteps: []
 --- !u!1 &614926639973661583
 GameObject:
   m_ObjectHideFlags: 0

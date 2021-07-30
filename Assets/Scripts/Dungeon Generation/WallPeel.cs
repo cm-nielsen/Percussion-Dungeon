@@ -6,19 +6,23 @@ using UnityEngine.Tilemaps;
 public class WallPeel : MonoBehaviour
 {
     public Tilemap map;
-    public TileBase tile;
     public PeelSection[] sections;
+    public AudioClip noise;
 
     public int[] speeds;
 
+    private AudioClipPlayer sfx;
     private int index = 0, speed = 1;
     private bool go = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        sfx = GetComponent<AudioClipPlayer>();
         foreach (PeelSection s in sections)
-            s.Initialize(map, transform.position);
+        {
+            s.Initialize(map, transform.position, noise, sfx);
+        }
     }
 
     private void OnDrawGizmos()
@@ -60,6 +64,7 @@ public class WallPeel : MonoBehaviour
 
     private void ForceUpdate(int n)
     {
+        sfx.PlayClip(noise);
         foreach (PeelSection s in sections)
             s.Update(n);
     }
@@ -67,6 +72,9 @@ public class WallPeel : MonoBehaviour
     [System.Serializable]
     public class PeelSection
     {
+        private AudioClip noise;
+        private AudioClipPlayer sfx;
+
         public Vector2 start, end;
         public int width, delay;
 
@@ -77,8 +85,12 @@ public class WallPeel : MonoBehaviour
             tri2 = Vector3Int.zero;
         private int index, timer;
 
-        public void Initialize(Tilemap m, Vector2 offset)
+        public void Initialize(Tilemap m, Vector2 offset,
+            AudioClip c = null, AudioClipPlayer fx = null)
         {
+            noise = c;
+            sfx = fx;
+
             map = m;
             Vector3Int dir = getDir();
             Vector3 normal = Quaternion.Euler(0, 0, 90) * dir * 1.5f;
@@ -131,8 +143,12 @@ public class WallPeel : MonoBehaviour
                 return;
 
             if (index < positions.Count)
+            {
                 foreach (Vector3Int v in positions[index])
                     map.SetTile(v, null);
+                if (noise)
+                    sfx.PlayClip(noise);
+            }
             index++;
         }
 

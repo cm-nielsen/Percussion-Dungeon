@@ -448,6 +448,11 @@ MonoBehaviour:
     baseLight: 0.7
     playerStrength: 1
     enemyStrength: 1
+    detail: 16
+    minX: 0
+    maxX: 0
+    minY: 0
+    maxY: 0
   - mat: {fileID: 2100000, guid: de447e78f84339d4fa18e685fe48a268, type: 2}
     colourReference: {fileID: 2100000, guid: 433a5450f0eb6044ea650f3383e120aa, type: 2}
     playerRadius: 0.25
@@ -455,6 +460,11 @@ MonoBehaviour:
     baseLight: 0.9
     playerStrength: 1
     enemyStrength: 1
+    detail: 16
+    minX: 0
+    maxX: 0
+    minY: 0
+    maxY: 0
   maxPoints: 1000
 --- !u!4 &128562800
 Transform:

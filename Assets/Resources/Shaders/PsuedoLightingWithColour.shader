@@ -1,4 +1,4 @@
-﻿Shader "Custom/PsuedoLightingWithColour"
+﻿Shader "Custom/PsuedoLighting"
 {
     Properties
     {
@@ -35,8 +35,8 @@
                 float2 worldPos : TEXCOORD2;
             };
 
-            float3 _PositionData[1000];
-            int _PosCount;
+            float _PositionData[10000];
+            int _PosArrayWidth;
             float _BaseLight;
 
             sampler2D _MainTex;
@@ -70,19 +70,19 @@
                 col *= i.color;
 
                 //Apply PsuedoLighting
-                float light = 0;
-                float3 p;
                 float2 wPos = i.worldPos.xy;
+                float light = _PositionData[wPos.x * _PosArrayWidth + wPos.y];
+                float3 p;
 
-                for (int j = 0; j < _PosCount; j++) {
-                    p = _PositionData[j];
-                    //float dist = distance(p.xy, i.worldPos.xy);
-                    float dist = pow(p.x - wPos.x, 2) + pow(p.y - wPos.y, 2);
+                //for (int j = 0; j < _PosCount; j++) {
+                //    p = _PositionData[j];
+                //    //float dist = distance(p.xy, i.worldPos.xy);
+                //    float dist = pow(p.x - wPos.x, 2) + pow(p.y - wPos.y, 2);
 
-                    light += p.z / dist;
-                }
+                //    light += p.z / dist;
+                //}
 
-                col.xyz *=  clamp(_BaseLight + light, 0, 1);
+                //col.xyz *=  clamp(_BaseLight + light, 0, 1);
                 return col;
             }
             ENDCG

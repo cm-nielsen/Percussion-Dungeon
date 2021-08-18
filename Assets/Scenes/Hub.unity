@@ -422,12 +422,12 @@ GameObject:
   - component: {fileID: 128562800}
   - component: {fileID: 128562799}
   m_Layer: 0
-  m_Name: PsuedoLightingSystem
+  m_Name: ProximityLightingSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &128562799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,11 +448,6 @@ MonoBehaviour:
     baseLight: 0.7
     playerStrength: 1
     enemyStrength: 1
-    detail: 16
-    minX: 0
-    maxX: 0
-    minY: 0
-    maxY: 0
   - mat: {fileID: 2100000, guid: de447e78f84339d4fa18e685fe48a268, type: 2}
     colourReference: {fileID: 2100000, guid: 433a5450f0eb6044ea650f3383e120aa, type: 2}
     playerRadius: 0.25
@@ -460,12 +455,6 @@ MonoBehaviour:
     baseLight: 0.9
     playerStrength: 1
     enemyStrength: 1
-    detail: 16
-    minX: 0
-    maxX: 0
-    minY: 0
-    maxY: 0
-  maxPoints: 1000
 --- !u!4 &128562800
 Transform:
   m_ObjectHideFlags: 0
@@ -1944,7 +1933,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 90451df6a7453c947b7fa6395d4e4f73, type: 2}
+      objectReference: {fileID: 2100000, guid: 272cc5a94598b1f469f64eec11f332f7, type: 2}
     - target: {fileID: 4499531501684366701, guid: e5e0512a129183148b8e5947727ea5ae,
         type: 3}
       propertyPath: m_Name
@@ -16614,7 +16603,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 433a5450f0eb6044ea650f3383e120aa, type: 2}
+  - {fileID: 2100000, guid: de447e78f84339d4fa18e685fe48a268, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

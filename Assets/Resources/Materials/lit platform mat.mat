@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: lit platform mat
-  m_Shader: {fileID: 4800000, guid: f8430a5dcccb9c643b78695390d9f7e5, type: 3}
+  m_Shader: {fileID: 4800000, guid: d7029be4a3f564b4f8b554d6a378a10d, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -75,5 +75,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainCol: {r: 0.36421585, g: 0.59697133, b: 0.7757178, a: 1}
+    - _MainCol: {r: 0.2392157, g: 0.39607847, b: 0.29803923, a: 1}
     - _MonoCol: {r: 0, g: 0, b: 0, a: 1}

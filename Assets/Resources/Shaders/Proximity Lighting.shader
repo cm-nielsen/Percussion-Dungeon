@@ -1,4 +1,4 @@
-﻿Shader "Custom/PsuedoLighting"
+﻿Shader "Custom/Proximity Lighting"
 {
     Properties
     {
@@ -13,7 +13,8 @@
 
         Pass
         {
-        Blend SrcAlpha OneMinusSrcAlpha
+            Name "Pass 1"
+            Blend SrcAlpha OneMinusSrcAlpha
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -35,8 +36,8 @@
                 float2 worldPos : TEXCOORD2;
             };
 
-            float _PositionData[10000];
-            int _PosArrayWidth;
+            float4 _PositionData[1024];
+            int _PosCount;
             float _BaseLight;
 
             sampler2D _MainTex;
@@ -57,7 +58,7 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
-                
+
                 //Apply Colour Customization effect
                 float n = step(col.r + col.g + col.b, .1);
 
@@ -69,20 +70,20 @@
 
                 col *= i.color;
 
-                //Apply PsuedoLighting
+                //Apply Proximity Lighting
                 float2 wPos = i.worldPos.xy;
-                float light = _PositionData[wPos.x * _PosArrayWidth + wPos.y];
+                float light = 0;
+                
                 float3 p;
+                for (int j = 0; j < _PosCount; j++) {
+                    p = _PositionData[j];
+                    //float dist = distance(p.xy, i.worldPos.xy);
+                    float dist = pow(p.x - wPos.x, 2) + pow(p.y - wPos.y, 2);
 
-                //for (int j = 0; j < _PosCount; j++) {
-                //    p = _PositionData[j];
-                //    //float dist = distance(p.xy, i.worldPos.xy);
-                //    float dist = pow(p.x - wPos.x, 2) + pow(p.y - wPos.y, 2);
+                    light += p.z / dist;
+                }
 
-                //    light += p.z / dist;
-                //}
-
-                //col.xyz *=  clamp(_BaseLight + light, 0, 1);
+                col.xyz *=  clamp(_BaseLight + light, 0, 1);
                 return col;
             }
             ENDCG

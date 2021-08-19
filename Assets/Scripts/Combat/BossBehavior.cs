@@ -100,6 +100,7 @@ public class BossBehavior : MonoBehaviour
             return;
         GetComponent<DamageReceiver>().invulnerable = true;
         anim.SetTrigger("half health");
+        anim.SetBool("phase 2", true);
     }
 
     private void OnDisable()

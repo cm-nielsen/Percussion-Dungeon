@@ -21,8 +21,8 @@ public class BossHealth : Health
             Instantiate(expOrbPrefab, transform.position, Quaternion.identity);
         expOrbPrefab = null;
 
-        if (display)
-            Destroy(display.gameObject);
+        //if (display)
+        //    Destroy(display.gameObject);
 
         Destroy(GetComponentInChildren<DamageDealer>().gameObject);
         Destroy(GetComponent<BossBehavior>());

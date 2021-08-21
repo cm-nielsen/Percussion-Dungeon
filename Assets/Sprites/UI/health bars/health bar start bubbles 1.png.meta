@@ -1,43 +1,25 @@
 fileFormatVersion: 2
-guid: e3aedc18dfd8f814488836e1bdc9fae9
+guid: 4f117fd037728e140ab366fb0f582ce0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7822101269743705319
-    second: health bar bubbles_0
+      213: -1306390154604003032
+    second: health bar start bubbles 1_0
   - first:
-      213: 8528455345203286651
-    second: health bar bubbles_1
+      213: 709933416954963452
+    second: health bar start bubbles 1_1
   - first:
-      213: 8696664752096105439
-    second: health bar bubbles_2
+      213: -641060267446807364
+    second: health bar start bubbles 1_2
   - first:
-      213: 5208757486230828759
-    second: health bar bubbles_3
+      213: 8233692838825738731
+    second: health bar start bubbles 1_3
   - first:
-      213: 7643847326087848482
-    second: health bar bubbles_4
+      213: 1022294472997752731
+    second: health bar start bubbles 1_4
   - first:
-      213: -836640827176622941
-    second: health bar bubbles_5
-  - first:
-      213: 4534551097740720107
-    second: health bar bubbles_0
-  - first:
-      213: -5558582648493560671
-    second: health bar bubbles_1
-  - first:
-      213: 1993829788405980708
-    second: health bar bubbles_2
-  - first:
-      213: 2256904079837784286
-    second: health bar bubbles_3
-  - first:
-      213: -3652831402175988500
-    second: health bar bubbles_4
-  - first:
-      213: 3243649996545342864
-    second: health bar bubbles_5
+      213: 199466056338091208
+    second: health bar start bubbles 1_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -78,12 +60,12 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -135,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: health bar bubbles_0
+      name: health bar start bubbles 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 12
-        width: 15
-        height: 6
+        y: 14
+        width: 17
+        height: 7
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be771b4c236fdee30800000000000000
-      internalID: 4534551097740720107
+      spriteID: 821c2c07315cedde0800000000000000
+      internalID: -1306390154604003032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health bar bubbles_1
+      name: health bar start bubbles 1_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 12
-        width: 15
-        height: 6
+        x: 17
+        y: 14
+        width: 17
+        height: 7
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ac24e52882fbd2b0800000000000000
-      internalID: -5558582648493560671
+      spriteID: cf5a7cb6ea03ad900800000000000000
+      internalID: 709933416954963452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health bar bubbles_2
+      name: health bar start bubbles 1_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 6
-        width: 15
-        height: 6
+        y: 7
+        width: 17
+        height: 7
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42ed788f0a18bab10800000000000000
-      internalID: 1993829788405980708
+      spriteID: cb4573f451f7a17f0800000000000000
+      internalID: -641060267446807364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health bar bubbles_3
+      name: health bar start bubbles 1_3
       rect:
         serializedVersion: 2
-        x: 15
-        y: 6
-        width: 15
-        height: 6
+        x: 17
+        y: 7
+        width: 17
+        height: 7
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed86cd29d42225f10800000000000000
-      internalID: 2256904079837784286
+      spriteID: be1c2ef4304f34270800000000000000
+      internalID: 8233692838825738731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health bar bubbles_4
+      name: health bar start bubbles 1_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 15
-        height: 6
+        width: 17
+        height: 7
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cec78e871398e4dc0800000000000000
-      internalID: -3652831402175988500
+      spriteID: b9f40e6286bef2e00800000000000000
+      internalID: 1022294472997752731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health bar bubbles_5
+      name: health bar start bubbles 1_5
       rect:
         serializedVersion: 2
-        x: 15
+        x: 17
         y: 0
-        width: 15
-        height: 6
+        width: 17
+        height: 7
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09d38cb7c72c30d20800000000000000
-      internalID: 3243649996545342864
+      spriteID: 8cca7c84255a4c200800000000000000
+      internalID: 199466056338091208
       vertices: []
       indices: 
       edges: []

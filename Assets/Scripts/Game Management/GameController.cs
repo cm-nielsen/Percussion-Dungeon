@@ -173,6 +173,16 @@ public class GameController : MonoBehaviour
             return true;
         return (GameData.unlocks & weaponSet.GetType(prefab)) != 0;
     }
+
+    public static GameObject GetCurrentWeaponPrefab()
+    {
+        if (instance.currentWeaponPrefab)
+            return instance.currentWeaponPrefab;
+
+        GameObject g = instance.weaponSet.GetWeapon(WeaponUnlocks.drumsticks);
+        instance.currentWeaponPrefab = g;
+        return g;
+    }
 }
 
 [System.Flags]

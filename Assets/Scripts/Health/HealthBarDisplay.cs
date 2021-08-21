@@ -7,6 +7,7 @@ public class HealthBarDisplay : HealthDisplay
 {
     public SpriteRenderer backFill;
     public int backFillHoldFrames = 0;
+    public float lerp = 0.05f;
     public bool canDrain = false;
 
     private SpriteRenderer fill;
@@ -32,11 +33,11 @@ public class HealthBarDisplay : HealthDisplay
             {
                 if (timer > backFillHoldFrames)
                 {
-                    backRat -= 0.05f;
+                    backRat = Mathf.Lerp(backRat, rat, lerp);
                     backFill.size = new Vector2(backRat * maxWidth, backFill.size.y);
                 }
 
-                if (backRat <= rat)
+                if (backRat <= rat + .01)
                 {
                     backRat = rat;
                     backFill.size = new Vector2(rat * maxWidth, fill.size.y);

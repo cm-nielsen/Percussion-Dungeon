@@ -42,6 +42,8 @@ public class BossBehavior : MonoBehaviour
     {
         if (!target)
             AquireTarget();
+        if (!target)
+            return;
 
         rb.AddForce(Mathf.Abs(rb.velocity.y) * adaptiveGravity * Vector2.down);
         CheckGround();
@@ -99,6 +101,11 @@ public class BossBehavior : MonoBehaviour
         if (!preggers)
             return;
         GetComponent<DamageReceiver>().invulnerable = true;
+
+        float xDiff = target.position.x - transform.position.x;
+        xDiff *= transform.localScale.x;
+        anim.SetBool("turn", xDiff > 0);
+
         anim.SetTrigger("half health");
         anim.SetBool("phase 2", true);
     }

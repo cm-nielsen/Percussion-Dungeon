@@ -8,7 +8,7 @@ public class SpawnPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject player = GameObject.FindObjectOfType<GameController>().currentWeaponPrefab;
+        GameObject player = GameController.GetCurrentWeaponPrefab();
         player = Instantiate(player);
         //Tilemap map = transform.parent.parent.GetComponent<Tilemap>();
         //player.transform.position = map.LocalToWorld(transform.position);

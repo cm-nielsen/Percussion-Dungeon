@@ -1,43 +1,28 @@
 fileFormatVersion: 2
-guid: 6d203604367d63846a7586dc4e91bf80
+guid: d029226a170930345b5c4020fbc1d8ec
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 431495541955390414
-    second: health bar bubbles end_0
+      213: -6921964395023822313
+    second: boss health bar_0
   - first:
-      213: 1472056144469843679
-    second: health bar bubbles end_1
+      213: 1121328550899381178
+    second: boss health bar_1
   - first:
-      213: 6333861943900533787
-    second: health bar bubbles end_2
+      213: -2424370601946682086
+    second: boss health bar_2
   - first:
-      213: 6701503662604587555
-    second: health bar bubbles end_3
+      213: 8501763100305274715
+    second: boss health bar_3
   - first:
-      213: 5545029538598595844
-    second: health bar bubbles end_4
+      213: 1004793421708613860
+    second: boss health bar_4
   - first:
-      213: -2670235600649339770
-    second: health bar bubbles end_5
+      213: 6671362550926345644
+    second: boss health bar_5
   - first:
-      213: -6101698275838187182
-    second: health bar bubbles end_0
-  - first:
-      213: -7786810436051241268
-    second: health bar bubbles end_1
-  - first:
-      213: -3481763107294935151
-    second: health bar bubbles end_2
-  - first:
-      213: 2142925605541956344
-    second: health bar bubbles end_3
-  - first:
-      213: 172137176448182621
-    second: health bar bubbles end_4
-  - first:
-      213: 6004492878961049251
-    second: health bar bubbles end_5
+      213: -1788868671867331137
+    second: boss health bar_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -78,7 +63,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
@@ -135,127 +120,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: health bar bubbles end_0
+      name: boss health bar_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 12
-        width: 15
-        height: 6
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 2
+        y: 37
+        width: 121
+        height: 4
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2592d0e0fb9625ba0800000000000000
-      internalID: -6101698275838187182
+      spriteID: 71214be8e0e30ff90800000000000000
+      internalID: -6921964395023822313
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health bar bubbles end_1
+      name: boss health bar_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 12
-        width: 15
-        height: 6
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 2
+        y: 31
+        width: 121
+        height: 4
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc67cd92a21bfe390800000000000000
-      internalID: -7786810436051241268
+      spriteID: ab37cd04062cf8f00800000000000000
+      internalID: 1121328550899381178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health bar bubbles end_2
+      name: boss health bar_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 6
-        width: 15
-        height: 6
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 2
+        y: 25
+        width: 121
+        height: 4
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19700ada6ea4eafc0800000000000000
-      internalID: -3481763107294935151
+      spriteID: a1d611b48c7ea5ed0800000000000000
+      internalID: -2424370601946682086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health bar bubbles end_3
+      name: boss health bar_3
       rect:
         serializedVersion: 2
-        x: 15
-        y: 6
-        width: 15
-        height: 6
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 2
+        y: 19
+        width: 121
+        height: 4
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8faca6a0c733dbd10800000000000000
-      internalID: 2142925605541956344
+      spriteID: b573836de745cf570800000000000000
+      internalID: 8501763100305274715
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health bar bubbles end_4
+      name: boss health bar_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 13
+        width: 121
+        height: 4
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e8579d1b4eb1fd00800000000000000
+      internalID: 1004793421708613860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss health bar_5
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 7
+        width: 121
+        height: 4
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca50fc7c4e0759c50800000000000000
+      internalID: 6671362550926345644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss health bar_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 15
+        width: 125
         height: 6
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5925d699dd836200800000000000000
-      internalID: 172137176448182621
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: health bar bubbles end_5
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 0
-        width: 15
-        height: 6
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3aef5d2d57e345350800000000000000
-      internalID: 6004492878961049251
+      spriteID: fbdd587bb69ac27e0800000000000000
+      internalID: -1788868671867331137
       vertices: []
       indices: 
       edges: []

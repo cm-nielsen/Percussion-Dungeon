@@ -123,7 +123,7 @@ public class Room : MonoBehaviour
     {
         TilePositionSet set = new TilePositionSet();
         Vector3Int v = -(Vector3Int)size / 2;
-        TileBase[] tiles = map.GetTilesBlock(new BoundsInt(v, new Vector3Int(size.x, size.y, 1)));
+        TileBase[] tiles = map.GetTilesBlock(map.cellBounds);
 
         v += offset;
         Vector2Int max = (Vector2Int)v + size;
@@ -153,30 +153,31 @@ public class Room : MonoBehaviour
         return set;
     }
 
-    public class TilePositionSet
+}
+
+public class TilePositionSet
+{
+    public List<TileBase> tiles;
+    public List<Vector3Int> positions;
+
+    public TilePositionSet()
     {
-        public List<TileBase> tiles;
-        public List<Vector3Int> positions;
-
-        public TilePositionSet()
-        {
-            tiles = new List<TileBase>();
-            positions = new List<Vector3Int>();
-        }
-
-        public TilePositionSet SetTypeNull(TileBase tile)
-        {
-            for (int i = 0; i < tiles.Count; i++)
-                if (tiles[i] == tile)
-                    tiles[i] = null;
-            return this;
-        }
-
-        public void WriteTiles(List<TileBase> t, List<Vector3Int> p)
-        {
-            t.AddRange(tiles);
-            p.AddRange(positions);
-        }
-
+        tiles = new List<TileBase>();
+        positions = new List<Vector3Int>();
     }
+
+    public TilePositionSet SetTypeNull(TileBase tile)
+    {
+        for (int i = 0; i < tiles.Count; i++)
+            if (tiles[i] == tile)
+                tiles[i] = null;
+        return this;
+    }
+
+    public void WriteTiles(List<TileBase> t, List<Vector3Int> p)
+    {
+        t.AddRange(tiles);
+        p.AddRange(positions);
+    }
+
 }

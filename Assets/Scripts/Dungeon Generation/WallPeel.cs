@@ -6,7 +6,8 @@ using UnityEngine.Tilemaps;
 public class WallPeel : MonoBehaviour
 {
     public Tilemap map;
-    public PeelSection[] sections;
+    public bool triggerOnLoad = true;
+    public PeelSection[] sections = new PeelSection[1];
     public AudioClip noise;
 
     public int[] speeds;
@@ -34,7 +35,11 @@ public class WallPeel : MonoBehaviour
             Gizmos.color = new Color(1, 0.5f, 1f, .5f);
             Gizmos.DrawSphere(t + s.start, .02f);
             Vector2 size = s.end - s.start;
-            float w = s.width * map.layoutGrid.cellSize.x;
+            float w = s.width;
+            if (map)
+                w *= map.layoutGrid.cellSize.x;
+            else
+                w *= .25f;
             if (size.x == 0)
                 size.x = w;
             if (size.y == 0)
@@ -47,7 +52,9 @@ public class WallPeel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Gate.loaded || !go)
+        if (!go)
+            return;
+        if (triggerOnLoad && !Gate.loaded)
             return;
 
         if (index < speeds.Length)
@@ -55,6 +62,12 @@ public class WallPeel : MonoBehaviour
 
         foreach (PeelSection s in sections)
             s.Update(speed);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<PlayerController>())
+            go = true;
     }
 
     private void StartPeel()

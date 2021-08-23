@@ -9,6 +9,7 @@ TagManager:
   - healthBarMid
   - back button
   - Enemy
+  - Boss
   layers:
   - Default
   - TransparentFX

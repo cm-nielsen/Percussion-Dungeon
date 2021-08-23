@@ -22,7 +22,7 @@ public class BossBehavior : MonoBehaviour
     private Transform target;
 
     private float circumference, prevX;
-    private bool ground, rolling;
+    private bool ground, rolling, turnToParent;
     private static bool preggers = true;
 
     // Start is called before the first frame update
@@ -53,6 +53,7 @@ public class BossBehavior : MonoBehaviour
         {
             float deg = 360 * (transform.position.x - prevX) / circumference;
             rb.rotation -= deg;
+            SetChildRotation(deg);
 
             Vector2 castDir = new Vector2(transform.localScale.x, 0);
             if (Physics2D.Raycast((Vector2)transform.position + circCol.offset,
@@ -60,9 +61,17 @@ public class BossBehavior : MonoBehaviour
                 rolling = false;
         }
         else
+        {
             transform.eulerAngles = new Vector3(0, 0, 0);
+            SetChildRotation(0);
+        }
 
         prevX = transform.position.x;
+    }
+
+    private void Update()
+    {
+        SetChildRotation(0);
     }
 
     private void UpdateAnimator()
@@ -71,9 +80,19 @@ public class BossBehavior : MonoBehaviour
         anim.SetBool("rolling", rolling);
         anim.SetBool("beat", Music.beat);
 
-        float xDiff = target.position.x - transform.position.x;
-        xDiff *= transform.localScale.x;
-        anim.SetBool("turn", xDiff < 0);
+        if (turnToParent)
+        {
+            float xDiff = transform.parent.position.x - transform.position.x;
+            xDiff *= transform.localScale.x;
+            anim.SetBool("turn", xDiff > 0);
+            anim.SetBool("back kick", false);
+        }
+        else
+        {
+            float xDiff = target.position.x - transform.position.x;
+            xDiff *= transform.localScale.x;
+            anim.SetBool("turn", xDiff < 0);
+        }
 
         anim.SetFloat("vx", Mathf.Abs(rb.velocity.x));
         anim.SetFloat("vy", rb.velocity.y);
@@ -104,7 +123,8 @@ public class BossBehavior : MonoBehaviour
 
         float xDiff = target.position.x - transform.position.x;
         xDiff *= transform.localScale.x;
-        anim.SetBool("turn", xDiff > 0);
+        anim.SetBool("turn", xDiff < 0);
+        turnToParent = true;
 
         anim.SetTrigger("half health");
         anim.SetBool("phase 2", true);
@@ -113,6 +133,14 @@ public class BossBehavior : MonoBehaviour
     private void OnDisable()
     {
         Attack(0);
+    }
+
+    private void SetChildRotation(float r)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).eulerAngles = Vector3.forward * r;
+        }
     }
     // Animation events ---------------------------------------------------------
     // --------------------------------------------------------------------------
@@ -151,14 +179,41 @@ public class BossBehavior : MonoBehaviour
 
     private void SpawnChild()
     {
+        turnToParent = false;
         GetComponent<DamageReceiver>().invulnerable = false;
         preggers = false;
         if (!childPrefab)
             return;
+
         GameObject child = Instantiate(childPrefab, transform.position, Quaternion.identity);
         child.GetComponent<Animator>().Play("roll");
         Vector2 velocity = new Vector2(-birthingVelocity * transform.localScale.x, 0);
         child.GetComponent<Rigidbody2D>().velocity = velocity;
+        child.transform.localScale = new Vector2(-transform.localScale.x, 1);
+
+        GetComponentInChildren<DamageDealer>().
+            AddException(child.GetComponent<BoxCollider2D>());
+        GetComponentInChildren<DamageDealer>().
+            AddException(child.GetComponent<CircleCollider2D>());
+        child.GetComponentInChildren<DamageDealer>().
+            AddException(GetComponent<BoxCollider2D>());
+        child.GetComponentInChildren<DamageDealer>().
+            AddException(GetComponent<CircleCollider2D>());
+
+        //sets child to also be in phase 2, comment out if too hard
+        child.GetComponent<Animator>().SetBool("phase 2", true);
+        FindObjectOfType<BossHUD>().Transition(child);
+    }
+
+    private void MidRollBite()
+    {
+        rolling = false;
+        col.enabled = true;
+        circCol.enabled = false;
+        rb.velocity = Vector2.zero;
+        transform.eulerAngles = new Vector3(0, 0, 0);
+
+        Attack(0);
     }
 
     private void Attack(int i)
@@ -169,6 +224,5 @@ public class BossBehavior : MonoBehaviour
         dealer.enabled = i > 0;
         if (i == 0)
             dealer.GetComponent<BoxCollider2D>().size = Vector2.zero;
-
     }
 }

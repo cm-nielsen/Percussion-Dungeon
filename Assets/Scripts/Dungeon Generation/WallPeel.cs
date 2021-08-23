@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class WallPeel : MonoBehaviour
 {
     public Tilemap map;
-    public bool triggerOnLoad = true;
+    public bool triggerOnLoad = true, triggerOnCollision;
     public PeelSection[] sections = new PeelSection[1];
     public AudioClip noise;
 
@@ -20,10 +20,7 @@ public class WallPeel : MonoBehaviour
     void Start()
     {
         sfx = GetComponent<AudioClipPlayer>();
-        foreach (PeelSection s in sections)
-        {
-            s.Initialize(map, transform.position, noise, sfx);
-        }
+        Initialize();
     }
 
     private void OnDrawGizmos()
@@ -66,8 +63,11 @@ public class WallPeel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!triggerOnCollision)
+            return;
         if (collision.GetComponent<PlayerController>())
             go = true;
+
     }
 
     private void StartPeel()
@@ -80,6 +80,13 @@ public class WallPeel : MonoBehaviour
         sfx.PlayClip(noise);
         foreach (PeelSection s in sections)
             s.Update(n);
+    }
+
+    public void Initialize()
+    {
+        if (map)
+            foreach (PeelSection s in sections)
+                s.Initialize(map, transform.position, noise, sfx);
     }
 
     [System.Serializable]
@@ -159,7 +166,7 @@ public class WallPeel : MonoBehaviour
             {
                 foreach (Vector3Int v in positions[index])
                     map.SetTile(v, null);
-                if (noise)
+                if (noise && sfx)
                     sfx.PlayClip(noise);
             }
             index++;

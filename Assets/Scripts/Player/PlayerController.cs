@@ -60,11 +60,11 @@ public class PlayerController : MonoBehaviour
         currentAnimation = currentAnimation.ToLower();
         if (grounded)
         {
-            if (currentAnimation.Contains("run") ||
-                (currentAnimation.Contains("land") && !currentAnimation.Contains("attack")))
-                    ApplyRunForce();
-                //else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("fall"))
-                //    rb.velocity *= Vector2.up;
+            bool landing = (currentAnimation.Contains("land") &&
+                !currentAnimation.Contains("attack"));
+            if (currentAnimation.Contains("run") || landing)
+                ApplyRunForce(!landing);
+
             rb.velocity = new Vector2(rb.velocity.x * xFriction, rb.velocity.y);
             if (rb.velocity.x > runSpeed)
                 rb.velocity = new Vector2(runSpeed, rb.velocity.y);
@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("run", input["left"] || input["right"]);
     }
     [HideInInspector]
-    private void ApplyRunForce()
+    private void ApplyRunForce(bool b = true)
     {
         TurnTowardsInput();
         if (input["right"])
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(moveForce.x * Vector2.right);
             if (rb.velocity.x < 0.01)
             {
-                if (canTurn)
+                if (canTurn && b)
                 {
                     anim.SetTrigger("turn");
                     canTurn = false;
@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(moveForce.x * Vector2.left);
             if (rb.velocity.x > 0.01)
             {
-                if (canTurn)
+                if (canTurn && b)
                 {
                     anim.SetTrigger("turn");
                     canTurn = false;

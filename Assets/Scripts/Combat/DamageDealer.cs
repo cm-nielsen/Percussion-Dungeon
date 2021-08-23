@@ -10,7 +10,8 @@ public class DamageDealer : MonoBehaviour
     public float movementValue = 1, vampMultiplier = 0;
 
 
-    private List<Collider2D> ignore = new List<Collider2D>();
+    private List<Collider2D> ignore = new List<Collider2D>(),
+        exceptions = new List<Collider2D>();
     private Health health;
     private DamageReceiver selfReciever;
     private SpriteRenderer parentSprite;
@@ -41,6 +42,9 @@ public class DamageDealer : MonoBehaviour
         if (ignore.Contains(collision))
             return;
 
+        if (exceptions.Contains(collision))
+            return;
+
         if (selfReciever &&
             collision.transform.root == selfReciever.transform.root)
             return;
@@ -61,6 +65,7 @@ public class DamageDealer : MonoBehaviour
 
         if (rec == null || rec.Length == 0)
             return;
+
 
         bool miffed = false;
         foreach (DamageReceiver r in rec)
@@ -121,5 +126,10 @@ public class DamageDealer : MonoBehaviour
     {
 
         damageMultiplier = GameController.GetDamageMod();
+    }
+
+    public void AddException(Collider2D c)
+    {
+        exceptions.Add(c);
     }
 }

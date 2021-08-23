@@ -554,7 +554,7 @@ PrefabInstance:
         type: 3}
       propertyPath: display
       value: 
-      objectReference: {fileID: 446085783}
+      objectReference: {fileID: 0}
     - target: {fileID: 9075661051462715638, guid: 1503484e5f2de5549b0bc9bfe03643d0,
         type: 3}
       propertyPath: m_RootOrder
@@ -1102,18 +1102,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440991921}
   m_CullTransparentMesh: 0
---- !u!114 &446085783 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 735685001801991508, guid: 5367988279cf1aa47afc794148f23d96,
-    type: 3}
-  m_PrefabInstance: {fileID: 2861695402717791457}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b28365200c6cc624e915a302b5379920, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &501811389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,7 +1162,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &501811392
 MonoBehaviour:
@@ -1203,6 +1191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 247557387042874347}
+  triggerOnLoad: 1
+  triggerOnCollision: 0
   sections:
   - start: {x: 0.25, y: 0}
     end: {x: 1.25, y: 0}
@@ -3609,6 +3599,7 @@ MonoBehaviour:
   enemy: {fileID: 11400000, guid: 8272e8bfe2df3ab428d5e53e9801614f, type: 2}
   gate: {fileID: 11400000, guid: cb7dc985fae7241459dd13936626ff1f, type: 2}
   upgrade: {fileID: 11400000, guid: 62d8b3adb3ef18541906c4a33748c6a8, type: 2}
+  bossRoom: {fileID: 11400000, guid: 5726f5d53c6b9264a8dd83018a587089, type: 2}
   upgradeRoomTile: {fileID: 11400000, guid: c5b374c380df3094f80903a5ef64b8a4, type: 2}
   overflowSize: {x: 12, y: 6}
   maximumRooms: 12

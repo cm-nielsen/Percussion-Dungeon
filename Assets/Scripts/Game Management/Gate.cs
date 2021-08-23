@@ -10,6 +10,7 @@ public class Gate : MonoBehaviour
 
     private LevelGenerator generator;
     private float maxBarWidth;
+    private bool active = false;
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +41,30 @@ public class Gate : MonoBehaviour
                     r.enabled = false;
             }
 
-            GetComponent<Animator>().SetTrigger("go");
-            this.enabled = false;
+            if(active)
+            {
+                GetComponent<Animator>().SetTrigger("go");
+                this.enabled = false;
+            }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<PlayerController>())
+        {
+            if (loaded)
+            {
+                GetComponent<Animator>().SetTrigger("go");
+                this.enabled = false;
+            }
+            active = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<PlayerController>())
+            active = false;
     }
 }

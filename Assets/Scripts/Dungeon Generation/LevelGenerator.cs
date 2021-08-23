@@ -7,7 +7,7 @@ using System.Linq;
 public class LevelGenerator : MonoBehaviour
 {
     public List<GameObject> roomSetObjects;
-    public RuleTile platform, jar, enemy, gate, upgrade;
+    public RuleTile platform, jar, enemy, gate, upgrade, bossRoom;
     public TileBase upgradeRoomTile;
     public Vector2Int overflowSize;
     public Vector2Int size { get { return roomSetObjects[0].GetComponentInChildren<Room>().size; } }
@@ -424,6 +424,13 @@ public class LevelGenerator : MonoBehaviour
 
         foreach (Vector3Int v in occupiedPositions)
             FloodRoomBorders(v);
+
+        PotentialRoom lowestRoom = rooms[0];
+        foreach (PotentialRoom r in rooms)
+            if (r.pos.y < lowestRoom.pos.y)
+                lowestRoom = r;
+        lowestRoom.room.FetchTilePositionSet(new TileBase[] { bossRoom },
+            lowestRoom.pos).WriteTiles(tileList, positionList);
 
         tiles = tileList.ToArray();
         positions = positionList.ToArray();

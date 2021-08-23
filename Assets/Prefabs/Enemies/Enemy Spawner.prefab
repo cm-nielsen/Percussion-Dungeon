@@ -50,8 +50,8 @@ MonoBehaviour:
   - obj: {fileID: 6931561195555472230, guid: 5bc269f6550af254390c0dea42115667, type: 3}
     weight: 1
   - obj: {fileID: 8293966323208113917, guid: a99ba89238fc2f346a55673ce4c107b7, type: 3}
-    weight: 1
+    weight: 3
   - obj: {fileID: 9124018741608730589, guid: 247bc38bd7a36684097be5cec8d5ade9, type: 3}
-    weight: 2
+    weight: 1
   - obj: {fileID: 3127505455923268473, guid: f40b722c4b806b149b5b759d01b1c8dc, type: 3}
-    weight: 0.1
+    weight: 0.2

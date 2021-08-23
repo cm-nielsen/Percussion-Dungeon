@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backFill: {fileID: 9177170782155919216}
   backFillHoldFrames: 12
+  lerp: 0.05
   canDrain: 1
 --- !u!1 &2432373686768967180
 GameObject:

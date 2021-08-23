@@ -340,6 +340,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1503484e5f2de5549b0bc9bfe03643d0, type: 3}
+--- !u!4 &187400077 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+    type: 3}
+  m_PrefabInstance: {fileID: 883495655}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &358410461
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,6 +927,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &883495655
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1966010820}
+    m_Modifications:
+    - target: {fileID: 4247544890545319817, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_Name
+      value: Health Bar Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319819, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 800
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8e84ce2fda895d9498ca4bff5eb55431, type: 3}
 --- !u!1 &934783179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,7 +1112,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  playOnAwake: 1
+  playOnAwake: 0
 --- !u!4 &934783181
 Transform:
   m_ObjectHideFlags: 0
@@ -1406,6 +1486,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1333826279 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+    type: 3}
+  m_PrefabInstance: {fileID: 1673932976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1358292299
 GameObject:
   m_ObjectHideFlags: 0
@@ -4271,6 +4357,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1161386446}
+  - {fileID: 1333826279}
   m_Father: {fileID: 1358292300}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4446,6 +4533,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5367988279cf1aa47afc794148f23d96, type: 3}
+--- !u!1001 &1673932976
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1445235331}
+    m_Modifications:
+    - target: {fileID: 4247544890545319817, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_Name
+      value: Health Bar Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319818, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247544890545319819, guid: 8e84ce2fda895d9498ca4bff5eb55431,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 800
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8e84ce2fda895d9498ca4bff5eb55431, type: 3}
 --- !u!4 &1680366071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 614926639923312940, guid: abdef71b0c184d148beefd0e575bac7f,
@@ -4830,6 +4991,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1686448126}
+  - {fileID: 187400077}
   m_Father: {fileID: 2092235194}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5053,7 +5215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position:
-    start: {x: 4, y: 0}
+    start: {x: 5, y: 0}
     end: {x: 0, y: 0}
     curve:
       serializedVersion: 2
@@ -5220,12 +5382,12 @@ PrefabInstance:
     - target: {fileID: 4176901114961810011, guid: 2a63637feafb20443a573c590555e15f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4176901114961810011, guid: 2a63637feafb20443a573c590555e15f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4176901114961810011, guid: 2a63637feafb20443a573c590555e15f,
         type: 3}

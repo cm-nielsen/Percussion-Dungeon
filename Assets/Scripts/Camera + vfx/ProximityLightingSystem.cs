@@ -31,6 +31,17 @@ public class ProximityLightingSystem : MonoBehaviour
                 break;
             }
         }
+        foreach (BossBehavior b in FindObjectsOfType<BossBehavior>())
+        {
+            v = b.transform.position;
+            v.z = -1;
+            data.Add(v);
+            if (data.Count == maxPoints)
+            {
+                print("too many enemies for lighting system to handle");
+                break;
+            }
+        }
 
         foreach (MaterialLightingSettings m in members)
             m.ApplyData(data, maxPoints);

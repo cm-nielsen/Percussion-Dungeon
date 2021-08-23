@@ -43,7 +43,12 @@ public class BossBehavior : MonoBehaviour
         if (!target)
             AquireTarget();
         if (!target)
+        {
+            anim.SetBool("rolling", false);
+            anim.SetBool("turn", false);
+            anim.SetBool("back kick", false);
             return;
+        }
 
         rb.AddForce(Mathf.Abs(rb.velocity.y) * adaptiveGravity * Vector2.down);
         CheckGround();
@@ -224,5 +229,11 @@ public class BossBehavior : MonoBehaviour
         dealer.enabled = i > 0;
         if (i == 0)
             dealer.GetComponent<BoxCollider2D>().size = Vector2.zero;
+    }
+
+    private void FinishIntroduction()
+    {
+        transform.parent.GetComponentInChildren<Tween>().Play();
+        GetComponent<DamageReceiver>().invulnerable = false;
     }
 }

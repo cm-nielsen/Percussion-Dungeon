@@ -2,8 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tween : MonoBehaviour
+public class TweenInstance : MonoBehaviour
 {
+    public Tween tween;
+
+    private Vector2 startPos;
+    private bool playing = false;
+    private float startTime;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        tween.Initialize(transform);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        tween.Run();
+    }
+
+    public void Play()
+    {
+        tween.Play();
+    }
+}
+
+[System.Serializable]
+public class Tween
+{
+    public Transform target;
     public PositionTween position;
     public SizeTween size;
     public RotationTween rotation;
@@ -13,22 +41,19 @@ public class Tween : MonoBehaviour
     private bool playing = false;
     private float startTime;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Initialize(Transform transform)
     {
-        startPos = transform.localPosition;
-        transform.localPosition = startPos + position.start;
+        if (target == null)
+            target = transform;
+        startPos = target.localPosition;
+        target.localPosition = startPos + position.start;
         if (playOnAwake)
             Play();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Run()
     {
         if (playing)
-        {
             Lerp(Time.time - startTime);
-        }
     }
 
     public void Play()
@@ -37,15 +62,20 @@ public class Tween : MonoBehaviour
         startTime = Time.time;
     }
 
+    public void Stop()
+    {
+        playing = false;
+    }
+
     public void Lerp(float f)
     {
-        transform.localPosition = startPos + position.Lerp(f);
-        transform.localScale = size.Lerp(f);
-        transform.rotation = Quaternion.Euler(Vector3.forward * rotation.Lerp(f));
+        target.localPosition = startPos + position.Lerp(f);
+        target.localScale = size.Lerp(f);
+        target.rotation = Quaternion.Euler(Vector3.forward * rotation.Lerp(f));
     }
 
     [System.Serializable]
-    public class PositionTween: TweenBase<Vector2>
+    public class PositionTween : TweenBase<Vector2>
     {
         PositionTween()
         {

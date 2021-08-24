@@ -8,18 +8,6 @@ public class BossHUD : MonoBehaviour
     public Vector2 finalOffset;
     public Tween[] tweens;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Transition(GameObject g)
     {
         foreach (Tween t in tweens)

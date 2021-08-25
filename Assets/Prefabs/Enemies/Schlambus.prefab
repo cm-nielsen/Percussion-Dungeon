@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 4176901114961810002}
   - component: {fileID: 4176901114961810003}
   - component: {fileID: 4176901114961810010}
+  - component: {fileID: 294147293145102755}
   m_Layer: 12
   m_Name: Schlambus
   m_TagString: Untagged
@@ -255,6 +256,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &294147293145102755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4176901114961810004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 534f472ce02bccd4eb4f3fcfe276b997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenSet: {fileID: 0}
 --- !u!1 &4176901115105816998
 GameObject:
   m_ObjectHideFlags: 0

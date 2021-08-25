@@ -35,7 +35,7 @@ public class Tween
     public PositionTween position;
     public SizeTween size;
     public RotationTween rotation;
-    public bool playOnAwake;
+    public bool playOnAwake, playFromOffset = true;
 
     private Vector2 startPos;
     private bool playing = false;
@@ -46,13 +46,15 @@ public class Tween
         if (target == null)
             target = transform;
         startPos = target.localPosition;
-        target.localPosition = startPos + position.start;
+        if(!playFromOffset)
+            target.localPosition = startPos + position.start;
+
         if (playOnAwake)
             Play();
     }
     public void Run()
     {
-        if (playing)
+        if (playing && target)
             Lerp(Time.time - startTime);
     }
 
@@ -60,6 +62,10 @@ public class Tween
     {
         playing = true;
         startTime = Time.time;
+        if (playFromOffset)
+            startPos = target.localPosition;
+
+        target.localPosition = startPos + position.start;
     }
 
     public void Stop()

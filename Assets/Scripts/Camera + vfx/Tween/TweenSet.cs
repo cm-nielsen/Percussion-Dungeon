@@ -34,12 +34,16 @@ public class TweenSet : MonoBehaviour
 
     public void Play(string s)
     {
+        bool b = true;
         foreach (TweenList l in set)
             if (l.name == s)
             {
                 StopAllEffecting(l.AllTargets());
                 l.Play();
+                b = false;
             }
+        if(b)
+            print("Attempted to play a tween that does not exist");
     }
 
     public void StopAll()

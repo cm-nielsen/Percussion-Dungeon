@@ -14,16 +14,19 @@ public class BossBehavior : MonoBehaviour
     public GameObject childPrefab;
     public float birthingVelocity, adaptiveGravity;
     public LayerMask isGround;
+    [HideInInspector]
+    public bool isChild = false;
 
     private Animator anim;
     private Rigidbody2D rb;
     private BoxCollider2D col;
     private CircleCollider2D circCol;
     private Transform target;
+    private TweenPlayer tweens;
 
     private float circumference, prevX;
     private bool ground, rolling, turnToParent;
-    private static bool preggers = true;
+    private static bool preggers = true, oneDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,7 @@ public class BossBehavior : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
         circCol = GetComponent<CircleCollider2D>();
+        tweens = GetComponent<TweenPlayer>();
 
         circumference = circCol.radius * 2 * Mathf.PI;
         AquireTarget();
@@ -195,6 +199,9 @@ public class BossBehavior : MonoBehaviour
         Vector2 velocity = new Vector2(-birthingVelocity * transform.localScale.x, 0);
         child.GetComponent<Rigidbody2D>().velocity = velocity;
         child.transform.localScale = new Vector2(-transform.localScale.x, 1);
+        child.GetComponent<BossBehavior>().isChild = true;
+        child.GetComponent<TweenPlayer>().tweenSet = tweens.tweenSet;
+        tweens.PlayTween("phase 2");
 
         GetComponentInChildren<DamageDealer>().
             AddException(child.GetComponent<BoxCollider2D>());
@@ -210,7 +217,7 @@ public class BossBehavior : MonoBehaviour
         FindObjectOfType<BossHUD>().Transition(child);
     }
 
-    private void MidRollBite()
+    public void MidRollBite()
     {
         rolling = false;
         col.enabled = true;
@@ -233,7 +240,26 @@ public class BossBehavior : MonoBehaviour
 
     private void FinishIntroduction()
     {
-        transform.parent.GetComponentInChildren<Tween>().Play();
+        tweens.PlayTween("intro");
         GetComponent<DamageReceiver>().invulnerable = false;
+    }
+
+    public void OnDeath()
+    {
+        if (oneDead)
+        {
+            tweens.PlayTween("finish");
+        }
+        else {
+            oneDead = true;
+            if (isChild)
+            {
+                tweens.PlayTween("child die");
+            }
+            else
+            {
+                tweens.PlayTween("main die");
+            }
+        }
     }
 }

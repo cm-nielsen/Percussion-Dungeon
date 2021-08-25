@@ -24,8 +24,13 @@ public class BossHealth : Health
         //if (display)
         //    Destroy(display.gameObject);
 
+        BossBehavior bhv = GetComponent<BossBehavior>();
+        bhv.OnDeath();
+        bhv.MidRollBite();
+
+        GetComponent<Animator>().SetTrigger("die");
         Destroy(GetComponentInChildren<DamageDealer>().gameObject);
-        Destroy(GetComponent<BossBehavior>());
+        Destroy(bhv);
 
         BossAttackTrigger[] attackTriggers = GetComponentsInChildren<BossAttackTrigger>();
         for (int i = 0; i < attackTriggers.Length; i++)

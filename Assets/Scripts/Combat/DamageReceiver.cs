@@ -23,7 +23,8 @@ public class DamageReceiver : MonoBehaviour
     private RigidbodyConstraints2D prevCon;
 
     private float stunlockCounter = 0, flashTimer = 0, animPauseTimer = 0, apt2 = 0;
-    private bool lightAnim = false, heavyAnim = false, deathAnim = false, dead = false;
+    private bool lightAnim = false, heavyAnim = false,
+        deathAnim = false, dead = false, deadAnim = false;
 
     private void Start()
     {
@@ -40,6 +41,8 @@ public class DamageReceiver : MonoBehaviour
                     heavyAnim = true;
                 if (p.name == "die")
                     deathAnim = true;
+                if (p.name == "death")
+                    deadAnim = true;
             }
         }
 
@@ -168,10 +171,9 @@ public class DamageReceiver : MonoBehaviour
         {
             TurnToward(point);
             if (deathAnim)
-            {
                 anim.SetTrigger("die");
+            if(deadAnim)
                 anim.SetBool("dead", true);
-            }
         }
 
         if ((recoil & KnockbackTypes.physics) != 0)
@@ -243,6 +245,8 @@ public class DamageReceiver : MonoBehaviour
 
     private void SetFlashMatColors()
     {
+        if (!mat)
+            return;
         flashMat.SetColor("_MonoCol", ReverseColour(mat.GetColor("_MonoCol")));
         flashMat.SetColor("_MainCol", ReverseColour(mat.GetColor("_MainCol")));
     }

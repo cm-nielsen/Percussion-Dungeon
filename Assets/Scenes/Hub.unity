@@ -878,6 +878,7 @@ GameObject:
   - component: {fileID: 398669663}
   - component: {fileID: 398669662}
   - component: {fileID: 398669664}
+  - component: {fileID: 398669665}
   m_Layer: 0
   m_Name: Loading Icon
   m_TagString: Untagged
@@ -893,7 +894,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398669660}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -0.5, z: 0}
+  m_LocalPosition: {x: -0.75, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 829108656}
@@ -936,7 +937,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 903c498f0e5b1304987aaaa67b560310, type: 2}
+  - {fileID: 2100000, guid: c9705916a6f47104492339cbe7e16e30, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -975,7 +976,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398669660}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad7572d2f19544542939ba34279ed13d, type: 3}
   m_Name: 
@@ -984,6 +985,103 @@ MonoBehaviour:
   toFollow: {fileID: 183384541}
   maintainOffset: 1
   followPlayer: 0
+--- !u!114 &398669665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398669660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29430dcc0daad9949923ff60184c6239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tween:
+    target: {fileID: 0}
+    position:
+      start: {x: 0, y: 0}
+      end: {x: -0.125, y: 0}
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: -0.12231711
+          outSlope: -0.12231711
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.17782427
+        - serializedVersion: 3
+          time: 0.15
+          value: 1
+          inSlope: -0.15349925
+          outSlope: -0.15349925
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.17712697
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+    size:
+      start: {x: 1, y: 1}
+      end: {x: 0.75, y: 0.75}
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: -0.06340438
+          outSlope: -0.06340438
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.12551515
+        - serializedVersion: 3
+          time: 0.15050587
+          value: 0.0032599326
+          inSlope: 0.06000108
+          outSlope: 0.06000108
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.11281735
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.2249878
+          value: 0.9983673
+          inSlope: -0.1914326
+          outSlope: -0.1914326
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.035138216
+          outWeight: 0.33213076
+        - serializedVersion: 3
+          time: 0.3
+          value: 0
+          inSlope: 0.15314943
+          outSlope: 0.15314943
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.40468028
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 1
+        m_RotationOrder: 4
+    rotation:
+      start: 0
+      end: 0
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    playOnAwake: 0
+    playFromOffset: 1
 --- !u!4 &418456981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9075661051462715638, guid: 1503484e5f2de5549b0bc9bfe03643d0,
@@ -1162,7 +1260,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 1}
+  m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &501811392
 MonoBehaviour:
@@ -2396,15 +2494,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268011559}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: -0.625, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.375, y: -0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1970497843}
   - {fileID: 1919354459}
   m_Father: {fileID: 829108656}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &1268011561
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2444,13 +2542,13 @@ SpriteRenderer:
   m_SortingLayerID: -825305109
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4260858415260246037, guid: 99051d820b58f6a4aa2dae2f8f9d5f0d,
+  m_Sprite: {fileID: -907267783283606794, guid: 5e6938bdccc0b574fa3a7bc377e8e7bc,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 4, y: 0.125}
+  m_Size: {x: 1.4375, y: 0.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2463,7 +2561,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268011559}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad7572d2f19544542939ba34279ed13d, type: 3}
   m_Name: 
@@ -3370,13 +3468,13 @@ SpriteRenderer:
   m_SortingLayerID: -825305109
   m_SortingLayer: 6
   m_SortingOrder: -1
-  m_Sprite: {fileID: -4260858415260246037, guid: 99051d820b58f6a4aa2dae2f8f9d5f0d,
+  m_Sprite: {fileID: -907267783283606794, guid: 5e6938bdccc0b574fa3a7bc377e8e7bc,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 4, y: 0.125}
+  m_Size: {x: 1.4375, y: 0.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3407,7 +3505,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970497842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1268011560}
@@ -3452,10 +3550,10 @@ SpriteRenderer:
   m_SortingLayerID: -825305109
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8061108630606434545, guid: 99051d820b58f6a4aa2dae2f8f9d5f0d,
+  m_Sprite: {fileID: -2873830222710303229, guid: 5e6938bdccc0b574fa3a7bc377e8e7bc,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.0625, y: 0.09375}
@@ -3602,7 +3700,7 @@ MonoBehaviour:
   bossRoom: {fileID: 11400000, guid: 5726f5d53c6b9264a8dd83018a587089, type: 2}
   upgradeRoomTile: {fileID: 11400000, guid: c5b374c380df3094f80903a5ef64b8a4, type: 2}
   overflowSize: {x: 12, y: 6}
-  maximumRooms: 12
+  maximumRooms: 15
   minimumRooms: 8
   rolls: 4
   minimumFrameRate: 14

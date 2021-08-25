@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class BossHUD : MonoBehaviour
 {
-    public HealthBarDisplay firstHealthBar, secondHealthBar;
-    public Vector2 finalOffset;
-    public Tween[] tweens;
+    public HealthBarDisplay secondHealthBar;
+    //public Tween[] tweens;
 
     public void Transition(GameObject g)
     {
-        foreach (Tween t in tweens)
-            t.Play();
+        //foreach (Tween t in tweens)
+        //    t.Play();
 
         g.GetComponent<Health>().display = secondHealthBar;
     }

@@ -35,7 +35,7 @@ public class SegmentedHealthBarDisplay : HealthDisplay
     public void AdjustSegmentCount(int num)
     {
         if (num > maxSegments)
-            return;
+            num = maxSegments;
         if (num <= 2)
         {
             barEnd.localPosition = Vector2.zero;

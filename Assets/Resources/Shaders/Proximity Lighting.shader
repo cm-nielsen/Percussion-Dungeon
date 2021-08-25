@@ -38,7 +38,7 @@
 
             float4 _PositionData[1024];
             int _PosCount;
-            float _BaseLight;
+            float _BaseLight = 1;
 
             sampler2D _MainTex;
             fixed4 _MonoCol;

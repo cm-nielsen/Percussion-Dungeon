@@ -17270,6 +17270,7 @@ MonoBehaviour:
   bullyability: 0
   deathForce: 40
   invulnerable: 0
+  takeNoDamage: 0
 --- !u!4 &4723121521984205843
 Transform:
   m_ObjectHideFlags: 0

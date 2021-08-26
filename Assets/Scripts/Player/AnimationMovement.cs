@@ -70,4 +70,10 @@ public class AnimationMovement : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
     }
+
+    private void SetBool(string s)
+    {
+        string[] ar = s.Split(',');
+        GetComponent<Animator>().SetBool(ar[0], int.Parse(ar[1]) > 0);
+    }
 }

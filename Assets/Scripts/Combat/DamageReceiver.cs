@@ -13,6 +13,8 @@ public class DamageReceiver : MonoBehaviour
     public AudioClip[] heavyNoise, lightNoise;
     public float knockbackStrengthMod = 1, bullyability = 4, deathForce = 10;
     public bool invulnerable;
+    [HideInInspector]
+    public bool takeNoDamage;
 
     private Health health;
     private Animator anim;
@@ -63,35 +65,38 @@ public class DamageReceiver : MonoBehaviour
             return false;
 
         bool death = false;
-        if(health)
-            death = health.Reduce(amount);
-
-
-        foreach (IReceiveDamage r in GetComponentsInChildren<IReceiveDamage>())
-            r.Receive(amount);
-
-
-        SetFlashMatColors();
-        rend.material = flashMat;
-        if (death && !dead)
+        if (!takeNoDamage)
         {
-            dead |= death;
-            PlayerController pCon = GetComponent<PlayerController>();
-            flashTimer = 6 / 16f;
-            invulnerable = true;
-            pauseAnimation(5);
-            if (pCon && !DelayedSceneTransition.loading)
+            if (health)
+                death = health.Reduce(amount);
+
+
+            foreach (IReceiveDamage r in GetComponentsInChildren<IReceiveDamage>())
+                r.Receive(amount);
+
+
+            SetFlashMatColors();
+            rend.material = flashMat;
+            if (death && !dead)
             {
-                DelayedSceneTransition.loading = true;
-                DelayedSceneTransition t = Instantiate(new GameObject()).
-                    AddComponent<DelayedSceneTransition>();
-                t.delay = 4;
-                t.targetScene = "Hub";
-                t.loadAsynchronously = true;
-                Destroy(pCon);
+                dead |= death;
+                PlayerController pCon = GetComponent<PlayerController>();
+                flashTimer = 6 / 16f;
+                invulnerable = true;
+                pauseAnimation(5);
+                if (pCon && !DelayedSceneTransition.loading)
+                {
+                    DelayedSceneTransition.loading = true;
+                    DelayedSceneTransition t = Instantiate(new GameObject()).
+                        AddComponent<DelayedSceneTransition>();
+                    t.delay = 4;
+                    t.targetScene = "Hub";
+                    t.loadAsynchronously = true;
+                    Destroy(pCon);
+                }
+                Die(point, amount);
+                return true;
             }
-            Die(point, amount);
-            return true;
         }
 
         switch (dtype)

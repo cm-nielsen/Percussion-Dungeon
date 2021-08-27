@@ -63,15 +63,25 @@ public class TweenSet : MonoBehaviour
     {
         public string name;
         public Tween[] set = new Tween[0];
+        public AnimationTrigger[] animationTriggers = new AnimationTrigger[0];
 
         public void Initialize(Transform transform)
         {
             foreach (Tween t in set) t.Initialize(transform);
         }
 
-        public void Update() { foreach (Tween t in set) t.Run(); }
-        public void Play() { foreach (Tween t in set) t.Play(); }
-        public void Stop() { foreach (Tween t in set) t.Stop(); }
+        public void Update() {
+            foreach (Tween t in set) t.Run();
+            foreach (AnimationTrigger a in animationTriggers) a.Update();
+        }
+        public void Play() {
+            foreach (Tween t in set) t.Play();
+            foreach (AnimationTrigger a in animationTriggers) a.Play();
+        }
+        public void Stop() {
+            foreach (Tween t in set) t.Stop();
+            foreach (AnimationTrigger a in animationTriggers) a.Stop();
+        }
 
         public List<Transform> AllTargets()
         {
@@ -86,6 +96,38 @@ public class TweenSet : MonoBehaviour
             foreach (Tween t in set)
                 if (ls.Contains(t.target))
                     t.Stop();
+        }
+
+        [System.Serializable]
+        public class AnimationTrigger
+        {
+            public Animator animator;
+            public string parameterName;
+            public float delay = 0;
+            public bool isBool;
+
+            private float startTime = Mathf.Infinity;
+
+            public void Play() { startTime = Time.time; }
+            public void Stop()
+            {
+                startTime = Mathf.Infinity;
+                if (isBool)
+                    animator.SetBool(parameterName, false);
+                else
+                    animator.ResetTrigger(parameterName);
+            }
+
+            public void Update()
+            {
+                if(Time.time > startTime + delay)
+                {
+                    if (isBool)
+                        animator.SetBool(parameterName, true);
+                    else
+                        animator.SetTrigger(parameterName);
+                }
+            }
         }
     }
 }

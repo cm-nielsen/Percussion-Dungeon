@@ -121,12 +121,12 @@ public class LevelGenerator : MonoBehaviour
             // Spawn Gate and Upgrade
             int rand = upgradeRoomIndex;
             if (spawnUpgrade)
-            {
+            //{
                 rooms[upgradeRoomIndex].Fill(map, upgrade);
-                while (rand == upgradeRoomIndex)
-                    rand = Random.Range(rooms.Count / 2, rooms.Count);
-            }
-            rooms[rand].Fill(map, gate);
+            //    while (rand == upgradeRoomIndex)
+            //        rand = Random.Range(rooms.Count / 2, rooms.Count);
+            //}
+            //rooms[rand].Fill(map, gate);
 
             // drill hole from starting room to hub
             List<Vector3Int> vList = new List<Vector3Int>();

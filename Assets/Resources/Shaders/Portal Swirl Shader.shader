@@ -115,7 +115,7 @@ Shader "Custom/Portal Swirl Shader"
                 float2 dists = cellNoise3D((float3(uv.x, uv.y, i.vertex.z) + _Offset * _Time.x) * _Size);
                 float4 c = ((_MainCol * dists.x) * (_SecondaryColor * dists.y)) * _Intensity;
 
-                return c;
+                return c * tex2D(_MainTex, i.uv);
             }
             ENDCG
         }

@@ -76,7 +76,7 @@ public class DamageReceiver : MonoBehaviour
 
 
             SetFlashMatColors();
-            rend.material = flashMat;
+            if(rend) rend.material = flashMat;
             if (death && !dead)
             {
                 dead |= death;

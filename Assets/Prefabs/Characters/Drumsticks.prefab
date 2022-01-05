@@ -326,8 +326,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dType: 0
-  heavyNoise: []
-  lightNoise: []
+  heavyNoise:
+  - {fileID: 8300000, guid: 4c535179805ba4145b2d480ba165e983, type: 3}
+  - {fileID: 8300000, guid: 5130f0d4c41f8d24a840db2507a35035, type: 3}
+  lightNoise:
+  - {fileID: 8300000, guid: b1f7693b7e2394a4ab6e368d70742ef8, type: 3}
+  - {fileID: 8300000, guid: 8db7943fa3fe509478a727dff50bac63, type: 3}
   movementValue: 1
   vampMultiplier: 0
 --- !u!114 &9156843952665681159

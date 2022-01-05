@@ -449,6 +449,7 @@ MonoBehaviour:
   bullyability: 0
   deathForce: 8
   invulnerable: 0
+  takeNoDamage: 0
 --- !u!114 &3942942492400955476
 MonoBehaviour:
   m_ObjectHideFlags: 0

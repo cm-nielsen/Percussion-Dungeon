@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Plays footstep sound random footstep sound from animation events
+/// events are called with Step() on local instances,
+/// while the static instance (on the Audio prefab) stores the actual sounds
+/// </summary>
 public class Footsteps : AudioClipPlayer
 {
     private static new Footsteps instance;

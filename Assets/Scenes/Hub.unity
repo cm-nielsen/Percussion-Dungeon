@@ -3703,7 +3703,7 @@ MonoBehaviour:
   maximumRooms: 15
   minimumRooms: 8
   rolls: 4
-  minimumFrameRate: 14
+  minimumFrameRate: 30
   spawnUpgrade: 1
 --- !u!4 &247557386931078039
 Transform:
@@ -16773,36 +16773,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2621274286632860200, guid: 5367988279cf1aa47afc794148f23d96,
-        type: 3}
-      propertyPath: m_ForceIntoRT
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2621274286632860200, guid: 5367988279cf1aa47afc794148f23d96,
-        type: 3}
-      propertyPath: m_RenderingPath
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2621274286632860200, guid: 5367988279cf1aa47afc794148f23d96,
-        type: 3}
-      propertyPath: orthographic size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2621274286632860200, guid: 5367988279cf1aa47afc794148f23d96,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2621274286632860200, guid: 5367988279cf1aa47afc794148f23d96,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2621274286632860200, guid: 5367988279cf1aa47afc794148f23d96,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2621274286632860203, guid: 5367988279cf1aa47afc794148f23d96,
         type: 3}
       propertyPath: m_Name
@@ -16816,27 +16786,12 @@ PrefabInstance:
     - target: {fileID: 2621274286632860373, guid: 5367988279cf1aa47afc794148f23d96,
         type: 3}
       propertyPath: frameRate
-      value: 16
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 2621274286632860373, guid: 5367988279cf1aa47afc794148f23d96,
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2621274286632860374, guid: 5367988279cf1aa47afc794148f23d96,
-        type: 3}
-      propertyPath: m_UpscaleRT
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2621274286632860374, guid: 5367988279cf1aa47afc794148f23d96,
-        type: 3}
-      propertyPath: m_RefResolutionX
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 2621274286632860374, guid: 5367988279cf1aa47afc794148f23d96,
-        type: 3}
-      propertyPath: m_RefResolutionY
-      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2621274286632860375, guid: 5367988279cf1aa47afc794148f23d96,
         type: 3}
@@ -16926,11 +16881,6 @@ PrefabInstance:
     - target: {fileID: 4378624753664104029, guid: 5367988279cf1aa47afc794148f23d96,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5544768852182859711, guid: 5367988279cf1aa47afc794148f23d96,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7025757232191322901, guid: 5367988279cf1aa47afc794148f23d96,

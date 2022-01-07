@@ -437,6 +437,7 @@ GameObject:
   - component: {fileID: 3127505455923268358}
   - component: {fileID: 3127505455923268359}
   - component: {fileID: 3127505455923268472}
+  - component: {fileID: 4787685758234653321}
   m_Layer: 12
   m_Name: Grumpo
   m_TagString: Enemy
@@ -595,6 +596,7 @@ MonoBehaviour:
   bullyability: 0
   deathForce: 0
   invulnerable: 0
+  takeNoDamage: 0
 --- !u!114 &3127505455923268357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,3 +655,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4787685758234653321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3127505455923268473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e01b9d7182259a4ab4e446d2de72dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 2eee6aa5f7316594a87bfd4453b4878d, type: 3}
+  playOnAwake: 1

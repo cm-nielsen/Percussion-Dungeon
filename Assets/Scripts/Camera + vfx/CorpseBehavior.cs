@@ -9,7 +9,7 @@ public class CorpseBehavior : MonoBehaviour
     public static AudioClip thudSound;
 
     private AudioClipPlayer audioPlayer;
-    private float velocityThreshold = 1f;
+    private float velocityThreshold = .5f;
 
     private Material mat;
     private float fade = 0, fadeDelay = 0.75f, fadeLength = 2f;
@@ -54,8 +54,9 @@ public class CorpseBehavior : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb && rb.velocity.magnitude > velocityThreshold)
-            audioPlayer.PlayClip(thudSound);
+        float speed = rb.velocity.magnitude;
+        if (rb && speed > velocityThreshold)
+            audioPlayer.PlayClip(thudSound, speed / 4);
     }
 }
 

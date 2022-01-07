@@ -141,7 +141,7 @@ MonoBehaviour:
     a: 0.75
     b: 2
   deadMeat: {fileID: 6200000, guid: ac5786b3448c99a4a9e22ba9bd71812e, type: 2}
-  corpseSound: {fileID: 8300000, guid: d72b3ce4358f2084cb0e27d02427489f, type: 3}
+  corpseSound: {fileID: 8300000, guid: e2e5cb458167fb945b06375a7dd77fbb, type: 3}
   audioSettings:
     spatialBlend: 1
     volume: 1

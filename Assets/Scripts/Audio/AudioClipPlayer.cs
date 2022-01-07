@@ -47,6 +47,20 @@ public class AudioClipPlayer : MonoBehaviour
         sources.Add(s);
     }
 
+    public void PlayClip(AudioClip clip, float volumeMultiplier)
+    {
+        if (!clip)
+            return;
+
+        AudioSource s = gameObject.AddComponent<AudioSource>();
+        ApplyParameters(s);
+        s.volume *= volumeMultiplier;
+
+        s.clip = clip;
+        s.Play();
+        sources.Add(s);
+    }
+
     public void PlayClipStatic(AudioClip clip)
     {
         Play(clip);

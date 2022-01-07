@@ -1201,7 +1201,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.75, y: 0.875}
+    oldSize: {x: 1, y: 0.625}
     newSize: {x: 0.03125, y: 0.03125}
     adaptiveTilingThreshold: 0
     drawMode: 0
@@ -1721,7 +1721,7 @@ RectTransform:
   m_GameObject: {fileID: 3913139370314596798}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children:
   - {fileID: 6641807561799020017}
   m_Father: {fileID: 7986568617970887138}
@@ -2213,6 +2213,7 @@ GameObject:
   - component: {fileID: 5092158424197723994}
   - component: {fileID: 6952923996143426723}
   - component: {fileID: 7076704009325808079}
+  - component: {fileID: 5636790343817850594}
   m_Layer: 0
   m_Name: Exit Gate
   m_TagString: Untagged
@@ -2305,6 +2306,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5636790343817850594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835536732922096038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e01b9d7182259a4ab4e446d2de72dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: f8779af9e9a3ed74abaa74a8ca85bebf, type: 3}
+  volumeMultiplier: 0
+  playOnAwake: 0
 --- !u!1 &7986568617970887143
 GameObject:
   m_ObjectHideFlags: 0

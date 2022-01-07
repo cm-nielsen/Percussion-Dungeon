@@ -32,6 +32,8 @@ public class AudioMenu : MonoBehaviour//, RequiresInitialSetup
     public void SetEffectVolume(float num)
     {
         AudioClipPlayer.settings.volume = num;
+        foreach (LoopingAudioClipPlayer player in FindObjectsOfType<LoopingAudioClipPlayer>())
+            player.UpdateParameters();
         GameData.sfxVol = num;
         GameController.SaveGameData();
     }

@@ -50,8 +50,8 @@ MonoBehaviour:
     holdTime: 0
     toggleInput: 0
     keyCodes:
-    - leftarrow
     - a
+    - leftarrow
     mouseButtons: []
     gamePadButtons:
     - dpad/left
@@ -61,8 +61,8 @@ MonoBehaviour:
     holdTime: 0
     toggleInput: 0
     keyCodes:
-    - rightarrow
     - d
+    - rightarrow
     mouseButtons: []
     gamePadButtons:
     - dpad/right
@@ -72,8 +72,8 @@ MonoBehaviour:
     holdTime: 0.2
     toggleInput: 1
     keyCodes:
-    - uparrow
     - w
+    - uparrow
     - space
     mouseButtons: []
     gamePadButtons:
@@ -84,8 +84,8 @@ MonoBehaviour:
     holdTime: 0
     toggleInput: 0
     keyCodes:
-    - downarrow
     - s
+    - downarrow
     mouseButtons: []
     gamePadButtons:
     - dpad/down
@@ -120,6 +120,8 @@ MonoBehaviour:
     - shift
     mouseButtons:
     - middleButton
+    - backButton
+    - forwardButton
     gamePadButtons:
     - buttonEast
     - buttonWest

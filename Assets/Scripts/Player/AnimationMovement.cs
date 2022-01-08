@@ -53,7 +53,7 @@ public class AnimationMovement : MonoBehaviour
         else
             diff = Vector2.right * x;
         rb.velocity += diff;
-        GetComponent<DamageReceiver>().ReceiveImpulse(diff);
+        GetComponent<DamageReceiver>()?.ReceiveImpulse(diff);
     }
 
     private void LockPosition(int i)

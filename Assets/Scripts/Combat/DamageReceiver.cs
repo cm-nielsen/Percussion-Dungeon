@@ -11,7 +11,10 @@ public class DamageReceiver : MonoBehaviour
     public KnockbackTypes recoil;
 
     public AudioClip[] heavyNoise, lightNoise;
-    public float knockbackStrengthMod = 1, bullyability = 4, deathForce = 10;
+    public float knockbackStrengthMod = 1, bullyability = 4,
+        deathForce = 10;
+    [Range(0, 1)]
+    public float verticalDeathForce = 1;
     public bool invulnerable;
     [HideInInspector]
     public bool takeNoDamage;
@@ -193,7 +196,7 @@ public class DamageReceiver : MonoBehaviour
         if (!rb)
             return;
 
-        v += Vector2.up;
+        v += Vector2.up * verticalDeathForce;
         //rb.sharedMaterial = deadMeat;
         rb.AddForce((v.normalized) * deathForce, ForceMode2D.Impulse);
         prevVel = rb.velocity;

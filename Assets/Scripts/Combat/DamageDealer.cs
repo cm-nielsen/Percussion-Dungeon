@@ -9,6 +9,8 @@ public class DamageDealer : MonoBehaviour
     public AudioClip[] heavyNoise, lightNoise;
     public float movementValue = 1, vampMultiplier = 0;
 
+    public float verticalRecoil = .5f;
+
 
     private List<Collider2D> ignore = new List<Collider2D>(),
         exceptions = new List<Collider2D>();
@@ -33,7 +35,7 @@ public class DamageDealer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //// you might b etempted to uncomment this,
+        //// you might be tempted to uncomment this,
         //// In almost every way, it would seem like a great fix
         //// fuck you it breaks all damage
         //if (!enabled)
@@ -61,7 +63,7 @@ public class DamageDealer : MonoBehaviour
             dir.x *= -1;
         dir.x += transform.lossyScale.x;
 
-        dir += Vector2.up / 2;
+        dir += Vector2.up * verticalRecoil;
 
         if (rec == null || rec.Length == 0)
             return;

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: cannon ball jump
+  m_Name: cutscene idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,19 +20,28 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -6573759971474349785, guid: cc74bff044349f548bfd2ae6bce748a7,
+      value: {fileID: -6691117933583519209, guid: bbcbc92797d76a048ac96f87d4ae1172,
         type: 3}
     - time: 0.0625
-      value: {fileID: 7298670949614980493, guid: cc74bff044349f548bfd2ae6bce748a7,
+      value: {fileID: -8407563218290406058, guid: bbcbc92797d76a048ac96f87d4ae1172,
         type: 3}
     - time: 0.125
-      value: {fileID: 6023051482738796241, guid: cc74bff044349f548bfd2ae6bce748a7,
+      value: {fileID: 8233792836403689687, guid: bbcbc92797d76a048ac96f87d4ae1172,
         type: 3}
     - time: 0.1875
-      value: {fileID: -2496253487923218573, guid: cc74bff044349f548bfd2ae6bce748a7,
+      value: {fileID: -7839069018920466562, guid: bbcbc92797d76a048ac96f87d4ae1172,
         type: 3}
     - time: 0.25
-      value: {fileID: 4920074560635738453, guid: cc74bff044349f548bfd2ae6bce748a7,
+      value: {fileID: -6758859411109541737, guid: bbcbc92797d76a048ac96f87d4ae1172,
+        type: 3}
+    - time: 0.3125
+      value: {fileID: 7202213340822096786, guid: bbcbc92797d76a048ac96f87d4ae1172,
+        type: 3}
+    - time: 0.375
+      value: {fileID: -7750163474669871041, guid: bbcbc92797d76a048ac96f87d4ae1172,
+        type: 3}
+    - time: 0.4375
+      value: {fileID: 3014765462529802308, guid: bbcbc92797d76a048ac96f87d4ae1172,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -53,22 +62,25 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -6573759971474349785, guid: cc74bff044349f548bfd2ae6bce748a7, type: 3}
-    - {fileID: 7298670949614980493, guid: cc74bff044349f548bfd2ae6bce748a7, type: 3}
-    - {fileID: 6023051482738796241, guid: cc74bff044349f548bfd2ae6bce748a7, type: 3}
-    - {fileID: -2496253487923218573, guid: cc74bff044349f548bfd2ae6bce748a7, type: 3}
-    - {fileID: 4920074560635738453, guid: cc74bff044349f548bfd2ae6bce748a7, type: 3}
+    - {fileID: -6691117933583519209, guid: bbcbc92797d76a048ac96f87d4ae1172, type: 3}
+    - {fileID: -8407563218290406058, guid: bbcbc92797d76a048ac96f87d4ae1172, type: 3}
+    - {fileID: 8233792836403689687, guid: bbcbc92797d76a048ac96f87d4ae1172, type: 3}
+    - {fileID: -7839069018920466562, guid: bbcbc92797d76a048ac96f87d4ae1172, type: 3}
+    - {fileID: -6758859411109541737, guid: bbcbc92797d76a048ac96f87d4ae1172, type: 3}
+    - {fileID: 7202213340822096786, guid: bbcbc92797d76a048ac96f87d4ae1172, type: 3}
+    - {fileID: -7750163474669871041, guid: bbcbc92797d76a048ac96f87d4ae1172, type: 3}
+    - {fileID: 3014765462529802308, guid: bbcbc92797d76a048ac96f87d4ae1172, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.3125
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -82,19 +94,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0
-    functionName: PlayClip
-    data: 
-    objectReferenceParameter: {fileID: 8300000, guid: 78e5a7c366efb184ca7b1751aafce6e8,
-      type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.0625
-    functionName: VerticalImpulse
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 32
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

@@ -48,6 +48,11 @@ public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
     /// </summary>
     private int inputIndex = 0;
 
+    /// <summary>
+    /// used to update control displays when they should change
+    /// </summary>
+    private List<Action> onChange = new List<Action>();
+
     private enum State { idle, listen, buttonSafeListen, noisePrevention}
     private State state = State.idle;
     // Start is called before the first frame update
@@ -357,6 +362,13 @@ public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
             GameData.pControls.Add(new ConUnit(u));
 
         GameController.SaveGameData();
+
+        foreach (Action a in onChange) if (a != null) a();
+    }
+
+    public void UpdateOnChange(Action a)
+    {
+        onChange.Add(a);
     }
 }
 

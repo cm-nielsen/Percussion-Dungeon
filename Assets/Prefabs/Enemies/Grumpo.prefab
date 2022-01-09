@@ -46,6 +46,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -127,6 +128,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -212,6 +214,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -309,6 +312,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -419,6 +423,7 @@ MonoBehaviour:
   lightNoise: []
   movementValue: 5
   vampMultiplier: 0
+  verticalRecoil: 0.5
 --- !u!1 &3127505455923268473
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,6 +481,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -574,9 +580,9 @@ MonoBehaviour:
   max: 20
   amount: 0
   display: {fileID: 0}
-  expOrbPrefab: {fileID: 5067735000811720593, guid: d2fdfaffb9fd63a42b28cda1ef12ed44,
+  expOrbPrefab: {fileID: 7737154331011196737, guid: 6e37a54f54e601342badb39c384c0643,
     type: 3}
-  experience: 8
+  experience: 1
 --- !u!114 &3127505455923268356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,6 +601,7 @@ MonoBehaviour:
   knockbackStrengthMod: 1
   bullyability: 0
   deathForce: 0
+  verticalDeathForce: 1
   invulnerable: 0
   takeNoDamage: 0
 --- !u!114 &3127505455923268357

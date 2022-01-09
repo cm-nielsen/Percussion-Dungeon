@@ -35,11 +35,20 @@ public class GameController : MonoBehaviour
         if (Application.platform != RuntimePlatform.WebGLPlayer) {
             if (File.Exists(Application.persistentDataPath + "/save.drum"))
             {
-                FileStream fStream = File.Open(Application.persistentDataPath + "/save.drum",
-                    FileMode.Open);
-                GameDataInstance save = (GameDataInstance)bf.Deserialize(fStream);
-                GameData.Load(save);
-                fStream.Close();
+                try
+                {
+                    FileStream fStream = File.Open(Application.persistentDataPath + "/save.drum",
+                        FileMode.Open);
+                    GameDataInstance save = (GameDataInstance)bf.Deserialize(fStream);
+                    GameData.Load(save);
+                    fStream.Close();
+                }
+                catch (System.Runtime.Serialization.SerializationException e)
+                {
+                    print("failed to load from file");
+                    print(e);
+                    WipeSave();
+                }
             }
             else
                 WipeSave();
@@ -48,14 +57,29 @@ public class GameController : MonoBehaviour
         {
             if (PlayerPrefs.HasKey("Save"))
             {
-                print("Loading from player prefs");
-                byte[] byteArray = System.Text.Encoding.ASCII.GetBytes(
-                    PlayerPrefs.GetString("Save"));
-                using (MemoryStream stream = new MemoryStream(byteArray))
+                try
                 {
-                    GameDataInstance save = (GameDataInstance)
-                        bf.Deserialize(stream);
-                    GameData.Load(save);
+                    print("Loading from player prefs");
+                    byte[] byteArray = System.Text.Encoding.ASCII.GetBytes(
+                        PlayerPrefs.GetString("Save"));
+                    using (MemoryStream stream = new MemoryStream(byteArray))
+                    {
+                        GameDataInstance save = (GameDataInstance)
+                            bf.Deserialize(stream);
+                        GameData.Load(save);
+                    }
+                }
+                catch (System.Runtime.Serialization.SerializationException e)
+                {
+                    print("failed to load from player prefs");
+                    print(e);
+                    WipeSave();
+                }
+                catch (System.Exception e)
+                {
+                    print("failed to load from player prefs");
+                    print(e);
+                    WipeSave();
                 }
             }
             else
@@ -109,9 +133,13 @@ public class GameController : MonoBehaviour
 
         GameData.experience = new WeaponExperience();
 
+        GameData.pControls = new List<ControlKey.ControlUnit>();
         foreach (ControlKey.ControlUnit u in GameObject.FindGameObjectWithTag("pControl").
             GetComponent<ControlKey>().inputs)
             GameData.pControls.Add(u);
+
+        GameData.colours = FindObjectOfType
+            <ColourSettingsInstance>().ApplyDefault();
 
         //if (Application.platform != RuntimePlatform.WebGLPlayer)
             SaveGameData();
@@ -249,6 +277,8 @@ public struct GameData
 
     public static List<ControlKey.ControlUnit> pControls;
 
+    public static ColourSettings colours;
+
     public static void Load(GameDataInstance i)
     {
         healthUpgrades = i.healthUpgrades;
@@ -261,6 +291,7 @@ public struct GameData
         vfxSettings = i.vfxSettings;
         experience = i.experience;
         pControls = i.pControls;
+        colours = i.colours;
     }
 }
 
@@ -273,6 +304,7 @@ public struct GameDataInstance
     public VisualEffectSettings vfxSettings;
     public WeaponExperience experience;
     public List<ControlKey.ControlUnit> pControls;
+    public ColourSettings colours;
 
     public GameDataInstance(bool b = false)
     {
@@ -286,6 +318,7 @@ public struct GameDataInstance
         vfxSettings = GameData.vfxSettings;
         experience = GameData.experience;
         pControls = GameData.pControls;
+        colours = GameData.colours;
     }
 }
 

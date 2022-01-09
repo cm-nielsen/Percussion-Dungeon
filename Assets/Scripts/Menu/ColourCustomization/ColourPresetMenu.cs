@@ -13,10 +13,14 @@ public class ColourPresetMenu : MonoBehaviour, RequiresInitialSetup
     public Button back;
     //public ColourPresetMaterials materials;
 
+    private ColourSettingsInstance colourSettings;
+
     private Image[] previewImages, currentImages;
     // Start is called before the first frame update
     public void Setup()
     {
+        colourSettings = FindObjectOfType<ColourSettingsInstance>();
+
         currentImages = colourView.GetComponentsInChildren<Image>();
         previewImages = colourPreview.GetComponentsInChildren<Image>();
         foreach (Image i in previewImages)
@@ -86,6 +90,8 @@ public class ColourPresetMenu : MonoBehaviour, RequiresInitialSetup
             currentImages[i].material.SetColor("_MainCol", p.main);
             currentImages[i++].material.SetColor("_MonoCol", p.mono);
         }
+
+        colourSettings.UpdateColours();
     }
 }
 

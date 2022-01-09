@@ -34709,7 +34709,7 @@ Transform:
   - {fileID: 1113755549}
   - {fileID: 422534354}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &65976120
 MonoBehaviour:
@@ -34845,7 +34845,7 @@ PrefabInstance:
     - target: {fileID: 9075661051462715638, guid: 1503484e5f2de5549b0bc9bfe03643d0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9075661051462715638, guid: 1503484e5f2de5549b0bc9bfe03643d0,
         type: 3}
@@ -35464,7 +35464,7 @@ Transform:
   - {fileID: 114603598}
   - {fileID: 1744601618}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &580206884
 GameObject:
@@ -35939,7 +35939,7 @@ PrefabInstance:
     - target: {fileID: 7429383183050967215, guid: 64081a66ec6478f4f9be83c557b548bc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7429383183050967215, guid: 64081a66ec6478f4f9be83c557b548bc,
         type: 3}
@@ -36025,7 +36025,7 @@ PrefabInstance:
     - target: {fileID: 7047467901214825877, guid: 3c4c7409965c41a4886dffb5696094c0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7047467901214825877, guid: 3c4c7409965c41a4886dffb5696094c0,
         type: 3}
@@ -36767,7 +36767,7 @@ PrefabInstance:
     - target: {fileID: 4595606417416723905, guid: aaf32d16feeb1294ab164ddcc164bbcd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4595606417416723905, guid: aaf32d16feeb1294ab164ddcc164bbcd,
         type: 3}
@@ -37023,7 +37023,7 @@ Transform:
   m_LocalScale: {x: 384, y: 256, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4499531501618576772
 SpriteRenderer:

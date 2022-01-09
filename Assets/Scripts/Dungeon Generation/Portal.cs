@@ -5,27 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
-
-    public string targetScene, loadingScene;
-    public GameObject transitionObject;
     public Material colourMirror;
 
     private ControlKey pKey;
+    private DissolveSceneTransition sceneTransition;
     private Material mat;
     private bool active = false;
 
     private void Start()
     {
-        pKey = GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>();
+        pKey = GameObject.FindGameObjectWithTag("pControl").
+            GetComponent<ControlKey>();
         mat = GetComponent<SpriteRenderer>().sharedMaterial;
+        sceneTransition = GetComponentInChildren<DissolveSceneTransition>();
     }
 
     private void Update()
     {
         if (active && pKey["down"])
         {
-            GetComponent<SpriteRenderer>().enabled = false;
-            Instantiate(transitionObject, transform.position, Quaternion.identity);
+            sceneTransition.StartTransition();
             active = false;
         }
 

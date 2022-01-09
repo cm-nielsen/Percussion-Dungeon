@@ -74,8 +74,8 @@ public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
 
         UIInput = EventSystem.current.currentInputModule;
         target = GameObject.FindGameObjectWithTag("pControl").GetComponent<ControlKey>();
-        if (GameData.pControls.Count < 2 || 
-            Application.platform == RuntimePlatform.WebGLPlayer)
+        if (GameData.pControls.Count < 2)
+            //|| Application.platform == RuntimePlatform.WebGLPlayer)
             return;
 
         target.inputs.Clear();
@@ -353,8 +353,8 @@ public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
 
     private void SaveControls()
     {
-        if (target.inputs.Count < 2 ||
-               Application.platform == RuntimePlatform.WebGLPlayer)
+        if (target.inputs.Count < 2)
+               //|| Application.platform == RuntimePlatform.WebGLPlayer)
             return;
 
         GameData.pControls.Clear();

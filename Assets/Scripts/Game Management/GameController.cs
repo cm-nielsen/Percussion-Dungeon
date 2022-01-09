@@ -30,18 +30,37 @@ public class GameController : MonoBehaviour
 
     private void LoadFromFile()
     {
+        BinaryFormatter bf = new BinaryFormatter();
         //WipeSave();
-        if (File.Exists(Application.persistentDataPath + "/save.drum"))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream fStream = File.Open(Application.persistentDataPath + "/save.drum",
-                FileMode.Open);
-            GameDataInstance save = (GameDataInstance)bf.Deserialize(fStream);
-            GameData.Load(save);
-            fStream.Close();
+        if (Application.platform != RuntimePlatform.WebGLPlayer) {
+            if (File.Exists(Application.persistentDataPath + "/save.drum"))
+            {
+                FileStream fStream = File.Open(Application.persistentDataPath + "/save.drum",
+                    FileMode.Open);
+                GameDataInstance save = (GameDataInstance)bf.Deserialize(fStream);
+                GameData.Load(save);
+                fStream.Close();
+            }
+            else
+                WipeSave();
         }
         else
-            WipeSave();
+        {
+            if (PlayerPrefs.HasKey("Save"))
+            {
+                print("Loading from player prefs");
+                byte[] byteArray = System.Text.Encoding.ASCII.GetBytes(
+                    PlayerPrefs.GetString("Save"));
+                using (MemoryStream stream = new MemoryStream(byteArray))
+                {
+                    GameDataInstance save = (GameDataInstance)
+                        bf.Deserialize(stream);
+                    GameData.Load(save);
+                }
+            }
+            else
+                WipeSave();
+        }
     }
 
     public void ApplyParameters(Scene s, LoadSceneMode m)
@@ -52,13 +71,30 @@ public class GameController : MonoBehaviour
     public static void SaveGameData()
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream fStream = File.Create(Application.persistentDataPath + "/save.drum");
-        GameDataInstance save = new GameDataInstance(false);
-        //foreach (ControlKey.ControlUnit u in save.pControls)
-        //    Debug.Log(u.identifier);
-        bf.Serialize(fStream, save);
-        fStream.Close();
-        //Debug.Log("GameData saved");
+        if (Application.platform != RuntimePlatform.WebGLPlayer)
+        {
+            FileStream fStream = File.Create(
+                Application.persistentDataPath + "/save.drum");
+            GameDataInstance save = new GameDataInstance(false);
+            //foreach (ControlKey.ControlUnit u in save.pControls)
+            //    Debug.Log(u.identifier);
+            bf.Serialize(fStream, save);
+            fStream.Close();
+            //Debug.Log("GameData saved");
+        }
+        else
+        {
+            print("Saving to pPlayerPrefs");
+            using (MemoryStream stream = new MemoryStream())
+            {
+                bf.Serialize(stream, new GameDataInstance(false));
+                PlayerPrefs.SetString("Save",
+                    System.Text.Encoding.ASCII.
+                    GetString(stream.GetBuffer()));
+            }
+            print("Value Saved in player prefs: " +
+                PlayerPrefs.GetString("Save"));
+        }
     }
 
     public static void WipeSave()
@@ -77,7 +113,7 @@ public class GameController : MonoBehaviour
             GetComponent<ControlKey>().inputs)
             GameData.pControls.Add(u);
 
-        if (Application.platform != RuntimePlatform.WebGLPlayer)
+        //if (Application.platform != RuntimePlatform.WebGLPlayer)
             SaveGameData();
     }
 
@@ -90,7 +126,7 @@ public class GameController : MonoBehaviour
 
         GameData.experience = new WeaponExperience();
 
-        if (Application.platform != RuntimePlatform.WebGLPlayer)
+        //if (Application.platform != RuntimePlatform.WebGLPlayer)
             SaveGameData();
     }
 
@@ -109,7 +145,7 @@ public class GameController : MonoBehaviour
             GetComponent<ControlKey>().inputs)
             GameData.pControls.Add(new ControlKey.ControlUnit(u));
 
-        if (Application.platform != RuntimePlatform.WebGLPlayer)
+        //if (Application.platform != RuntimePlatform.WebGLPlayer)
             SaveGameData();
     }
 

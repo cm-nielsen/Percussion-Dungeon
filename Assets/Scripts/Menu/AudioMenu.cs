@@ -7,6 +7,8 @@ public class AudioMenu : MonoBehaviour//, RequiresInitialSetup
 {
     public Slider master, sfx, music;
 
+    public bool SaveEnabled = false;
+
     public void OnEnable()
     {
         float num = GameData.masterVol;
@@ -20,29 +22,41 @@ public class AudioMenu : MonoBehaviour//, RequiresInitialSetup
         num = GameData.musicVol;
         music.value = num;
         GameObject.FindObjectOfType<Music>().GetComponent<AudioSource>().volume = num;
+
+        SaveEnabled = true;
     }
 
     public void SetMasterVolume(float num)
     {
         AudioListener.volume = num;
-        GameData.masterVol = num;
-        GameController.SaveGameData();
+        if (SaveEnabled)
+        {
+            GameData.masterVol = num;
+            GameController.SaveGameData();
+        }
     }
 
     public void SetEffectVolume(float num)
     {
         AudioClipPlayer.settings.volume = num;
-        foreach (LoopingAudioClipPlayer player in FindObjectsOfType<LoopingAudioClipPlayer>())
+        foreach (LoopingAudioClipPlayer player in
+            FindObjectsOfType<LoopingAudioClipPlayer>())
             player.UpdateParameters();
-        GameData.sfxVol = num;
-        GameController.SaveGameData();
+        if (SaveEnabled)
+        {
+            GameData.sfxVol = num;
+            GameController.SaveGameData();
+        }
     }
 
     public void SetMusicVolume(float num)
     {
         GameObject.FindObjectOfType<Music>().GetComponent<AudioSource>().volume = num;
-        GameData.musicVol = num;
-        GameController.SaveGameData();
+        if (SaveEnabled)
+        {
+            GameData.musicVol = num;
+            GameController.SaveGameData();
+        }
     }
 
     public static void SetAll()

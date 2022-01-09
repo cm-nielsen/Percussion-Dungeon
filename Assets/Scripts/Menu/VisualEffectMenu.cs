@@ -13,6 +13,8 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
 
     private List<VisualEffect> effects = new List<VisualEffect>();
 
+    private bool saveEnabled = false;
+
     public void Setup()
     {
         VisualEffect.tBox = tBox;
@@ -28,6 +30,7 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
 
         foreach (VisualEffect e in effects)
             e.SetToDefault();
+        saveEnabled = true;
     }
 
     public void ApplySavedSettings()
@@ -82,7 +85,11 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
                 if (e.name == v.volume[i])
                     v.volumeVal[i] = e.toggle;
         }
-        GameController.SaveGameData();
+        if (saveEnabled)
+        {
+            GameController.SaveGameData();
+            print("Game Saved from:" + name);
+        }
     }
 
     public void ToggleEffect(string s)
@@ -99,15 +106,23 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
     public void SetCamShake()
     {
         Camera.main.GetComponent<CameraFollow>().shakeMultiplier = camShakeSlider.value;
-        GameData.vfxSettings.camShake = camShakeSlider.value;
-        GameController.SaveGameData();
+        if (saveEnabled)
+        {
+            GameData.vfxSettings.camShake = camShakeSlider.value;
+            GameController.SaveGameData();
+            print("Game Saved from:" + name);
+        }
     }
 
     public void SetCamShakeFrequency()
     {
         Camera.main.GetComponent<CameraFollow>().shakeFrequency = shakeFreqSlider.value;
-        GameData.vfxSettings.shakeFreq = shakeFreqSlider.value;
-        GameController.SaveGameData();
+        if (saveEnabled)
+        {
+            GameData.vfxSettings.shakeFreq = shakeFreqSlider.value;
+            GameController.SaveGameData();
+            print("Game Saved from:" + name);
+        }
     }
 
     [System.Serializable]

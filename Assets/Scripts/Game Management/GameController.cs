@@ -15,6 +15,9 @@ public class GameController : MonoBehaviour
     public WeaponSet weaponSet;
     public float profIncrement, LevelIncrement;
 
+    [Space(10)]
+    public bool debugPrint;
+
     private void OnEnable()
     {
         if (!instance)
@@ -45,8 +48,11 @@ public class GameController : MonoBehaviour
                 }
                 catch (System.Runtime.Serialization.SerializationException e)
                 {
-                    print("failed to load from file");
-                    print(e);
+                    if (debugPrint)
+                    {
+                        print("failed to load from file");
+                        print(e);
+                    }
                     WipeSave();
                 }
             }
@@ -71,14 +77,20 @@ public class GameController : MonoBehaviour
                 }
                 catch (System.Runtime.Serialization.SerializationException e)
                 {
-                    print("failed to load from player prefs");
-                    print(e);
+                    if (debugPrint)
+                    {
+                        print("failed to load from cookies");
+                        print(e);
+                    }
                     WipeSave();
                 }
                 catch (System.Exception e)
                 {
-                    print("failed to load from player prefs");
-                    print(e);
+                    if (debugPrint)
+                    {
+                        print("failed to load from cookies");
+                        print(e);
+                    }
                     WipeSave();
                 }
             }
@@ -119,6 +131,9 @@ public class GameController : MonoBehaviour
             print("Value Saved in player prefs: " +
                 PlayerPrefs.GetString("Save"));
         }
+
+        if (instance.debugPrint)
+            print("Saved GameData");
     }
 
     public static void WipeSave()
@@ -184,7 +199,7 @@ public class GameController : MonoBehaviour
         GainExp(0);
     }
 
-    public static void GainExp(int amount)
+    public static void GainExp(int amount, bool save = true)
     {
         if (!instance) return;
 
@@ -192,7 +207,9 @@ public class GameController : MonoBehaviour
         float rat = GameData.experience.AddExperience(amount, GameData.current);
         //Debug.Log("level : " + GameData.experience.LevelOf(GameData.current) +
         //    "Ratio :" + rat);
-        SaveGameData();
+        if (save)
+            SaveGameData();
+
         FindObjectOfType<PlayerController>()?.UpdateDamage();
         ExperienceBarDisplay bar = FindObjectOfType<ExperienceBarDisplay>();
         if (!bar)
@@ -228,6 +245,7 @@ public class GameController : MonoBehaviour
         GameData.castas -= n;
         GameData.unlocks |= weaponSet.GetType(prefab);
         SaveGameData();
+        print("Game Saved from:" + name);
         return true;
     }
 

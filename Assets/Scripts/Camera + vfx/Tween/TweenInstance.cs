@@ -6,9 +6,9 @@ public class TweenInstance : MonoBehaviour
 {
     public Tween tween;
 
-    private Vector2 startPos;
-    private bool playing = false;
-    private float startTime;
+    //private Vector2 startPos;
+    //private bool playing = false;
+    //private float startTime;
 
     // Start is called before the first frame update
     void Start()

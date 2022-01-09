@@ -31,6 +31,8 @@ public class ColourSettingsInstance : MonoBehaviour
 
     public void Start()
     {
+        colourSettings = GameData.colours;
+
         Material[] mats = new Material[]{player, enemy,
             platform, background, health, objects, corpse};
         var colourPairs = colourSettings.GetArray();
@@ -53,28 +55,33 @@ public class ColourSettingsInstance : MonoBehaviour
         colourSettings.objects.Set(objects);
         colourSettings.corpse.Set(corpse);
         if (save)
+        {
+            GameData.colours = colourSettings;
             GameController.SaveGameData();
+        }
+
+        debug = colourSettings;
     }
 }
 
 [System.Serializable]
 public struct ColourSettings
 {
-    public ColourPair player, enemy, platform,
+    public ColourSavePair player, enemy, platform,
         background, health, objects, corpse;
 
-    public ColourPair[] GetArray()
+    public ColourSavePair[] GetArray()
     {
-        return new ColourPair[]{player, enemy, platform,
+        return new ColourSavePair[]{player, enemy, platform,
         background, health, objects, corpse};
     }
 
     [System.Serializable]
-    public struct ColourPair
+    public struct ColourSavePair
     {
-        public SerializableColor main, mono;
+        public ColourSave main, mono;
 
-        public ColourPair(Material m)
+        public ColourSavePair(Material m)
         {
             main = m.GetColor("_MainCol");
             mono = m.GetColor("_MonoCol");
@@ -85,33 +92,33 @@ public struct ColourSettings
             main = m.GetColor("_MainCol");
             mono = m.GetColor("_MonoCol");
         }
+
+        public static implicit operator ColourSavePair(Material m)
+        {
+            return new ColourSavePair(m);
+        }
     }
 }
 
-
-// From here:
-// https://answers.unity.com/questions/772235/cannot-serialize-color.html
-// needed to be able to save ColourSettings in a file
 [System.Serializable]
-public class SerializableColor
+public struct ColourSave
 {
+    public float r, g, b;
 
-    public float[] colorStore = new float[4] { 1F, 1F, 1F, 1F };
-    public Color Color
+    public ColourSave(Color color)
     {
-        get { return new Color(colorStore[0], colorStore[1], colorStore[2], colorStore[3]); }
-        set { colorStore = new float[4] { value.r, value.g, value.b, value.a }; }
+        r = color.r;
+        g = color.g;
+        b = color.b;
     }
 
-    //makes this class usable as Color, Color normalColor = mySerializableColor;
-    public static implicit operator Color(SerializableColor instance)
+    public static implicit operator ColourSave(Color color)
     {
-        return instance.Color;
+        return new ColourSave(color);
     }
 
-    //makes this class assignable by Color, SerializableColor myColor = Color.white;
-    public static implicit operator SerializableColor(Color color)
+    public static implicit operator Color(ColourSave color)
     {
-        return new SerializableColor { Color = color };
+        return new Color(color.r, color.g, color.b);
     }
 }

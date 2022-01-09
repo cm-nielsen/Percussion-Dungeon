@@ -21,7 +21,7 @@ public class ExperienceBarDisplay : MonoBehaviour
         frontRat = rat = 0;
         frontFill.size = new Vector2(0, frontFill.size.y);
         fill.size = new Vector2(0, fill.size.y);
-        GameController.GainExp(0);
+        GameController.GainExp(0, false);
         pSystem = GetComponent<ParticleSystem>();
     }
 

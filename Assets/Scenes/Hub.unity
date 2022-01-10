@@ -474,7 +474,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 829108656}
+    m_TransformParent: {fileID: 4723121521984205843}
     m_Modifications:
     - target: {fileID: 862887527490469479, guid: 4aa0260188dc5994a94209eaf009e6e8,
         type: 3}
@@ -484,12 +484,12 @@ PrefabInstance:
     - target: {fileID: 2007379395037838242, guid: 4aa0260188dc5994a94209eaf009e6e8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2007379395037838242, guid: 4aa0260188dc5994a94209eaf009e6e8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.5
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2007379395037838242, guid: 4aa0260188dc5994a94209eaf009e6e8,
         type: 3}
@@ -898,7 +898,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 829108656}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &398669662
 Animator:
@@ -1234,7 +1234,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 829108656}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &501811391
 BoxCollider2D:
@@ -1937,7 +1937,6 @@ Transform:
   m_Children:
   - {fileID: 433473101}
   - {fileID: 95828723}
-  - {fileID: 1060279409}
   - {fileID: 4723121521984205843}
   - {fileID: 501811390}
   - {fileID: 1268011560}
@@ -2501,7 +2500,7 @@ Transform:
   - {fileID: 1970497843}
   - {fileID: 1919354459}
   m_Father: {fileID: 829108656}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &1268011561
 SpriteRenderer:
@@ -17356,8 +17355,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 706430003}
+  - {fileID: 1060279409}
   m_Father: {fileID: 829108656}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4723121521984205849
 GameObject:

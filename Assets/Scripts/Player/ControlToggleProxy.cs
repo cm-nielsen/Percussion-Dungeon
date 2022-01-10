@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Allows to the use of a regular ControlUnit as a toggled input
+/// </summary>
 public class ControlToggleProxy
 {
     public bool val
@@ -37,6 +40,9 @@ public class ControlToggleProxy
     }
 }
 
+/// <summary>
+/// Allows for the use of a toggled ControlUnit as untoggled
+/// </summary>
 [System.Serializable]
 public class ControlSteadyProxy
 {

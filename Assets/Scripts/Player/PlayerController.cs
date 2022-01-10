@@ -263,4 +263,14 @@ public class PlayerController : MonoBehaviour
         }
         moveForce = new Vector2(float.Parse(ar[0]), float.Parse(ar[1]));
     }
+
+    private void SetChargeAttackValue(float f)
+    {
+        GetComponentInChildren<DamageDealer>().HoldValue(f);
+    }
+
+    private void ChargeAttackEnd()
+    {
+        GetComponentInChildren<DamageDealer>().ReleaseHeldValue();
+    }
 }

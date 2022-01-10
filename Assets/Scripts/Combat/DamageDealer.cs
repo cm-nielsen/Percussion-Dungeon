@@ -17,7 +17,8 @@ public class DamageDealer : MonoBehaviour
     private Health health;
     private DamageReceiver selfReciever;
     private SpriteRenderer parentSprite;
-    private float damageMultiplier = 1;
+    private float damageMultiplier = 1, heldValue = 0;
+    private bool useHeldValue = false;
 
     private void Start()
     {
@@ -71,12 +72,15 @@ public class DamageDealer : MonoBehaviour
 
         bool miffed = false;
         foreach (DamageReceiver r in rec)
-            miffed |= !r.TakeDamage(dType, movementValue * damageMultiplier, dir);
+            miffed |= !r.TakeDamage(dType,
+                (useHeldValue ? heldValue : movementValue)
+                * damageMultiplier, dir);
 
         if (miffed) // don't pause/screenshake unless a hit is landed
             return;
 
-        Camera.main.GetComponent<CameraFollow>().Shake(dir, movementValue);
+        Camera.main.GetComponent<CameraFollow>().Shake(dir,
+            useHeldValue ? heldValue : movementValue);
         if (selfReciever)
         {
             switch (dType)
@@ -133,5 +137,17 @@ public class DamageDealer : MonoBehaviour
     public void AddException(Collider2D c)
     {
         exceptions.Add(c);
+    }
+
+    public void HoldValue(float f)
+    {
+        heldValue = f;
+        useHeldValue = true;
+    }
+
+    public void ReleaseHeldValue()
+    {
+        heldValue = movementValue;
+        useHeldValue = false;
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetAnimationParametersFromControlKey : MonoBehaviour
+public class SetAnimationParameters : MonoBehaviour
 {
     public ParameterFromControlKey[] paramaters;
     public bool playerKey = true;
@@ -84,4 +84,9 @@ public class SetAnimationParametersFromControlKey : MonoBehaviour
             }
         }
     }
+
+    public void SetAnimatorBool(string name) { anim.SetBool(name, true); }
+    public void ResetAnimatorBool(string name) { anim.SetBool(name, false); }
+    public void SetAnimatorTrigger(string name) { anim.SetTrigger(name); }
+    public void ResetAnimatorTrigger(string name) { anim.ResetTrigger(name); }
 }

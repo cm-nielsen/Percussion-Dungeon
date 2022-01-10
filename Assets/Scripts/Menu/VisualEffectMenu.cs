@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
 {
@@ -229,5 +230,42 @@ public struct VisualEffectSettings
         volumeVal.Add(false);
         camShake = 2;
         shakeFreq = 2;
+    }
+
+    public VisualEffectSettings(string s)
+    {
+        string[] vals = s.Split('/');
+
+        toggle = vals[0].Split(',').ToList();
+        slider = vals[1].Split(',').ToList();
+        volume = vals[2].Split(',').ToList();
+        toggleVal = vals[3].Split(',').ToList().ConvertAll(bool.Parse);
+        volumeVal = vals[4].Split(',').ToList().ConvertAll(bool.Parse);
+        sliderVal = vals[5].Split(',').ToList().ConvertAll(float.Parse);
+        camShake = float.Parse(vals[6]);
+        shakeFreq = float.Parse(vals[7]);
+    }
+
+    public override string ToString()
+    {
+        string s = string.Join(",", toggle) + "/";
+        s += string.Join(",", slider) + "/";
+        s += string.Join(",", volume) + "/";
+        s += string.Join(",", toggleVal) + "/";
+        s += string.Join(",", volumeVal) + "/";
+        s += string.Join(",", sliderVal) + "/";
+        s += camShake + "/" + shakeFreq;
+        return s;
+    }
+
+    private string ListToString<T>(List<T> l, char seperator = ',')
+    {
+        if (l.Count == 0)
+            return "";
+
+        string s = "" + l[0];
+        for (int i = 0; i < l.Count; i++)
+            s += "" + seperator + l[i];
+        return s;
     }
 }

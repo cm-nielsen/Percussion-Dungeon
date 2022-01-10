@@ -55,40 +55,65 @@ public class GameController : MonoBehaviour
                     }
                     WipeSave();
                 }
+                catch (System.Exception e)
+                {
+                    if (debugPrint)
+                    {
+                        print("failed to load from file");
+                        print(e);
+                    }
+                    WipeSave();
+                }
             }
             else
                 WipeSave();
         }
         else
         {
-            if (PlayerPrefs.HasKey("Save"))
+            if (PlayerPrefs.HasKey("health upgrades"))
             {
+                //try
+                //{
+                //    print("Loading from player prefs");
+                //    byte[] byteArray = System.Text.Encoding.ASCII.GetBytes(
+                //        PlayerPrefs.GetString("Save"));
+                //    using (MemoryStream stream = new MemoryStream(byteArray))
+                //    {
+                //        GameDataInstance save = (GameDataInstance)
+                //            bf.Deserialize(stream);
+                //        GameData.Load(save);
+                //    }
+                //}
+                //catch (System.Runtime.Serialization.SerializationException e)
+                //{
+                //    if (debugPrint)
+                //    {
+                //        print("failed to load from cookies");
+                //        print(e);
+                //    }
+                //    WipeSave();
+                //}
+                //catch (System.Exception e)
+                //{
+                //    if (debugPrint)
+                //    {
+                //        print("failed to load from cookies");
+                //        print(e);
+                //    }
+                //    WipeSave();
+                //}
                 try
                 {
-                    print("Loading from player prefs");
-                    byte[] byteArray = System.Text.Encoding.ASCII.GetBytes(
-                        PlayerPrefs.GetString("Save"));
-                    using (MemoryStream stream = new MemoryStream(byteArray))
-                    {
-                        GameDataInstance save = (GameDataInstance)
-                            bf.Deserialize(stream);
-                        GameData.Load(save);
-                    }
-                }
-                catch (System.Runtime.Serialization.SerializationException e)
+                    if (debugPrint)
+                        print("loading from Cookies");
+                    GameDataInstance save = new GameDataInstance();
+                    save.ReadFromPrefs();
+                    GameData.Load(save);
+                }catch (System.Exception e)
                 {
                     if (debugPrint)
                     {
-                        print("failed to load from cookies");
-                        print(e);
-                    }
-                    WipeSave();
-                }
-                catch (System.Exception e)
-                {
-                    if (debugPrint)
-                    {
-                        print("failed to load from cookies");
+                        print("failed to read from Cookies");
                         print(e);
                     }
                     WipeSave();
@@ -121,15 +146,30 @@ public class GameController : MonoBehaviour
         else
         {
             print("Saving to pPlayerPrefs");
-            using (MemoryStream stream = new MemoryStream())
+            //using (MemoryStream stream = new MemoryStream())
+            //{
+            //    bf.Serialize(stream, new GameDataInstance(false));
+            //    PlayerPrefs.SetString("Save",
+            //        System.Text.Encoding.ASCII.
+            //        GetString(stream.GetBuffer()));
+            //}
+            PlayerPrefs.DeleteAll();
+            new GameDataInstance(false).SaveToPrefs();
+            if (instance.debugPrint)
             {
-                bf.Serialize(stream, new GameDataInstance(false));
-                PlayerPrefs.SetString("Save",
-                    System.Text.Encoding.ASCII.
-                    GetString(stream.GetBuffer()));
+                print("Value Saved in player prefs: " +
+                    PlayerPrefs.GetInt("health upgrades", 0) + "\t:::" +
+                    PlayerPrefs.GetInt("castas", 0) + "\t:::" +
+                    PlayerPrefs.GetFloat("master volume", .5f) + "\t:::" +
+                    PlayerPrefs.GetFloat("music volume", .5f) + "\t:::" +
+                    PlayerPrefs.GetFloat("sfx volume", .5f) + "\t:::" +
+                    PlayerPrefs.GetInt("unlocks", 0) + "\t:::" +
+                    PlayerPrefs.GetInt("current", 0) + "\t:::" +
+                    PlayerPrefs.GetString("vfx settings") + "\t:::" +
+                    PlayerPrefs.GetString("weapon experience") + "\t:::" +
+                    PlayerPrefs.GetString("controls") + "\t:::" +
+                    PlayerPrefs.GetString("colours"));
             }
-            print("Value Saved in player prefs: " +
-                PlayerPrefs.GetString("Save"));
         }
 
         if (instance.debugPrint)
@@ -264,233 +304,5 @@ public class GameController : MonoBehaviour
         GameObject g = instance.weaponSet.GetWeapon(WeaponUnlocks.drumsticks);
         instance.currentWeaponPrefab = g;
         return g;
-    }
-}
-
-[System.Flags]
-public enum WeaponUnlocks
-{
-    drumsticks = 0,
-    hang = 1,
-    rainstick = 2,
-    bongos = 4,
-    triangle = 8,
-    cowbell = 16,
-    cymbals = 32,
-    marracas = 64
-}
-
-public struct GameData
-{
-    public static int healthUpgrades,
-        castas;
-
-    public static float masterVol, musicVol, sfxVol;
-
-    public static WeaponUnlocks unlocks, current;
-
-    public static VisualEffectSettings vfxSettings;
-
-    public static WeaponExperience experience;
-
-    public static List<ControlKey.ControlUnit> pControls;
-
-    public static ColourSettings colours;
-
-    public static void Load(GameDataInstance i)
-    {
-        healthUpgrades = i.healthUpgrades;
-        castas = i.castas;
-        masterVol = i.masterVol;
-        musicVol = i.musicVol;
-        sfxVol = i.sfxVol;
-        unlocks = i.unlocks;
-        current = i.current;
-        vfxSettings = i.vfxSettings;
-        experience = i.experience;
-        pControls = i.pControls;
-        colours = i.colours;
-    }
-}
-
-[System.Serializable]
-public struct GameDataInstance
-{
-    public int healthUpgrades, castas;
-    public float masterVol, musicVol, sfxVol;
-    public WeaponUnlocks unlocks, current;
-    public VisualEffectSettings vfxSettings;
-    public WeaponExperience experience;
-    public List<ControlKey.ControlUnit> pControls;
-    public ColourSettings colours;
-
-    public GameDataInstance(bool b = false)
-    {
-        healthUpgrades = GameData.healthUpgrades;
-        castas = GameData.castas;
-        masterVol = GameData.masterVol;
-        musicVol = GameData.musicVol;
-        sfxVol = GameData.sfxVol;
-        unlocks = GameData.unlocks;
-        current = GameData.current;
-        vfxSettings = GameData.vfxSettings;
-        experience = GameData.experience;
-        pControls = GameData.pControls;
-        colours = GameData.colours;
-    }
-}
-
-[System.Serializable]
-public class WeaponSet
-{
-    public GameObject drumsticks, hang, rainstick, bongos,
-            triangle, cowbell, cymbals, marracas;
-
-    public GameObject GetWeapon(WeaponUnlocks u)
-    {
-        switch (u)
-        {
-            case WeaponUnlocks.drumsticks:
-                return drumsticks;
-            case WeaponUnlocks.hang:
-                return hang;
-            case WeaponUnlocks.rainstick:
-                return rainstick;
-            case WeaponUnlocks.bongos:
-                return bongos;
-            case WeaponUnlocks.triangle:
-                return triangle;
-            case WeaponUnlocks.cowbell:
-                return cowbell;
-            case WeaponUnlocks.cymbals:
-                return cymbals;
-            case WeaponUnlocks.marracas:
-                return marracas;
-        }
-        return drumsticks;
-    }
-
-    public WeaponUnlocks GetType(GameObject g)
-    {
-        if (drumsticks && g.name == drumsticks.name)
-            return WeaponUnlocks.drumsticks;
-        else if (hang && g.name == hang.name)
-            return WeaponUnlocks.hang;
-        else if (rainstick && g.name == rainstick.name)
-            return WeaponUnlocks.rainstick;
-        else if (bongos && g.name == bongos.name)
-            return WeaponUnlocks.bongos;
-        else if (triangle && g.name == triangle.name)
-            return WeaponUnlocks.triangle;
-        else if (cowbell && g.name == cowbell.name)
-            return WeaponUnlocks.cowbell;
-        else if (cymbals && g.name == cymbals.name)
-            return WeaponUnlocks.cymbals;
-        else if (marracas && g.name == marracas.name)
-            return WeaponUnlocks.marracas;
-
-        Debug.Log("weapon prefab not found in set");
-        return WeaponUnlocks.drumsticks;
-    }
-}
-
-[System.Serializable]
-public class WeaponExperience
-{
-    public int drumsticks, hang, rainstick, bongos,
-            triangle, cowbell, cymbals, marracas;
-
-    public WeaponExperience()
-    {
-        drumsticks = hang = rainstick = bongos =
-            triangle = cowbell = cymbals = marracas = 0;
-    }
-
-    public int totalLevel { get {
-            return (LevelOf(drumsticks) + LevelOf(hang) + LevelOf(rainstick) +
-                    LevelOf(bongos) + LevelOf(triangle) + LevelOf(cowbell) +
-                    LevelOf(cymbals) + LevelOf(marracas)) / 4;
-        } }
-
-    public float AddExperience(int amount, WeaponUnlocks u)
-    {
-        switch (u)
-        {
-            case WeaponUnlocks.drumsticks:
-                drumsticks += amount;
-                return RemainingRatio(drumsticks);
-            case WeaponUnlocks.hang:
-                hang += amount;
-                return RemainingRatio(hang);
-            case WeaponUnlocks.rainstick:
-                rainstick += amount;
-                return RemainingRatio(rainstick);
-            case WeaponUnlocks.bongos:
-                bongos += amount;
-                return RemainingRatio(bongos);
-            case WeaponUnlocks.triangle:
-                triangle += amount;
-                return RemainingRatio(triangle);
-            case WeaponUnlocks.cowbell:
-                cowbell += amount;
-                return RemainingRatio(cowbell);
-            case WeaponUnlocks.cymbals:
-                cymbals += amount;
-                return RemainingRatio(cymbals);
-            case WeaponUnlocks.marracas:
-                marracas += amount;
-                return RemainingRatio(marracas);
-        }
-        return 0;
-    }
-
-    public int LevelOf(WeaponUnlocks u)
-    {
-        switch (u)
-        {
-            case WeaponUnlocks.drumsticks:
-                return LevelOf(drumsticks);
-            case WeaponUnlocks.hang:
-                return LevelOf(hang);
-            case WeaponUnlocks.rainstick:
-                return LevelOf(rainstick);
-            case WeaponUnlocks.bongos:
-                return LevelOf(bongos);
-            case WeaponUnlocks.triangle:
-                return LevelOf(triangle);
-            case WeaponUnlocks.cowbell:
-                return LevelOf(cowbell);
-            case WeaponUnlocks.cymbals:
-                return LevelOf(cymbals);
-            case WeaponUnlocks.marracas:
-                return LevelOf(marracas);
-        }
-        return drumsticks;
-    }
-
-    private int LevelOf(int n)
-    {
-        int i = 0;
-        while (true)
-        {
-            if (Mathf.Pow(i, 2) * 10 >= n)
-                return i;
-            i++;
-        }
-    }
-
-    private float RemainingRatio(int n)
-    {
-        int i = 1;
-        float prev = 0;
-
-        while (true)
-        {
-            float f = Mathf.Pow(i, 2) * 10;
-            if (f >= n)
-                return (n - prev) /(f - prev);
-            prev = f;
-            i++;
-        }
     }
 }

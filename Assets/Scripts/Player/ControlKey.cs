@@ -176,7 +176,58 @@ public class ControlKey : MonoBehaviour
             toggle = false;
             timeToggle = true;
         }
+        /// <summary>
+        /// parse ControlUnit from string
+        /// </summary>
+        /// <param name="s">string storing control unit</param>
+        public ControlUnit(string s)
+        {
+            //print("Parsing ControlUnit From: " + s);
+            string[] vals = s.Split('|');
+            identifier = vals[0];
+            val = false;
+            holdTime = float.Parse(vals[1]);
+            toggleInput = bool.Parse(vals[2]);
+            keyCodes = ParseHelper(vals[3]);
+            mouseButtons = ParseHelper(vals[4]);
+            gamePadButtons = ParseHelper(vals[5]);
+            timePressed = -100;
+            timeReleased = 0;
+            toggle = false;
+            timeToggle = true;
+        }
+        private string[] ParseHelper(string s)
+        {
+            if (s == "null")
+                return new string[0];
+            return s.Split(',');
+        }
 
+        /// <summary>
+        /// Store Control Unity as string - for saving controls
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string s = $"{identifier}|{holdTime}|{toggleInput}|";
+            s += ToStringHelper(keyCodes) + '|';
+            s += ToStringHelper(mouseButtons) + '|';
+            s += ToStringHelper(gamePadButtons);
+
+            return s;
+        }
+
+        private string ToStringHelper(string[] ar)
+        {
+            if (ar.Length > 0)
+                return string.Join(",", ar);
+            else
+                return "null";
+        }
+        public static ControlUnit Parse(string s)
+        {
+            return new ControlUnit(s);
+        }
         public bool Equals(ControlUnit u)
         {
             if (identifier != u.identifier)

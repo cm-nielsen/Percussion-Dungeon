@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: 62f8648bcfd9f6a4ab7f95f39ab9af2e
+guid: cd7a2000ff424da45b9c3abf9af4168a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3570643465431422881
-    second: stix jump_0
+      213: -5016810259781758195
+    second: rainstick air punch_0
   - first:
-      213: -2024994477138556085
-    second: stix jump_1
+      213: -533908792571681211
+    second: rainstick air punch_1
   - first:
-      213: -8716178451758104764
-    second: stix jump_2
+      213: -8062761434342546542
+    second: rainstick air punch_2
   - first:
-      213: 7903896390757035781
-    second: stix jump_3
+      213: 8531736867403244753
+    second: rainstick air punch_3
   - first:
-      213: 6338992111609852581
-    second: stix jump_4
+      213: -6717752388482941963
+    second: rainstick air punch_4
   - first:
-      213: 1249215454616050585
-    second: stix jump_5
+      213: 1697853503585892454
+    second: rainstick air punch_5
+  - first:
+      213: 4300432942277748026
+    second: rainstick air punch_6
+  - first:
+      213: 8307084442369462908
+    second: rainstick air punch_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -82,7 +88,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -94,7 +100,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,7 +112,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,12 +123,54 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stix jump_0
+      name: rainstick air punch_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d035c2026a5b06ab0800000000000000
+      internalID: -5016810259781758195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainstick air punch_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 546ae4c28cc2798f0800000000000000
+      internalID: -533908792571681211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rainstick air punch_2
       rect:
         serializedVersion: 2
         x: 0
         y: 128
-        width: 64
+        width: 128
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -131,19 +179,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f58e36fafa6827ec0800000000000000
-      internalID: -3570643465431422881
+      spriteID: 2932b4d91315b1090800000000000000
+      internalID: -8062761434342546542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix jump_1
+      name: rainstick air punch_3
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 128
-        width: 64
+        width: 128
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -152,19 +200,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4b470e7046c5e3e0800000000000000
-      internalID: -2024994477138556085
+      spriteID: 1d4aca25a71d66670800000000000000
+      internalID: 8531736867403244753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix jump_2
+      name: rainstick air punch_4
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 64
+        width: 128
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -173,19 +221,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44f3b00e0e9e90780800000000000000
-      internalID: -8716178451758104764
+      spriteID: 5fb317b7bcfb5c2a0800000000000000
+      internalID: -6717752388482941963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix jump_3
+      name: rainstick air punch_5
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 64
-        width: 64
+        width: 128
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -194,19 +242,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50fa09804e740bd60800000000000000
-      internalID: 7903896390757035781
+      spriteID: 668b3e114ccff8710800000000000000
+      internalID: 1697853503585892454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix jump_4
+      name: rainstick air punch_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 128
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -215,19 +263,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a232867dbf98f750800000000000000
-      internalID: 6338992111609852581
+      spriteID: a356ad0f9f43eab30800000000000000
+      internalID: 4300432942277748026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stix jump_5
+      name: rainstick air punch_7
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 0
-        width: 64
+        width: 128
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -236,8 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99b515c56da165110800000000000000
-      internalID: 1249215454616050585
+      spriteID: c721b9a9941b84370800000000000000
+      internalID: 8307084442369462908
       vertices: []
       indices: 
       edges: []

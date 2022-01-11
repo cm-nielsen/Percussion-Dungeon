@@ -125,36 +125,38 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     private void ApplyRunForce(bool b = true)
     {
-        TurnTowardsInput();
         if (input["right"])
         {
-            rb.AddForce(moveForce.x * Vector2.right);
-            if (rb.velocity.x < 0.01)
+            if (transform.localScale.x < 0)
             {
                 if (canTurn && b)
                 {
                     anim.SetTrigger("turn");
+                    transform.localScale = new Vector2(1, 1);
                     canTurn = false;
                 }
             }
             else
                 canTurn = true;
+            rb.AddForce(moveForce.x * Vector2.right);
 
         }
         else if (input["left"])
         {
-            rb.AddForce(moveForce.x * Vector2.left);
-            if (rb.velocity.x > 0.01)
+            if (transform.localScale.x > 0)
             {
                 if (canTurn && b)
                 {
                     anim.SetTrigger("turn");
+                    transform.localScale = new Vector2(-1, 1);
                     canTurn = false;
                 }
             }
             else
                 canTurn = true;
+            rb.AddForce(moveForce.x * Vector2.left);
         }
+        //TurnTowardsInput();
     }
     [HideInInspector]
     private void AirControl()

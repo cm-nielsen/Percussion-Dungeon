@@ -11,6 +11,11 @@ public class ColourSlider : MonoBehaviour
 
     private ColourSettingsInstance colourSettings;
 
+    private void Start()
+    {
+        colourSettings = FindObjectOfType<ColourSettingsInstance>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -19,7 +24,6 @@ public class ColourSlider : MonoBehaviour
 
         //Color c = new Color(r.value, g.value, b.value);
         //mat.SetColor(propertyName, c);
-        colourSettings = FindObjectOfType<ColourSettingsInstance>();
     }
 
     public void setMaterial(Material m)

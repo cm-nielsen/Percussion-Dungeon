@@ -475,7 +475,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: close
+  m_Name: alt cross 2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -490,7 +490,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a44c471884b07d946a972b4bb91d62dc, type: 2}
+  m_Motion: {fileID: 7400000, guid: ec81fadf5b8ac1940859120aca9cd427, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1159,7 +1159,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: downswing
+  m_Name: swing 2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1371,9 +1371,9 @@ AnimatorStateMachine:
   - {fileID: -4244931337760142409}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -5314361224802240046}
-    second: []
   - first: {fileID: -688408580018970795}
+    second: []
+  - first: {fileID: -5314361224802240046}
     second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 150, y: 50, z: 0}
@@ -3651,7 +3651,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: opener
+  m_Name: swing 1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -3757,7 +3757,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: open
+  m_Name: alt cross 1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -3773,7 +3773,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ec81fadf5b8ac1940859120aca9cd427, type: 2}
+  m_Motion: {fileID: 7400000, guid: a44c471884b07d946a972b4bb91d62dc, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

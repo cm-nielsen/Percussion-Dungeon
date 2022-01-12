@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 normalmoveForce;
 
     private float cTimer = Mathf.Infinity;
-    private bool canJump, canDodge, grounded, canTurn = false;
+    private bool canJump, canDodge, grounded;
 
     void Start()
     {
@@ -129,15 +129,12 @@ public class PlayerController : MonoBehaviour
         {
             if (transform.localScale.x < 0)
             {
-                if (canTurn && b)
+                if (b)
                 {
                     anim.SetTrigger("turn");
                     transform.localScale = new Vector2(1, 1);
-                    canTurn = false;
                 }
             }
-            else
-                canTurn = true;
             rb.AddForce(moveForce.x * Vector2.right);
 
         }
@@ -145,15 +142,12 @@ public class PlayerController : MonoBehaviour
         {
             if (transform.localScale.x > 0)
             {
-                if (canTurn && b)
+                if (b)
                 {
                     anim.SetTrigger("turn");
                     transform.localScale = new Vector2(-1, 1);
-                    canTurn = false;
                 }
             }
-            else
-                canTurn = true;
             rb.AddForce(moveForce.x * Vector2.left);
         }
         //TurnTowardsInput();

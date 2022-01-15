@@ -60,10 +60,15 @@
                 fixed4 col = tex2D(_MainTex, i.uv);
 
                 //Apply Colour Customization effect
+                float4 blueMain = _MainCol;
+                float lum = 0.2126 * col.r + 0.7152 * col.g + 0.0722 * col.b;
+                float rg = sqrt(lum);
+                blueMain *= float4(rg, rg, 1, 1);
+
                 float n = step(col.r + col.g + col.b, .1);
 
                 col.rgb = ((_MonoCol * n) + (col.rgb * (1.0 - n))).rgb;
-                col.rgb *= ((col.rgb * n) + (_MainCol * (1.0 - n))).rgb;
+                col.rgb *= ((col.rgb * n) + (blueMain * (1.0 - n))).rgb;
 
                 col.rgb = ((1 - _DualMono) * col.rgb) +
                     (_DualMono * ((_MonoCol * n) + (_MainCol * (1.0 - n))).rgb);

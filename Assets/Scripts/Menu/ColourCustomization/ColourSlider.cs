@@ -42,6 +42,9 @@ public class ColourSlider : MonoBehaviour
             return;
         mat.SetColor(propertyName, new Color(r.value, g.value, b.value));
 
-        colourSettings.UpdateColours();
+        if (colourSettings)
+            colourSettings.UpdateColours();
+        else
+            colourSettings = FindObjectOfType<ColourSettingsInstance>();
     }
 }

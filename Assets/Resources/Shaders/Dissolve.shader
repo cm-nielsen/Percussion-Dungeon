@@ -48,8 +48,8 @@
 
             sampler2D _MainTex;
 			sampler2D _NoiseTex;
-			fixed3 _MainCol;
-			fixed3 _MonoCol;
+			fixed4 _MainCol;
+			fixed4 _MonoCol;
 			float _Foo;
 			int _DualMono;
 
@@ -62,10 +62,15 @@
 					col.a = 0;
 
 				// colour customization
-				float n = step(col.r + col.g + col.b, .1);
+                float4 blueMain = _MainCol;
+                float lum = 0.2126 * col.r + 0.7152 * col.g + 0.0722 * col.b;
+                float rg = sqrt(lum);
+                blueMain *= float4(rg, rg, 1, 1);
 
-				col.rgb = ((_MonoCol * n) + (col.rgb * (1.0 - n))).rgb;
-				col.rgb *= ((col.rgb * n) + (_MainCol * (1.0 - n))).rgb;
+                float n = step(col.r + col.g + col.b, .1);
+
+                col.rgb = ((_MonoCol * n) + (col.rgb * (1.0 - n))).rgb;
+                col.rgb *= ((col.rgb * n) + (blueMain * (1.0 - n))).rgb;
 
 				col.rgb = ((1 - _DualMono) * col.rgb) +
 					(_DualMono * ((_MonoCol * n) + (_MainCol * (1.0 - n))).rgb);

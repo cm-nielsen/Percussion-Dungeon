@@ -64,7 +64,7 @@ public class DamageReceiver : MonoBehaviour
 
     public virtual bool TakeDamage(DamageType dtype, float amount, Vector2 point)
     {
-        if (invulnerable)
+        if (invulnerable || dead)
             return false;
 
         bool death = false;
@@ -80,9 +80,9 @@ public class DamageReceiver : MonoBehaviour
 
             SetFlashMatColors();
             if(rend) rend.material = flashMat;
-            if (death && !dead)
+            if (death)
             {
-                dead |= death;
+                dead = true;
                 PlayerController pCon = GetComponent<PlayerController>();
                 flashTimer = 6 / 16f;
                 invulnerable = true;
@@ -92,7 +92,7 @@ public class DamageReceiver : MonoBehaviour
                     DelayedSceneTransition.loading = true;
                     DelayedSceneTransition t = Instantiate(new GameObject()).
                         AddComponent<DelayedSceneTransition>();
-                    t.delay = 4;
+                    t.delay = 2.5f;
                     t.targetScene = "Hub";
                     t.loadAsynchronously = true;
                     Destroy(pCon);

@@ -20,6 +20,11 @@ public class PlayerHealth : Health
         UpgradeMax();
     }
 
+    public override void OnDeath()
+    {
+        Destroy(GetComponent<PlayerController>());
+    }
+
     public void UpgradeMax()
     {
         max += upgradeAmount;

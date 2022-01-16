@@ -23,6 +23,9 @@ public class PlayerHealth : Health
     public override void OnDeath()
     {
         Destroy(GetComponent<PlayerController>());
+        HangController hCon = GetComponent<HangController>();
+        if (hCon)
+            Destroy(hCon);
     }
 
     public void UpgradeMax()

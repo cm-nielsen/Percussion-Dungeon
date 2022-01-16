@@ -8,11 +8,14 @@ public class InputDisplay : MonoBehaviour
 {
     public string[] inputNames;
 
-    public ControlKeyCustomizationMenu controlsMenu;
+    //public ControlKeyCustomizationMenu controlsMenu;
+
+    public bool appearOnTrigger = false;
 
     private Text display;
 
     private ControlKey playerControls;
+    private ControlKeyCustomizationMenu controlsMenu;
     private PotentialControlNameSet controlNameSet;
 
     private string text;
@@ -23,8 +26,7 @@ public class InputDisplay : MonoBehaviour
     {
         playerControls = GameObject.FindGameObjectWithTag("pControl").
             GetComponent<ControlKey>();
-        controlNameSet = controlsMenu.controlSet;
-        controlsMenu.UpdateOnChange(UpdateDisplay);
+        FetchControlsMenu();
         
         display = GetComponent<Text>();
         text = display.text;
@@ -32,11 +34,16 @@ public class InputDisplay : MonoBehaviour
         gamepadIsActive = Gamepad.current != null;
 
         UpdateDisplay();
+        if (appearOnTrigger)
+            display.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!controlsMenu)
+            FetchControlsMenu();
+
         bool b = Gamepad.current != null;
         if (b != gamepadIsActive)
         {
@@ -47,6 +54,14 @@ public class InputDisplay : MonoBehaviour
 
     public void UpdateDisplay()
     {
+        if (!controlsMenu)
+            return;
+        if (!display)
+        {
+            display = GetComponent<Text>();
+            text = display.text;
+        }
+
         System.Func<string, string> fetchName = str =>
         {
             if (gamepadIsActive)
@@ -61,5 +76,32 @@ public class InputDisplay : MonoBehaviour
                 $"${i}", fetchName(inputNames[i]));
 
         display.text = displayText;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!appearOnTrigger || !collision.CompareTag("Player"))
+            return;
+
+        display.enabled = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!appearOnTrigger || !collision.CompareTag("Player"))
+            return;
+
+        display.enabled = false;
+    }
+
+    private void FetchControlsMenu()
+    {
+        controlsMenu = ControlKeyCustomizationMenu.instance;
+        if (controlsMenu)
+        {
+            controlNameSet = controlsMenu.controlSet;
+            controlsMenu.UpdateOnChange(UpdateDisplay);
+            UpdateDisplay();
+        }
     }
 }

@@ -366,7 +366,7 @@ public class ControlKeyCustomizationMenu : MonoBehaviour, RequiresInitialSetup
             GameData.pControls.Add(new ConUnit(u));
 
         GameController.SaveGameData();
-        print("Game Saved from:" + name);
+        //print("Game Saved from:" + name);
 
         foreach (Action a in onChange) if (a != null) a();
     }

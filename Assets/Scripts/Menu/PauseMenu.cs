@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static VisualEffectMenu vfxMenu;
     public static bool active = false;
     private static AudioClip navigateNoiseStatic;
 
@@ -38,6 +39,8 @@ public class PauseMenu : MonoBehaviour
             g.SetActive(true);
         foreach (RequiresInitialSetup m in GetComponentsInChildren<RequiresInitialSetup>())
             m.Setup();
+
+        vfxMenu = GetComponentInChildren<VisualEffectMenu>();
 
         foreach (GameObject g in subMenus)
             g.SetActive(false);

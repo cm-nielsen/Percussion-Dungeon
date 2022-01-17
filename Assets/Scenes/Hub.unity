@@ -365,7 +365,7 @@ MonoBehaviour:
       type: 3}
     sprite: {fileID: -7013821142516977529, guid: 8e89961a29690dd49b75d5176305ea5f,
       type: 3}
-    cost: 2
+    cost: 1
     stats: 020000000200000001000000
   - name: Hang
     description: Clunky, no i-frames
@@ -374,7 +374,7 @@ MonoBehaviour:
     sprite: {fileID: -3482854511985086820, guid: 8e89961a29690dd49b75d5176305ea5f,
       type: 3}
     cost: 1
-    stats: 020000000300000001000000
+    stats: 020000000300000002000000
   desc: {fileID: 858159349}
   proficiency: {fileID: 174510302}
   level: {fileID: 352709024}
@@ -1649,7 +1649,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputNames:
   - down
-  controlsMenu: {fileID: 1127613971}
   appearOnTrigger: 1
 --- !u!114 &539259955
 MonoBehaviour:
@@ -2466,18 +2465,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 156554175}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1127613971 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2086625196210316840, guid: 5367988279cf1aa47afc794148f23d96,
-    type: 3}
-  m_PrefabInstance: {fileID: 2861695402717791457}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d362de5d8e09134cb18b0ac235c69ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1206064918
 GameObject:
   m_ObjectHideFlags: 0

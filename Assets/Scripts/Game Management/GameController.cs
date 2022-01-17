@@ -195,9 +195,10 @@ public class GameController : MonoBehaviour
 
         GameData.colours = FindObjectOfType
             <ColourSettingsInstance>().ApplyDefault();
+        PauseMenu.vfxMenu.ApplySavedSettings();
 
         //if (Application.platform != RuntimePlatform.WebGLPlayer)
-            SaveGameData();
+        SaveGameData();
     }
 
     public static void WipeProgress()
@@ -228,8 +229,12 @@ public class GameController : MonoBehaviour
             GetComponent<ControlKey>().inputs)
             GameData.pControls.Add(new ControlKey.ControlUnit(u));
 
+        GameData.colours = FindObjectOfType
+            <ColourSettingsInstance>().ApplyDefault();
+        PauseMenu.vfxMenu.ApplySavedSettings();
+
         //if (Application.platform != RuntimePlatform.WebGLPlayer)
-            SaveGameData();
+        SaveGameData();
     }
 
     public void SetCurrentWeap(GameObject weap)
@@ -285,7 +290,7 @@ public class GameController : MonoBehaviour
         GameData.castas -= n;
         GameData.unlocks |= weaponSet.GetType(prefab);
         SaveGameData();
-        print("Game Saved from:" + name);
+        //print("Game Saved from:" + name);
         return true;
     }
 

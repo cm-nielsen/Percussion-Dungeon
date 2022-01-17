@@ -29,8 +29,6 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
 
         ApplySavedSettings();
 
-        foreach (VisualEffect e in effects)
-            e.SetToDefault();
         saveEnabled = true;
     }
 
@@ -63,6 +61,9 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
         shake = GameData.vfxSettings.shakeFreq;
         Camera.main.GetComponent<CameraFollow>().shakeFrequency = shake;
         shakeFreqSlider.value = shake;
+
+        foreach (VisualEffect e in effects)
+            e.SetToDefault();
     }
 
     private void SaveSettings()
@@ -89,7 +90,7 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
         if (saveEnabled)
         {
             GameController.SaveGameData();
-            print("Game Saved from:" + name);
+            //print("Game Saved from:" + name);
         }
     }
 
@@ -111,7 +112,7 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
         {
             GameData.vfxSettings.camShake = camShakeSlider.value;
             GameController.SaveGameData();
-            print("Game Saved from:" + name);
+            //print("Game Saved from:" + name);
         }
     }
 
@@ -122,7 +123,7 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
         {
             GameData.vfxSettings.shakeFreq = shakeFreqSlider.value;
             GameController.SaveGameData();
-            print("Game Saved from:" + name);
+            //print("Game Saved from:" + name);
         }
     }
 

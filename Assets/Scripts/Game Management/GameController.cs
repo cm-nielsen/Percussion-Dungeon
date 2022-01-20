@@ -72,36 +72,6 @@ public class GameController : MonoBehaviour
         {
             if (PlayerPrefs.HasKey("health upgrades"))
             {
-                //try
-                //{
-                //    print("Loading from player prefs");
-                //    byte[] byteArray = System.Text.Encoding.ASCII.GetBytes(
-                //        PlayerPrefs.GetString("Save"));
-                //    using (MemoryStream stream = new MemoryStream(byteArray))
-                //    {
-                //        GameDataInstance save = (GameDataInstance)
-                //            bf.Deserialize(stream);
-                //        GameData.Load(save);
-                //    }
-                //}
-                //catch (System.Runtime.Serialization.SerializationException e)
-                //{
-                //    if (debugPrint)
-                //    {
-                //        print("failed to load from cookies");
-                //        print(e);
-                //    }
-                //    WipeSave();
-                //}
-                //catch (System.Exception e)
-                //{
-                //    if (debugPrint)
-                //    {
-                //        print("failed to load from cookies");
-                //        print(e);
-                //    }
-                //    WipeSave();
-                //}
                 try
                 {
                     if (debugPrint)
@@ -137,22 +107,15 @@ public class GameController : MonoBehaviour
             FileStream fStream = File.Create(
                 Application.persistentDataPath + "/save.drum");
             GameDataInstance save = new GameDataInstance(false);
-            //foreach (ControlKey.ControlUnit u in save.pControls)
-            //    Debug.Log(u.identifier);
+
             bf.Serialize(fStream, save);
             fStream.Close();
-            //Debug.Log("GameData saved");
         }
         else
         {
-            print("Saving to pPlayerPrefs");
-            //using (MemoryStream stream = new MemoryStream())
-            //{
-            //    bf.Serialize(stream, new GameDataInstance(false));
-            //    PlayerPrefs.SetString("Save",
-            //        System.Text.Encoding.ASCII.
-            //        GetString(stream.GetBuffer()));
-            //}
+            if (instance.debugPrint)
+                print("Saving to pPlayerPrefs");
+
             PlayerPrefs.DeleteAll();
             new GameDataInstance(false).SaveToPrefs();
             if (instance.debugPrint)

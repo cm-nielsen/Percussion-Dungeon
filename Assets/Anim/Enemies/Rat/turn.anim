@@ -98,6 +98,27 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.125
+    functionName: Move
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 2
+    messageOptions: 0
+  - time: 0.1875
+    functionName: Move
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 2
+    messageOptions: 0
+  - time: 0.25
+    functionName: Move
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: -8
+    messageOptions: 0
   - time: 0.25
     functionName: PlayClip
     data: 
@@ -105,11 +126,4 @@ AnimationClip:
       type: 3}
     floatParameter: 0
     intParameter: 0
-    messageOptions: 0
-  - time: 0.375
-    functionName: Move
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: -12
     messageOptions: 0

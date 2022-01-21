@@ -13,7 +13,7 @@ public class WeaponSelectionMenu : MonoBehaviour
     public IconGraph graph;
     public AudioClip swapNoise;
 
-    public float lerpStart, lerpMod;
+    public float lerpStart, lerpMod, cameraOffset = .5f;
 
     private Animator anim;
     private GameController gcon;
@@ -112,7 +112,7 @@ public class WeaponSelectionMenu : MonoBehaviour
         {
             Destroy(GameObject.FindGameObjectWithTag("Player"));
             SelectCurrentWeapon();
-            camFollow.OverrideFollow((Vector2)transform.position + Vector2.up / 2);
+            camFollow.OverrideFollow((Vector2)transform.position + Vector2.up * cameraOffset);
         }
         else
         {

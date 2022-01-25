@@ -36,7 +36,7 @@ public class HealthOrb : MonoBehaviour
         }
 
         Vector2 dir = (pPos.position - transform.position);
-        rb.AddForce(dir.normalized * magnetism / dir.magnitude);
+        rb.AddForce(dir.normalized * magnetism * Time.deltaTime / dir.magnitude);
     }
 
     private void OnTriggerEnter2D(Collider2D c)

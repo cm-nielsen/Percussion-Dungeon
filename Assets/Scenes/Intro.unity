@@ -35111,7 +35111,7 @@ MonoBehaviour:
   inputNames:
   - attack
   - alt attack
-  controlsMenu: {fileID: 979286379}
+  appearOnTrigger: 0
 --- !u!114 &290414129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35388,7 +35388,7 @@ MonoBehaviour:
   inputNames:
   - right
   - left
-  controlsMenu: {fileID: 979286379}
+  appearOnTrigger: 0
 --- !u!114 &469873718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35518,7 +35518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputNames:
   - dodge
-  controlsMenu: {fileID: 979286379}
+  appearOnTrigger: 0
 --- !u!114 &580206887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35931,11 +35931,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3072617828887592271, guid: 64081a66ec6478f4f9be83c557b548bc,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: e6ef4d2d698f2314588920548c01dc4e, type: 3}
     - target: {fileID: 7429383183050967215, guid: 64081a66ec6478f4f9be83c557b548bc,
         type: 3}
       propertyPath: m_RootOrder
@@ -36003,18 +35998,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64081a66ec6478f4f9be83c557b548bc, type: 3}
---- !u!114 &979286379 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2086625196210316840, guid: 5367988279cf1aa47afc794148f23d96,
-    type: 3}
-  m_PrefabInstance: {fileID: 789181902}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d362de5d8e09134cb18b0ac235c69ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &980392354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36546,7 +36529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputNames:
   - jump
-  controlsMenu: {fileID: 979286379}
+  appearOnTrigger: 0
 --- !u!114 &1359754366
 MonoBehaviour:
   m_ObjectHideFlags: 0

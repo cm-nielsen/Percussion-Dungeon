@@ -143,7 +143,8 @@ public class GameController : MonoBehaviour
     {
         GameData.healthUpgrades = 0;
         GameData.castas = 0;
-        GameData.masterVol = GameData.musicVol = GameData.sfxVol = .5f;
+        GameData.masterVol = GameData.musicVol = .5f;
+        GameData.sfxVol = 1;
         GameData.unlocks = WeaponUnlocks.drumsticks;
         GameData.current = WeaponUnlocks.drumsticks;
 
@@ -179,7 +180,8 @@ public class GameController : MonoBehaviour
 
     public static void WipeSettings()
     {
-        GameData.masterVol = GameData.musicVol = GameData.sfxVol = .5f;
+        GameData.masterVol = GameData.musicVol = .5f;
+        GameData.sfxVol = 1;
         AudioMenu.SetAll();
         GameData.vfxSettings = new VisualEffectSettings(true);
 

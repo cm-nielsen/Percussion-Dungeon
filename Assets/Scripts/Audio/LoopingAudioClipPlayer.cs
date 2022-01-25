@@ -5,9 +5,12 @@ using UnityEngine;
 public class LoopingAudioClipPlayer : MonoBehaviour
 {
     public AudioClip clip;
+    [Range(0, 1f)]
+    public float volume = 1;
     public bool playOnAwake = true;
 
     private AudioSource source;
+    private float settingsVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,11 @@ public class LoopingAudioClipPlayer : MonoBehaviour
         UpdateParameters();
         if (playOnAwake)
             source.Play();
+    }
+
+    private void Update()
+    {
+        source.volume = settingsVolume * volume;
     }
 
     public void Play()
@@ -31,6 +39,8 @@ public class LoopingAudioClipPlayer : MonoBehaviour
     public void UpdateParameters()
     {
         AudioClipPlayer.ApplyParameters(source);
+        settingsVolume = source.volume;
+        source.volume *= volume;
         source.clip = clip;
         source.loop = true;
     }

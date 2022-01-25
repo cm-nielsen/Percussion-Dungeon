@@ -1341,6 +1341,7 @@ MonoBehaviour:
   master: {fileID: 4212271319377723875}
   sfx: {fileID: 4659192659309975359}
   music: {fileID: 7214930459240497519}
+  SaveEnabled: 0
 --- !u!1 &1330010989629747417
 GameObject:
   m_ObjectHideFlags: 0
@@ -4973,7 +4974,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 505207235781059996}
         m_MethodName: SetCamShakeFrequency
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15876,7 +15877,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 505207235781059996}
         m_MethodName: SetCamShake
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

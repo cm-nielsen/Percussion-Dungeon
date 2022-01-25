@@ -13,8 +13,14 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
     public Sprite tBox, fBox;
 
     private List<VisualEffect> effects = new List<VisualEffect>();
+    private CameraFollow camFollow;
 
     private bool saveEnabled = false;
+
+    private void Awake()
+    {
+        camFollow = Camera.main.GetComponent<CameraFollow>();
+    }
 
     public void Setup()
     {
@@ -53,13 +59,17 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
                 if (e.name == v.volume[i])
                     e.defaultValue = v.volumeVal[i];
         }
+        // should be completely unessecary, but it makes the web build work
+        Slider[] childSliders = GetComponentsInChildren<Slider>(true);
+        camShakeSlider = childSliders[0];
+        shakeFreqSlider = childSliders[1];
 
-        float shake = GameData.vfxSettings.camShake;
-        Camera.main.GetComponent<CameraFollow>().shakeMultiplier = shake;
+        float shake = v.camShake;
+        camFollow.shakeMultiplier = shake;
         camShakeSlider.value = shake;
 
-        shake = GameData.vfxSettings.shakeFreq;
-        Camera.main.GetComponent<CameraFollow>().shakeFrequency = shake;
+        shake = v.shakeFreq;
+        camFollow.shakeFrequency = shake;
         shakeFreqSlider.value = shake;
 
         foreach (VisualEffect e in effects)
@@ -105,9 +115,12 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
             }
     }
 
-    public void SetCamShake()
+    public void SetCamShake(float val)
     {
-        Camera.main.GetComponent<CameraFollow>().shakeMultiplier = camShakeSlider.value;
+        if (!camFollow)
+            camFollow = Camera.main.GetComponent<CameraFollow>();
+
+        camFollow.shakeMultiplier = val;
         if (saveEnabled)
         {
             GameData.vfxSettings.camShake = camShakeSlider.value;
@@ -116,9 +129,12 @@ public class VisualEffectMenu : MonoBehaviour, RequiresInitialSetup
         }
     }
 
-    public void SetCamShakeFrequency()
+    public void SetCamShakeFrequency(float val)
     {
-        Camera.main.GetComponent<CameraFollow>().shakeFrequency = shakeFreqSlider.value;
+        if (!camFollow)
+            camFollow = Camera.main.GetComponent<CameraFollow>();
+
+        camFollow.shakeFrequency = val;
         if (saveEnabled)
         {
             GameData.vfxSettings.shakeFreq = shakeFreqSlider.value;

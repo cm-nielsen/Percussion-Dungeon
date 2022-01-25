@@ -24,16 +24,19 @@ public class InputDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gamepadIsActive = Gamepad.current != null;
+
         playerControls = GameObject.FindGameObjectWithTag("pControl").
             GetComponent<ControlKey>();
         FetchControlsMenu();
-        
-        display = GetComponent<Text>();
-        text = display.text;
 
-        gamepadIsActive = Gamepad.current != null;
+        if (!display)
+        {
+            display = GetComponent<Text>();
+            text = display.text;
+        }
 
-        UpdateDisplay();
+        //UpdateDisplay();
         if (appearOnTrigger)
             display.enabled = false;
     }

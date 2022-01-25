@@ -40,7 +40,7 @@ public class ExperienceOrb : MonoBehaviour
             return;
         }
 
-        rb.AddForce((pPos.position - transform.position) * magnetism);
+        rb.AddForce((pPos.position - transform.position) * magnetism * Time.deltaTime * 30);
     }
 
     private void OnTriggerEnter2D(Collider2D c)

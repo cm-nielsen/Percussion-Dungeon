@@ -345,7 +345,7 @@ MonoBehaviour:
     type: 3}
   options:
   - name: Drumsticks
-    description: Simple, fast and manouverable
+    description: Easy, agile, fast and manouverable
     prefab: {fileID: 9075661051462715644, guid: 1503484e5f2de5549b0bc9bfe03643d0,
       type: 3}
     sprite: {fileID: 8374486571836852862, guid: 8e89961a29690dd49b75d5176305ea5f,
@@ -368,7 +368,7 @@ MonoBehaviour:
     cost: 1
     stats: 020000000200000001000000
   - name: Hang
-    description: Clunky, no i-frames
+    description: Large + throwable,     no dodge
     prefab: {fileID: 7941904971488535848, guid: 56c2b278319edc442a5a5fc7681dcb83,
       type: 3}
     sprite: {fileID: -3482854511985086820, guid: 8e89961a29690dd49b75d5176305ea5f,

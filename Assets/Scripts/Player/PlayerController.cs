@@ -260,6 +260,21 @@ public class PlayerController : MonoBehaviour
         GetComponentInChildren<DamageDealer>().HoldValue(f);
     }
 
+    //private void StoreChargeAttackValue(float f)
+    //{
+
+    //}
+
+    private void AddToChargeAttackValue(float f)
+    {
+        GetComponentInChildren<DamageDealer>().AddToHeldValue(f, false);
+    }
+
+    private void UseChargeAttackValue()
+    {
+        GetComponentInChildren<DamageDealer>().UseHeldValue();
+    }
+
     private void ChargeAttackEnd()
     {
         GetComponentInChildren<DamageDealer>().ReleaseHeldValue();

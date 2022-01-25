@@ -139,9 +139,20 @@ public class DamageDealer : MonoBehaviour
         exceptions.Add(c);
     }
 
-    public void HoldValue(float f)
+    public void HoldValue(float f, bool useHeld = true)
     {
         heldValue = f;
+        useHeldValue = useHeld;
+    }
+
+    public void AddToHeldValue(float f, bool useHeld = true)
+    {
+        heldValue += f;
+        useHeldValue = useHeld;
+    }
+
+    public void UseHeldValue()
+    {
         useHeldValue = true;
     }
 

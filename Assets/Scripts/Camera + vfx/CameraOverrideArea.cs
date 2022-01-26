@@ -5,13 +5,17 @@ using UnityEngine;
 public class CameraOverrideArea : MonoBehaviour
 {
     public bool triggerWithCollision = true, resetWithCollision = true;
+    public bool ignoreIfOutside = false;
     public Vector2 offset;
 
+    private bool inside = false;
     private List<System.Action> callOnTrigger = new List<System.Action>();
     private List<System.Action> callOnReset = new List<System.Action>();
 
     public void Trigger()
     {
+        if (ignoreIfOutside && !inside)
+            return;
         Vector2 v = transform.position;
         v += offset;
         Camera.main.GetComponent<CameraFollow>().OverrideFollow(v);
@@ -30,6 +34,7 @@ public class CameraOverrideArea : MonoBehaviour
     {
         if (!collision.CompareTag("Player"))
             return;
+        inside = true;
         if (triggerWithCollision)
             Trigger();
     }
@@ -38,6 +43,7 @@ public class CameraOverrideArea : MonoBehaviour
     {
         if (!collision.CompareTag("Player"))
             return;
+        inside = false;
         if (resetWithCollision)
             Reset();
     }

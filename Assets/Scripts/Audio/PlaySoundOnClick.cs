@@ -16,7 +16,19 @@ public class PlaySoundOnClick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.deltaTime == 0)
+            return;
+
         if (Mouse.current.leftButton.isPressed)
+        {
             source.Play();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        if (Keyboard.current.escapeKey.isPressed)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
     }
 }

@@ -187,6 +187,7 @@ MonoBehaviour:
   knockbackStrengthMod: 1
   bullyability: 0
   deathForce: 0
+  verticalDeathForce: 1
   invulnerable: 1
   takeNoDamage: 0
 --- !u!114 &4176901114961810001
@@ -645,7 +646,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.8858442, y: -0.03144312}
+  m_Offset: {x: 1.3010433, y: -0.03144312}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -656,7 +657,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2368064, y: 0.77540493}
+  m_Size: {x: 1.0672045, y: 0.77540493}
   m_EdgeRadius: 0
 --- !u!114 &4176901116154151124
 MonoBehaviour:
@@ -748,6 +749,7 @@ MonoBehaviour:
   lightNoise: []
   movementValue: 2
   vampMultiplier: 0
+  verticalRecoil: 0.5
 --- !u!1 &4176901116775980054
 GameObject:
   m_ObjectHideFlags: 0

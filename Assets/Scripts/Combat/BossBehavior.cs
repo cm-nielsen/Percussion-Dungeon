@@ -15,7 +15,7 @@ public class BossBehavior : MonoBehaviour
     public float birthingVelocity, adaptiveGravity;
     public LayerMask isGround;
     [HideInInspector]
-    public bool isChild = false;
+    public bool isChild = false, preggers = true;
 
     private Animator anim;
     private Rigidbody2D rb;
@@ -26,11 +26,12 @@ public class BossBehavior : MonoBehaviour
 
     private float circumference, prevX;
     private bool ground, rolling, turnToParent;
-    private static bool preggers = true, oneDead = false;
+    private bool oneDead = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        oneDead = false;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
@@ -199,7 +200,9 @@ public class BossBehavior : MonoBehaviour
         Vector2 velocity = new Vector2(-birthingVelocity * transform.localScale.x, 0);
         child.GetComponent<Rigidbody2D>().velocity = velocity;
         child.transform.localScale = new Vector2(-transform.localScale.x, 1);
-        child.GetComponent<BossBehavior>().isChild = true;
+        BossBehavior behavior = child.GetComponent<BossBehavior>();
+        behavior.isChild = true;
+        behavior.preggers = false;
         child.GetComponent<TweenPlayer>().tweenSet = tweens.tweenSet;
         tweens.PlayTween("phase 2");
 
